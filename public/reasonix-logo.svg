@@ -1,0 +1,8 @@
+<svg width="640" height="160" viewBox="0 0 640 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="8" width="144" height="144" rx="28" fill="#052e25"/>
+  <path d="M47 52h41c21 0 34 12 34 30 0 13-7 23-19 28l24 39H98l-21-35H69v35H47V52zm22 20v22h17c9 0 14-4 14-11s-5-11-14-11H69z" fill="#ecfdf5"/>
+  <path d="M194 46h66c32 0 52 17 52 45 0 20-10 35-29 42l34 51h-35l-30-46h-25v46h-33V46zm33 27v39h29c15 0 24-7 24-20 0-12-9-19-24-19h-29z" fill="#0f172a"/>
+  <path d="M342 92h88v26h-88V92zm0 56h112v27H342v-27zm0-112h111v27H342V36z" fill="#0f172a"/>
+  <path d="M485 36l42 56 42-56h37l-54 72 58 77h-39l-44-59-44 59h-37l58-76-55-73h36z" fill="#0f172a"/>
+  <text x="194" y="126" fill="#047857" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="24" font-weight="700">DeepSeek-native agent watch</text>
+</svg>
