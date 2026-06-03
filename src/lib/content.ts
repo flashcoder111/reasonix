@@ -557,6 +557,14 @@ export const contentByLocale = {
         title: "MCP and plugins",
         body: "The main-v2 README describes Reasonix as an MCP client with stdio and Streamable HTTP plugin support.",
       },
+      {
+        title: "Plan-gated work",
+        body: "Plan review keeps risky edits explicit before the agent writes files or runs commands.",
+      },
+      {
+        title: "Replayable sessions",
+        body: "Events, stats, replay, history, and checkpoints make long agent runs easier to audit and resume.",
+      },
     ],
     newsItems: [
       {
@@ -595,14 +603,14 @@ export const contentByLocale = {
     pages: {
       home: {
         eyebrow: "DeepSeek-native coding agent watch",
-        title: "Reasonix news, downloads, Clerk login, and CLI error tracker",
+        title: "The best top secret agent",
         primaryCta: "View GitHub downloads",
         secondaryCta: "Troubleshoot CLI errors",
         terminalNote:
           "DeepSeek's recommended quick-start path. Follow the GitHub main-v2 branch when you want the Go rewrite.",
         articlesTitle: "Deep-dive articles",
         articleReadLabel: "Read",
-        sectionsTitle: "Main sections",
+        sectionsTitle: "Why Reasonix",
         latestNewsTitle: "Latest news",
       },
       articles: {
@@ -1047,6 +1055,14 @@ export const contentByLocale = {
         title: "MCP / plugins",
         body: "main-v2 README 说明 Reasonix 可以作为 MCP client，支持 stdio 和 Streamable HTTP 插件。",
       },
+      {
+        title: "Plan gate",
+        body: "在高风险写入前先审查计划，让文件改动、命令执行和回滚边界更清楚。",
+      },
+      {
+        title: "可回放长会话",
+        body: "事件、统计、replay、history 和 checkpoint 让长时间 agent 工作更容易审计、排错和恢复。",
+      },
     ],
     newsItems: [
       {
@@ -1092,14 +1108,14 @@ export const contentByLocale = {
     pages: {
       home: {
         eyebrow: "DeepSeek-native coding agent watch",
-        title: "Reasonix 资讯、下载、Clerk 登录和报错命令行入口",
+        title: "面向 DeepSeek 的终端编码代理",
         primaryCta: "查看 GitHub 下载",
         secondaryCta: "排查命令行报错",
         terminalNote:
           "DeepSeek 官方推荐的快速启动方式；追 Go 重写则从 GitHub main-v2 构建。",
         articlesTitle: "深度文章",
         articleReadLabel: "阅读",
-        sectionsTitle: "主要板块",
+        sectionsTitle: "为什么是 Reasonix",
         latestNewsTitle: "最新新闻",
       },
       articles: {
@@ -1539,6 +1555,14 @@ export const contentByLocale = {
         title: "MCP / plugins",
         body: "main-v2 README 說明 Reasonix 可作為 MCP client，支援 stdio 和 Streamable HTTP 外掛。",
       },
+      {
+        title: "Plan gate",
+        body: "在高風險寫入前先審查計畫，讓檔案改動、命令執行和回滾邊界更清楚。",
+      },
+      {
+        title: "可回放長會話",
+        body: "事件、統計、replay、history 和 checkpoint 讓長時間 agent 工作更容易審計、排錯和恢復。",
+      },
     ],
     newsItems: [
       {
@@ -1584,14 +1608,14 @@ export const contentByLocale = {
     pages: {
       home: {
         eyebrow: "DeepSeek-native coding agent watch",
-        title: "Reasonix 資訊、下載、Clerk 登入和報錯命令列入口",
+        title: "面向 DeepSeek 的終端機編碼代理",
         primaryCta: "查看 GitHub 下載",
         secondaryCta: "排查命令列報錯",
         terminalNote:
           "DeepSeek 官方推薦的快速啟動方式；追 Go 重寫則從 GitHub main-v2 建置。",
         articlesTitle: "深度文章",
         articleReadLabel: "閱讀",
-        sectionsTitle: "主要板塊",
+        sectionsTitle: "為什麼是 Reasonix",
         latestNewsTitle: "最新新聞",
       },
       articles: {
@@ -2032,6 +2056,14 @@ export const contentByLocale = {
         title: "MCP / plugins",
         body: "README main-v2 описывает Reasonix как MCP client с поддержкой stdio и Streamable HTTP plugins.",
       },
+      {
+        title: "Plan gate",
+        body: "Проверка плана перед рискованными изменениями делает file edits, commands и rollback boundaries явными.",
+      },
+      {
+        title: "Replayable sessions",
+        body: "Events, stats, replay, history и checkpoints упрощают аудит, диагностику и восстановление длинных agent runs.",
+      },
     ],
     newsItems: [
       {
@@ -2070,14 +2102,14 @@ export const contentByLocale = {
     pages: {
       home: {
         eyebrow: "DeepSeek-native coding agent watch",
-        title: "Reasonix: новости, загрузки, вход, настройка и ошибки CLI",
+        title: "Терминальный coding agent для DeepSeek",
         primaryCta: "Открыть GitHub загрузки",
         secondaryCta: "Разобрать ошибки CLI",
         terminalNote:
           "Рекомендованный DeepSeek быстрый старт. Для Go rewrite следите за веткой GitHub main-v2.",
         articlesTitle: "Глубокие статьи",
         articleReadLabel: "Читать",
-        sectionsTitle: "Основные разделы",
+        sectionsTitle: "Почему Reasonix",
         latestNewsTitle: "Последние новости",
       },
       articles: {

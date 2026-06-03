@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
+import { DEFAULT_LOCALE, locales, type Locale } from "@/lib/i18n";
 
 export type ArticleSource = {
   label: string;
@@ -70,6 +70,22 @@ export const articleSources = {
   opencodeGithub: {
     label: "OpenCode GitHub",
     href: "https://github.com/anomalyco/opencode",
+  },
+  reasonixGithub: {
+    label: "Reasonix GitHub",
+    href: "https://github.com/esengine/DeepSeek-Reasonix",
+  },
+  reasonixCommits: {
+    label: "Reasonix main-v2 commits",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+  },
+  reasonixNpm: {
+    label: "reasonix on npm",
+    href: "https://www.npmjs.com/package/reasonix",
+  },
+  reasonixDeepSeekGuide: {
+    label: "DeepSeek Reasonix guide",
+    href: "https://github.com/deepseek-ai/awesome-deepseek-agent/blob/main/docs/reasonix.md",
   },
 } satisfies Record<string, ArticleSource>;
 
@@ -494,6 +510,110 @@ const enArticles: Article[] = [
 
 const zhCnArticles: Article[] = [
   {
+    slug: "reasonix-chinese-developer-onboarding",
+    title: "中文开发者如何上手 Reasonix：DeepSeek API Key、npx 和 main-v2",
+    description:
+      "面向中文开发者的 Reasonix 上手指南，说明 DeepSeek API Key、本地配置、npx 启动、main-v2 源码构建和常见风险边界。",
+    eyebrow: "中文上手",
+    date: "2026-06-03",
+    readTime: "7 min",
+    tags: ["Reasonix", "DeepSeek", "中文开发者", "CLI"],
+    summary:
+      "中文用户最容易混淆的是站内登录、DeepSeek API Key、npm 版本和 GitHub main-v2。正确路径是先确认官方入口，再把密钥留在本机，最后按需求选择 npx、源码构建或桌面包。",
+    takeaways: [
+      "本站 Clerk 登录不等于 DeepSeek Platform 登录，也不会保存模型服务商 API Key。",
+      "第一次体验优先使用 DeepSeek 推荐的 npx reasonix code。",
+      "追 main-v2 Go 重写时，应从 GitHub 源码构建，而不是假设 npm latest 已经同步。",
+      "中文教程应把密钥、命令目录、版本线和官方链接分开讲清楚。",
+    ],
+    sections: [
+      {
+        heading: "先分清三个账号和入口",
+        body: [
+          "Reasonix Watch 的站内登录由 Clerk 处理，作用是承载本站会话。DeepSeek API Key 仍然来自 DeepSeek Platform，应该保存在你自己的本地环境变量或 Reasonix 配置中。",
+          "下载安装和问题排查则以 GitHub、npm、DeepSeek 官方 agent 文档为准。中文用户不要把第三方镜像、截图里的命令和未知下载站当成官方来源。",
+        ],
+        bullets: [
+          "Clerk：本站账号会话。",
+          "DeepSeek Platform：创建或复制模型 API Key。",
+          "GitHub / npm：确认 Reasonix 源码、release 和包版本。",
+        ],
+      },
+      {
+        heading: "从 npx 到 main-v2 的选择",
+        body: [
+          "如果目标是快速跑起来，DeepSeek 推荐的启动路径是进入目标项目目录后执行 npx reasonix code。这样 Reasonix 能读取当前工作区，并在本机完成配置流程。",
+          "如果目标是追最新 Go 重写，应该阅读 GitHub main-v2 分支并按 README 源码构建。npm latest 仍可能停留在 0.53.x，不适合作为 1.0 Go binary 是否发布的唯一判断。",
+        ],
+      },
+      {
+        heading: "中文内容应该补足什么",
+        body: [
+          "中文界面不应该只是把英文导航翻译一遍。它还要回答中文开发者最常问的执行问题：命令在哪个目录运行、Key 放在哪里、Windows 终端报错怎么办、npm 与 GitHub 分支为什么不一致。",
+          "这些问题和英文站的版式可以一致，但文章选题需要本地化，这也是中文页面保留专属文章的价值。",
+        ],
+      },
+    ],
+    sources: [
+      articleSources.reasonixDeepSeekGuide,
+      articleSources.reasonixGithub,
+      articleSources.reasonixNpm,
+      articleSources.reasonixCommits,
+    ],
+  },
+  {
+    slug: "reasonix-main-v2-go-rewrite-chinese-watch",
+    title: "Reasonix main-v2 Go 重写：中文用户应该关注哪些变化",
+    description:
+      "解释 Reasonix main-v2 Go 重写对中文用户的意义：源码构建、长会话、缓存稳定、终端交互、Windows 问题和 npm 版本错位。",
+    eyebrow: "main-v2 观察",
+    date: "2026-06-03",
+    readTime: "8 min",
+    tags: ["Reasonix", "main-v2", "Go rewrite", "DeepSeek"],
+    summary:
+      "main-v2 不是普通版本号变化，而是 Reasonix 公开叙事里的 1.0 Go 重写线。中文用户跟进这条线时，应该同时看提交、README、release、npm latest 和 open issues。",
+    takeaways: [
+      "main-v2 是判断最新工程方向的核心分支。",
+      "npm latest 和桌面 release 可能滞后于 main-v2，不应混成一个状态。",
+      "中文用户应重点跟踪终端编码、Windows 交互、# 消息解析和 DeepSeek 配置体验。",
+      "资讯站应把版本线、问题线和上手线拆开，避免首页变成混杂公告。",
+    ],
+    sections: [
+      {
+        heading: "为什么 main-v2 值得单独解释",
+        body: [
+          "Reasonix 的 GitHub 默认分支指向 main-v2，README 也围绕 1.0 Go 重写展开。对中文用户来说，这意味着“最新源码状态”和“npm 可直接安装状态”可能不是同一件事。",
+          "如果中文页面只写一个下载按钮，用户很容易把 npm 0.53.x、desktop-v0.53.0 和 main-v2 Go rewrite 混为同一条发布线。",
+        ],
+      },
+      {
+        heading: "中文用户更关心的风险点",
+        body: [
+          "中文开发者通常会更直接地遇到网络、Windows Terminal、编码、shell、密钥和 npm registry 速度问题。文章应该把这些风险点放在具体命令旁边，而不是只复述英文 README。",
+          "main-v2 近期提交里出现过 grep、.gitignore、GBK/GB18030、interruptible bash 等信号，这些都和中文/Windows 场景有更强关系。",
+        ],
+        bullets: [
+          "跟踪 GitHub commits，而不是只看 npm latest。",
+          "把 Windows Terminal 和中文编码问题放进报错清单。",
+          "用 DeepSeek 官方文档作为启动命令的基准来源。",
+        ],
+      },
+      {
+        heading: "怎么把这条线写成长期栏目",
+        body: [
+          "最稳妥的结构是首页只给入口，新闻页跟踪短信号，文章页解释长期背景，报错页沉淀可执行命令。这样中文页面既和英文界面统一，又能保留中文用户真正需要的内容密度。",
+          "当 npm、release 或 main-v2 README 发生变化时，只需要更新对应栏目，不必把所有信息堆到首页。",
+        ],
+      },
+    ],
+    sources: [
+      articleSources.reasonixGithub,
+      articleSources.reasonixCommits,
+      articleSources.reasonixNpm,
+      articleSources.reasonixDeepSeekGuide,
+    ],
+  },
+  {
     ...enArticles[0],
     title: "Redux、Claude Code、Codex、OpenCode 对比：它们解决的不是同一类问题",
     description:
@@ -693,7 +813,111 @@ const zhCnArticles: Article[] = [
 
 const zhTwArticles: Article[] = [
   {
-    ...zhCnArticles[0],
+    slug: "reasonix-chinese-developer-onboarding",
+    title: "中文開發者如何上手 Reasonix：DeepSeek API Key、npx 和 main-v2",
+    description:
+      "面向繁體中文開發者的 Reasonix 上手指南，說明 DeepSeek API Key、本機設定、npx 啟動、main-v2 原始碼建置和常見風險邊界。",
+    eyebrow: "中文上手",
+    date: "2026-06-03",
+    readTime: "7 min",
+    tags: ["Reasonix", "DeepSeek", "中文開發者", "CLI"],
+    summary:
+      "中文使用者最容易混淆的是站內登入、DeepSeek API Key、npm 版本和 GitHub main-v2。正確路徑是先確認官方入口，再把密鑰留在本機，最後按需求選擇 npx、原始碼建置或桌面包。",
+    takeaways: [
+      "本站 Clerk 登入不等於 DeepSeek Platform 登入，也不會保存模型服務商 API Key。",
+      "第一次體驗優先使用 DeepSeek 推薦的 npx reasonix code。",
+      "追 main-v2 Go 重寫時，應從 GitHub 原始碼建置，而不是假設 npm latest 已經同步。",
+      "中文教學應把密鑰、命令目錄、版本線和官方連結分開講清楚。",
+    ],
+    sections: [
+      {
+        heading: "先分清三個帳號和入口",
+        body: [
+          "Reasonix Watch 的站內登入由 Clerk 處理，作用是承載本站會話。DeepSeek API Key 仍然來自 DeepSeek Platform，應該保存在你自己的本機環境變數或 Reasonix 設定中。",
+          "下載安裝和問題排查則以 GitHub、npm、DeepSeek 官方 agent 文件為準。中文使用者不要把第三方鏡像、截圖裡的命令和未知下載站當成官方來源。",
+        ],
+        bullets: [
+          "Clerk：本站帳號會話。",
+          "DeepSeek Platform：建立或複製模型 API Key。",
+          "GitHub / npm：確認 Reasonix 原始碼、release 和套件版本。",
+        ],
+      },
+      {
+        heading: "從 npx 到 main-v2 的選擇",
+        body: [
+          "如果目標是快速跑起來，DeepSeek 推薦的啟動路徑是進入目標專案目錄後執行 npx reasonix code。這樣 Reasonix 能讀取目前工作區，並在本機完成設定流程。",
+          "如果目標是追最新 Go 重寫，應該閱讀 GitHub main-v2 分支並按 README 原始碼建置。npm latest 仍可能停留在 0.53.x，不適合作為 1.0 Go binary 是否發布的唯一判斷。",
+        ],
+      },
+      {
+        heading: "中文內容應該補足什麼",
+        body: [
+          "中文界面不應該只是把英文導航翻譯一遍。它還要回答中文開發者最常問的執行問題：命令在哪個目錄執行、Key 放在哪裡、Windows 終端機報錯怎麼辦、npm 與 GitHub 分支為什麼不一致。",
+          "這些問題和英文站的版式可以一致，但文章選題需要本地化，這也是中文頁面保留專屬文章的價值。",
+        ],
+      },
+    ],
+    sources: [
+      articleSources.reasonixDeepSeekGuide,
+      articleSources.reasonixGithub,
+      articleSources.reasonixNpm,
+      articleSources.reasonixCommits,
+    ],
+  },
+  {
+    slug: "reasonix-main-v2-go-rewrite-chinese-watch",
+    title: "Reasonix main-v2 Go 重寫：中文使用者應該關注哪些變化",
+    description:
+      "解釋 Reasonix main-v2 Go 重寫對中文使用者的意義：原始碼建置、長會話、快取穩定、終端機互動、Windows 問題和 npm 版本錯位。",
+    eyebrow: "main-v2 觀察",
+    date: "2026-06-03",
+    readTime: "8 min",
+    tags: ["Reasonix", "main-v2", "Go rewrite", "DeepSeek"],
+    summary:
+      "main-v2 不是普通版本號變化，而是 Reasonix 公開敘事裡的 1.0 Go 重寫線。中文使用者跟進這條線時，應該同時看提交、README、release、npm latest 和 open issues。",
+    takeaways: [
+      "main-v2 是判斷最新工程方向的核心分支。",
+      "npm latest 和桌面 release 可能滯後於 main-v2，不應混成一個狀態。",
+      "中文使用者應重點追蹤終端機編碼、Windows 互動、# 訊息解析和 DeepSeek 設定體驗。",
+      "資訊站應把版本線、問題線和上手線拆開，避免首頁變成混雜公告。",
+    ],
+    sections: [
+      {
+        heading: "為什麼 main-v2 值得單獨解釋",
+        body: [
+          "Reasonix 的 GitHub 預設分支指向 main-v2，README 也圍繞 1.0 Go 重寫展開。對中文使用者來說，這意味著「最新原始碼狀態」和「npm 可直接安裝狀態」可能不是同一件事。",
+          "如果中文頁面只寫一個下載按鈕，使用者很容易把 npm 0.53.x、desktop-v0.53.0 和 main-v2 Go rewrite 混為同一條發布線。",
+        ],
+      },
+      {
+        heading: "中文使用者更關心的風險點",
+        body: [
+          "中文開發者通常會更直接地遇到網路、Windows Terminal、編碼、shell、密鑰和 npm registry 速度問題。文章應該把這些風險點放在具體命令旁邊，而不是只複述英文 README。",
+          "main-v2 近期提交裡出現過 grep、.gitignore、GBK/GB18030、interruptible bash 等訊號，這些都和中文/Windows 場景有更強關係。",
+        ],
+        bullets: [
+          "追蹤 GitHub commits，而不是只看 npm latest。",
+          "把 Windows Terminal 和中文編碼問題放進報錯清單。",
+          "用 DeepSeek 官方文件作為啟動命令的基準來源。",
+        ],
+      },
+      {
+        heading: "怎麼把這條線寫成長期欄目",
+        body: [
+          "最穩妥的結構是首頁只給入口，新聞頁追蹤短訊號，文章頁解釋長期背景，報錯頁沉澱可執行命令。這樣中文頁面既和英文界面統一，又能保留中文使用者真正需要的內容密度。",
+          "當 npm、release 或 main-v2 README 發生變化時，只需要更新對應欄目，不必把所有資訊堆到首頁。",
+        ],
+      },
+    ],
+    sources: [
+      articleSources.reasonixGithub,
+      articleSources.reasonixCommits,
+      articleSources.reasonixNpm,
+      articleSources.reasonixDeepSeekGuide,
+    ],
+  },
+  {
+    ...zhCnArticles[2],
     title: "Redux、Claude Code、Codex、OpenCode 對比：它們解決的不是同一類問題",
     description:
       "從工程層級、使用場景、權限邊界和內容策略角度對比 Redux、Claude Code、Codex 與 OpenCode。",
@@ -737,7 +961,7 @@ const zhTwArticles: Article[] = [
     ],
   },
   {
-    ...zhCnArticles[1],
+    ...zhCnArticles[3],
     title: "Claude Code vs Codex vs OpenCode：三類 AI 編碼代理怎麼選",
     description:
       "面向繁體中文開發者的 Claude Code、OpenAI Codex、OpenCode 對比：入口、權限、安全、模型選擇和團隊適配。",
@@ -775,7 +999,7 @@ const zhTwArticles: Article[] = [
     ],
   },
   {
-    ...zhCnArticles[2],
+    ...zhCnArticles[4],
     title: "AI 編碼代理時代還需要 Redux 嗎？Redux Toolkit 的真實價值",
     description:
       "解釋為什麼 Claude Code、Codex、OpenCode 變強後，Redux Toolkit 仍然是複雜前端應用的重要狀態管理選擇。",
@@ -813,7 +1037,7 @@ const zhTwArticles: Article[] = [
     ],
   },
   {
-    ...zhCnArticles[3],
+    ...zhCnArticles[5],
     title: "Codex vs Claude Code：工程團隊應該比較哪些維度",
     description:
       "對比 OpenAI Codex 與 Anthropic Claude Code 在團隊工程中的入口、審批、安全、並行代理和長期維護差異。",
@@ -851,7 +1075,7 @@ const zhTwArticles: Article[] = [
     ],
   },
   {
-    ...zhCnArticles[4],
+    ...zhCnArticles[6],
     title: "OpenCode 與閉源編碼代理對比：開源、多模型和本機工作流的價值",
     description:
       "分析 OpenCode 相比 Claude Code、Codex 的差異：開源、provider 配置、AGENTS.md、MCP、權限和團隊可控性。",
@@ -1108,5 +1332,13 @@ export function getArticle(
   return getArticles(locale).find((article) => article.slug === slug);
 }
 
+export function getArticleRoutes(locale: Locale = DEFAULT_LOCALE): string[] {
+  return getArticles(locale).map((article) => `/articles/${article.slug}`);
+}
+
+export function getLocalesForArticle(slug: string): Locale[] {
+  return locales.filter((locale) => Boolean(getArticle(slug, locale)));
+}
+
 export const articles = getArticles(DEFAULT_LOCALE);
-export const articleRoutes = articles.map((article) => `/articles/${article.slug}`);
+export const articleRoutes = getArticleRoutes(DEFAULT_LOCALE);

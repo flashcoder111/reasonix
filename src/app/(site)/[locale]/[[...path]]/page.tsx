@@ -29,7 +29,7 @@ function getPagePath(path?: string[]) {
 
 export function generateStaticParams() {
   return nonDefaultLocales.flatMap((locale) =>
-    getAllPagePaths().map((path) => ({
+    getAllPagePaths(locale).map((path) => ({
       locale,
       path: pathToSegments(path),
     })),

@@ -1,5 +1,9 @@
 import type { Metadata, MetadataRoute } from "next";
-import { articleRoutes, getArticle } from "@/lib/articles";
+import {
+  getArticle,
+  getArticleRoutes,
+  getLocalesForArticle,
+} from "@/lib/articles";
 import { getContent, SITE } from "@/lib/content";
 import {
   DEFAULT_LOCALE,
@@ -24,8 +28,8 @@ export const staticPagePaths = [
   "/privacy-protection",
 ] as const;
 
-export function getAllPagePaths(): string[] {
-  return [...staticPagePaths, ...articleRoutes];
+export function getAllPagePaths(locale: Locale = DEFAULT_LOCALE): string[] {
+  return [...staticPagePaths, ...getArticleRoutes(locale)];
 }
 
 export function getAbsoluteUrl(path: string): string {
@@ -37,11 +41,27 @@ export function getAbsoluteLocalizedUrl(locale: Locale, path: string): string {
   return getAbsoluteUrl(localizePath(locale, path));
 }
 
-function getAlternateUrls(path: string): Record<string, string> {
-  const entries = Object.entries(getAlternatePaths(path)).map(([lang, href]) => [
-    lang,
-    getAbsoluteUrl(href),
-  ]);
+function getAlternateLanguageKey(locale: Locale): string {
+  return localeConfig[locale].htmlLang;
+}
+
+export function getRouteAlternateUrls(path: string): Record<string, string> {
+  const normalized = normalizePath(path);
+  const articlePrefix = "/articles/";
+
+  if (normalized.startsWith(articlePrefix)) {
+    const slug = normalized.slice(articlePrefix.length);
+    const entries = getLocalesForArticle(slug).map((locale) => [
+      getAlternateLanguageKey(locale),
+      getAbsoluteLocalizedUrl(locale, normalized),
+    ]);
+
+    return Object.fromEntries(entries);
+  }
+
+  const entries = Object.entries(getAlternatePaths(normalized)).map(
+    ([lang, href]) => [lang, getAbsoluteUrl(href)],
+  );
 
   return Object.fromEntries(entries);
 }
@@ -122,7 +142,7 @@ export function getRouteMetadata(locale: Locale, path: string): Metadata {
   const normalizedPath = normalizePath(path);
   const articlePrefix = "/articles/";
   const canonical = localizePath(locale, normalizedPath);
-  const alternateUrls = getAlternateUrls(normalizedPath);
+  const alternateUrls = getRouteAlternateUrls(normalizedPath);
 
   if (normalizedPath.startsWith(articlePrefix)) {
     const article = getArticle(normalizedPath.slice(articlePrefix.length), locale);
