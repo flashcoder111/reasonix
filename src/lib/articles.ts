@@ -13,10 +13,17 @@ export type ArticleSection = {
 
 export type ArticleComparisonRow = {
   dimension: string;
-  redux: string;
-  claude: string;
-  codex: string;
-  opencode: string;
+  reasonix: string;
+  generic: string;
+  platform: string;
+  openSource: string;
+};
+
+export type ArticleComparisonLabels = {
+  reasonix: string;
+  generic: string;
+  platform: string;
+  openSource: string;
 };
 
 export type Article = {
@@ -30,47 +37,12 @@ export type Article = {
   summary: string;
   takeaways: string[];
   comparison?: ArticleComparisonRow[];
+  comparisonLabels?: ArticleComparisonLabels;
   sections: ArticleSection[];
   sources: ArticleSource[];
 };
 
 export const articleSources = {
-  reduxGettingStarted: {
-    label: "Redux: Getting Started",
-    href: "https://redux.js.org/introduction/getting-started",
-  },
-  reduxToolkit: {
-    label: "Redux Toolkit overview",
-    href: "https://redux.js.org/redux-toolkit/overview/",
-  },
-  claudeCodeOverview: {
-    label: "Claude Code overview",
-    href: "https://docs.anthropic.com/en/docs/claude-code/overview",
-  },
-  claudeCodeProduct: {
-    label: "Claude Code product page",
-    href: "https://www.anthropic.com/product/claude-code",
-  },
-  codexProduct: {
-    label: "OpenAI Codex",
-    href: "https://openai.com/codex/",
-  },
-  codexCliHelp: {
-    label: "OpenAI Codex CLI getting started",
-    href: "https://help.openai.com/en/articles/11096431",
-  },
-  codexGa: {
-    label: "Codex generally available",
-    href: "https://openai.com/index/codex-now-generally-available/",
-  },
-  opencodeDocs: {
-    label: "OpenCode docs",
-    href: "https://opencode.ai/docs",
-  },
-  opencodeGithub: {
-    label: "OpenCode GitHub",
-    href: "https://github.com/anomalyco/opencode",
-  },
   reasonixGithub: {
     label: "Reasonix GitHub",
     href: "https://github.com/esengine/DeepSeek-Reasonix",
@@ -84,727 +56,764 @@ export const articleSources = {
     href: "https://www.npmjs.com/package/reasonix",
   },
   reasonixDeepSeekGuide: {
-    label: "DeepSeek Reasonix guide",
-    href: "https://github.com/deepseek-ai/awesome-deepseek-agent/blob/main/docs/reasonix.md",
+    label: "DeepSeek Reasonix integration guide",
+    href: "https://api-docs.deepseek.com/quick_start/agent_integrations/reasonix",
+  },
+  deepSeekContextCache: {
+    label: "DeepSeek Context Caching guide",
+    href: "https://api-docs.deepseek.com/guides/kv_cache",
+  },
+  reasonixReleases: {
+    label: "Reasonix GitHub releases",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases",
+  },
+  claudeCodeOverview: {
+    label: "Claude Code overview",
+    href: "https://code.claude.com/docs/en/overview",
+  },
+  claudeCodePermissions: {
+    label: "Claude Code permissions",
+    href: "https://code.claude.com/docs/en/permissions",
+  },
+  codexProduct: {
+    label: "OpenAI Codex product page",
+    href: "https://openai.com/codex/",
+  },
+  codexCliGettingStarted: {
+    label: "Codex CLI getting started",
+    href: "https://help.openai.com/en/articles/11096431",
+  },
+  wechatReasonixDeepDive: {
+    label: "WeChat reference: Reasonix deep dive",
+    href: "https://mp.weixin.qq.com/s/-sJx62sDD5uLSQJvfpJuAg",
+  },
+  wechatReasonixCache: {
+    label: "WeChat reference: cache-first Reasonix",
+    href: "https://mp.weixin.qq.com/s/1dliPFP0FChW4BTFWHW86g",
   },
 } satisfies Record<string, ArticleSource>;
 
+const reasonixSources = [
+  articleSources.reasonixDeepSeekGuide,
+  articleSources.deepSeekContextCache,
+  articleSources.reasonixGithub,
+  articleSources.reasonixNpm,
+  articleSources.reasonixReleases,
+];
+
+const sourceWatchSources = [
+  articleSources.reasonixGithub,
+  articleSources.reasonixCommits,
+  articleSources.reasonixNpm,
+  articleSources.reasonixDeepSeekGuide,
+  articleSources.deepSeekContextCache,
+];
+
+const referenceArticleSources = [
+  articleSources.wechatReasonixDeepDive,
+  articleSources.wechatReasonixCache,
+];
+
+const claudeCodexSources = [
+  articleSources.reasonixDeepSeekGuide,
+  articleSources.deepSeekContextCache,
+  articleSources.reasonixGithub,
+  articleSources.claudeCodeOverview,
+  articleSources.claudeCodePermissions,
+  articleSources.codexProduct,
+  articleSources.codexCliGettingStarted,
+];
+
 const baseTags = {
-  comparison: ["Redux", "Claude Code", "Codex", "OpenCode"],
-  agents: ["Claude Code", "Codex", "OpenCode", "AI Agent"],
-  redux: ["Redux Toolkit", "React", "State Management", "AI Agent"],
-  teams: ["Codex", "Claude Code", "Team Workflow"],
-  opencode: ["OpenCode", "Claude Code", "Codex", "Open Source"],
+  comparison: ["Reasonix", "DeepSeek", "AI coding agent", "Comparison"],
+  workflow: ["Reasonix", "CLI", "Local workflow", "DeepSeek"],
+  advantage: ["Reasonix", "DeepSeek-native", "TUI", "API Key"],
+  cache: ["Reasonix", "Prefix cache", "DeepSeek", "Architecture"],
+  headToHead: ["Reasonix", "Claude Code", "Codex", "Coding agent"],
+  teams: ["Reasonix", "Team workflow", "Permissions", "Security"],
+  openSource: ["Reasonix", "Open source", "Provider choice", "Local agent"],
 } as const;
 
-const enComparisonRows: ArticleComparisonRow[] = [
+const enClaudeCodexRows: ArticleComparisonRow[] = [
   {
-    dimension: "Core role",
-    redux:
-      "A predictable state management library inside frontend applications.",
-    claude:
-      "Anthropic's coding agent for terminal, IDE, cloud, and automation workflows.",
-    codex:
-      "OpenAI's coding agent system across CLI, IDE, app, cloud tasks, and sandboxed execution.",
-    opencode:
-      "An open-source terminal coding agent with configurable providers, rules, and local workflow control.",
+    dimension: "Best fit",
+    reasonix:
+      "DeepSeek-first local coding sessions where prefix-cache stability, terminal workflow, and low-friction API-key setup are the point.",
+    generic:
+      "Claude-native engineering work across terminal, IDE, web, mobile handoff, permissions, MCP, and organization policy.",
+    platform:
+      "OpenAI-backed local and cloud coding work across CLI, IDE, app, ChatGPT, worktrees, and sandboxed task execution.",
+    openSource:
+      "Quick terminal access to one or more models when the tool is mostly a provider wrapper plus file and shell helpers.",
   },
   {
-    dimension: "Entry point",
-    redux:
-      "Installed as an npm library and integrated into React or another view layer, usually through Redux Toolkit.",
-    claude:
-      "Claude Code CLI, IDE integrations, cloud tasks, and automation contexts.",
-    codex:
-      "Codex CLI, app, IDE, cloud tasks, SDK, and multi-agent coordination surfaces.",
-    opencode:
-      "Install script, npm, Homebrew, Windows/WSL, Docker, and binary releases.",
+    dimension: "Architecture bias",
+    reasonix:
+      "Cache-first loop: keep the prompt prefix stable, append work history, compact rarely, and avoid model switching inside one shared prompt.",
+    generic:
+      "General agentic coding system: broad tool surface, permissions, MCP, subagents, and workflow integrations around Claude.",
+    platform:
+      "Harness and app-server model: multiple surfaces share an agent loop, with local clients and cloud-delegated tasks.",
+    openSource:
+      "Usually optimizes installation speed and provider compatibility before deep backend-specific caching behavior.",
   },
   {
-    dimension: "Security boundary",
-    redux:
-      "Runs inside your application process; security depends on the app architecture.",
-    claude:
-      "Requires account, project permission, tool-call, MCP, and team policy review.",
-    codex:
-      "Uses approval modes, sandboxing, worktrees, and configurable command permissions.",
-    opencode:
-      "Users bring provider keys and configure permissions, tools, MCP, and project rules.",
+    dimension: "Model/provider story",
+    reasonix:
+      "DeepSeek-native by design, so the article should explain DeepSeek API behavior instead of presenting Reasonix as a generic shell.",
+    generic:
+      "Claude is the primary model path, with Claude Code features and policy controls built around Anthropic's stack.",
+    platform:
+      "Codex uses OpenAI coding models and ChatGPT/OpenAI identity or API flows depending on the surface.",
+    openSource:
+      "Provider choice can be broad, but the tradeoff is less backend-specific optimization.",
   },
   {
-    dimension: "Best content angle",
-    redux:
-      "Tutorials, migrations, frontend architecture, React state layers, and RTK Query.",
-    claude:
-      "Claude Code usage, MCP, long-running tasks, prompts, and review workflows.",
-    codex:
-      "Codex CLI/app, approval modes, parallel agents, account access, and team governance.",
-    opencode:
-      "Open-source agent workflows, provider choice, AGENTS.md, TUI, and permissions.",
-  },
-];
-
-const zhCnComparisonRows: ArticleComparisonRow[] = [
-  {
-    dimension: "核心定位",
-    redux:
-      "前端应用的可预测状态管理库，解决全局状态、变更追踪和测试一致性。",
-    claude:
-      "Anthropic 的终端/IDE/云端编码代理，适合委派实现、重构、解释和多步工程任务。",
-    codex:
-      "OpenAI 的编码代理体系，覆盖 CLI、IDE、云端和桌面 app，强调多代理与安全沙箱。",
-    opencode:
-      "开源终端编码代理，可连接多家模型供应商，强调可配置、AGENTS.md 和本地工作流。",
-  },
-  {
-    dimension: "使用入口",
-    redux: "npm 包与 React/任意视图库集成，推荐从 Redux Toolkit 开始。",
-    claude: "Claude Code CLI、IDE、网页/云端和自动化场景。",
-    codex: "Codex CLI、Codex app、IDE、云端任务和 SDK。",
-    opencode: "安装脚本、npm、Homebrew、Windows/WSL、Docker、二进制 release。",
-  },
-  {
-    dimension: "数据与权限",
-    redux: "只在你的应用进程中管理状态；安全边界由应用架构决定。",
-    claude: "需要关注 Anthropic 账户、项目权限、工具调用和团队安全策略。",
-    codex: "有审批模式、沙箱、工作树和可配置的命令权限，适合多人并行工程。",
-    opencode: "用户自配 provider key，支持权限、工具、MCP、规则和项目初始化。",
-  },
-  {
-    dimension: "适合写什么内容",
-    redux: "教程、迁移、架构边界、React 状态层设计、RTK Query。",
-    claude: "Claude Code 使用、团队协作、MCP、长任务、提示与代码审查流程。",
-    codex: "Codex CLI/app、并行代理、审批模式、ChatGPT 账号接入和工程团队场景。",
-    opencode: "开源替代、模型供应商选择、AGENTS.md、CLI/TUI、权限与本地工作流。",
+    dimension: "What to inspect first",
+    reasonix:
+      "`npx reasonix code`, local config, cache-hit usage fields, permissions, MCP config, replay logs, and compaction behavior.",
+    generic:
+      "Install/login path, tool permissions, MCP server trust, project settings, and team policy.",
+    platform:
+      "Authentication, approval mode, sandbox/network settings, worktree or cloud environment, and PR/review flow.",
+    openSource:
+      "How keys are stored, which commands can run, how edits are approved, and whether project rules are respected.",
   },
 ];
 
-const zhTwComparisonRows: ArticleComparisonRow[] = [
+const zhCnClaudeCodexRows: ArticleComparisonRow[] = [
   {
-    dimension: "核心定位",
-    redux:
-      "前端應用的可預測狀態管理庫，解決全域狀態、變更追蹤和測試一致性。",
-    claude:
-      "Anthropic 的終端機/IDE/雲端編碼代理，適合委派實作、重構、解釋和多步工程任務。",
-    codex:
-      "OpenAI 的編碼代理體系，覆蓋 CLI、IDE、雲端和桌面 app，強調多代理與安全沙箱。",
-    opencode:
-      "開源終端機編碼代理，可連接多家模型供應商，強調可配置、AGENTS.md 和本機工作流。",
+    dimension: "最适合的场景",
+    reasonix:
+      "DeepSeek 优先的本地编码长会话，重点是 prefix cache 稳定、终端工作流和低门槛 API Key 上手。",
+    generic:
+      "Claude 原生工程任务，覆盖终端、IDE、Web、移动端接力、权限、MCP 和组织策略。",
+    platform:
+      "OpenAI 体系下的本地与云端编码任务，覆盖 CLI、IDE、App、ChatGPT、worktree 和沙箱任务。",
+    openSource:
+      "快速把一个或多个模型接进终端，工具更多是 provider 外壳加文件和 shell 辅助。",
   },
   {
-    dimension: "使用入口",
-    redux: "npm 套件與 React/任意視圖庫整合，推薦從 Redux Toolkit 開始。",
-    claude: "Claude Code CLI、IDE、網頁/雲端和自動化場景。",
-    codex: "Codex CLI、Codex app、IDE、雲端任務和 SDK。",
-    opencode: "安裝腳本、npm、Homebrew、Windows/WSL、Docker、二進位 release。",
+    dimension: "架构偏向",
+    reasonix:
+      "Cache-first loop：稳定 prompt 前缀，只追加历史，低频压缩，并避免在同一共享 prompt 内频繁换模型。",
+    generic:
+      "通用 agentic coding system：围绕 Claude 做工具、权限、MCP、subagent 和工作流集成。",
+    platform:
+      "Harness / app-server 路线：多个入口复用同一 agent loop，同时支持本地客户端和云端任务。",
+    openSource:
+      "通常先优化安装速度和 provider 兼容性，不一定围绕某个后端的缓存机制深度设计。",
   },
   {
-    dimension: "資料與權限",
-    redux: "只在你的應用程式程序中管理狀態；安全邊界由應用架構決定。",
-    claude: "需要關注 Anthropic 帳戶、專案權限、工具呼叫和團隊安全策略。",
-    codex: "有審批模式、沙箱、工作樹和可配置的命令權限，適合多人並行工程。",
-    opencode: "使用者自配 provider key，支援權限、工具、MCP、規則和專案初始化。",
+    dimension: "模型与 provider",
+    reasonix:
+      "Reasonix 是 DeepSeek-native，所以文章要解释 DeepSeek API 行为，而不是把它写成普通套壳。",
+    generic:
+      "Claude 是主路径，Claude Code 的功能和策略控制围绕 Anthropic 体系展开。",
+    platform:
+      "Codex 使用 OpenAI 编码模型，不同入口走 ChatGPT/OpenAI 身份或 API 流程。",
+    openSource:
+      "provider 选择更宽，但代价是很难对单一后端做足够深的缓存优化。",
   },
   {
-    dimension: "適合寫什麼內容",
-    redux: "教學、遷移、架構邊界、React 狀態層設計、RTK Query。",
-    claude: "Claude Code 使用、團隊協作、MCP、長任務、提示與程式碼審查流程。",
-    codex: "Codex CLI/app、並行代理、審批模式、ChatGPT 帳號接入和工程團隊場景。",
-    opencode: "開源替代、模型供應商選擇、AGENTS.md、CLI/TUI、權限與本機工作流。",
-  },
-];
-
-const ruComparisonRows: ArticleComparisonRow[] = [
-  {
-    dimension: "Роль",
-    redux:
-      "Библиотека предсказуемого управления состоянием внутри frontend-приложения.",
-    claude:
-      "Coding agent Anthropic для терминала, IDE, облака и автоматизации.",
-    codex:
-      "Система coding agents OpenAI для CLI, IDE, app, cloud tasks и sandboxed выполнения.",
-    opencode:
-      "Open-source terminal coding agent с настраиваемыми провайдерами, правилами и локальным workflow.",
-  },
-  {
-    dimension: "Точка входа",
-    redux:
-      "npm-библиотека, обычно через Redux Toolkit, интегрируемая с React или другим UI layer.",
-    claude: "Claude Code CLI, IDE, cloud tasks и automation contexts.",
-    codex: "Codex CLI, app, IDE, cloud tasks, SDK и multi-agent coordination.",
-    opencode:
-      "Install script, npm, Homebrew, Windows/WSL, Docker и binary releases.",
-  },
-  {
-    dimension: "Граница безопасности",
-    redux:
-      "Работает внутри процесса приложения; граница безопасности зависит от архитектуры приложения.",
-    claude:
-      "Нужны проверки account, project permissions, tool calls, MCP и team policy.",
-    codex:
-      "Использует approval modes, sandboxing, worktrees и configurable command permissions.",
-    opencode:
-      "Пользователь приносит provider keys и настраивает permissions, tools, MCP и project rules.",
-  },
-  {
-    dimension: "Лучший угол статьи",
-    redux:
-      "Tutorials, migrations, frontend architecture, React state layer и RTK Query.",
-    claude:
-      "Claude Code usage, MCP, long-running tasks, prompts и review workflow.",
-    codex:
-      "Codex CLI/app, approval modes, parallel agents, account access и team governance.",
-    opencode:
-      "Open-source workflow, provider choice, AGENTS.md, TUI и permissions.",
+    dimension: "先检查什么",
+    reasonix:
+      "`npx reasonix code`、本地配置、cache-hit usage 字段、权限、MCP 配置、replay 日志和压缩行为。",
+    generic:
+      "安装/登录、工具权限、MCP server 信任、项目设置和团队策略。",
+    platform:
+      "认证、审批模式、沙箱/网络设置、worktree 或云端环境，以及 PR/审查流。",
+    openSource:
+      "Key 如何保存、哪些命令能跑、编辑如何批准、项目规则是否真的生效。",
   },
 ];
 
 const enArticles: Article[] = [
   {
-    slug: "redux-claude-codex-opencode-comparison",
-    title:
-      "Redux, Claude Code, Codex, and OpenCode solve different classes of problems",
+    slug: "reasonix-chinese-developer-onboarding",
+    title: "How to start Reasonix: the official DeepSeek terminal path",
     description:
-      "A layered comparison of Redux, Claude Code, Codex, and OpenCode across engineering role, workflow, permissions, and content strategy.",
-    eyebrow: "Core comparison",
-    date: "2026-06-02",
-    readTime: "9 min",
-    tags: [...baseTags.comparison],
+      "A practical Reasonix onboarding guide covering Node.js, the DeepSeek API key, npx startup, local configuration, and when to verify npm, releases, or source.",
+    eyebrow: "How to start",
+    date: "2026-06-03",
+    readTime: "8 min",
+    tags: ["Reasonix", "DeepSeek", "API Key", "CLI"],
     summary:
-      "The easiest mistake is to put Redux and AI coding agents into the same category. Redux is an application state layer. Claude Code, Codex, and OpenCode are engineering execution layers. The useful comparison starts by separating those layers.",
+      "Start Reasonix from the project directory, not from an abstract agent comparison. The useful first path is Node.js 20.10+, a DeepSeek Platform API key, `npx reasonix code`, then the TUI commands that make the session usable.",
     takeaways: [
-      "Redux is an application architecture component; Claude Code, Codex, and OpenCode are engineering execution tools.",
-      "Redux content should focus on stable tutorials and migration guides; agent content should track versions, permissions, security, and workflows.",
-      "Codex and Claude Code are closer to platform-backed agents, while OpenCode is more open, configurable, and provider-neutral.",
-      "A Reasonix information site should make the state-management versus coding-agent boundary explicit instead of writing clickbait comparisons.",
+      "The official DeepSeek integration path is simple: install Node.js, get a DeepSeek API key, enter the target project, and run `npx reasonix code`.",
+      "The key is a provider credential, not a site login. Keep it out of screenshots, comments, public issues, and repository commits.",
+      "Once the TUI opens, `/help`, `/pro`, and `/preset max` are the first commands worth knowing.",
+      "For global installs, release downloads, or source builds, verify the current npm and GitHub sources directly instead of copying version tables from third-party posts.",
     ],
-    comparison: enComparisonRows,
     sections: [
       {
-        heading: "Separate the layers first",
+        heading: "Run the first session from a real project",
         body: [
-          "Redux manages predictable and maintainable global state inside a JavaScript application. It makes state transitions explicit and testable, but it does not read your repository or execute development tasks.",
-          "Claude Code, Codex, and OpenCode do the opposite kind of work. They read code, plan changes, edit files, run commands, and help developers delegate engineering tasks to models.",
+          "Reasonix should be introduced as a working terminal agent, so the article should begin with the command sequence a reader can actually run.",
+          "Install Node.js 20.10+. On Windows, install Git for Windows. Then open the repository where Reasonix should read and edit files, and run `npx reasonix code` from that directory.",
         ],
         bullets: [
-          "Asking whether Redux is better than Codex is a category error.",
-          "Asking whether Codex can help migrate legacy Redux code to Redux Toolkit is a useful question.",
-          "Asking whether OpenCode or Claude Code better matches a local multi-provider workflow is also comparable.",
+          "DeepSeek Platform: create or copy the API key.",
+          "Project directory: run `npx reasonix code` where file context should come from.",
+          "First TUI session: use `/help` to inspect commands before starting a long task.",
         ],
       },
       {
-        heading: "How an information site should cover these keywords",
+        heading: "Keep the API key local and boring",
         body: [
-          "For SEO and readability, split the content into two tracks: Redux as frontend architecture, and Claude Code, Codex, and OpenCode as AI coding agents. The comparison article should set the boundary, while later articles go deeper into each tool.",
-          "This keeps search intent clean. Redux searchers usually want state management, RTK, React integration, and migration help. Codex or Claude Code searchers usually want installation, permissions, pricing, CLI, IDE, and team workflow details.",
+          "The DeepSeek key belongs to the model provider. It is not the same thing as a community account, a site login, or a discussion identity.",
+          "DeepSeek's Reasonix guide says the first run prompts for the key and persists it to local Reasonix config. The article should keep that boundary explicit: the credential stays in local setup, not in public support threads.",
         ],
       },
       {
-        heading: "Practical conclusion",
+        heading: "After the TUI opens",
         body: [
-          "The strongest combination is not a four-way choice. Keep Redux in the application architecture layer and use Codex, Claude Code, or OpenCode as execution helpers for migration, review, testing, and maintenance.",
-          "For developers, the article should explain when a platform agent is useful, when an open-source agent is a better fit, and when the task only needs a clean Redux Toolkit guide.",
+          "The first session should not immediately become a huge autonomous task. Start by asking Reasonix to explain the repository, inspect a small file, or draft a plan for a narrow change.",
+          "For model control, use `/pro` to arm DeepSeek-V4-Pro for the next turn, or `/preset max` when a whole session needs the stronger model. That keeps the onboarding article concrete without turning it into a benchmark post.",
+        ],
+      },
+      {
+        heading: "When to use npm, releases, or source",
+        body: [
+          "`npx reasonix code` is the clean first-run path because it matches the official DeepSeek guide and requires no global install.",
+          "If the reader wants a permanent command, a downloaded binary, or a source build, the article should send them to the live npm package, GitHub releases, and repository README. Do not copy stale version numbers or star counts from reference articles.",
         ],
       },
     ],
-    sources: [
-      articleSources.reduxGettingStarted,
-      articleSources.reduxToolkit,
-      articleSources.claudeCodeOverview,
-      articleSources.codexProduct,
-      articleSources.opencodeDocs,
-    ],
+    sources: reasonixSources,
   },
   {
-    slug: "claude-code-vs-codex-vs-opencode",
-    title: "Claude Code vs Codex vs OpenCode: choosing among AI coding agents",
+    slug: "reasonix-prefix-cache-hit-mechanism",
+    title: "Reasonix prefix-cache mechanism: why the loop is the product",
     description:
-      "A practical comparison of Claude Code, OpenAI Codex, and OpenCode for entry points, permissions, security, model choice, and team fit.",
-    eyebrow: "AI coding agents",
-    date: "2026-06-02",
-    readTime: "10 min",
-    tags: [...baseTags.agents],
-    summary:
-      "All three tools can enter a repository and perform engineering work, but their product philosophy differs. Claude Code is tied to the Anthropic ecosystem, Codex to OpenAI's multi-surface agent workflow, and OpenCode to open, configurable, provider-neutral terminal work.",
-    takeaways: [
-      "Choose Claude Code naturally when the team already works in the Claude ecosystem.",
-      "Choose Codex when OpenAI account access, parallel agents, worktrees, and team governance matter.",
-      "Choose OpenCode when open source, provider choice, AGENTS.md, and local workflow control are central.",
-      "For teams, governance usually matters as much as single-task model quality.",
-    ],
-    sections: [
-      {
-        heading: "Claude Code: Anthropic ecosystem and mature coding UX",
-        body: [
-          "Claude Code is Anthropic's agentic coding tool. It works through terminal, IDE, cloud, and automation surfaces, making it a natural entry point for teams already using Claude.",
-          "Strong use cases include reading large codebases, explaining complex modules, performing focused refactors, writing migration plans, and connecting MCP tools.",
-        ],
-      },
-      {
-        heading: "Codex: OpenAI account system and multi-agent workflow",
-        body: [
-          "Codex is more than a CLI. OpenAI positions it across editor, terminal, cloud, app, and SDK surfaces, with sandboxing and approval modes that matter for real teams.",
-          "When writing about Codex, split the topics into CLI onboarding, approval modes, Codex app, team parallelization, and workflow governance instead of treating it as one command.",
-        ],
-      },
-      {
-        heading: "OpenCode: open source, providers, and configuration",
-        body: [
-          "OpenCode is an open-source AI coding agent usable from a terminal interface, desktop app, or IDE extension. It expects users to configure their own provider keys.",
-          "That makes it attractive for teams that care about model choice, local control, inspectable code, AGENTS.md rules, MCP, and permission design.",
-        ],
-      },
-    ],
-    sources: [
-      articleSources.claudeCodeOverview,
-      articleSources.claudeCodeProduct,
-      articleSources.codexProduct,
-      articleSources.codexCliHelp,
-      articleSources.opencodeDocs,
-    ],
-  },
-  {
-    slug: "redux-toolkit-in-ai-agent-era",
-    title: "Do we still need Redux in the AI coding agent era?",
-    description:
-      "Why Redux Toolkit still matters for complex frontend state even when Claude Code, Codex, and OpenCode can generate and migrate code.",
-    eyebrow: "Redux focus",
-    date: "2026-06-02",
-    readTime: "8 min",
-    tags: [...baseTags.redux],
-    summary:
-      "AI coding agents can write reducers, migrate slices, and generate tests, but they do not replace the application state model. Redux Toolkit still helps make complex state explicit, testable, and reviewable.",
-    takeaways: [
-      "Redux Toolkit is the recommended modern Redux path for new projects and legacy migration.",
-      "AI agents reduce migration cost, but they do not replace architecture judgment.",
-      "Shared state, auditability, replayable debugging, and cross-page consistency remain Redux strengths.",
-      "Better content asks when Redux is unnecessary, not whether Redux is dead.",
-    ],
-    sections: [
-      {
-        heading: "Redux solves state consistency, not code generation",
-        body: [
-          "Redux is about predictable and maintainable global state. That value does not disappear because agents can generate code.",
-          "Agents can help migrate reducers, write selectors, and add tests. They still need the developer to define state boundaries, ownership, and failure modes.",
-        ],
-      },
-      {
-        heading: "Why Redux Toolkit is the modern default",
-        body: [
-          "Redux Toolkit reduces action-type boilerplate, immutable update complexity, and store setup work. Modern Redux content should start there rather than recreating old switch-reducer tutorials.",
-          "Useful topics include configureStore, createSlice, RTK Query, middleware, selectors, and migration plans.",
-        ],
-      },
-      {
-        heading: "How agents help migration",
-        body: [
-          "A practical flow is read-only analysis first, then slice-by-slice migration, selector tests, UI regression checks, and a final review that downgrades unnecessary global state to local state.",
-          "Codex, Claude Code, and OpenCode can all help, but the approval and review loop should stay explicit.",
-        ],
-      },
-    ],
-    sources: [
-      articleSources.reduxGettingStarted,
-      articleSources.reduxToolkit,
-      articleSources.claudeCodeOverview,
-      articleSources.codexCliHelp,
-      articleSources.opencodeDocs,
-    ],
-  },
-  {
-    slug: "codex-vs-claude-code-for-engineering-teams",
-    title: "Codex vs Claude Code: what engineering teams should compare",
-    description:
-      "A team-oriented comparison of OpenAI Codex and Anthropic Claude Code across entry points, approvals, safety, parallel agents, and maintenance.",
-    eyebrow: "Team selection",
-    date: "2026-06-02",
+      "A source-backed explanation of Reasonix's cache-first loop, DeepSeek context caching, append-only history, low-frequency compaction, and cache-hit observability.",
+    eyebrow: "Cache mechanism",
+    date: "2026-06-03",
     readTime: "9 min",
+    tags: [...baseTags.cache],
+    summary:
+      "Reasonix is easiest to understand if you start from DeepSeek's context cache. The product does not merely call a model from the terminal; it tries to keep the prompt prefix stable so long sessions can keep reusing cached input.",
+    takeaways: [
+      "DeepSeek context caching rewards requests that fully reuse previously persisted prefixes.",
+      "Reasonix turns that API behavior into an agent-loop constraint: keep stable parts stable, append history, and avoid needless prompt rewrites.",
+      "Two-model collaboration should use separate cache-stable sessions instead of switching models inside one shared prompt.",
+      "Compaction is a deliberate reset point, not a cleanup step that should happen every turn.",
+    ],
+    sections: [
+      {
+        heading: "The constraint is prefix reuse",
+        body: [
+          "DeepSeek's context cache is built around overlapping prefixes. When later requests fully match a persisted prefix unit, the matched portion can count as a cache hit.",
+          "That means an agent cannot treat prompt construction as cosmetic. Reordering messages, injecting unstable metadata, or rewriting the old transcript can destroy the byte-level prefix that the cache depends on.",
+        ],
+        bullets: [
+          "Stable system and tool definitions matter.",
+          "Append-only history is friendlier to cache reuse than rewritten history.",
+          "Temporary scratch should not pollute the persisted prompt path.",
+        ],
+      },
+      {
+        heading: "Reasonix makes cache behavior an architecture rule",
+        body: [
+          "The useful architecture story is the three-zone loop from the reference articles: immutable prefix, append-only log, and volatile scratch. Treat it as an explanatory model, not as a place to copy their version or GitHub statistics.",
+          "The immutable prefix carries stable instructions and tool shape. The log grows forward with assistant and tool results. Scratch is the short-lived planning and reasoning space that should not constantly rewrite earlier turns.",
+        ],
+        bullets: [
+          "Immutable prefix: fixed instructions and tool contract.",
+          "Append-only log: prior work grows in order instead of being rearranged.",
+          "Volatile scratch: temporary state is reset or distilled before it changes the long-term prompt.",
+        ],
+      },
+      {
+        heading: "Compaction is the rare reset point",
+        body: [
+          "Long sessions eventually need context management. Reasonix's spec frames compaction as a low-frequency event near the context limit: summarize older middle history, keep recent turns, and continue from a new compacted state.",
+          "That is the right way to write the mechanism. The system has one intentional cache-reset point, then goes back to prepend-stable, append-forward behavior between resets.",
+        ],
+      },
+      {
+        heading: "What users can measure",
+        body: [
+          "DeepSeek exposes cache status through usage fields such as `prompt_cache_hit_tokens` and `prompt_cache_miss_tokens`. A serious Reasonix article should tell readers to watch those fields instead of promising one universal hit rate.",
+          "The product claim is not that every session always hits the same number. The stronger claim is architectural: Reasonix is built so cache hits have a real chance to survive long coding loops.",
+        ],
+      },
+    ],
+    sources: [...reasonixSources, ...referenceArticleSources],
+  },
+  {
+    slug: "reasonix-vs-claude-code-codex",
+    title: "Reasonix vs Claude Code vs Codex: compare the operating loop",
+    description:
+      "A practical comparison of Reasonix, Claude Code, Codex, and generic AI CLI tools through setup, cache behavior, permissions, provider strategy, and long-running work.",
+    eyebrow: "Head-to-head",
+    date: "2026-06-03",
+    readTime: "10 min",
+    tags: [...baseTags.headToHead],
+    summary:
+      "This comparison is not a scoreboard. Reasonix, Claude Code, and Codex are built around different operating assumptions: DeepSeek cache economics, Claude-native workflow, and OpenAI multi-surface agent orchestration.",
+    takeaways: [
+      "Choose Reasonix when the core requirement is a DeepSeek-native local coding loop that respects prefix-cache economics.",
+      "Choose Claude Code when the team wants Claude-native tools, permissions, MCP, and Anthropic-managed workflow surfaces.",
+      "Choose Codex when the team wants OpenAI coding models across CLI, IDE, app, ChatGPT, cloud tasks, sandboxing, and parallel work.",
+      "Use a generic AI CLI only when model access is enough and backend-specific agent design is not the deciding factor.",
+    ],
+    comparison: enClaudeCodexRows,
+    comparisonLabels: {
+      reasonix: "Reasonix",
+      generic: "Claude Code",
+      platform: "Codex",
+      openSource: "Generic AI CLI",
+    },
+    sections: [
+      {
+        heading: "Do not compare screenshots. Compare loops.",
+        body: [
+          "The wrong article asks which tool looks more impressive in a demo. The useful article asks what loop the tool is optimized for.",
+          "Reasonix starts from DeepSeek's cache behavior. Claude Code starts from Claude as an agentic coding system. Codex spans local and cloud coding surfaces around OpenAI models, worktrees, approval modes, and sandboxing.",
+        ],
+      },
+      {
+        heading: "Reasonix has the narrowest and clearest lane",
+        body: [
+          "Reasonix is specialized. That is the point. It should be explained as a DeepSeek-native terminal agent, not as a universal replacement for every coding platform.",
+          "Its strongest lane is long local work where cache stability, local configuration, tool-call repair, MCP, sandbox policy, replay, and compaction behavior are more important than a broad account platform.",
+        ],
+      },
+      {
+        heading: "Where Claude Code and Codex are stronger",
+        body: [
+          "Claude Code has the advantage when an organization has already standardized on Claude and wants the broader Anthropic workflow: terminal work, permissions, MCP, administrative controls, and scheduled or delegated tasks.",
+          "Codex has the advantage when a team wants OpenAI's multi-surface coding stack: CLI, IDE, app, ChatGPT-side tasks, sandboxed execution, worktrees, and cloud delegation.",
+        ],
+      },
+      {
+        heading: "Decision rule",
+        body: [
+          "If the key question is 'how do I run a DeepSeek-first coding agent cheaply and steadily in my terminal?', Reasonix is the article subject.",
+          "If the key question is account governance, cross-surface delegation, or enterprise workflow, Claude Code and Codex become the more natural comparison points. That framing keeps Reasonix credible instead of pretending one tool should win every category.",
+        ],
+      },
+    ],
+    sources: claudeCodexSources,
+  },
+  {
+    slug: "reasonix-local-agent-vs-generic-ai-cli",
+    title: "Reasonix vs generic AI CLI: why DeepSeek-native design matters",
+    description:
+      "How Reasonix differs from generic model-wrapper CLIs in architecture, cache handling, key setup, repair behavior, MCP, sandboxing, replay, and long-session control.",
+    eyebrow: "Generic CLI comparison",
+    date: "2026-06-03",
+    readTime: "8 min",
+    tags: [...baseTags.workflow],
+    summary:
+      "A generic AI CLI can be useful, but it usually starts from provider access. Reasonix should be explained from backend behavior: DeepSeek context caching, cache-first loop design, tool-call repair, local permissions, MCP, and replay.",
+    takeaways: [
+      "Generic AI CLI tools usually optimize for quick model access and provider switching.",
+      "Reasonix optimizes for a specific backend behavior: DeepSeek prefix-cache reuse in long terminal sessions.",
+      "The comparison should test architecture and failure handling, not only install commands.",
+      "Generic tools are still fine for small prompts, but Reasonix is the stronger story when long-running DeepSeek work is the goal.",
+    ],
+    sections: [
+      {
+        heading: "Generic CLI: model access first",
+        body: [
+          "Most generic AI CLIs start with a model name, a provider key, and a prompt. That is useful when the job is simple: ask a question, generate a snippet, or run a short local edit.",
+          "The limitation is that provider compatibility is not the same as provider optimization. A wrapper can call DeepSeek without shaping its agent loop around DeepSeek's cache rules.",
+        ],
+      },
+      {
+        heading: "Reasonix: backend behavior first",
+        body: [
+          "Reasonix is more interesting because it makes DeepSeek's API behavior part of the product design. The cache-first loop, flash-first default, Pro escalation, tool-call repair, MCP support, sandbox policy, and replay logs all belong in the article.",
+          "That is the architecture angle from the reference posts worth keeping. Version tables and GitHub statistics should be left out; the mechanism is what matters.",
+        ],
+      },
+      {
+        heading: "What the comparison should test",
+        body: [
+          "A practical comparison should ask what survives real engineering work: a long refactor, repeated file reads, tool failures, command approvals, context growth, and a later audit of what happened.",
+          "Reasonix has concrete surfaces for those questions. A generic CLI may still succeed, but the article should make it prove the same things instead of treating all terminal agents as equal.",
+        ],
+        bullets: [
+          "Does the prompt prefix stay stable enough for cache reuse?",
+          "Are tool-call failures repaired or surfaced as raw model errors?",
+          "Are permissions, MCP, sandboxing, and replay visible to the user?",
+          "Can the session compact without losing the story of the work?",
+        ],
+      },
+      {
+        heading: "When generic is enough",
+        body: [
+          "Use a generic AI CLI when the work is short, provider choice is the main requirement, or the user wants one lightweight command for many models.",
+          "Use Reasonix when the reader is explicitly choosing a DeepSeek-native coding loop and cares about cache economics, long sessions, local configuration, and terminal reliability.",
+        ],
+      },
+    ],
+    sources: [...reasonixSources, ...referenceArticleSources],
+  },
+  {
+    slug: "reasonix-team-workflow-comparison",
+    title: "Reasonix for teams: compare workflow, permissions, and maintenance",
+    description:
+      "How engineering teams should evaluate Reasonix against broader platform-agent workflows without losing the Reasonix product focus.",
+    eyebrow: "Team workflow",
+    date: "2026-06-03",
+    readTime: "8 min",
     tags: [...baseTags.teams],
     summary:
-      "Teams should not decide based on one impressive task. The real comparison is about permissions, reviewability, accounts, parallel work, repository isolation, rollback, and internal standardization.",
+      "Teams should not decide from one impressive demo. A Reasonix article should compare local setup, key handling, repository access, reviewability, upgrade path, and fallback strategy.",
     takeaways: [
-      "Codex spans app, CLI, IDE, cloud, SDK, and multi-agent coordination.",
-      "Claude Code is strong when a team already standardizes on Anthropic and Claude workflows.",
+      "Reasonix fits teams that want a local DeepSeek-native CLI/TUI path before adding heavier platform governance.",
       "Security baselines should come before model benchmarks.",
-      "Compare tools on real work: bugfixes, refactors, migrations, tests, and documentation.",
+      "Team articles should compare real work: bugfixes, refactors, migrations, tests, and documentation.",
+      "The right answer may be specialization, with Reasonix owning DeepSeek-native local workflows.",
     ],
     sections: [
       {
-        heading: "Compare the entry points, not just the CLI",
+        heading: "Start from the Reasonix workflow",
         body: [
-          "Codex and Claude Code both extend beyond a single terminal command. A team needs to know how diffs are reviewed, how PR flow is connected, how work is isolated, and how multiple tasks can run safely.",
-          "The install command is the least interesting part of the decision once the tool can read and write a production repository.",
+          "For a team, the first question is whether Reasonix can run safely in the target project directory with clear API-key handling and predictable command execution.",
+          "That is more relevant to the Reasonix site than a headline battle between other products.",
         ],
       },
       {
         heading: "Compare security before output quality",
         body: [
-          "Coding agents can execute commands and edit files, so they enter a high-permission part of the engineering system. Approval modes, sandboxing, network access, secret handling, and rollback strategy must be explicit.",
-          "A stronger model can create a larger risk surface if the permission model is unclear.",
+          "Coding agents can execute commands and edit files, so they enter a high-permission part of the engineering system. Approval flow, network access, secret handling, and rollback strategy must be explicit.",
+          "Reasonix content should translate those concerns into local CLI checks: which directory, which key, which source, which release, and which commands.",
         ],
       },
       {
         heading: "Use real engineering tasks",
         body: [
-          "Prepare a test set with bugfixes, refactors, test coverage, documentation updates, dependency upgrades, and architecture analysis. Track elapsed time, human interventions, failure causes, test results, and review comments.",
-          "The right answer may be specialization rather than a single winner.",
+          "Prepare tasks such as bugfixes, refactors, test coverage, documentation updates, dependency upgrades, and architecture analysis. Track elapsed time, human interventions, failure causes, test results, and review comments.",
+          "Then explain where Reasonix is the best fit and where a heavier platform-agent workflow may be more appropriate.",
         ],
       },
     ],
-    sources: [
-      articleSources.codexProduct,
-      articleSources.codexGa,
-      articleSources.codexCliHelp,
-      articleSources.claudeCodeOverview,
-      articleSources.claudeCodeProduct,
-    ],
+    sources: reasonixSources,
   },
   {
-    slug: "opencode-open-source-agent-vs-closed-agents",
-    title: "OpenCode versus closed coding agents: what open source changes",
+    slug: "reasonix-open-source-agent-comparison",
+    title: "Reasonix and open-source local agents: source trust versus provider flexibility",
     description:
-      "OpenCode compared with Claude Code and Codex across source openness, provider configuration, AGENTS.md, MCP, permissions, and team control.",
-    eyebrow: "OpenCode focus",
-    date: "2026-06-02",
+      "A Reasonix-centered comparison with open-source local-agent workflows, focused on source inspection, provider choice, rules, and local control.",
+    eyebrow: "Open local agents",
+    date: "2026-06-03",
     readTime: "8 min",
-    tags: [...baseTags.opencode],
+    tags: [...baseTags.openSource],
     summary:
-      "OpenCode's value is not that it is always stronger than closed agents. Its value is that it gives teams more control over model providers, config, project rules, MCP, permissions, and local terminal workflow.",
+      "Open-source local agents matter because they show what developers value: inspectable source, provider choice, project rules, extensions, permissions, and local terminal control. Reasonix should be compared against those needs from its own DeepSeek-native position.",
     takeaways: [
-      "OpenCode supports terminal, desktop app, and IDE extension paths.",
-      "Users configure LLM provider keys, which fits multi-provider strategies.",
-      "AGENTS.md, rules, tools, permissions, and MCP are the most important deep-content keywords.",
-      "Closed agents fit platform integration; OpenCode fits openness and configurability.",
+      "Reasonix should lead with DeepSeek-native setup and official source verification.",
+      "Open-source local-agent comparisons should focus on source trust and configuration, not brand rivalry.",
+      "Provider flexibility is valuable, but Reasonix's value is a focused DeepSeek workflow.",
+      "Strong content should explain when to choose Reasonix and when to choose a more configurable local agent type.",
     ],
     sections: [
       {
-        heading: "The core positioning",
+        heading: "What open local agents change",
         body: [
-          "OpenCode is documented as an open-source AI coding agent usable from terminal, desktop, or IDE. It is not a single vendor's exclusive model client.",
-          "That makes it useful when cost, privacy, context length, regional availability, and provider switching are part of the decision.",
+          "Open local agents give developers more control over source review, provider selection, project rules, tool permissions, and extension surfaces.",
+          "That is a useful comparison category because it helps readers understand the tradeoff between a focused Reasonix path and a more configurable agent stack.",
         ],
       },
       {
-        heading: "Why AGENTS.md matters",
+        heading: "Reasonix still has a clearer first path",
         body: [
-          "OpenCode encourages project rules through files such as AGENTS.md. That turns team conventions into instructions an agent can read every time.",
-          "Strong articles should cover rules, MCP, dangerous command permissions, and plan-before-build workflows instead of only repeating install commands.",
+          "Reasonix has a direct DeepSeek quick start, npm package, release assets, and source repository. Those are concrete sources a new user can verify live.",
+          "For a Reasonix site, the open-source comparison should bring readers back to these source and setup decisions.",
         ],
       },
       {
-        heading: "The real difference from Codex and Claude Code",
+        heading: "The article angle",
         body: [
-          "Claude Code and Codex are stronger on vendor-backed platform integration. OpenCode is stronger on transparency, provider choice, and local configuration.",
-          "The best fit depends on whether the team prioritizes central accounts and auditability or open tooling and model flexibility.",
+          "Frame the comparison as source trust versus provider flexibility. Reasonix wins when the reader wants a focused DeepSeek-native route; a broader open local agent wins when provider choice is the primary requirement.",
+          "This keeps the page aligned with Reasonix while still answering the reader's selection question.",
         ],
       },
     ],
-    sources: [
-      articleSources.opencodeDocs,
-      articleSources.opencodeGithub,
-      articleSources.claudeCodeOverview,
-      articleSources.codexProduct,
-    ],
+    sources: sourceWatchSources,
   },
 ];
 
 const zhCnArticles: Article[] = [
   {
-    slug: "reasonix-chinese-developer-onboarding",
-    title: "中文开发者如何上手 Reasonix：DeepSeek API Key、npx 和 main-v2",
+    ...enArticles[0],
+    title: "中文开发者如何上手 Reasonix：从 DeepSeek 官方路径跑起来",
     description:
-      "面向中文开发者的 Reasonix 上手指南，说明 DeepSeek API Key、本地配置、npx 启动、main-v2 源码构建和常见风险边界。",
+      "面向中文开发者的 Reasonix 上手指南：Node.js、DeepSeek API Key、npx 启动、本地配置、TUI 命令和安装来源核验。",
     eyebrow: "中文上手",
-    date: "2026-06-03",
-    readTime: "7 min",
     tags: ["Reasonix", "DeepSeek", "中文开发者", "CLI"],
     summary:
-      "中文用户最容易混淆的是站内登录、DeepSeek API Key、npm 版本和 GitHub main-v2。正确路径是先确认官方入口，再把密钥留在本机，最后按需求选择 npx、源码构建或桌面包。",
+      "第一篇文章不要先讲版本和热度，先让读者真的跑起来：安装 Node.js，准备 DeepSeek API Key，进入项目目录，运行 `npx reasonix code`，再用 `/help`、`/pro`、`/preset max` 理解 TUI。",
     takeaways: [
-      "本站 Clerk 登录不等于 DeepSeek Platform 登录，也不会保存模型服务商 API Key。",
-      "第一次体验优先使用 DeepSeek 推荐的 npx reasonix code。",
-      "追 main-v2 Go 重写时，应从 GitHub 源码构建，而不是假设 npm latest 已经同步。",
-      "中文教程应把密钥、命令目录、版本线和官方链接分开讲清楚。",
+      "第一次体验优先按 DeepSeek 官方文档：Node.js 20.10+、DeepSeek Platform API Key、项目目录内运行 `npx reasonix code`。",
+      "DeepSeek API Key 是模型服务密钥，不是本站账号；不要贴到评论、截图、issue 或仓库提交里。",
+      "TUI 打开后先用 `/help` 看命令，用 `/pro` 或 `/preset max` 控制更强模型的使用方式。",
+      "如果要全局安装、下载 release 或源码构建，去 npm、GitHub release 和 README 核验当前状态，不引用参考文章里的版本表和 GitHub 数据。",
     ],
     sections: [
       {
-        heading: "先分清三个账号和入口",
+        heading: "先按官方入口跑通",
         body: [
-          "Reasonix Watch 的站内登录由 Clerk 处理，作用是承载本站会话。DeepSeek API Key 仍然来自 DeepSeek Platform，应该保存在你自己的本地环境变量或 Reasonix 配置中。",
-          "下载安装和问题排查则以 GitHub、npm、DeepSeek 官方 agent 文档为准。中文用户不要把第三方镜像、截图里的命令和未知下载站当成官方来源。",
+          "最稳妥的第一步不是找第三方教程，而是按 DeepSeek API 文档走：安装 Node.js 20.10+，Windows 用户安装 Git for Windows，进入目标项目目录，然后运行 `npx reasonix code`。",
+          "这条路径不需要先做全局安装，适合验证 Reasonix 能否读取当前工作区、进入 TUI，并完成一个很小的真实工程任务。",
         ],
         bullets: [
-          "Clerk：本站账号会话。",
           "DeepSeek Platform：创建或复制模型 API Key。",
-          "GitHub / npm：确认 Reasonix 源码、release 和包版本。",
+          "项目目录：在需要 Reasonix 读取的仓库内运行 `npx reasonix code`。",
+          "第一次任务：让它解释仓库、查看一个文件，或为一个小改动写计划。",
         ],
       },
       {
-        heading: "从 npx 到 main-v2 的选择",
+        heading: "API Key 到底放在哪里",
         body: [
-          "如果目标是快速跑起来，DeepSeek 推荐的启动路径是进入目标项目目录后执行 npx reasonix code。这样 Reasonix 能读取当前工作区，并在本机完成配置流程。",
-          "如果目标是追最新 Go 重写，应该阅读 GitHub main-v2 分支并按 README 源码构建。npm latest 仍可能停留在 0.53.x，不适合作为 1.0 Go binary 是否发布的唯一判断。",
+          "模型 API Key 来自 DeepSeek Platform，不来自本站账号，也不应该出现在评论、截图、公开 issue 或仓库提交里。",
+          "DeepSeek 官方文档写的是首次运行内置向导会询问 Key，并保存到本地 Reasonix 配置。文章应该把这个边界讲清楚：站内登录、社区身份和模型 API Key 是三件事。",
         ],
       },
       {
-        heading: "中文内容应该补足什么",
+        heading: "什么时候再看 npm、release 和源码",
         body: [
-          "中文界面不应该只是把英文导航翻译一遍。它还要回答中文开发者最常问的执行问题：命令在哪个目录运行、Key 放在哪里、Windows 终端报错怎么办、npm 与 GitHub 分支为什么不一致。",
-          "这些问题和英文站的版式可以一致，但文章选题需要本地化，这也是中文页面保留专属文章的价值。",
-        ],
-      },
-    ],
-    sources: [
-      articleSources.reasonixDeepSeekGuide,
-      articleSources.reasonixGithub,
-      articleSources.reasonixNpm,
-      articleSources.reasonixCommits,
-    ],
-  },
-  {
-    slug: "reasonix-main-v2-go-rewrite-chinese-watch",
-    title: "Reasonix main-v2 Go 重写：中文用户应该关注哪些变化",
-    description:
-      "解释 Reasonix main-v2 Go 重写对中文用户的意义：源码构建、长会话、缓存稳定、终端交互、Windows 问题和 npm 版本错位。",
-    eyebrow: "main-v2 观察",
-    date: "2026-06-03",
-    readTime: "8 min",
-    tags: ["Reasonix", "main-v2", "Go rewrite", "DeepSeek"],
-    summary:
-      "main-v2 不是普通版本号变化，而是 Reasonix 公开叙事里的 1.0 Go 重写线。中文用户跟进这条线时，应该同时看提交、README、release、npm latest 和 open issues。",
-    takeaways: [
-      "main-v2 是判断最新工程方向的核心分支。",
-      "npm latest 和桌面 release 可能滞后于 main-v2，不应混成一个状态。",
-      "中文用户应重点跟踪终端编码、Windows 交互、# 消息解析和 DeepSeek 配置体验。",
-      "资讯站应把版本线、问题线和上手线拆开，避免首页变成混杂公告。",
-    ],
-    sections: [
-      {
-        heading: "为什么 main-v2 值得单独解释",
-        body: [
-          "Reasonix 的 GitHub 默认分支指向 main-v2，README 也围绕 1.0 Go 重写展开。对中文用户来说，这意味着“最新源码状态”和“npm 可直接安装状态”可能不是同一件事。",
-          "如果中文页面只写一个下载按钮，用户很容易把 npm 0.53.x、desktop-v0.53.0 和 main-v2 Go rewrite 混为同一条发布线。",
-        ],
-      },
-      {
-        heading: "中文用户更关心的风险点",
-        body: [
-          "中文开发者通常会更直接地遇到网络、Windows Terminal、编码、shell、密钥和 npm registry 速度问题。文章应该把这些风险点放在具体命令旁边，而不是只复述英文 README。",
-          "main-v2 近期提交里出现过 grep、.gitignore、GBK/GB18030、interruptible bash 等信号，这些都和中文/Windows 场景有更强关系。",
-        ],
-        bullets: [
-          "跟踪 GitHub commits，而不是只看 npm latest。",
-          "把 Windows Terminal 和中文编码问题放进报错清单。",
-          "用 DeepSeek 官方文档作为启动命令的基准来源。",
-        ],
-      },
-      {
-        heading: "怎么把这条线写成长期栏目",
-        body: [
-          "最稳妥的结构是首页只给入口，新闻页跟踪短信号，文章页解释长期背景，报错页沉淀可执行命令。这样中文页面既和英文界面统一，又能保留中文用户真正需要的内容密度。",
-          "当 npm、release 或 main-v2 README 发生变化时，只需要更新对应栏目，不必把所有信息堆到首页。",
-        ],
-      },
-    ],
-    sources: [
-      articleSources.reasonixGithub,
-      articleSources.reasonixCommits,
-      articleSources.reasonixNpm,
-      articleSources.reasonixDeepSeekGuide,
-    ],
-  },
-  {
-    ...enArticles[0],
-    title: "Redux、Claude Code、Codex、OpenCode 对比：它们解决的不是同一类问题",
-    description:
-      "从工程层级、使用场景、权限边界和内容策略角度对比 Redux、Claude Code、Codex 与 OpenCode。",
-    eyebrow: "核心对比",
-    summary:
-      "把 Redux 和 AI 编码代理放在一张表里时，最容易犯的错是把“应用内部状态层”和“帮助你改代码的代理层”混为一谈。正确的对比方式是先分层，再比较谁在什么边界内产生价值。",
-    takeaways: [
-      "Redux 是应用架构组件；Claude Code、Codex、OpenCode 是工程执行工具。",
-      "Redux 适合写成稳定教程和迁移指南；三个代理适合写成版本敏感的使用、权限、安全和工作流内容。",
-      "Codex 和 Claude Code 更像闭源平台级代理；OpenCode 更适合开源、多 provider、可配置路线。",
-      "对 Reasonix Watch 这类资讯站来说，文章应明确“状态管理”和“编码代理”的边界，避免标题党式横评。",
-    ],
-    comparison: zhCnComparisonRows,
-    sections: [
-      {
-        heading: "先分清层级：Redux 在应用里，代理在开发流程里",
-        body: [
-          "Redux 是 JavaScript 应用的状态管理工具。它强调 predictable、maintainable global state，也就是让状态变更可追踪、可测试、可复现。",
-          "Claude Code、Codex 和 OpenCode 则是编码代理。它们读取仓库、理解任务、提出计划、修改文件、运行命令或测试，解决的是“人如何委派工程任务给模型”。",
-        ],
-        bullets: [
-          "问“Redux 和 Codex 哪个更好”没有意义。",
-          "问“Codex 能不能帮助我迁移 Redux legacy code 到 Redux Toolkit”才有意义。",
-          "问“OpenCode 和 Claude Code 哪个更适合本地、多 provider、开源约束”才是可比较问题。",
-        ],
-      },
-      {
-        heading: "内容站应该如何写这组关键词",
-        body: [
-          "如果目标是 SEO 和可读性，建议把它们拆成两条内容线：Redux 作为前端架构线，Claude Code、Codex、OpenCode 作为 AI 编码代理线。",
-          "这样做的好处是搜索意图更清楚。搜 Redux 的人通常在找状态管理、RTK、React 集成；搜 Codex 或 Claude Code 的人通常在找安装、权限、模型、定价、CLI、IDE 和团队工作流。",
-        ],
-      },
-      {
-        heading: "结论：把代理当成 Redux 迁移和维护的执行层",
-        body: [
-          "最实用的组合不是四选一，而是把 Redux 放在应用架构里，把 Claude Code、Codex 或 OpenCode 放在工程执行流程里。",
-          "对中文开发者来说，文章应该把“怎么选工具”和“怎么落到命令行”写清楚：什么时候用官方闭源代理，什么时候用开源代理，什么时候根本不需要代理。",
+          "`npx reasonix code` 适合首次体验，因为它直接对应 DeepSeek 官方快速开始。长期使用、下载二进制包或从源码构建，都应该回到实时 npm、GitHub release 和 README 核验。",
+          "这篇文章不复制参考文里的版本号、stars、forks 或下载量。它只保留能指导上手的事实：在哪个目录运行、Key 怎么处理、TUI 打开后先做什么。",
         ],
       },
     ],
   },
   {
     ...enArticles[1],
-    title: "Claude Code vs Codex vs OpenCode：三类 AI 编码代理怎么选",
+    title: "Reasonix 独特缓存命中机制：为什么它说自己为 DeepSeek 而生",
     description:
-      "面向中文开发者的 Claude Code、OpenAI Codex、OpenCode 对比：入口、权限、安全、模型选择和团队适配。",
-    eyebrow: "AI 编码代理",
+      "解释 Reasonix 的 cache-first loop、DeepSeek prefix cache、append-only 日志、低频压缩、工具调用修复和 cache hit 观测方式。",
+    eyebrow: "缓存机制",
     summary:
-      "Claude Code、Codex 和 OpenCode 都能进入仓库执行工程任务，但产品哲学不同：Claude Code 偏 Anthropic 生态，Codex 偏 OpenAI 多入口和多代理编排，OpenCode 偏开放、终端原生、多 provider。",
+      "参考文章最值得保留的不是版本号和 GitHub 数据，而是技术架构：DeepSeek 的缓存规则要求 prefix 稳定，Reasonix 把这个限制变成 agent loop 的第一约束。",
     takeaways: [
-      "偏 Anthropic 模型与 Claude 工作区时，Claude Code 是自然入口。",
-      "偏 OpenAI/ChatGPT 账号、并行代理、工作树和团队治理时，Codex 更贴近平台级工作流。",
-      "偏开源、多模型供应商、AGENTS.md 和可自定义终端体验时，OpenCode 更灵活。",
-      "企业落地不要只看模型效果，还要看权限、日志、沙箱、账号体系和能否审计。",
+      "DeepSeek 上下文缓存依赖已经持久化并且完整匹配的 prefix。",
+      "Reasonix 的写法应该围绕 immutable prefix、append-only log、volatile scratch 这三个区域展开。",
+      "低频 compaction 是少数主动改变 prefix 的时刻，不应该写成每轮都重排上下文。",
+      "缓存命中应看 `prompt_cache_hit_tokens` / `prompt_cache_miss_tokens`，不要承诺所有场景固定命中率。",
     ],
     sections: [
       {
-        heading: "Claude Code：强在 Anthropic 生态和成熟编码体验",
+        heading: "DeepSeek 缓存真正要求什么",
         body: [
-          "Claude Code 的官方定位是 Anthropic 的 agentic coding tool，主要生活在终端里，也延展到 IDE、云端和自动化场景。",
-          "适合场景包括阅读大型代码库、解释复杂模块、局部重构、生成迁移计划、接入 MCP 工具，或建立团队内部工作流规范。",
+          "DeepSeek 的 Context Caching 不是普通浏览器缓存。后续请求只有完整复用已经持久化的 prefix 单元，才可能命中缓存。",
+          "所以 Reasonix 的文章不能只说“省钱”。它要解释为什么 system prompt、tool specs、历史消息顺序、临时计划状态都会影响 prefix 是否稳定。",
+        ],
+        bullets: [
+          "稳定 prefix：系统提示和工具定义不要每轮乱变。",
+          "只追加日志：历史按顺序增长，避免重排和改写。",
+          "临时 scratch：每轮计划或思考不要直接污染长期 prompt。",
         ],
       },
       {
-        heading: "Codex：强在 OpenAI 账号体系和多代理工作流",
+        heading: "Cache-First Loop 怎么写",
         body: [
-          "Codex 现在不只是一个 CLI。OpenAI 官方口径里，Codex 覆盖终端、IDE、云端和桌面 app，并强调审批、安全沙箱和并行代理。",
-          "如果内容站要写 Codex，建议拆成 CLI 入门、审批模式、Codex app、团队并行代理和工作流治理几个主题。",
+          "可以借鉴参考文里的三段式架构：Immutable Prefix、Append-Only Log、Volatile Scratch。它很适合向读者解释 Reasonix 为什么不是普通套壳 CLI。",
+          "但不要把参考文里的版本表、stars 或下载量搬进正文。这里要讲的是机制：prefix 一旦稳定，就尽量让后续会话沿着它继续增长。",
+        ],
+        bullets: [
+          "Immutable Prefix：固定指令、工具形状和少量稳定上下文。",
+          "Append-Only Log：assistant 和 tool 结果按时间追加。",
+          "Volatile Scratch：临时计划被重置或蒸馏后才进入长期上下文。",
         ],
       },
       {
-        heading: "OpenCode：强在开源、多 provider 和可配置",
+        heading: "低频压缩，而不是每轮重写",
         body: [
-          "OpenCode 官方文档把它描述为 open source AI coding agent，可用终端界面、桌面 app 或 IDE 扩展。",
-          "如果读者关心本地化、开源可检查、供应商切换或不想被单一模型生态绑定，OpenCode 是值得单独写深度文章的工具。",
+          "长任务一定会遇到上下文窗口问题。Reasonix 的正确叙述是低频 compaction：接近上下文限制时，把较早的中段历史压缩成摘要，保留近期回合，再继续工作。",
+          "这意味着 compaction 是一个明确的 cache reset point。它应该少发生、可解释、可复盘，而不是每一轮都改写前文。",
+        ],
+      },
+      {
+        heading: "命中率要看 usage 字段",
+        body: [
+          "DeepSeek API 会在 usage 里给出 `prompt_cache_hit_tokens` 和 `prompt_cache_miss_tokens`。文章可以教用户看这两个字段，而不是写一个适用于所有场景的固定百分比。",
+          "这比喊口号更可信：Reasonix 的竞争力不是某个永久不变的数字，而是它把 cache hit 当成架构约束来设计。",
         ],
       },
     ],
   },
   {
     ...enArticles[2],
-    title: "AI 编码代理时代还需要 Redux 吗？Redux Toolkit 的真实价值",
+    title: "Reasonix vs Claude Code vs Codex：比较的是运行循环，不是截图",
     description:
-      "解释为什么 Claude Code、Codex、OpenCode 变强后，Redux Toolkit 仍然是复杂前端应用的重要状态管理选择。",
-    eyebrow: "Redux 专题",
+      "从上手路径、缓存机制、权限、provider 策略和长任务形态，对比 Reasonix、Claude Code、Codex 与通用 AI CLI。",
+    eyebrow: "三方对比",
     summary:
-      "AI 编码代理能帮你写 reducer、迁移 slice、生成测试，但它不会替代应用内部的状态模型。Redux Toolkit 的价值仍然在于把复杂状态变化变得显式、可测试、可审查。",
+      "这篇文章不写成产品排行榜。Reasonix、Claude Code 和 Codex 的差异在于运行循环：DeepSeek 缓存经济性、Claude-native 工程系统、OpenAI 多入口 agent orchestration。",
     takeaways: [
-      "Redux Toolkit 是 Redux 官方推荐写法，适合新项目和 legacy Redux 迁移。",
-      "AI 代理能降低 Redux 迁移成本，但不能替代架构判断。",
-      "复杂协作、审计、跨页面共享状态和可回放调试仍然是 Redux 的强项。",
-      "文章应避免“Redux 已死”这种泛化结论，改写成“什么时候不需要 Redux”。",
+      "如果核心需求是 DeepSeek-native 本地长会话和 prefix cache 稳定性，Reasonix 是主角。",
+      "如果团队已经围绕 Claude Code 的终端、权限、MCP 和组织策略工作，Claude Code 更自然。",
+      "如果团队需要 OpenAI 体系的 CLI、IDE、App、ChatGPT、云端任务、worktree 和沙箱能力，Codex 更自然。",
+      "通用 AI CLI 适合快速接模型，但不一定具备针对 DeepSeek cache 的深度设计。",
     ],
+    comparison: zhCnClaudeCodexRows,
+    comparisonLabels: {
+      reasonix: "Reasonix",
+      generic: "Claude Code",
+      platform: "Codex",
+      openSource: "通用 AI CLI",
+    },
     sections: [
       {
-        heading: "Redux 解决的是状态一致性，不是代码生成",
+        heading: "先比较运行循环",
         body: [
-          "Redux 官方介绍把它定义为 predictable and maintainable global state management。这个定位在 AI 代理时代没有过时。",
-          "Claude Code、Codex、OpenCode 可以帮你生成样板、迁移旧 reducer、补测试、解释状态流，但不能替你定义状态边界。",
+          "错误写法是比较谁的界面更像“高级 AI 工具”。正确写法是比较它们把一次工程任务拆成什么循环。",
+          "Reasonix 从 DeepSeek 缓存行为出发；Claude Code 从 Claude-native agent workflow 出发；Codex 从 OpenAI 多入口、本地和云端任务编排出发。",
         ],
       },
       {
-        heading: "Redux Toolkit 为什么是默认推荐",
+        heading: "Reasonix 的窄优势",
         body: [
-          "Redux Toolkit 是 Redux 官方推荐的 batteries-included 工具集，目标是减少手写 action type、immutable update 和 store setup 的复杂度。",
-          "如果要写 Redux 高质量文章，建议围绕 configureStore、createSlice、RTK Query、middleware、selector、迁移策略展开。",
+          "Reasonix 的优势不是“什么都做”。它的优势是聚焦：DeepSeek-native、终端本地工作、cache-first loop、tool-call repair、MCP、sandbox、replay 和低频压缩。",
+          "如果读者的问题是“我想让 DeepSeek coding agent 长时间跑在项目目录里，尽量保持缓存命中和成本稳定”，Reasonix 才是最该展开的对象。",
         ],
       },
       {
-        heading: "AI 代理如何帮助 Redux 迁移",
+        heading: "Claude Code 和 Codex 强在哪里",
         body: [
-          "实用流程是：先让代理只读分析旧 Redux 代码，输出 slice 划分和风险清单；再逐个模块迁移到 Redux Toolkit；每个模块补 selector 测试和 UI 回归测试。",
-          "这个流程适合 Codex 或 Claude Code 的审批模式，也适合 OpenCode 在 AGENTS.md 中固化规则。",
+          "Claude Code 更适合已经使用 Claude 生态的团队：终端协作、权限控制、MCP、组织策略和委派任务是它的主要叙事。",
+          "Codex 更适合 OpenAI 体系里的多入口工作：CLI、IDE、App、ChatGPT 任务、沙箱、worktree 和云端并行任务是它的主要叙事。",
+        ],
+      },
+      {
+        heading: "选型结论",
+        body: [
+          "要写 Reasonix，就不要假装它在所有维度都赢。它赢在 DeepSeek 后端深度适配、本地长会话和缓存友好的 agent loop。",
+          "如果读者更关心企业治理、跨入口委派、云端并行任务或统一账号体系，那 Claude Code 和 Codex 是更自然的参照物。",
         ],
       },
     ],
   },
   {
     ...enArticles[3],
-    title: "Codex vs Claude Code：工程团队应该比较哪些维度",
+    title: "Reasonix 对比通用 AI CLI：为什么 DeepSeek-native 设计更重要",
     description:
-      "对比 OpenAI Codex 与 Anthropic Claude Code 在团队工程中的入口、审批、安全、并行代理和长期维护差异。",
-    eyebrow: "团队选型",
+      "说明 Reasonix 相比普通模型套壳 CLI，在缓存架构、工具修复、MCP、权限、沙箱、replay 和长任务控制上的差异。",
+    eyebrow: "通用 CLI 对比",
     summary:
-      "Codex 和 Claude Code 都是强编码代理，团队不应该只用一次任务完成度下结论。更关键的比较维度是权限、审计、账号、并行工作、仓库隔离、失败回滚和组织内标准化。",
+      "通用 AI CLI 可以快速接入模型，但通常先解决“能不能调用模型”。Reasonix 更应该从 DeepSeek 后端行为解释：prefix cache、cache-first loop、工具调用修复、本地权限、MCP 和 replay。",
     takeaways: [
-      "Codex 的官方重点已经扩展到 app、CLI、IDE、云端、SDK 和多代理编排。",
-      "Claude Code 的优势在 Anthropic 生态、终端体验和 Claude 模型工作流。",
-      "团队选型要先定义不可接受风险，再比较输出质量。",
-      "最好用同一批真实任务做 A/B：bugfix、重构、迁移、测试补齐、文档更新。",
+      "通用 AI CLI 通常优先解决 provider 切换和 prompt 执行。",
+      "Reasonix 的文章应该优先讲 DeepSeek cache 行为和长会话架构。",
+      "对比应测试真实工程失败点：工具调用坏掉、权限审批、上下文增长、复盘日志。",
+      "短任务用通用 CLI 没问题；DeepSeek-native 长任务才是 Reasonix 的强叙事。",
     ],
     sections: [
       {
-        heading: "比较入口：CLI 只是其中一个入口",
+        heading: "通用 CLI 先解决模型访问",
         body: [
-          "Codex 和 Claude Code 都不再只是一个安装命令。团队更需要关心 diff 如何审查、能否接入 PR 流程、是否能隔离工作树和是否能并行跑多个任务。",
-          "一旦代理能读写生产仓库，安装命令就是最不重要的部分。",
+          "普通 AI CLI 往往从模型名、provider key 和 prompt 开始。它们适合快速问答、生成片段、做小范围编辑，也适合需要频繁切换 provider 的用户。",
+          "但 provider 兼容不等于 provider 深度优化。一个工具能调用 DeepSeek，不代表它的上下文组织、工具调用和长任务策略都围绕 DeepSeek cache 设计。",
         ],
       },
       {
-        heading: "比较安全：权限模式比模型名更重要",
+        heading: "Reasonix 先解释后端行为",
         body: [
-          "代理能读写仓库、执行命令，这意味着它进入工程系统的高权限区域。审批模式、沙箱、网络访问、密钥处理和回滚策略必须明确。",
-          "如果权限模型不清楚，模型能力越强，风险越难控。",
+          "Reasonix 的重点是后端行为：cache-first loop、Flash-first、Pro 升级、Tool-Call Repair、MCP、sandbox 和 replay 都要进入文章结构。",
+          "参考文章的技术架构可以保留，版本数据和 GitHub 数据不要保留。真正有价值的是解释为什么它不是普通模型外壳。",
         ],
       },
       {
-        heading: "比较产出：用真实工程任务，而不是 demo",
+        heading: "对比要用真实工程问题",
         body: [
-          "建议准备 bugfix、复杂重构、测试补齐、文档更新、依赖升级和架构分析任务，并记录耗时、人工介入次数、失败原因、测试结果和审查意见。",
-          "最后的答案也可能不是二选一，而是让不同工具承担不同类型的工程任务。",
+          "真正的差异会出现在长任务里：反复读文件、工具调用失败、命令需要审批、上下文越来越长、最后还要复盘过程。",
+          "Reasonix 的文章应该要求通用 CLI 在这些问题上给出答案，而不是默认所有 terminal agent 都一样。",
+        ],
+        bullets: [
+          "prefix 是否稳定到足以争取 cache hit？",
+          "工具调用坏掉时有没有 repair pipeline？",
+          "MCP、权限、sandbox 和 replay 是否对用户可见？",
+          "上下文压缩后还能不能解释任务来龙去脉？",
+        ],
+      },
+      {
+        heading: "什么时候通用 CLI 足够",
+        body: [
+          "如果任务很短、provider 自由度最重要、用户只想用一个轻量命令问模型，通用 AI CLI 完全够用。",
+          "如果目标是围绕 DeepSeek 做本地长会话编码，并且关心缓存经济性、稳定循环和终端可复盘性，Reasonix 才值得单独写成一条内容线。",
         ],
       },
     ],
   },
   {
     ...enArticles[4],
-    title: "OpenCode 与闭源编码代理对比：开源、多模型和本地工作流的价值",
+    title: "团队使用 Reasonix：应该比较工作流、权限和维护成本",
     description:
-      "分析 OpenCode 相比 Claude Code、Codex 的差异：开源、provider 配置、AGENTS.md、MCP、权限和团队可控性。",
-    eyebrow: "OpenCode 专题",
+      "面向团队解释如何评估 Reasonix：本地配置、API Key、仓库访问、审查、升级路径和失败回退。",
+    eyebrow: "团队流程",
     summary:
-      "OpenCode 的核心优势不是“比闭源代理一定更强”，而是它给了团队更多可控变量：模型供应商、安装方式、配置文件、MCP、AGENTS.md、权限和终端工作流。",
+      "团队不要用一次惊艳 demo 做决定。Reasonix 文章应该比较本地上手、密钥处理、仓库访问、审查方式、升级路径和失败回退。",
     takeaways: [
-      "OpenCode 官方文档明确支持终端、桌面 app 和 IDE extension。",
-      "它要求用户配置 LLM provider API key，天然适合多模型或自有供应商策略。",
-      "AGENTS.md、规则、工具、权限和 MCP 是 OpenCode 深度内容的关键关键词。",
-      "闭源代理更适合追求平台整合；OpenCode 更适合追求开放和可配置。",
+      "Reasonix 适合先落地本地 DeepSeek-native CLI/TUI，再决定是否需要更重的平台治理。",
+      "安全基线应该先于模型效果比较。",
+      "团队文章要比较真实任务：bugfix、重构、迁移、测试和文档。",
+      "最终答案可能是工具分工，让 Reasonix 负责 DeepSeek-native 本地工作流。",
     ],
     sections: [
       {
-        heading: "OpenCode 的核心定位",
+        heading: "先从 Reasonix 工作流开始",
         body: [
-          "OpenCode 官方文档把它定义为 open source AI coding agent，并说明它可以作为 terminal-based interface、desktop app 或 IDE extension 使用。",
-          "这使它特别适合多模型策略：团队可以根据成本、上下文长度、隐私、代码能力和地区可用性选择不同 provider。",
+          "团队首先要判断 Reasonix 能否在目标项目目录里安全运行，API Key 处理是否清楚，命令执行是否可预期。",
+          "这比把标题写成其它产品互相比更符合 Reasonix 站点。",
         ],
       },
       {
-        heading: "为什么 AGENTS.md 很重要",
+        heading: "先比较安全，再比较产出",
         body: [
-          "OpenCode 文档建议在项目初始化后生成并提交 AGENTS.md。这个文件让代理理解项目结构和编码模式。",
-          "高质量文章不要只写安装命令，更应该写如何设计 AGENTS.md、如何配置 MCP、如何设置危险命令权限，以及如何先 Plan 再 Build。",
+          "coding agent 能执行命令、修改文件，所以它进入了工程系统的高权限区域。审批流程、网络访问、密钥处理和回滚策略必须明确。",
+          "Reasonix 内容应把这些问题翻译成本地 CLI 检查项：哪个目录、哪个 key、哪个来源、哪个 release、哪些命令。",
         ],
       },
       {
-        heading: "和 Codex、Claude Code 的真实差异",
+        heading: "用真实工程任务比较",
         body: [
-          "Claude Code 和 Codex 的优势是平台集成和官方模型路径；OpenCode 的优势是透明、可配置、多 provider 和开源社区路线。",
-          "如果团队需要统一企业账号和集中审计，可能更偏 Codex 或 Claude Code；如果需要自选模型和仓库内规则，OpenCode 更合适。",
+          "准备 bugfix、重构、测试补齐、文档更新、依赖升级和架构分析任务，记录耗时、人工介入、失败原因、测试结果和审查意见。",
+          "再说明 Reasonix 适合哪类任务，哪些场景需要更重的平台级 agent workflow。",
+        ],
+      },
+    ],
+  },
+  {
+    ...enArticles[5],
+    title: "Reasonix 与开源本地 agent：源码可信和 provider 自由度怎么取舍",
+    description:
+      "以 Reasonix 为中心，对比开源本地 agent workflow 中的源码检查、provider 选择、规则、插件和本地控制。",
+    eyebrow: "开源本地 agent",
+    summary:
+      "开源本地 agent 有价值，因为它代表了开发者关心的源码可检查、provider 选择、项目规则、扩展、权限和本地终端控制。Reasonix 应从 DeepSeek-native 定位出发和这些需求对照。",
+    takeaways: [
+      "Reasonix 应先讲 DeepSeek-native setup 和官方来源核验。",
+      "开源本地 agent 对比应聚焦源码可信和配置，而不是品牌对打。",
+      "provider 自由度有价值，但 Reasonix 的价值是聚焦 DeepSeek 工作流。",
+      "好文章要讲清什么时候选 Reasonix，什么时候选更可配置的本地 agent 类型。",
+    ],
+    sections: [
+      {
+        heading: "开源本地 agent 改变了什么",
+        body: [
+          "开源本地 agent 给开发者更多源码审查、provider 选择、项目规则、工具权限和扩展面控制。",
+          "这是有意义的类型对比，因为它能帮读者理解聚焦 Reasonix 路线和更可配置 agent stack 之间的取舍。",
+        ],
+      },
+      {
+        heading: "Reasonix 的第一路径更清楚",
+        body: [
+          "Reasonix 有直接的 DeepSeek 快速启动、npm 包、release 资产和源码仓库。这些都是新用户可以实时核验的具体来源。",
+          "对 Reasonix 站点来说，开源对比最终也应该回到这些来源和上手决策。",
+        ],
+      },
+      {
+        heading: "文章角度",
+        body: [
+          "把对比写成源码可信和 provider 自由度的取舍：读者想要聚焦 DeepSeek-native 路线时选 Reasonix，首要需求是多 provider 和高度配置时再考虑更宽的开源本地 agent。",
+          "这样页面既回答选型问题，也不会偏离 Reasonix。",
         ],
       },
     ],
@@ -813,304 +822,42 @@ const zhCnArticles: Article[] = [
 
 const zhTwArticles: Article[] = [
   {
-    slug: "reasonix-chinese-developer-onboarding",
-    title: "中文開發者如何上手 Reasonix：DeepSeek API Key、npx 和 main-v2",
+    ...zhCnArticles[0],
+    title: "中文開發者如何上手 Reasonix：從 DeepSeek 官方路徑跑起來",
     description:
-      "面向繁體中文開發者的 Reasonix 上手指南，說明 DeepSeek API Key、本機設定、npx 啟動、main-v2 原始碼建置和常見風險邊界。",
+      "面向繁體中文開發者的 Reasonix 上手指南：Node.js、DeepSeek API Key、npx 啟動、本機設定、TUI 命令和安裝來源核驗。",
     eyebrow: "中文上手",
-    date: "2026-06-03",
-    readTime: "7 min",
     tags: ["Reasonix", "DeepSeek", "中文開發者", "CLI"],
-    summary:
-      "中文使用者最容易混淆的是站內登入、DeepSeek API Key、npm 版本和 GitHub main-v2。正確路徑是先確認官方入口，再把密鑰留在本機，最後按需求選擇 npx、原始碼建置或桌面包。",
-    takeaways: [
-      "本站 Clerk 登入不等於 DeepSeek Platform 登入，也不會保存模型服務商 API Key。",
-      "第一次體驗優先使用 DeepSeek 推薦的 npx reasonix code。",
-      "追 main-v2 Go 重寫時，應從 GitHub 原始碼建置，而不是假設 npm latest 已經同步。",
-      "中文教學應把密鑰、命令目錄、版本線和官方連結分開講清楚。",
-    ],
-    sections: [
-      {
-        heading: "先分清三個帳號和入口",
-        body: [
-          "Reasonix Watch 的站內登入由 Clerk 處理，作用是承載本站會話。DeepSeek API Key 仍然來自 DeepSeek Platform，應該保存在你自己的本機環境變數或 Reasonix 設定中。",
-          "下載安裝和問題排查則以 GitHub、npm、DeepSeek 官方 agent 文件為準。中文使用者不要把第三方鏡像、截圖裡的命令和未知下載站當成官方來源。",
-        ],
-        bullets: [
-          "Clerk：本站帳號會話。",
-          "DeepSeek Platform：建立或複製模型 API Key。",
-          "GitHub / npm：確認 Reasonix 原始碼、release 和套件版本。",
-        ],
-      },
-      {
-        heading: "從 npx 到 main-v2 的選擇",
-        body: [
-          "如果目標是快速跑起來，DeepSeek 推薦的啟動路徑是進入目標專案目錄後執行 npx reasonix code。這樣 Reasonix 能讀取目前工作區，並在本機完成設定流程。",
-          "如果目標是追最新 Go 重寫，應該閱讀 GitHub main-v2 分支並按 README 原始碼建置。npm latest 仍可能停留在 0.53.x，不適合作為 1.0 Go binary 是否發布的唯一判斷。",
-        ],
-      },
-      {
-        heading: "中文內容應該補足什麼",
-        body: [
-          "中文界面不應該只是把英文導航翻譯一遍。它還要回答中文開發者最常問的執行問題：命令在哪個目錄執行、Key 放在哪裡、Windows 終端機報錯怎麼辦、npm 與 GitHub 分支為什麼不一致。",
-          "這些問題和英文站的版式可以一致，但文章選題需要本地化，這也是中文頁面保留專屬文章的價值。",
-        ],
-      },
-    ],
-    sources: [
-      articleSources.reasonixDeepSeekGuide,
-      articleSources.reasonixGithub,
-      articleSources.reasonixNpm,
-      articleSources.reasonixCommits,
-    ],
   },
   {
-    slug: "reasonix-main-v2-go-rewrite-chinese-watch",
-    title: "Reasonix main-v2 Go 重寫：中文使用者應該關注哪些變化",
+    ...zhCnArticles[1],
+    title: "Reasonix 獨特快取命中機制：為什麼它說自己為 DeepSeek 而生",
     description:
-      "解釋 Reasonix main-v2 Go 重寫對中文使用者的意義：原始碼建置、長會話、快取穩定、終端機互動、Windows 問題和 npm 版本錯位。",
-    eyebrow: "main-v2 觀察",
-    date: "2026-06-03",
-    readTime: "8 min",
-    tags: ["Reasonix", "main-v2", "Go rewrite", "DeepSeek"],
-    summary:
-      "main-v2 不是普通版本號變化，而是 Reasonix 公開敘事裡的 1.0 Go 重寫線。中文使用者跟進這條線時，應該同時看提交、README、release、npm latest 和 open issues。",
-    takeaways: [
-      "main-v2 是判斷最新工程方向的核心分支。",
-      "npm latest 和桌面 release 可能滯後於 main-v2，不應混成一個狀態。",
-      "中文使用者應重點追蹤終端機編碼、Windows 互動、# 訊息解析和 DeepSeek 設定體驗。",
-      "資訊站應把版本線、問題線和上手線拆開，避免首頁變成混雜公告。",
-    ],
-    sections: [
-      {
-        heading: "為什麼 main-v2 值得單獨解釋",
-        body: [
-          "Reasonix 的 GitHub 預設分支指向 main-v2，README 也圍繞 1.0 Go 重寫展開。對中文使用者來說，這意味著「最新原始碼狀態」和「npm 可直接安裝狀態」可能不是同一件事。",
-          "如果中文頁面只寫一個下載按鈕，使用者很容易把 npm 0.53.x、desktop-v0.53.0 和 main-v2 Go rewrite 混為同一條發布線。",
-        ],
-      },
-      {
-        heading: "中文使用者更關心的風險點",
-        body: [
-          "中文開發者通常會更直接地遇到網路、Windows Terminal、編碼、shell、密鑰和 npm registry 速度問題。文章應該把這些風險點放在具體命令旁邊，而不是只複述英文 README。",
-          "main-v2 近期提交裡出現過 grep、.gitignore、GBK/GB18030、interruptible bash 等訊號，這些都和中文/Windows 場景有更強關係。",
-        ],
-        bullets: [
-          "追蹤 GitHub commits，而不是只看 npm latest。",
-          "把 Windows Terminal 和中文編碼問題放進報錯清單。",
-          "用 DeepSeek 官方文件作為啟動命令的基準來源。",
-        ],
-      },
-      {
-        heading: "怎麼把這條線寫成長期欄目",
-        body: [
-          "最穩妥的結構是首頁只給入口，新聞頁追蹤短訊號，文章頁解釋長期背景，報錯頁沉澱可執行命令。這樣中文頁面既和英文界面統一，又能保留中文使用者真正需要的內容密度。",
-          "當 npm、release 或 main-v2 README 發生變化時，只需要更新對應欄目，不必把所有資訊堆到首頁。",
-        ],
-      },
-    ],
-    sources: [
-      articleSources.reasonixGithub,
-      articleSources.reasonixCommits,
-      articleSources.reasonixNpm,
-      articleSources.reasonixDeepSeekGuide,
-    ],
+      "解釋 Reasonix 的 cache-first loop、DeepSeek prefix cache、append-only 日誌、低頻壓縮、工具呼叫修復和 cache hit 觀測方式。",
   },
   {
     ...zhCnArticles[2],
-    title: "Redux、Claude Code、Codex、OpenCode 對比：它們解決的不是同一類問題",
+    title: "Reasonix vs Claude Code vs Codex：比較的是運行循環，不是截圖",
     description:
-      "從工程層級、使用場景、權限邊界和內容策略角度對比 Redux、Claude Code、Codex 與 OpenCode。",
-    eyebrow: "核心對比",
-    summary:
-      "把 Redux 和 AI 編碼代理放在同一張表時，最容易犯的錯是把「應用內部狀態層」和「幫你改程式碼的代理層」混為一談。正確的對比方式是先分層，再比較誰在什麼邊界內產生價值。",
-    takeaways: [
-      "Redux 是應用架構元件；Claude Code、Codex、OpenCode 是工程執行工具。",
-      "Redux 適合寫成穩定教學和遷移指南；三個代理適合寫成版本敏感的使用、權限、安全和工作流內容。",
-      "Codex 和 Claude Code 更像閉源平台級代理；OpenCode 更適合開源、多 provider、可配置路線。",
-      "對 Reasonix Watch 這類資訊站來說，文章應明確「狀態管理」和「編碼代理」的邊界，避免標題黨式橫評。",
-    ],
-    comparison: zhTwComparisonRows,
-    sections: [
-      {
-        heading: "先分清層級：Redux 在應用裡，代理在開發流程裡",
-        body: [
-          "Redux 是 JavaScript 應用的狀態管理工具。它強調 predictable、maintainable global state，也就是讓狀態變更可追蹤、可測試、可重現。",
-          "Claude Code、Codex 和 OpenCode 則是編碼代理。它們讀取倉庫、理解任務、提出計畫、修改檔案、執行命令或測試，解決的是「人如何把工程任務委派給模型」。",
-        ],
-        bullets: [
-          "問「Redux 和 Codex 哪個更好」沒有意義。",
-          "問「Codex 能不能幫我把 Redux legacy code 遷移到 Redux Toolkit」才有意義。",
-          "問「OpenCode 和 Claude Code 哪個更適合本機、多 provider、開源約束」才是可比較問題。",
-        ],
-      },
-      {
-        heading: "資訊站應該如何寫這組關鍵詞",
-        body: [
-          "如果目標是 SEO 和可讀性，建議把它們拆成兩條內容線：Redux 作為前端架構線，Claude Code、Codex、OpenCode 作為 AI 編碼代理線。",
-          "這樣做的好處是搜尋意圖更清楚。搜 Redux 的人通常在找狀態管理、RTK、React 整合；搜 Codex 或 Claude Code 的人通常在找安裝、權限、模型、定價、CLI、IDE 和團隊工作流。",
-        ],
-      },
-      {
-        heading: "結論：把代理當成 Redux 遷移和維護的執行層",
-        body: [
-          "最實用的組合不是四選一，而是把 Redux 放在應用架構裡，把 Claude Code、Codex 或 OpenCode 放在工程執行流程裡。",
-          "對中文開發者來說，文章應該把「怎麼選工具」和「怎麼落到命令列」寫清楚。",
-        ],
-      },
-    ],
+      "從上手路徑、快取機制、權限、provider 策略和長任務形態，對比 Reasonix、Claude Code、Codex 與通用 AI CLI。",
   },
   {
     ...zhCnArticles[3],
-    title: "Claude Code vs Codex vs OpenCode：三類 AI 編碼代理怎麼選",
+    title: "Reasonix 對比通用 AI CLI：為什麼 DeepSeek-native 設計更重要",
     description:
-      "面向繁體中文開發者的 Claude Code、OpenAI Codex、OpenCode 對比：入口、權限、安全、模型選擇和團隊適配。",
-    eyebrow: "AI 編碼代理",
-    summary:
-      "Claude Code、Codex 和 OpenCode 都能進入倉庫執行工程任務，但產品哲學不同：Claude Code 偏 Anthropic 生態，Codex 偏 OpenAI 多入口和多代理編排，OpenCode 偏開放、終端機原生、多 provider。",
-    takeaways: [
-      "偏 Anthropic 模型與 Claude 工作區時，Claude Code 是自然入口。",
-      "偏 OpenAI/ChatGPT 帳號、並行代理、工作樹和團隊治理時，Codex 更貼近平台級工作流。",
-      "偏開源、多模型供應商、AGENTS.md 和可自定義終端機體驗時，OpenCode 更靈活。",
-      "企業落地不要只看模型效果，還要看權限、日誌、沙箱、帳號體系和能否審計。",
-    ],
-    sections: [
-      {
-        heading: "Claude Code：強在 Anthropic 生態和成熟編碼體驗",
-        body: [
-          "Claude Code 的官方定位是 Anthropic 的 agentic coding tool，主要生活在終端機裡，也延展到 IDE、雲端和自動化場景。",
-          "適合場景包括閱讀大型程式碼庫、解釋複雜模組、局部重構、生成遷移計畫、接入 MCP 工具，或建立團隊內部工作流規範。",
-        ],
-      },
-      {
-        heading: "Codex：強在 OpenAI 帳號體系和多代理工作流",
-        body: [
-          "Codex 現在不只是一個 CLI。OpenAI 官方口徑裡，Codex 覆蓋終端機、IDE、雲端和桌面 app，並強調審批、安全沙箱和並行代理。",
-          "如果資訊站要寫 Codex，建議拆成 CLI 入門、審批模式、Codex app、團隊並行代理和工作流治理幾個主題。",
-        ],
-      },
-      {
-        heading: "OpenCode：強在開源、多 provider 和可配置",
-        body: [
-          "OpenCode 官方文件把它描述為 open source AI coding agent，可用終端機介面、桌面 app 或 IDE 擴充套件。",
-          "如果讀者關心本地化、開源可檢查、供應商切換或不想被單一模型生態綁定，OpenCode 是值得單獨寫深度文章的工具。",
-        ],
-      },
-    ],
+      "說明 Reasonix 相比普通模型套殼 CLI，在快取架構、工具修復、MCP、權限、sandbox、replay 和長任務控制上的差異。",
   },
   {
     ...zhCnArticles[4],
-    title: "AI 編碼代理時代還需要 Redux 嗎？Redux Toolkit 的真實價值",
+    title: "團隊使用 Reasonix：應該比較工作流、權限和維護成本",
     description:
-      "解釋為什麼 Claude Code、Codex、OpenCode 變強後，Redux Toolkit 仍然是複雜前端應用的重要狀態管理選擇。",
-    eyebrow: "Redux 專題",
-    summary:
-      "AI 編碼代理能幫你寫 reducer、遷移 slice、生成測試，但它不會替代應用內部的狀態模型。Redux Toolkit 的價值仍然在於把複雜狀態變化變得顯式、可測試、可審查。",
-    takeaways: [
-      "Redux Toolkit 是 Redux 官方推薦寫法，適合新專案和 legacy Redux 遷移。",
-      "AI 代理能降低 Redux 遷移成本，但不能替代架構判斷。",
-      "複雜協作、審計、跨頁共享狀態和可回放除錯仍然是 Redux 的強項。",
-      "文章應避免「Redux 已死」這種泛化結論，改寫成「什麼時候不需要 Redux」。",
-    ],
-    sections: [
-      {
-        heading: "Redux 解決的是狀態一致性，不是程式碼生成",
-        body: [
-          "Redux 官方介紹把它定義為 predictable and maintainable global state management。這個定位在 AI 代理時代沒有過時。",
-          "Claude Code、Codex、OpenCode 可以幫你生成樣板、遷移舊 reducer、補測試、解釋狀態流，但不能替你定義狀態邊界。",
-        ],
-      },
-      {
-        heading: "Redux Toolkit 為什麼是預設推薦",
-        body: [
-          "Redux Toolkit 是 Redux 官方推薦的 batteries-included 工具集，目標是減少手寫 action type、immutable update 和 store setup 的複雜度。",
-          "如果要寫 Redux 高品質文章，建議圍繞 configureStore、createSlice、RTK Query、middleware、selector、遷移策略展開。",
-        ],
-      },
-      {
-        heading: "AI 代理如何協助 Redux 遷移",
-        body: [
-          "實用流程是：先讓代理只讀分析舊 Redux 程式碼，輸出 slice 劃分和風險清單；再逐個模組遷移到 Redux Toolkit；每個模組補 selector 測試和 UI 回歸測試。",
-          "這個流程適合 Codex 或 Claude Code 的審批模式，也適合 OpenCode 在 AGENTS.md 中固化規則。",
-        ],
-      },
-    ],
+      "面向團隊解釋如何評估 Reasonix：本機設定、API Key、repo 存取、審查、升級路徑和失敗回退。",
   },
   {
     ...zhCnArticles[5],
-    title: "Codex vs Claude Code：工程團隊應該比較哪些維度",
+    title: "Reasonix 與開源本機 agent：原始碼可信和 provider 自由度怎麼取捨",
     description:
-      "對比 OpenAI Codex 與 Anthropic Claude Code 在團隊工程中的入口、審批、安全、並行代理和長期維護差異。",
-    eyebrow: "團隊選型",
-    summary:
-      "Codex 和 Claude Code 都是強編碼代理，團隊不應該只用一次任務完成度下結論。更關鍵的比較維度是權限、審計、帳號、並行工作、倉庫隔離、失敗回滾和組織內標準化。",
-    takeaways: [
-      "Codex 的官方重點已經擴展到 app、CLI、IDE、雲端、SDK 和多代理編排。",
-      "Claude Code 的優勢在 Anthropic 生態、終端機體驗和 Claude 模型工作流。",
-      "團隊選型要先定義不可接受風險，再比較輸出品質。",
-      "最好用同一批真實任務做 A/B：bugfix、重構、遷移、測試補齊、文件更新。",
-    ],
-    sections: [
-      {
-        heading: "比較入口：CLI 只是其中一個入口",
-        body: [
-          "Codex 和 Claude Code 都不再只是一個安裝命令。團隊更需要關心 diff 如何審查、能否接入 PR 流程、是否能隔離工作樹和是否能並行跑多個任務。",
-          "一旦代理能讀寫生產倉庫，安裝命令就是最不重要的部分。",
-        ],
-      },
-      {
-        heading: "比較安全：權限模式比模型名更重要",
-        body: [
-          "代理能讀寫倉庫、執行命令，這意味著它進入工程系統的高權限區域。審批模式、沙箱、網路存取、密鑰處理和回滾策略必須明確。",
-          "如果權限模型不清楚，模型能力越強，風險越難控。",
-        ],
-      },
-      {
-        heading: "比較產出：用真實工程任務，而不是 demo",
-        body: [
-          "建議準備 bugfix、複雜重構、測試補齊、文件更新、依賴升級和架構分析任務，並記錄耗時、人工介入次數、失敗原因、測試結果和審查意見。",
-          "最後的答案也可能不是二選一，而是讓不同工具承擔不同類型的工程任務。",
-        ],
-      },
-    ],
-  },
-  {
-    ...zhCnArticles[6],
-    title: "OpenCode 與閉源編碼代理對比：開源、多模型和本機工作流的價值",
-    description:
-      "分析 OpenCode 相比 Claude Code、Codex 的差異：開源、provider 配置、AGENTS.md、MCP、權限和團隊可控性。",
-    eyebrow: "OpenCode 專題",
-    summary:
-      "OpenCode 的核心優勢不是「比閉源代理一定更強」，而是它給了團隊更多可控變數：模型供應商、安裝方式、配置檔、MCP、AGENTS.md、權限和終端機工作流。",
-    takeaways: [
-      "OpenCode 官方文件明確支援終端機、桌面 app 和 IDE extension。",
-      "它要求使用者配置 LLM provider API key，天然適合多模型或自有供應商策略。",
-      "AGENTS.md、規則、工具、權限和 MCP 是 OpenCode 深度內容的關鍵詞。",
-      "閉源代理更適合追求平台整合；OpenCode 更適合追求開放和可配置。",
-    ],
-    sections: [
-      {
-        heading: "OpenCode 的核心定位",
-        body: [
-          "OpenCode 官方文件把它定義為 open source AI coding agent，並說明它可以作為 terminal-based interface、desktop app 或 IDE extension 使用。",
-          "這使它特別適合多模型策略：團隊可以根據成本、上下文長度、隱私、程式碼能力和地區可用性選擇不同 provider。",
-        ],
-      },
-      {
-        heading: "為什麼 AGENTS.md 很重要",
-        body: [
-          "OpenCode 文件建議在專案初始化後生成並提交 AGENTS.md。這個檔案讓代理理解專案結構和編碼模式。",
-          "高品質文章不要只寫安裝命令，更應該寫如何設計 AGENTS.md、如何配置 MCP、如何設定危險命令權限，以及如何先 Plan 再 Build。",
-        ],
-      },
-      {
-        heading: "和 Codex、Claude Code 的真實差異",
-        body: [
-          "Claude Code 和 Codex 的優勢是平台整合和官方模型路徑；OpenCode 的優勢是透明、可配置、多 provider 和開源社群路線。",
-          "如果團隊需要統一企業帳號和集中審計，可能更偏 Codex 或 Claude Code；如果需要自選模型和倉庫內規則，OpenCode 更合適。",
-        ],
-      },
-    ],
+      "以 Reasonix 為中心，對比開源本機 agent workflow 中的原始碼檢查、provider 選擇、規則、插件和本機控制。",
   },
 ];
 
@@ -1118,199 +865,61 @@ const ruArticles: Article[] = [
   {
     ...enArticles[0],
     title:
-      "Redux, Claude Code, Codex и OpenCode решают разные классы задач",
+      "Как начать с Reasonix: официальный DeepSeek terminal path",
     description:
-      "Сравнение Redux, Claude Code, Codex и OpenCode по инженерному уровню, workflow, permissions и стратегии контента.",
-    eyebrow: "Базовое сравнение",
+      "Практический Reasonix onboarding: Node.js, DeepSeek API key, npx startup, local config, TUI commands и source verification.",
+    eyebrow: "Reasonix onboarding",
     summary:
-      "Главная ошибка - относить Redux и AI coding agents к одной категории. Redux является слоем состояния приложения, а Claude Code, Codex и OpenCode являются слоями инженерного выполнения.",
+      "Начните Reasonix из реального project directory: Node.js, DeepSeek Platform API key, `npx reasonix code`, затем базовые TUI commands. Version tables и GitHub stats из reference posts не нужны.",
     takeaways: [
-      "Redux - компонент архитектуры приложения; Claude Code, Codex и OpenCode - инструменты выполнения инженерных задач.",
-      "Контент о Redux должен быть стабильным: tutorials и migration guides. Контент об agents должен отслеживать versions, permissions, security и workflow.",
-      "Codex и Claude Code ближе к платформенным закрытым agents; OpenCode больше подходит для open-source, multi-provider и configurable workflow.",
-      "Информационный сайт должен ясно отделять state management от coding agents.",
-    ],
-    comparison: ruComparisonRows,
-    sections: [
-      {
-        heading: "Сначала разделите уровни",
-        body: [
-          "Redux управляет predictable и maintainable global state внутри JavaScript-приложения. Он делает изменения состояния явными и тестируемыми, но не выполняет задачи разработки.",
-          "Claude Code, Codex и OpenCode читают код, планируют изменения, редактируют файлы, запускают команды и помогают делегировать engineering tasks моделям.",
-        ],
-        bullets: [
-          "Вопрос «Redux или Codex лучше» является ошибкой категории.",
-          "Вопрос «может ли Codex помочь мигрировать legacy Redux на Redux Toolkit» уже полезен.",
-          "Вопрос «OpenCode или Claude Code лучше для локального multi-provider workflow» тоже сравним.",
-        ],
-      },
-      {
-        heading: "Как информационному сайту писать эти keywords",
-        body: [
-          "Для SEO и читабельности разделите контент на две линии: Redux как frontend architecture и Claude Code, Codex, OpenCode как AI coding agents.",
-          "Так search intent остается чистым. Пользователи Redux обычно ищут state management, RTK, React integration и migration help. Пользователи Codex или Claude Code чаще ищут install, permissions, pricing, CLI, IDE и team workflow.",
-        ],
-      },
-      {
-        heading: "Практический вывод",
-        body: [
-          "Самая сильная комбинация - не выбор одного из четырех. Оставьте Redux в слое архитектуры приложения, а Codex, Claude Code или OpenCode используйте как execution layer для миграции, review, tests и maintenance.",
-          "Статья должна объяснять, когда нужен platform agent, когда лучше open-source agent, а когда достаточно хорошего Redux Toolkit guide.",
-        ],
-      },
+      "DeepSeek quick start требует Node.js 20.10+, DeepSeek Platform API key и `npx reasonix code` внутри target project directory.",
+      "Provider API key должен оставаться в local setup, а не в screenshots, comments, public issues или commits.",
+      "После запуска TUI сначала проверьте `/help`, `/pro` и `/preset max`.",
+      "Для global install, release download или source build проверяйте live npm, releases и README напрямую.",
     ],
   },
   {
     ...enArticles[1],
-    title: "Claude Code vs Codex vs OpenCode: как выбрать AI coding agent",
+    title: "Reasonix prefix-cache mechanism: почему loop является продуктом",
     description:
-      "Практическое сравнение Claude Code, OpenAI Codex и OpenCode по entry points, permissions, security, model choice и team fit.",
-    eyebrow: "AI coding agents",
+      "Reasonix cache-first loop, DeepSeek prefix cache, append-only history, low-frequency compaction и cache-hit observability.",
+    eyebrow: "Cache mechanism",
     summary:
-      "Все три инструмента могут работать с репозиторием, но философия различается: Claude Code связан с экосистемой Anthropic, Codex - с multi-surface workflow OpenAI, OpenCode - с открытым и configurable terminal workflow.",
+      "Полезная часть reference articles - architecture: DeepSeek cache rewards stable prefixes, and Reasonix turns that into an agent-loop constraint.",
     takeaways: [
-      "Claude Code естественен, если команда уже работает в экосистеме Claude.",
-      "Codex подходит, когда важны OpenAI account access, parallel agents, worktrees и team governance.",
-      "OpenCode подходит, когда важны open source, provider choice, AGENTS.md и local workflow control.",
-      "Для команд governance обычно так же важен, как качество результата на одной задаче.",
-    ],
-    sections: [
-      {
-        heading: "Claude Code: экосистема Anthropic и зрелый coding UX",
-        body: [
-          "Claude Code - agentic coding tool Anthropic. Он работает через terminal, IDE, cloud и automation surfaces.",
-          "Сильные сценарии: чтение больших codebases, объяснение сложных модулей, точечный refactor, migration plans и подключение MCP tools.",
-        ],
-      },
-      {
-        heading: "Codex: account system OpenAI и multi-agent workflow",
-        body: [
-          "Codex уже больше, чем CLI. OpenAI позиционирует его через editor, terminal, cloud, app и SDK, с sandboxing и approval modes.",
-          "Пишите о Codex как о наборе workflow: CLI onboarding, approval modes, Codex app, team parallelization и governance.",
-        ],
-      },
-      {
-        heading: "OpenCode: open source, providers и configuration",
-        body: [
-          "OpenCode - open-source AI coding agent для terminal interface, desktop app или IDE extension. Пользователь сам настраивает provider keys.",
-          "Это полезно для команд, которым важны model choice, local control, inspectable code, AGENTS.md rules, MCP и permissions.",
-        ],
-      },
+      "DeepSeek context caching rewards full reuse of persisted prefixes.",
+      "Reasonix should be explained through immutable prefix, append-only log, and volatile scratch.",
+      "Compaction is a rare reset point, not an every-turn rewrite.",
+      "Use `prompt_cache_hit_tokens` and `prompt_cache_miss_tokens` instead of promising one fixed hit rate.",
     ],
   },
   {
     ...enArticles[2],
-    title: "Нужен ли Redux в эпоху AI coding agents?",
+    title:
+      "Reasonix vs Claude Code vs Codex: сравнивайте operating loop",
     description:
-      "Почему Redux Toolkit остается важным для сложного frontend state даже когда Claude Code, Codex и OpenCode умеют генерировать и мигрировать код.",
-    eyebrow: "Redux",
-    summary:
-      "AI coding agents могут писать reducers, мигрировать slices и генерировать tests, но они не заменяют state model приложения. Redux Toolkit делает сложное состояние явным, тестируемым и reviewable.",
-    takeaways: [
-      "Redux Toolkit - современный рекомендуемый путь Redux для новых проектов и legacy migration.",
-      "AI agents снижают стоимость миграции, но не заменяют архитектурное решение.",
-      "Shared state, auditability, replayable debugging и cross-page consistency остаются сильными сторонами Redux.",
-      "Лучший вопрос - когда Redux не нужен, а не умер ли Redux.",
-    ],
-    sections: [
-      {
-        heading: "Redux решает consistency состояния, а не code generation",
-        body: [
-          "Redux нужен для predictable и maintainable global state. Эта ценность не исчезает из-за способности agents генерировать код.",
-          "Agents помогают мигрировать reducers, писать selectors и добавлять tests, но разработчик все равно определяет state boundaries и ownership.",
-        ],
-      },
-      {
-        heading: "Почему Redux Toolkit является modern default",
-        body: [
-          "Redux Toolkit уменьшает boilerplate action types, immutable updates и store setup. Современный контент Redux должен начинаться именно с него.",
-          "Полезные темы: configureStore, createSlice, RTK Query, middleware, selectors и migration plans.",
-        ],
-      },
-      {
-        heading: "Как agents помогают миграции",
-        body: [
-          "Практический flow: read-only analysis, затем migration slice-by-slice, selector tests, UI regression checks и финальный review ненужного global state.",
-          "Codex, Claude Code и OpenCode могут помочь, но approval и review loop должны оставаться явными.",
-        ],
-      },
-    ],
+      "Reasonix, Claude Code, Codex и generic AI CLI через setup, cache behavior, permissions, provider strategy и long-running work.",
   },
   {
     ...enArticles[3],
-    title: "Codex vs Claude Code: что сравнивать engineering teams",
+    title:
+      "Reasonix vs generic AI CLI: почему DeepSeek-native design важен",
     description:
-      "Сравнение OpenAI Codex и Anthropic Claude Code для команд: entry points, approvals, safety, parallel agents и maintenance.",
-    eyebrow: "Team selection",
-    summary:
-      "Команды не должны выбирать по одной впечатляющей задаче. Реальное сравнение - permissions, reviewability, accounts, parallel work, repository isolation, rollback и internal standards.",
-    takeaways: [
-      "Codex охватывает app, CLI, IDE, cloud, SDK и multi-agent coordination.",
-      "Claude Code силен там, где команда уже стандартизирована на Anthropic и Claude workflow.",
-      "Security baseline должен идти до model benchmarks.",
-      "Сравнивайте на реальных задачах: bugfixes, refactors, migrations, tests и docs.",
-    ],
-    sections: [
-      {
-        heading: "Сравнивайте entry points, а не только CLI",
-        body: [
-          "Codex и Claude Code выходят за рамки одной terminal command. Команде важно, как reviewятся diffs, как подключается PR flow, как изолируется work и как безопасно запускать несколько задач.",
-          "Install command перестает быть главным, когда инструмент может читать и писать production repository.",
-        ],
-      },
-      {
-        heading: "Сравнивайте security до output quality",
-        body: [
-          "Coding agents могут выполнять команды и редактировать файлы. Поэтому approval modes, sandboxing, network access, secret handling и rollback strategy должны быть явными.",
-          "Сильная модель увеличивает risk surface, если permission model неясна.",
-        ],
-      },
-      {
-        heading: "Используйте реальные engineering tasks",
-        body: [
-          "Подготовьте набор задач: bugfixes, refactors, test coverage, docs, dependency upgrades и architecture analysis. Фиксируйте elapsed time, human interventions, failures, tests и review comments.",
-          "Правильный ответ может быть специализацией инструментов, а не одним победителем.",
-        ],
-      },
-    ],
+      "Чем Reasonix отличается от model-wrapper CLIs по architecture, cache handling, repair behavior, MCP, sandboxing, replay и long-session control.",
   },
   {
     ...enArticles[4],
-    title: "OpenCode против закрытых coding agents: что меняет open source",
+    title:
+      "Reasonix для команд: сравнивайте workflow, permissions и maintenance",
     description:
-      "Сравнение OpenCode с Claude Code и Codex по source openness, provider configuration, AGENTS.md, MCP, permissions и team control.",
-    eyebrow: "OpenCode",
-    summary:
-      "Ценность OpenCode не в том, что он всегда сильнее закрытых agents. Ценность в контроле над model providers, config, project rules, MCP, permissions и local terminal workflow.",
-    takeaways: [
-      "OpenCode поддерживает terminal, desktop app и IDE extension.",
-      "Пользователь настраивает LLM provider keys, что удобно для multi-provider strategies.",
-      "AGENTS.md, rules, tools, permissions и MCP - ключевые deep-content keywords.",
-      "Closed agents подходят для platform integration; OpenCode - для openness и configurability.",
-    ],
-    sections: [
-      {
-        heading: "Core positioning",
-        body: [
-          "OpenCode документирован как open-source AI coding agent для terminal, desktop или IDE. Это не эксклюзивный client одной model vendor.",
-          "Он полезен, когда в выборе участвуют cost, privacy, context length, regional availability и provider switching.",
-        ],
-      },
-      {
-        heading: "Почему AGENTS.md важен",
-        body: [
-          "OpenCode поощряет project rules через файлы вроде AGENTS.md. Так team conventions становятся инструкциями, которые agent читает каждый раз.",
-          "Сильные статьи должны раскрывать rules, MCP, dangerous command permissions и plan-before-build workflows, а не только install commands.",
-        ],
-      },
-      {
-        heading: "Реальная разница с Codex и Claude Code",
-        body: [
-          "Claude Code и Codex сильнее в vendor-backed platform integration. OpenCode сильнее в transparency, provider choice и local configuration.",
-          "Выбор зависит от того, что важнее: central accounts и auditability или open tooling и model flexibility.",
-        ],
-      },
-    ],
+      "Как engineering teams оценивать Reasonix без ухода от Reasonix product focus.",
+  },
+  {
+    ...enArticles[5],
+    title:
+      "Reasonix и open-source local agents: source trust против provider flexibility",
+    description:
+      "Reasonix-centered сравнение с open-source local-agent workflows: source inspection, provider choice, rules и local control.",
   },
 ];
 

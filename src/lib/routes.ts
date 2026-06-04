@@ -4,7 +4,12 @@ import {
   getArticleRoutes,
   getLocalesForArticle,
 } from "@/lib/articles";
-import { getContent, SITE } from "@/lib/content";
+import {
+  getContent,
+  getSeoLandingPage,
+  seoLandingPagePaths,
+  SITE,
+} from "@/lib/content";
 import {
   DEFAULT_LOCALE,
   getAlternatePaths,
@@ -19,10 +24,12 @@ export const staticPagePaths = [
   "/articles",
   "/login",
   "/community",
+  "/community/new",
   "/faq",
   "/github",
   "/errors",
   "/deepseek",
+  ...seoLandingPagePaths,
   "/news",
   "/privacy",
   "/privacy-protection",
@@ -69,13 +76,42 @@ export function getRouteAlternateUrls(path: string): Record<string, string> {
 type RouteCopy = {
   title: string;
   description: string;
+  keywords?: readonly string[];
 };
 
 function getStaticRouteCopy(locale: Locale, path: string): RouteCopy | null {
   const content = getContent(locale);
   const pages = content.pages;
+  const normalized = normalizePath(path);
 
-  switch (normalizePath(path)) {
+  if (normalized === "/community/new") {
+    return {
+      title: `${pages.community.metaTitle} | New question`,
+      description: pages.community.metaDescription,
+    };
+  }
+
+  if (normalized.startsWith("/community/")) {
+    return {
+      title: pages.community.metaTitle,
+      description: pages.community.metaDescription,
+    };
+  }
+
+  const seoLandingPage = getSeoLandingPage(locale, normalized);
+
+  if (seoLandingPage) {
+    return {
+      title: seoLandingPage.metaTitle,
+      description: seoLandingPage.metaDescription,
+      keywords: [
+        seoLandingPage.primaryKeyword,
+        ...seoLandingPage.secondaryKeywords,
+      ],
+    };
+  }
+
+  switch (normalized) {
     case "/":
       return {
         title: content.site.title,
@@ -124,14 +160,12 @@ function getStaticRouteCopy(locale: Locale, path: string): RouteCopy | null {
     case "/privacy":
       return {
         title: pages.privacy.metaTitle,
-        description:
-          "Reasonix Watch privacy policy: Clerk handles site login, provider API keys stay local, and article comments are carried by GitHub/giscus.",
+        description: pages.privacy.metaDescription,
       };
     case "/privacy-protection":
       return {
         title: pages.privacyProtection.metaTitle,
-        description:
-          "Reasonix Watch privacy protection checklist for official links, API keys, and GitHub/giscus comment identity boundaries.",
+        description: pages.privacyProtection.metaDescription,
       };
     default:
       return null;
@@ -169,6 +203,8 @@ export function getRouteMetadata(locale: Locale, path: string): Metadata {
       },
       twitter: {
         card: "summary_large_image",
+        site: SITE.xHandle,
+        creator: SITE.xHandle,
         title: article.title,
         description: article.description,
       },
@@ -185,7 +221,7 @@ export function getRouteMetadata(locale: Locale, path: string): Metadata {
     metadataBase: new URL(SITE.url),
     title: copy.title,
     description: copy.description,
-    keywords: [...getContent(locale).metadataKeywords],
+    keywords: [...(copy.keywords ?? getContent(locale).metadataKeywords)],
     alternates: {
       canonical,
       languages: alternateUrls,
@@ -200,6 +236,8 @@ export function getRouteMetadata(locale: Locale, path: string): Metadata {
     },
     twitter: {
       card: "summary_large_image",
+      site: SITE.xHandle,
+      creator: SITE.xHandle,
       title: copy.title,
       description: copy.description,
     },

@@ -13,25 +13,25 @@ const copyByLocale = {
     loading: "Loading account session...",
     signedInTitle: "You are signed in",
     signedInBody:
-      "Clerk is now handling the Reasonix Watch site session. DeepSeek API keys remain separate from this account.",
+      "Clerk is now handling the Reasonix site session. DeepSeek API keys remain separate from this account.",
   },
   "zh-cn": {
     loading: "正在加载账号会话...",
     signedInTitle: "你已登录",
     signedInBody:
-      "Reasonix Watch 的站内会话现在由 Clerk 处理。DeepSeek API Key 仍然和这个账号分开管理。",
+      "Reasonix 的站内会话现在由 Clerk 处理。DeepSeek API Key 仍然和这个账号分开管理。",
   },
   "zh-tw": {
     loading: "正在載入帳號會話...",
     signedInTitle: "你已登入",
     signedInBody:
-      "Reasonix Watch 的站內會話現在由 Clerk 處理。DeepSeek API Key 仍然和這個帳號分開管理。",
+      "Reasonix 的站內會話現在由 Clerk 處理。DeepSeek API Key 仍然和這個帳號分開管理。",
   },
   ru: {
     loading: "Загрузка сессии аккаунта...",
     signedInTitle: "Вы вошли",
     signedInBody:
-      "Clerk теперь обрабатывает сессию сайта Reasonix Watch. DeepSeek API keys остаются отдельными от этого аккаунта.",
+      "Clerk теперь обрабатывает сессию сайта Reasonix. DeepSeek API keys остаются отдельными от этого аккаунта.",
   },
 } satisfies Record<
   Locale,

@@ -19,10 +19,14 @@ import {
   Terminal,
   CircleHelp,
 } from "lucide-react";
-import { GiscusComments } from "@/components/GiscusComments";
+import { ArticleDiscussionLink } from "@/components/ArticleDiscussionLink";
+import { CommunityBoard } from "@/components/CommunityBoard";
+import { CommunityQuestionDetail } from "@/components/CommunityQuestionDetail";
+import { CommunityQuestionForm } from "@/components/CommunityQuestionForm";
+import { CopyCommandBlock } from "@/components/CopyCommandBlock";
 import { LoginExplainer } from "@/components/LoginExplainer";
 import { getArticle, getArticles } from "@/lib/articles";
-import { GISCUS, getContent, SITE } from "@/lib/content";
+import { getContent, getSeoLandingPage, SITE } from "@/lib/content";
 import { localizePath, normalizePath, type Locale } from "@/lib/i18n";
 
 type LocalizedPageProps = {
@@ -33,65 +37,127 @@ type ArticlePageProps = LocalizedPageProps & {
   slug: string;
 };
 
-const giscusEnvVars = [
-  "NEXT_PUBLIC_GISCUS_REPO",
-  "NEXT_PUBLIC_GISCUS_REPO_ID",
-  "NEXT_PUBLIC_GISCUS_CATEGORY",
-  "NEXT_PUBLIC_GISCUS_CATEGORY_ID",
-] as const;
+type SeoLandingPageProps = LocalizedPageProps & {
+  path: string;
+};
 
 function getCommentPrivacyCopy(locale: Locale) {
   if (locale === "zh-cn") {
     return {
       commitment:
-        "文章评论由 GitHub/giscus OAuth 与 GitHub Discussions 承载；本站不保存评论账号资料或评论正文。",
-      cardTitle: "评论数据",
+        "社区问答由 Clerk 会话和 Supabase 数据库承载；不要在问题或回复里发布 provider API Key。",
+      cardTitle: "社区数据",
       cardBody:
-        "文章评论由 GitHub Discussions 保存和审核。本站只嵌入 giscus 评论组件，不自建用户表、评论表、私信或通知系统。",
+        "站内问题和回复会保存标题、正文、语言、作者 Clerk ID、显示名、时间和运营状态；不包含 DeepSeek、OpenAI、Anthropic 等服务商密钥。",
       checklist:
-        "使用文章评论时，确认你是在 GitHub/giscus OAuth 流程中授权，不要把 GitHub 密码或任何 API Key 输入到本站页面。",
+        "发帖前删除 API Key、token、私有仓库地址和完整环境变量，只保留最小复现命令、版本和报错摘要。",
     };
   }
 
   if (locale === "zh-tw") {
     return {
       commitment:
-        "文章留言由 GitHub/giscus OAuth 與 GitHub Discussions 承載；本站不保存留言帳號資料或留言正文。",
-      cardTitle: "留言資料",
+        "社群問答由 Clerk 會話和 Supabase 資料庫承載；不要在問題或回覆裡發布 provider API Key。",
+      cardTitle: "社群資料",
       cardBody:
-        "文章留言由 GitHub Discussions 保存和審核。本站只嵌入 giscus 留言元件，不自建使用者表、留言表、私訊或通知系統。",
+        "站內問題和回覆會保存標題、正文、語言、作者 Clerk ID、顯示名、時間和營運狀態；不包含 DeepSeek、OpenAI、Anthropic 等服務商密鑰。",
       checklist:
-        "使用文章留言時，確認你是在 GitHub/giscus OAuth 流程中授權，不要把 GitHub 密碼或任何 API Key 輸入到本站頁面。",
+        "發文前刪除 API Key、token、私有倉庫地址和完整環境變數，只保留最小復現命令、版本和錯誤摘要。",
     };
   }
 
   if (locale === "ru") {
     return {
       commitment:
-        "Комментарии к статьям обслуживаются GitHub/giscus OAuth и GitHub Discussions; сайт не хранит аккаунты комментариев или их текст.",
-      cardTitle: "Данные комментариев",
+        "Community Q&A хранится через Clerk session и Supabase database; не публикуйте provider API keys в questions или replies.",
+      cardTitle: "Community data",
       cardBody:
-        "Комментарии сохраняются и модерируются в GitHub Discussions. Сайт только встраивает giscus и не ведет собственные таблицы пользователей, комментариев, сообщений или уведомлений.",
+        "Вопросы и ответы сохраняют title, body, language, author Clerk ID, display name, timestamps и moderation status. Provider keys не должны попадать в posts.",
       checklist:
-        "При комментировании проверяйте, что авторизация идет через GitHub/giscus OAuth, и не вводите пароль GitHub или API keys на этом сайте.",
+        "Перед публикацией удалите API keys, tokens, private repository URLs и полные environment variables; оставляйте только minimal reproduction commands, versions и error summary.",
     };
   }
 
   return {
     commitment:
-      "Article comments are carried by GitHub/giscus OAuth and GitHub Discussions; this site does not store comment account data or comment bodies.",
-    cardTitle: "Comment data",
+      "Community Q&A uses the Clerk site session and Supabase database; do not post provider API keys in questions or replies.",
+    cardTitle: "Community data",
     cardBody:
-      "Article comments are stored and moderated in GitHub Discussions. This site only embeds giscus and does not run its own user table, comment table, private messages, or notifications.",
+      "Site questions and replies store title, body, language, author Clerk ID, display name, timestamps, and moderation status. DeepSeek, OpenAI, Anthropic, and other provider keys stay outside posts.",
     checklist:
-      "When using article comments, confirm that authorization happens through GitHub/giscus OAuth, and do not enter GitHub passwords or API keys on this site.",
+      "Before posting, remove API keys, tokens, private repository URLs, and complete environment variables; keep only minimal commands, versions, and error summaries.",
   };
+}
+
+function SeoLandingLinks({
+  locale,
+  eyebrow,
+  title,
+  description,
+  currentPath,
+}: LocalizedPageProps & {
+  eyebrow: string;
+  title: string;
+  description: string;
+  currentPath?: string;
+}) {
+  const content = getContent(locale);
+  const pages = content.seoLandingPages.filter(
+    (page) => page.path !== currentPath,
+  );
+
+  return (
+    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+      <div className="mb-5 max-w-3xl">
+        <p className="text-sm font-semibold uppercase tracking-normal text-emerald-800">
+          {eyebrow}
+        </p>
+        <h2 className="mt-2 text-2xl font-semibold leading-tight text-slate-950 sm:text-3xl">
+          {title}
+        </h2>
+        <p className="mt-3 text-sm leading-6 text-slate-600">
+          {description}
+        </p>
+      </div>
+      <div className="grid gap-3 md:grid-cols-2">
+        {pages.map((page) => (
+          <Link
+            key={page.path}
+            href={localizePath(locale, page.path)}
+            className="rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-white"
+          >
+            <span className="rounded-md bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-900">
+              {page.primaryKeyword}
+            </span>
+            <h3 className="mt-3 text-base font-semibold leading-6 text-slate-950">
+              {page.title}
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              {page.metaDescription}
+            </p>
+            <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-emerald-900">
+              {page.eyebrow}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </span>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export function HomePage({ locale }: LocalizedPageProps) {
   const content = getContent(locale);
   const articles = getArticles(locale);
   const page = content.pages.home;
+  const featureIcons = [
+    BadgeCheck,
+    Terminal,
+    ShieldCheck,
+    GitBranch,
+    GitFork,
+    Clock3,
+  ] as const;
 
   return (
     <div className="-mx-4 -my-6 bg-white text-slate-950 sm:-mx-6 lg:-mx-10 lg:-my-10">
@@ -169,132 +235,99 @@ export function HomePage({ locale }: LocalizedPageProps) {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
-        <div className="flex flex-col gap-3 text-center">
-          <p className="text-sm font-semibold uppercase tracking-normal text-emerald-800">
-            {page.sectionsTitle}
-          </p>
-          <h2 className="text-3xl font-semibold text-slate-950 sm:text-4xl">
-            {content.site.slogan}
-          </h2>
-          <p className="mx-auto max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
-            {content.site.contentPrinciplesBody}
-          </p>
-        </div>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {content.featureBlocks.map((feature) => (
-            <article
-              key={feature.title}
-              className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
-            >
-              <CheckCircle2
-                className="h-5 w-5 text-emerald-800"
-                aria-hidden="true"
-              />
-              <h3 className="mt-4 text-lg font-semibold text-slate-950">
-                {feature.title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                {feature.body}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-slate-950 text-white">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:py-16">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-normal text-emerald-300">
-              {content.site.contentPrinciplesTitle}
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
-              {content.pages.privacy.title}
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
-              {content.pages.privacy.description}
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href={SITE.github}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
-              >
-                <GitBranch className="h-4 w-4" aria-hidden="true" />
-                GitHub
-                <ExternalLink className="h-4 w-4" aria-hidden="true" />
-              </a>
-              <Link
-                href={localizePath(locale, "/privacy-protection")}
-                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-              >
-                <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-                {content.pages.privacyProtection.eyebrow}
-              </Link>
-            </div>
-          </div>
-
-          <ol className="space-y-3">
-            {content.loginSteps.map((step, index) => (
-              <li
-                key={step.title}
-                className="flex gap-3 rounded-lg border border-white/10 bg-white/5 p-4"
-              >
-                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-emerald-300 text-sm font-semibold text-slate-950">
-                  {index + 1}
-                </span>
-                <span className="text-sm leading-6 text-slate-200">
-                  {step.body}
-                </span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
-        <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <div>
+        <div className="grid gap-8">
+          <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-normal text-emerald-800">
-              {page.articlesTitle}
+              {page.sectionsTitle}
             </p>
-            <h2 className="mt-2 text-3xl font-semibold text-slate-950">
-              {content.pages.articles.title}
+            <h2 className="mt-3 max-w-3xl text-3xl font-semibold leading-tight text-slate-950 sm:text-4xl">
+              {content.site.slogan}
             </h2>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
+              {content.site.contentPrinciplesBody}
+            </p>
           </div>
-          <p className="max-w-xl text-sm leading-6 text-slate-600">
-            {content.pages.articles.description}
-          </p>
-        </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          {articles.slice(0, 4).map((article) => (
-            <Link
-              key={article.slug}
-              href={localizePath(locale, `/articles/${article.slug}`)}
-              className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300"
-            >
-              <span className="rounded-md bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-900">
-                {article.eyebrow}
-              </span>
-              <h3 className="mt-4 text-lg font-semibold leading-snug text-slate-950">
-                {article.title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                {article.description}
-              </p>
-              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-900">
-                {page.articleReadLabel}
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </span>
-            </Link>
-          ))}
+          <div className="grid gap-3 md:grid-cols-2">
+            {content.featureBlocks.map((feature, index) => {
+              const FeatureIcon = featureIcons[index % featureIcons.length];
+
+              return (
+                <article
+                  key={feature.title}
+                  className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition hover:border-emerald-200 hover:shadow-md"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-800 ring-1 ring-emerald-100">
+                      <FeatureIcon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <h3 className="text-base font-semibold leading-6 text-slate-950">
+                      {feature.title}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-sm leading-5 text-slate-600">
+                    {feature.body}
+                  </p>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-12 sm:px-6 lg:pb-16">
-        <div className="mb-5 flex items-center gap-2">
+        <SeoLandingLinks
+          locale={locale}
+          eyebrow={page.seoClusterEyebrow}
+          title={page.seoClusterTitle}
+          description={page.seoClusterDescription}
+        />
+      </section>
+
+      <section className="border-y border-slate-800 bg-slate-950">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
+          <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-normal text-emerald-300">
+                {page.articlesTitle}
+              </p>
+              <h2 className="mt-2 text-3xl font-semibold text-white">
+                {content.pages.articles.title}
+              </h2>
+            </div>
+            <p className="max-w-xl text-sm leading-6 text-slate-300">
+              {content.pages.articles.description}
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {articles.slice(0, 4).map((article) => (
+              <Link
+                key={article.slug}
+                href={localizePath(locale, `/articles/${article.slug}`)}
+                className="rounded-lg border border-slate-700 bg-slate-900 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-slate-900/80"
+              >
+                <span className="rounded-md bg-emerald-300 px-2 py-1 text-xs font-semibold text-slate-950">
+                  {article.eyebrow}
+                </span>
+                <h3 className="mt-4 text-lg font-semibold leading-snug text-white">
+                  {article.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300">
+                  {article.description}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-300">
+                  {page.articleReadLabel}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
+        <div className="mb-8 flex items-center gap-2 sm:mb-10">
           <Newspaper className="h-5 w-5 text-emerald-800" aria-hidden="true" />
           <h2 className="text-2xl font-semibold text-slate-950">
             {page.latestNewsTitle}
@@ -400,6 +433,13 @@ export function ArticleDetailPage({ locale, slug }: ArticlePageProps) {
     notFound();
   }
 
+  const comparisonLabels = article.comparisonLabels ?? {
+    reasonix: page.reasonixLabel,
+    generic: page.genericAgentLabel,
+    platform: page.platformAgentLabel,
+    openSource: page.openSourceAgentLabel,
+  };
+
   return (
     <article className="mx-auto max-w-4xl space-y-8">
       <Link
@@ -467,10 +507,18 @@ export function ArticleDetailPage({ locale, slug }: ArticlePageProps) {
                   <th className="w-36 px-4 py-3 font-semibold">
                     {page.dimensionLabel}
                   </th>
-                  <th className="px-4 py-3 font-semibold">Redux</th>
-                  <th className="px-4 py-3 font-semibold">Claude Code</th>
-                  <th className="px-4 py-3 font-semibold">Codex</th>
-                  <th className="px-4 py-3 font-semibold">OpenCode</th>
+                  <th className="px-4 py-3 font-semibold">
+                    {comparisonLabels.reasonix}
+                  </th>
+                  <th className="px-4 py-3 font-semibold">
+                    {comparisonLabels.generic}
+                  </th>
+                  <th className="px-4 py-3 font-semibold">
+                    {comparisonLabels.platform}
+                  </th>
+                  <th className="px-4 py-3 font-semibold">
+                    {comparisonLabels.openSource}
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
@@ -480,16 +528,16 @@ export function ArticleDetailPage({ locale, slug }: ArticlePageProps) {
                       {row.dimension}
                     </th>
                     <td className="px-4 py-4 leading-6 text-slate-600">
-                      {row.redux}
+                      {row.reasonix}
                     </td>
                     <td className="px-4 py-4 leading-6 text-slate-600">
-                      {row.claude}
+                      {row.generic}
                     </td>
                     <td className="px-4 py-4 leading-6 text-slate-600">
-                      {row.codex}
+                      {row.platform}
                     </td>
                     <td className="px-4 py-4 leading-6 text-slate-600">
-                      {row.opencode}
+                      {row.openSource}
                     </td>
                   </tr>
                 ))}
@@ -552,7 +600,7 @@ export function ArticleDetailPage({ locale, slug }: ArticlePageProps) {
         </div>
       </section>
 
-      <GiscusComments />
+      <ArticleDiscussionLink locale={locale} />
     </article>
   );
 }
@@ -641,29 +689,32 @@ export function GithubPageContent({ locale }: LocalizedPageProps) {
 
       <section className="grid gap-4 lg:grid-cols-3">
         {content.downloadOptions.map((option) => (
-          <a
+          <article
             key={option.title}
-            href={option.href}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:border-emerald-300"
+            className="flex flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
           >
             <div className="flex items-center justify-between gap-4">
               <span className="rounded-md bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-600">
                 {option.tag}
               </span>
-              <ArrowUpRight className="h-4 w-4 text-slate-400" />
+              <a
+                href={option.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 text-slate-500 transition hover:border-emerald-300 hover:text-emerald-900"
+                aria-label={option.title}
+              >
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </a>
             </div>
             <h2 className="mt-4 text-lg font-semibold text-slate-950">
               {option.title}
             </h2>
-            <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-950 p-4 text-xs leading-5 text-emerald-200">
-              {option.command}
-            </pre>
+            <CopyCommandBlock command={option.command} locale={locale} />
             <p className="mt-4 text-sm leading-6 text-slate-600">
               {option.description}
             </p>
-          </a>
+          </article>
         ))}
       </section>
 
@@ -818,6 +869,204 @@ export function DeepSeekPageContent({ locale }: LocalizedPageProps) {
           </p>
         </a>
       </section>
+
+      <SeoLandingLinks
+        locale={locale}
+        eyebrow={content.pages.home.seoClusterEyebrow}
+        title={content.pages.home.seoClusterTitle}
+        description={content.pages.home.seoClusterDescription}
+      />
+    </div>
+  );
+}
+
+export function SeoLandingPageContent({ locale, path }: SeoLandingPageProps) {
+  const content = getContent(locale);
+  const page = getSeoLandingPage(locale, path);
+
+  if (!page) {
+    notFound();
+  }
+
+  return (
+    <div className="space-y-8">
+      <section>
+        <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-900">
+          <Terminal className="h-4 w-4 shrink-0" aria-hidden="true" />
+          <span className="truncate">{page.eyebrow}</span>
+        </div>
+        <h1 className="max-w-4xl text-3xl font-semibold leading-tight text-slate-950 sm:text-4xl">
+          {page.title}
+        </h1>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
+          {page.description}
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          <span className="rounded-md bg-emerald-950 px-2.5 py-1.5 text-xs font-semibold text-white">
+            {page.primaryKeyword}
+          </span>
+          {page.secondaryKeywords.map((keyword) => (
+            <span
+              key={keyword}
+              className="rounded-md border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-600"
+            >
+              {keyword}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section className="grid gap-4 lg:grid-cols-[1fr_0.9fr]">
+        <article className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+          <h2 className="text-xl font-semibold text-slate-950">
+            {page.definitionTitle}
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-slate-600">
+            {page.definition}
+          </p>
+        </article>
+
+        <article className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+          <h2 className="text-xl font-semibold text-slate-950">
+            {page.modelTitle}
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-slate-600">
+            {page.modelBody}
+          </p>
+        </article>
+      </section>
+
+      <section className="grid gap-4 lg:grid-cols-2">
+        <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="flex items-center gap-2">
+            <BadgeCheck className="h-5 w-5 text-emerald-800" />
+            <h2 className="text-xl font-semibold text-slate-950">
+              {page.factTitle}
+            </h2>
+          </div>
+          <ul className="mt-5 space-y-3">
+            {page.facts.map((fact) => (
+              <li key={fact} className="flex gap-3 text-sm leading-7 text-slate-700">
+                <CheckCircle2
+                  className="mt-1 h-4 w-4 shrink-0 text-emerald-800"
+                  aria-hidden="true"
+                />
+                <span>{fact}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-5 flex flex-wrap gap-3 text-sm">
+            <a
+              href={SITE.deepseekGuide}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 font-semibold text-emerald-900 hover:text-emerald-700"
+            >
+              Reasonix docs
+              <ExternalLink className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a
+              href={SITE.deepseekV4Release}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 font-semibold text-emerald-900 hover:text-emerald-700"
+            >
+              DeepSeek V4 release
+              <ExternalLink className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+
+        <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="flex items-center gap-2">
+            <CheckCircle2 className="h-5 w-5 text-emerald-800" />
+            <h2 className="text-xl font-semibold text-slate-950">
+              {page.stepsTitle}
+            </h2>
+          </div>
+          <ol className="mt-5 space-y-4">
+            {page.steps.map((step, index) => (
+              <li key={step} className="flex gap-3">
+                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-emerald-950 text-xs font-semibold text-white">
+                  {index + 1}
+                </span>
+                <span className="text-sm leading-7 text-slate-700">
+                  {step}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="flex items-center gap-2">
+          <Terminal className="h-5 w-5 text-emerald-800" />
+          <h2 className="text-xl font-semibold text-slate-950">
+            {page.commandTitle}
+          </h2>
+        </div>
+        <CopyCommandBlock command={page.command} locale={locale} />
+      </section>
+
+      <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="mb-5 flex items-center gap-2">
+          <CircleHelp className="h-5 w-5 text-emerald-800" />
+          <h2 className="text-xl font-semibold text-slate-950">
+            {page.faqTitle}
+          </h2>
+        </div>
+        <div className="grid gap-3 md:grid-cols-3">
+          {page.faqs.map((faq) => (
+            <article
+              key={faq.question}
+              className="rounded-lg border border-slate-200 bg-slate-50 p-4"
+            >
+              <h3 className="text-sm font-semibold leading-6 text-slate-950">
+                {faq.question}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                {faq.answer}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="rounded-lg border border-emerald-200 bg-emerald-50 p-5 shadow-sm">
+        <h2 className="text-xl font-semibold text-emerald-950">
+          {page.ctaTitle}
+        </h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-emerald-900">
+          {page.ctaBody}
+        </p>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <a
+            href={SITE.deepseekGuide}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-emerald-950 px-4 py-3 text-sm font-semibold text-white transition hover:bg-emerald-900"
+          >
+            {page.ctaLabel}
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
+          </a>
+          <Link
+            href={localizePath(locale, "/deepseek")}
+            className="inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-white px-4 py-3 text-sm font-semibold text-emerald-950 transition hover:border-emerald-300"
+          >
+            {content.pages.deepseek.eyebrow}
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+
+      <SeoLandingLinks
+        locale={locale}
+        eyebrow={content.pages.home.seoClusterEyebrow}
+        title={page.relatedTitle}
+        description={content.pages.home.seoClusterDescription}
+        currentPath={page.path}
+      />
     </div>
   );
 }
@@ -1086,136 +1335,18 @@ export function PrivacyProtectionPageContent({ locale }: LocalizedPageProps) {
 }
 
 export function CommunityPageContent({ locale }: LocalizedPageProps) {
-  const content = getContent(locale);
-  const page = content.pages.community;
-  const isGiscusConfigured = [
-    GISCUS.repo,
-    GISCUS.repoId,
-    GISCUS.category,
-    GISCUS.categoryId,
-  ].every(Boolean);
-  const discussionsHref = GISCUS.repo
-    ? `https://github.com/${GISCUS.repo}/discussions`
-    : null;
+  return <CommunityBoard locale={locale} />;
+}
 
-  return (
-    <div className="space-y-8">
-      <section>
-        <div className="mb-4 inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-900">
-          <GitBranch className="h-4 w-4" aria-hidden="true" />
-          {page.eyebrow}
-        </div>
-        <h1 className="max-w-3xl text-3xl font-semibold leading-tight text-slate-950 sm:text-4xl">
-          {page.title}
-        </h1>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-          {page.description}
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          {discussionsHref ? (
-            <a
-              href={discussionsHref}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-emerald-950 px-4 py-3 text-sm font-semibold text-white transition hover:bg-emerald-900"
-            >
-              {page.discussionsCta}
-              <ExternalLink className="h-4 w-4" aria-hidden="true" />
-            </a>
-          ) : null}
-          <Link
-            href={localizePath(locale, "/articles")}
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:text-slate-950"
-          >
-            {page.commentsCta}
-            <GitBranch className="h-4 w-4" aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
+export function CommunityNewPageContent({ locale }: LocalizedPageProps) {
+  return <CommunityQuestionForm locale={locale} />;
+}
 
-      <section className="grid gap-4 lg:grid-cols-3">
-        {content.communitySteps.map((step) => (
-          <article
-            key={step.title}
-            className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
-          >
-            <h2 className="text-lg font-semibold text-slate-950">
-              {step.title}
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-slate-600">{step.body}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="grid gap-4 lg:grid-cols-[1fr_0.9fr]">
-        <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-950">
-            {page.rulesTitle}
-          </h2>
-          <ul className="mt-5 space-y-3">
-            {content.communityRules.map((rule) => (
-              <li key={rule} className="flex gap-3">
-                <ShieldCheck
-                  className="mt-1 h-5 w-5 shrink-0 text-emerald-800"
-                  aria-hidden="true"
-                />
-                <span className="text-sm leading-7 text-slate-700">
-                  {rule}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="rounded-lg border border-amber-200 bg-amber-50 p-5">
-          <h2 className="text-xl font-semibold text-amber-950">
-            {page.configTitle}
-          </h2>
-          <p className="mt-3 text-sm leading-6 text-amber-900">
-            {page.configBodyBeforeRepo}{" "}
-            <span className="font-semibold">{GISCUS.recommendedRepo}</span>{" "}
-            {page.configBodyAfterRepo}
-          </p>
-          <div className="mt-5 rounded-lg bg-white/75 p-4">
-            <div className="flex items-center justify-between gap-3">
-              <span className="text-sm font-semibold text-slate-950">
-                {page.statusLabel}
-              </span>
-              <span
-                className={[
-                  "rounded-md px-2 py-1 text-xs font-semibold",
-                  isGiscusConfigured
-                    ? "bg-emerald-100 text-emerald-900"
-                    : "bg-slate-100 text-slate-600",
-                ].join(" ")}
-              >
-                {isGiscusConfigured ? page.configuredLabel : page.pendingLabel}
-              </span>
-            </div>
-            <ul className="mt-4 space-y-2">
-              {giscusEnvVars.map((name) => (
-                <li
-                  key={name}
-                  className="rounded-md bg-slate-950 px-3 py-2 font-mono text-xs text-emerald-200"
-                >
-                  {name}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <a
-            href="https://giscus.app/"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-5 inline-flex items-center gap-2 rounded-lg bg-amber-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-800"
-          >
-            {page.configuratorLabel}
-            <ExternalLink className="h-4 w-4" aria-hidden="true" />
-          </a>
-        </div>
-      </section>
-    </div>
-  );
+export function CommunityQuestionPageContent({
+  locale,
+  slug,
+}: ArticlePageProps) {
+  return <CommunityQuestionDetail locale={locale} slug={slug} />;
 }
 
 export function NotFoundContent({ locale }: LocalizedPageProps) {
@@ -1272,6 +1403,19 @@ export function LocalizedRoutePage({
     return <CommunityPageContent locale={locale} />;
   }
 
+  if (normalizedPath === "/community/new") {
+    return <CommunityNewPageContent locale={locale} />;
+  }
+
+  if (normalizedPath.startsWith("/community/")) {
+    return (
+      <CommunityQuestionPageContent
+        locale={locale}
+        slug={normalizedPath.slice("/community/".length)}
+      />
+    );
+  }
+
   if (normalizedPath === "/faq") {
     return <FaqPageContent locale={locale} />;
   }
@@ -1286,6 +1430,10 @@ export function LocalizedRoutePage({
 
   if (normalizedPath === "/deepseek") {
     return <DeepSeekPageContent locale={locale} />;
+  }
+
+  if (getSeoLandingPage(locale, normalizedPath)) {
+    return <SeoLandingPageContent locale={locale} path={normalizedPath} />;
   }
 
   if (normalizedPath === "/news") {
