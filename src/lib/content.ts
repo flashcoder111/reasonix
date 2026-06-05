@@ -1660,17 +1660,14 @@ export const contentByLocale = {
       },
       login: {
         metaTitle: "Reasonix login with Clerk",
-        metaDescription:
-          "Sign in to Reasonix with Clerk while keeping DeepSeek API keys local to Reasonix CLI setup.",
+        metaDescription: "Sign in to Reasonix with Clerk.",
         eyebrow: "Clerk authentication",
-        title: "Keep Reasonix login separate from DeepSeek API keys",
-        description:
-          "Use Clerk only for the Reasonix session. Configure DeepSeek API keys separately in your local Reasonix CLI.",
-        safetyTitle: "Safe default",
-        safetyBodyBeforeLink:
-          "Do not put a DeepSeek API key into a public repository, screenshot, or bug report. When you need a key, open DeepSeek Platform directly:",
+        title: "Sign in to Reasonix with Clerk",
+        description: "Use Clerk for the Reasonix site session.",
+        safetyTitle: "Clerk authentication",
+        safetyBodyBeforeLink: "Clerk handles the Reasonix site account:",
         safetyBodyAfterLink: ".",
-        safetyLinkLabel: "API Keys",
+        safetyLinkLabel: "Clerk",
       },
       community: {
         metaTitle: "Reasonix community discussion",
@@ -2181,17 +2178,14 @@ export const contentByLocale = {
       },
       login: {
         metaTitle: "Reasonix Clerk 登录",
-        metaDescription:
-          "使用 Clerk 登录 Reasonix，同时将 DeepSeek API Key 保留在本机 Reasonix CLI 配置中。",
+        metaDescription: "使用 Clerk 登录 Reasonix。",
         eyebrow: "Clerk 登录",
-        title: "把 Reasonix 登录和 DeepSeek API Key 分开",
-        description:
-          "你只用 Clerk 处理 Reasonix 页面会话。DeepSeek API Key 仍在本机 Reasonix CLI 中单独配置。",
-        safetyTitle: "安全默认值",
-        safetyBodyBeforeLink:
-          "不要把 DeepSeek API Key 写进公开仓库、截图或报错贴。需要创建 Key 时直接打开 DeepSeek Platform：",
+        title: "使用 Clerk 登录 Reasonix",
+        description: "通过 Clerk 处理 Reasonix 页面会话。",
+        safetyTitle: "Clerk 登录",
+        safetyBodyBeforeLink: "Clerk 处理 Reasonix 站内账号：",
         safetyBodyAfterLink: "。",
-        safetyLinkLabel: "API Keys",
+        safetyLinkLabel: "Clerk",
       },
       community: {
         metaTitle: "Reasonix 社区讨论",
@@ -2699,17 +2693,14 @@ export const contentByLocale = {
       },
       login: {
         metaTitle: "Reasonix Clerk 登入",
-        metaDescription:
-          "使用 Clerk 登入 Reasonix，同時將 DeepSeek API Key 保留在本機 Reasonix CLI 設定中。",
+        metaDescription: "使用 Clerk 登入 Reasonix。",
         eyebrow: "Clerk 登入",
-        title: "把 Reasonix 登入和 DeepSeek API Key 分開",
-        description:
-          "你只用 Clerk 處理 Reasonix 頁面會話。DeepSeek API Key 仍在本機 Reasonix CLI 中單獨設定。",
-        safetyTitle: "安全預設值",
-        safetyBodyBeforeLink:
-          "不要把 DeepSeek API Key 寫進公開倉庫、截圖或報錯貼。需要建立 Key 時直接開啟 DeepSeek Platform：",
+        title: "使用 Clerk 登入 Reasonix",
+        description: "透過 Clerk 處理 Reasonix 頁面會話。",
+        safetyTitle: "Clerk 登入",
+        safetyBodyBeforeLink: "Clerk 處理 Reasonix 站內帳號：",
         safetyBodyAfterLink: "。",
-        safetyLinkLabel: "API Keys",
+        safetyLinkLabel: "Clerk",
       },
       community: {
         metaTitle: "Reasonix 社群討論",
@@ -3210,17 +3201,14 @@ export const contentByLocale = {
       },
       login: {
         metaTitle: "Reasonix login with Clerk",
-        metaDescription:
-          "Войдите в Reasonix через Clerk, сохраняя DeepSeek API key в локальной настройке Reasonix CLI.",
+        metaDescription: "Войдите в Reasonix через Clerk.",
         eyebrow: "Clerk authentication",
-        title: "Держите вход Reasonix отдельно от DeepSeek API keys",
-        description:
-          "Используйте Clerk только для сессии Reasonix. DeepSeek API keys настраиваются отдельно в локальном Reasonix CLI.",
-        safetyTitle: "Безопасный режим по умолчанию",
-        safetyBodyBeforeLink:
-          "Не помещайте DeepSeek API key в публичный репозиторий, скриншот или bug report. Чтобы создать ключ, откройте DeepSeek Platform напрямую:",
+        title: "Sign in to Reasonix with Clerk",
+        description: "Use Clerk for the Reasonix site session.",
+        safetyTitle: "Clerk authentication",
+        safetyBodyBeforeLink: "Clerk handles the Reasonix site account:",
         safetyBodyAfterLink: ".",
-        safetyLinkLabel: "API Keys",
+        safetyLinkLabel: "Clerk",
       },
       community: {
         metaTitle: "Reasonix community discussion",
