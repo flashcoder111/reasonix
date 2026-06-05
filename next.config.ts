@@ -21,6 +21,17 @@ const nextConfig: NextConfig = {
         destination: "https://www.deepseekreasonix.com/:path*",
         permanent: true,
       },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "reasonix(?:-[a-z0-9-]+)?\\.vercel\\.app",
+          },
+        ],
+        destination: "https://www.deepseekreasonix.com/:path*",
+        permanent: true,
+      },
     ];
 
     const articleRedirects = [
