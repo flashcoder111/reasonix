@@ -2,18 +2,18 @@ import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n";
 import {
   getAbsoluteLocalizedUrl,
-  getAllPagePaths,
+  getIndexablePagePaths,
   getRouteAlternateUrls,
   getRouteChangeFrequency,
+  getRouteLastModified,
   getRoutePriority,
 } from "@/lib/routes";
-import { SITE } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((locale) =>
-    getAllPagePaths(locale).map((path) => ({
+    getIndexablePagePaths(locale).map((path) => ({
       url: getAbsoluteLocalizedUrl(locale, path),
-      lastModified: new Date(SITE.checkedAt),
+      lastModified: getRouteLastModified(path),
       changeFrequency: getRouteChangeFrequency(path),
       priority: getRoutePriority(path),
       alternates: {

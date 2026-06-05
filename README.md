@@ -8,7 +8,7 @@ Reasonix is a Chinese information site for Reasonix, built with Next.js App Rout
 - `/articles` — deep comparison articles
 - `/articles/[slug]` — static article detail pages
 - `/login`, `/community`, `/community/new`, `/faq`, `/github`, `/errors`, `/deepseek`, `/news`
-- `/privacy`, `/privacy-protection` — privacy agreement, privacy safeguards, and official account verification
+- `/about`, `/contact`, `/terms`, `/privacy`, `/privacy-protection` — AdSense trust pages, legal terms, privacy agreement, safeguards, and official account verification
 
 ## Local development
 
@@ -17,6 +17,10 @@ npm run dev
 ```
 
 Open `http://localhost:3000`.
+
+The production canonical host is `https://www.deepseekreasonix.com`. Keep
+`NEXT_PUBLIC_SITE_URL` aligned with that host unless DNS and TLS for the apex
+domain are fully configured.
 
 ## Community Q&A
 
