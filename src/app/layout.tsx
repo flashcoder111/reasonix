@@ -15,7 +15,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = getDefaultRouteMetadata("/");
+const defaultMetadata = getDefaultRouteMetadata("/");
+
+export const metadata: Metadata = {
+  ...defaultMetadata,
+  other: {
+    ...defaultMetadata.other,
+    "google-adsense-account": "ca-pub-9068083570091757",
+  },
+};
 
 export default function RootLayout({
   children,
