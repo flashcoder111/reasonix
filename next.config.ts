@@ -34,6 +34,14 @@ const nextConfig: NextConfig = {
       },
     ];
 
+    const clerkRedirects = [
+      {
+        source: "/__clerk/:path*",
+        destination: "https://clerk.deepseekreasonix.com/:path*",
+        permanent: false,
+      },
+    ];
+
     const articleRedirects = [
       [
         "reasonix-claude-codex-opencode-comparison",
@@ -58,6 +66,7 @@ const nextConfig: NextConfig = {
     ];
 
     return [
+      ...clerkRedirects,
       ...domainRedirects,
       ...articleRedirects.flatMap(([from, to]) => [
         {

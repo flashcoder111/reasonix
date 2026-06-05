@@ -10,17 +10,12 @@ function passthroughProxy() {
 }
 
 export default hasClerkMiddlewareKeys
-  ? clerkMiddleware({
-      frontendApiProxy: {
-        enabled: true,
-      },
-    })
+  ? clerkMiddleware()
   : passthroughProxy;
 
 export const config = {
   matcher: [
     "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|txt|xml|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
     "/(api|trpc)(.*)",
-    "/__clerk/(.*)",
   ],
 };
