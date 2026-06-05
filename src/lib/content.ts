@@ -13,7 +13,7 @@ export const SITE = {
   description:
     "Use this Reasonix guide to verify DeepSeek coding agent setup, DeepSeek code workflows, DeepSeek V4 agent choices, GitHub downloads, CLI errors, and privacy boundaries before running commands.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-05",
+  checkedAt: "2026-06-06",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -300,35 +300,35 @@ const sharedSources = [
   { label: "npm package", href: "https://www.npmjs.com/package/reasonix" },
   {
     label: "Desktop release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
   },
 ] as const;
 
 const sharedIssueWatch = [
   {
-    id: "#3112",
-    title: "Latest Windows desktop build has a display issue",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3112",
+    id: "#3291",
+    title: "Intermittent no-reply turns after thinking completes",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3291",
   },
   {
-    id: "#3111",
-    title: "Custom slash dispatch passes expanded text as raw input",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3111",
+    id: "#3290",
+    title: "Desktop send latency can delay visible messages by 30-60 seconds",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3290",
   },
   {
-    id: "#3109",
-    title: "Repeated write_file and edit_file prompts in one session",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3109",
+    id: "#3274",
+    title: "Tool permission prompts keep repeating during use",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3274",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "17.9k", note: "GitHub repo page, 2026-06-05" },
-  { label: "Forks", value: "1.1k", note: "GitHub repo page, 2026-06-05" },
+  { label: "GitHub stars", value: "18.4k", note: "GitHub repo page, 2026-06-06" },
+  { label: "Forks", value: "1.1k", note: "GitHub repo page, 2026-06-06" },
   {
     label: "Open items",
-    value: "593",
-    note: "508 issues + 85 pull requests on GitHub repo page, 2026-06-05",
+    value: "184",
+    note: "136 issues + 48 pull requests on GitHub repo page, 2026-06-06",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1411,10 +1411,10 @@ export const contentByLocale = {
         title: "Desktop release assets",
         tag: "Desktop package",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
         description:
-          "The latest public desktop release is desktop-v1.1.0, with macOS zip, Linux tar.gz, Windows installer, latest.json, and minisig signature assets.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+          "The latest public desktop release is desktop-v1.2.1, with multi-platform desktop archives, latest.json, and minisig signature assets.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
       },
     ],
     loginSteps: [
@@ -1593,9 +1593,9 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
-        date: "2026-06-03",
-        title: "DeepSeek Reasonix GitHub passes 17k stars",
-        body: "The GitHub API showed DeepSeek Reasonix at 17,218 stars, 1,016 forks, 524 open items, and main-v2 as the default branch for esengine/DeepSeek-Reasonix.",
+        date: "2026-06-06",
+        title: "DeepSeek Reasonix GitHub passes 18k stars",
+        body: "The GitHub repo page showed DeepSeek Reasonix at 18.4k stars, 1.1k forks, 184 open items, and main-v2 as the default branch for esengine/DeepSeek-Reasonix on June 6.",
         href: SITE.github,
       },
       {
@@ -1605,10 +1605,10 @@ export const contentByLocale = {
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
-        date: "2026-06-04",
-        title: "desktop-v1.1.0 becomes the latest public desktop release",
-        body: "GitHub marked Reasonix Desktop v1.1.0 as the latest release on June 4, with fixes for setup, config migration, tool resolution, desktop UX, and Windows packaging in the published changelog.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+        date: "2026-06-05",
+        title: "desktop-v1.2.1 becomes the latest public desktop release",
+        body: "GitHub marked Reasonix Desktop v1.2.1 as the latest release on June 5, highlighting fixes for Windows update overwrite behavior and the macOS system tray startup path.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
       },
       {
         date: "2026-06-02",
@@ -1701,7 +1701,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub repository, npx start path, npm latest and next tags, main-v2 source build, and desktop-v1.1.0 multi-platform release links.",
+          "Reasonix GitHub repository, npx start path, npm latest and next tags, main-v2 source build, and desktop-v1.2.1 multi-platform release links.",
         eyebrow: "GitHub downloads",
         title: "Reasonix download paths: npx, main-v2 source, and desktop release",
         descriptionBeforeLink: "The official repository is",
@@ -1739,7 +1739,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix news",
         metaDescription:
-          "Reasonix news covering main-v2 commits, GitHub popularity, npm latest, desktop-v1.1.0 release, and DeepSeek official listing.",
+          "Reasonix news covering main-v2 commits, GitHub popularity, npm latest, desktop-v1.2.1 release, and DeepSeek official listing.",
         eyebrow: "News",
         title: "Reasonix news brief",
         description:
@@ -1923,10 +1923,10 @@ export const contentByLocale = {
         title: "桌面版 release 资产",
         tag: "桌面安装包",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.1.0，包含 macOS zip、Linux tar.gz、Windows installer、latest.json 和 minisig 签名资产。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+          "GitHub 最新公开桌面 release 为 desktop-v1.2.1，包含多平台桌面安装包、latest.json 和 minisig 签名资产。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
       },
     ],
     loginSteps: [
@@ -2105,9 +2105,9 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
-        date: "2026-06-03",
-        title: "DeepSeek Reasonix GitHub 热度突破 17k stars",
-        body: "GitHub API 显示 DeepSeek Reasonix 项目 esengine/DeepSeek-Reasonix 有 17,218 stars、1,016 forks、524 open items，默认分支为 main-v2。",
+        date: "2026-06-06",
+        title: "DeepSeek Reasonix GitHub 热度突破 18k stars",
+        body: "GitHub repo 页面在 6 月 6 日显示，DeepSeek Reasonix 项目 esengine/DeepSeek-Reasonix 有 18.4k stars、1.1k forks、184 open items，默认分支为 main-v2。",
         href: SITE.github,
       },
       {
@@ -2117,10 +2117,10 @@ export const contentByLocale = {
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
-        date: "2026-06-04",
-        title: "desktop-v1.1.0 成为最新公开桌面版 release",
-        body: "GitHub 在 6 月 4 日把 Reasonix Desktop v1.1.0 标记为最新 release；发布日志列出 setup、配置迁移、工具解析、桌面交互和 Windows 打包修复。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+        date: "2026-06-05",
+        title: "desktop-v1.2.1 成为最新公开桌面版 release",
+        body: "GitHub 在 6 月 5 日把 Reasonix Desktop v1.2.1 标记为最新 release；发布日志重点写到 Windows 更新覆盖当前安装和 macOS 系统托盘启动修复。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
       },
       {
         date: "2026-06-02",
@@ -2130,11 +2130,11 @@ export const contentByLocale = {
       },
     ],
     issueWatch: [
-      { ...sharedIssueWatch[0], title: "最新 Windows 桌面版出现显示问题" },
-      { ...sharedIssueWatch[1], title: "自定义斜杠命令把展开内容当成原始输入" },
+      { ...sharedIssueWatch[0], title: "思考结束后偶发只思考不回复" },
+      { ...sharedIssueWatch[1], title: "桌面端发送消息后可能延迟 30 到 60 秒才显示" },
       {
         ...sharedIssueWatch[2],
-        title: "同一会话反复弹出 write_file 和 edit_file 授权",
+        title: "tools use 期间权限弹窗可能反复出现",
       },
     ],
     sourceLinks: sharedSources,
@@ -2219,7 +2219,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 仓库、npx 启动、npm latest 与 next、main-v2 源码构建和 desktop-v1.1.0 多平台安装包入口。",
+          "Reasonix GitHub 仓库、npx 启动、npm latest 与 next、main-v2 源码构建和 desktop-v1.2.1 多平台安装包入口。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载路径：npx、main-v2 源码和桌面 release",
         descriptionBeforeLink: "官方仓库地址为",
@@ -2254,7 +2254,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix 新闻",
         metaDescription:
-          "Reasonix 最新新闻：main-v2 提交、GitHub 热度、npm latest、desktop-v1.1.0 release 和 DeepSeek 官方收录。",
+          "Reasonix 最新新闻：main-v2 提交、GitHub 热度、npm latest、desktop-v1.2.1 release 和 DeepSeek 官方收录。",
         eyebrow: "新闻",
         title: "Reasonix 新闻速览",
         description:
@@ -2438,10 +2438,10 @@ export const contentByLocale = {
         title: "桌面版 release 資產",
         tag: "桌面安裝包",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.1.0，包含 macOS zip、Linux tar.gz、Windows installer、latest.json 和 minisig 簽名資產。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+          "GitHub 最新公開桌面 release 為 desktop-v1.2.1，包含多平台桌面安裝包、latest.json 和 minisig 簽名資產。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
       },
     ],
     loginSteps: [
@@ -2620,9 +2620,9 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
-        date: "2026-06-03",
-        title: "DeepSeek Reasonix GitHub 熱度突破 17k stars",
-        body: "GitHub API 顯示 DeepSeek Reasonix 專案 esengine/DeepSeek-Reasonix 有 17,218 stars、1,016 forks、524 open items，預設分支為 main-v2。",
+        date: "2026-06-06",
+        title: "DeepSeek Reasonix GitHub 熱度突破 18k stars",
+        body: "GitHub repo 頁面在 6 月 6 日顯示，DeepSeek Reasonix 專案 esengine/DeepSeek-Reasonix 有 18.4k stars、1.1k forks、184 open items，預設分支為 main-v2。",
         href: SITE.github,
       },
       {
@@ -2632,10 +2632,10 @@ export const contentByLocale = {
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
-        date: "2026-06-04",
-        title: "desktop-v1.1.0 成為最新公開桌面版 release",
-        body: "GitHub 在 6 月 4 日把 Reasonix Desktop v1.1.0 標記為最新 release；發布說明列出 setup、設定遷移、工具解析、桌面互動和 Windows 打包修復。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+        date: "2026-06-05",
+        title: "desktop-v1.2.1 成為最新公開桌面版 release",
+        body: "GitHub 在 6 月 5 日把 Reasonix Desktop v1.2.1 標記為最新 release；發布說明重點寫到 Windows 更新覆蓋目前安裝與 macOS 系統托盤啟動修復。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
       },
       {
         date: "2026-06-02",
@@ -2645,11 +2645,11 @@ export const contentByLocale = {
       },
     ],
     issueWatch: [
-      { ...sharedIssueWatch[0], title: "最新 Windows 桌面版出現顯示問題" },
-      { ...sharedIssueWatch[1], title: "自訂斜線命令把展開內容當成原始輸入" },
+      { ...sharedIssueWatch[0], title: "思考結束後偶發只思考不回覆" },
+      { ...sharedIssueWatch[1], title: "桌面端送出訊息後可能延遲 30 到 60 秒才顯示" },
       {
         ...sharedIssueWatch[2],
-        title: "同一會話反覆跳出 write_file 和 edit_file 授權",
+        title: "tools use 期間權限彈窗可能反覆出現",
       },
     ],
     sourceLinks: sharedSources,
@@ -2734,7 +2734,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 倉庫、npx 啟動、npm latest 與 next、main-v2 原始碼建置和 desktop-v1.1.0 多平台安裝包入口。",
+          "Reasonix GitHub 倉庫、npx 啟動、npm latest 與 next、main-v2 原始碼建置和 desktop-v1.2.1 多平台安裝包入口。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載路徑：npx、main-v2 原始碼和桌面 release",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -2769,7 +2769,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix 新聞",
         metaDescription:
-          "Reasonix 最新新聞：main-v2 提交、GitHub 熱度、npm latest、desktop-v1.1.0 release 和 DeepSeek 官方收錄。",
+          "Reasonix 最新新聞：main-v2 提交、GitHub 熱度、npm latest、desktop-v1.2.1 release 和 DeepSeek 官方收錄。",
         eyebrow: "新聞",
         title: "Reasonix 新聞速覽",
         description:
@@ -2953,10 +2953,10 @@ export const contentByLocale = {
         title: "Desktop release assets",
         tag: "Desktop пакет",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
         description:
-          "Последний публичный desktop release - desktop-v1.1.0 с macOS zip, Linux tar.gz, Windows installer, latest.json и minisig signatures.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+          "Последний публичный desktop release - desktop-v1.2.1 с multi-platform desktop archives, latest.json и minisig signatures.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
       },
     ],
     loginSteps: [
@@ -3135,9 +3135,9 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
-        date: "2026-06-03",
-        title: "DeepSeek Reasonix на GitHub прошел 17k stars",
-        body: "GitHub API показал DeepSeek Reasonix с 17,218 stars, 1,016 forks, 524 open items и main-v2 как default branch для esengine/DeepSeek-Reasonix.",
+        date: "2026-06-06",
+        title: "DeepSeek Reasonix на GitHub прошел 18k stars",
+        body: "Страница GitHub repo на 6 июня показала DeepSeek Reasonix с 18.4k stars, 1.1k forks, 184 open items и main-v2 как default branch для esengine/DeepSeek-Reasonix.",
         href: SITE.github,
       },
       {
@@ -3147,10 +3147,10 @@ export const contentByLocale = {
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
-        date: "2026-06-04",
-        title: "desktop-v1.1.0 стал последним публичным desktop release",
-        body: "GitHub пометил Reasonix Desktop v1.1.0 как latest release 4 июня; changelog перечисляет fixes для setup, миграции конфига, tool resolution, desktop UX и Windows packaging.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.1.0",
+        date: "2026-06-05",
+        title: "desktop-v1.2.1 стал последним публичным desktop release",
+        body: "GitHub пометил Reasonix Desktop v1.2.1 как latest release 5 июня; changelog выделяет fixes для перезаписи текущей установки на Windows и запуска system tray на macOS.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
       },
       {
         date: "2026-06-02",
@@ -3242,7 +3242,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub загрузки",
         metaDescription:
-          "GitHub репозиторий Reasonix, запуск через npx, npm latest и next tags, source build main-v2 и multi-platform desktop-v1.1.0 release.",
+          "GitHub репозиторий Reasonix, запуск через npx, npm latest и next tags, source build main-v2 и multi-platform desktop-v1.2.1 release.",
         eyebrow: "GitHub загрузки",
         title: "Как получить Reasonix: npx, main-v2 source и desktop release",
         descriptionBeforeLink: "Официальный репозиторий:",
@@ -3280,7 +3280,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Новости Reasonix",
         metaDescription:
-          "Новости Reasonix: commits main-v2, GitHub popularity, npm latest, desktop-v1.1.0 release и официальный листинг DeepSeek.",
+          "Новости Reasonix: commits main-v2, GitHub popularity, npm latest, desktop-v1.2.1 release и официальный листинг DeepSeek.",
         eyebrow: "Новости",
         title: "Краткие новости Reasonix",
         description:
