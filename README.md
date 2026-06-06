@@ -22,6 +22,10 @@ The production canonical host is `https://www.deepseekreasonix.com`. Keep
 `NEXT_PUBLIC_SITE_URL` aligned with that host unless DNS and TLS for the apex
 domain are fully configured.
 
+GA4 is enabled through the Google tag in the root layout. The default
+measurement ID is `G-TE1DZDDZYC`; set `NEXT_PUBLIC_GA_MEASUREMENT_ID` if the
+property changes.
+
 ## Community Q&A
 
 The community page is a site-owned Q&A board. Clerk handles the site session, while Supabase Postgres stores public questions and replies.
