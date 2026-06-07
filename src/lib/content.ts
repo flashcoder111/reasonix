@@ -13,7 +13,7 @@ export const SITE = {
   description:
     "Use this Reasonix guide to verify DeepSeek coding agent setup, DeepSeek code workflows, DeepSeek V4 agent choices, GitHub downloads, CLI errors, and privacy boundaries before running commands.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-06",
+  checkedAt: "2026-06-07",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -295,40 +295,44 @@ const sharedSources = [
     label: "GitHub commits",
     href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
   },
-  { label: "DeepSeek official guide", href: SITE.deepseekGuide },
-  { label: "DeepSeek V4 release", href: SITE.deepseekV4Release },
-  { label: "npm package", href: "https://www.npmjs.com/package/reasonix" },
+  {
+    label: "CLI prerelease",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0-rc.1",
+  },
   {
     label: "Desktop release",
     href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
   },
+  { label: "DeepSeek official guide", href: SITE.deepseekGuide },
+  { label: "DeepSeek V4 release", href: SITE.deepseekV4Release },
+  { label: "npm package", href: "https://www.npmjs.com/package/reasonix" },
 ] as const;
 
 const sharedIssueWatch = [
   {
-    id: "#3291",
-    title: "Intermittent no-reply turns after thinking completes",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3291",
+    id: "#3406",
+    title: "Collapse button behaves unexpectedly",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3406",
   },
   {
-    id: "#3290",
-    title: "Desktop send latency can delay visible messages by 30-60 seconds",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3290",
+    id: "#3395",
+    title: "Tray menu can misbehave after long desktop sessions",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3395",
   },
   {
-    id: "#3274",
-    title: "Tool permission prompts keep repeating during use",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3274",
+    id: "#3394",
+    title: "Final reply can be misplaced into the thinking pane",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3394",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "18.4k", note: "GitHub repo page, 2026-06-06" },
-  { label: "Forks", value: "1.1k", note: "GitHub repo page, 2026-06-06" },
+  { label: "GitHub stars", value: "19k", note: "GitHub repo page, 2026-06-07" },
+  { label: "Forks", value: "1.1k", note: "GitHub repo page, 2026-06-07" },
   {
     label: "Open items",
-    value: "184",
-    note: "136 issues + 48 pull requests on GitHub repo page, 2026-06-06",
+    value: "201",
+    note: "168 issues + 33 pull requests on GitHub repo page, 2026-06-07",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1587,16 +1591,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-02",
-        title: "Reasonix main-v2 CLI adds grep, .gitignore, and interruptible bash",
-        body: "Reasonix main-v2 GitHub commits on June 2 show native grep, GBK/GB18030 encoding support, and interruptible bash live streamed output changes.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
-      },
-      {
-        date: "2026-06-06",
-        title: "DeepSeek Reasonix GitHub passes 18k stars",
-        body: "The GitHub repo page showed DeepSeek Reasonix at 18.4k stars, 1.1k forks, 184 open items, and main-v2 as the default branch for esengine/DeepSeek-Reasonix on June 6.",
-        href: SITE.github,
+        date: "2026-06-05",
+        title: "Reasonix CLI v1.2.0-rc.1 appears on GitHub releases",
+        body: "The GitHub releases and tags pages published Reasonix CLI v1.2.0-rc.1 on June 5, giving the Go-based main-v2 line a newer prerelease checkpoint beyond v1.1.0.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0-rc.1",
       },
       {
         date: "2026-06-04",
@@ -1609,6 +1607,12 @@ export const contentByLocale = {
         title: "desktop-v1.2.1 becomes the latest public desktop release",
         body: "GitHub marked Reasonix Desktop v1.2.1 as the latest release on June 5, highlighting fixes for Windows update overwrite behavior and the macOS system tray startup path.",
         href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+      },
+      {
+        date: "2026-06-02",
+        title: "Reasonix main-v2 CLI adds grep, .gitignore, and interruptible bash",
+        body: "Reasonix main-v2 GitHub commits on June 2 show native grep, GBK/GB18030 encoding support, and interruptible bash live streamed output changes.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
         date: "2026-06-02",
@@ -2099,16 +2103,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-02",
-        title: "Reasonix main-v2 CLI 新增 grep、.gitignore 与 bash 流式中断能力",
-        body: "Reasonix main-v2 的 GitHub commits 显示 6 月 2 日连续合入原生 grep、GBK/GB18030 编码支持、interruptible bash live streamed output 等改动。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
-      },
-      {
-        date: "2026-06-06",
-        title: "DeepSeek Reasonix GitHub 热度突破 18k stars",
-        body: "GitHub repo 页面在 6 月 6 日显示，DeepSeek Reasonix 项目 esengine/DeepSeek-Reasonix 有 18.4k stars、1.1k forks、184 open items，默认分支为 main-v2。",
-        href: SITE.github,
+        date: "2026-06-05",
+        title: "Reasonix CLI v1.2.0-rc.1 已出现在 GitHub releases",
+        body: "GitHub 的 releases 与 tags 页面在 6 月 5 日都列出了 Reasonix CLI v1.2.0-rc.1，让基于 Go 的 main-v2 线在 v1.1.0 之后出现新的预发布检查点。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0-rc.1",
       },
       {
         date: "2026-06-04",
@@ -2124,17 +2122,23 @@ export const contentByLocale = {
       },
       {
         date: "2026-06-02",
+        title: "Reasonix main-v2 CLI 新增 grep、.gitignore 与 bash 流式中断能力",
+        body: "Reasonix main-v2 的 GitHub commits 显示 6 月 2 日连续合入原生 grep、GBK/GB18030 编码支持、interruptible bash live streamed output 等改动。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
+      {
+        date: "2026-06-02",
         title: "DeepSeek API 文档继续收录 Reasonix",
         body: "DeepSeek API 文档的 Reasonix 页面包含 DeepSeek API Key 和 npx reasonix code 启动路径；运行前应再用 npm 包信息确认当前 Node engine。",
         href: SITE.deepseekGuide,
       },
     ],
     issueWatch: [
-      { ...sharedIssueWatch[0], title: "思考结束后偶发只思考不回复" },
-      { ...sharedIssueWatch[1], title: "桌面端发送消息后可能延迟 30 到 60 秒才显示" },
+      { ...sharedIssueWatch[0], title: "折叠按钮的行为偶尔异常" },
+      { ...sharedIssueWatch[1], title: "桌面端长时间运行后托盘菜单可能异常" },
       {
         ...sharedIssueWatch[2],
-        title: "tools use 期间权限弹窗可能反复出现",
+        title: "最终回复偶尔会被误放进思考栏",
       },
     ],
     sourceLinks: sharedSources,
@@ -2614,16 +2618,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-02",
-        title: "Reasonix main-v2 CLI 新增 grep、.gitignore 與 bash 串流中斷能力",
-        body: "Reasonix main-v2 的 GitHub commits 顯示 6 月 2 日連續合入原生 grep、GBK/GB18030 編碼支援、interruptible bash live streamed output 等改動。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
-      },
-      {
-        date: "2026-06-06",
-        title: "DeepSeek Reasonix GitHub 熱度突破 18k stars",
-        body: "GitHub repo 頁面在 6 月 6 日顯示，DeepSeek Reasonix 專案 esengine/DeepSeek-Reasonix 有 18.4k stars、1.1k forks、184 open items，預設分支為 main-v2。",
-        href: SITE.github,
+        date: "2026-06-05",
+        title: "Reasonix CLI v1.2.0-rc.1 已出現在 GitHub releases",
+        body: "GitHub 的 releases 與 tags 頁面在 6 月 5 日都列出 Reasonix CLI v1.2.0-rc.1，讓基於 Go 的 main-v2 線在 v1.1.0 之後出現新的預發布檢查點。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0-rc.1",
       },
       {
         date: "2026-06-04",
@@ -2639,17 +2637,23 @@ export const contentByLocale = {
       },
       {
         date: "2026-06-02",
+        title: "Reasonix main-v2 CLI 新增 grep、.gitignore 與 bash 串流中斷能力",
+        body: "Reasonix main-v2 的 GitHub commits 顯示 6 月 2 日連續合入原生 grep、GBK/GB18030 編碼支援、interruptible bash live streamed output 等改動。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
+      {
+        date: "2026-06-02",
         title: "DeepSeek API 文件繼續收錄 Reasonix",
         body: "DeepSeek API 文件的 Reasonix 頁面包含 DeepSeek API Key 和 npx reasonix code 啟動路徑；執行前應再用 npm package 資訊確認目前 Node engine。",
         href: SITE.deepseekGuide,
       },
     ],
     issueWatch: [
-      { ...sharedIssueWatch[0], title: "思考結束後偶發只思考不回覆" },
-      { ...sharedIssueWatch[1], title: "桌面端送出訊息後可能延遲 30 到 60 秒才顯示" },
+      { ...sharedIssueWatch[0], title: "摺疊按鈕的行為偶爾異常" },
+      { ...sharedIssueWatch[1], title: "桌面端長時間執行後托盤選單可能異常" },
       {
         ...sharedIssueWatch[2],
-        title: "tools use 期間權限彈窗可能反覆出現",
+        title: "最終回覆偶爾會被誤放進思考欄",
       },
     ],
     sourceLinks: sharedSources,
@@ -3129,16 +3133,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-02",
-        title: "Reasonix main-v2 CLI добавляет grep, .gitignore и interruptible bash",
-        body: "Коммиты Reasonix main-v2 на GitHub от 2 июня показывают native grep, поддержку GBK/GB18030 и interruptible bash live streamed output.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
-      },
-      {
-        date: "2026-06-06",
-        title: "DeepSeek Reasonix на GitHub прошел 18k stars",
-        body: "Страница GitHub repo на 6 июня показала DeepSeek Reasonix с 18.4k stars, 1.1k forks, 184 open items и main-v2 как default branch для esengine/DeepSeek-Reasonix.",
-        href: SITE.github,
+        date: "2026-06-05",
+        title: "Reasonix CLI v1.2.0-rc.1 появился в GitHub releases",
+        body: "Страницы GitHub releases и tags от 5 июня показывают Reasonix CLI v1.2.0-rc.1, что дает Go-ветке main-v2 новый prerelease checkpoint после v1.1.0.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0-rc.1",
       },
       {
         date: "2026-06-04",
@@ -3151,6 +3149,12 @@ export const contentByLocale = {
         title: "desktop-v1.2.1 стал последним публичным desktop release",
         body: "GitHub пометил Reasonix Desktop v1.2.1 как latest release 5 июня; changelog выделяет fixes для перезаписи текущей установки на Windows и запуска system tray на macOS.",
         href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+      },
+      {
+        date: "2026-06-02",
+        title: "Reasonix main-v2 CLI добавляет grep, .gitignore и interruptible bash",
+        body: "Коммиты Reasonix main-v2 на GitHub от 2 июня показывают native grep, поддержку GBK/GB18030 и interruptible bash live streamed output.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
         date: "2026-06-02",
