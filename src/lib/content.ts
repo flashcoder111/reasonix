@@ -296,8 +296,8 @@ const sharedSources = [
     href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
   },
   {
-    label: "CLI prerelease",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0-rc.1",
+    label: "CLI release",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0",
   },
   {
     label: "Desktop release",
@@ -310,18 +310,18 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
+    id: "#3450",
+    title: "Session billing and cache stats reset after reopening desktop TUI",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3450",
+  },
+  {
     id: "#3406",
-    title: "Collapse button behaves unexpectedly",
+    title: "Apple cannot verify Reasonix for malware",
     href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3406",
   },
   {
-    id: "#3395",
-    title: "Tray menu can misbehave after long desktop sessions",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3395",
-  },
-  {
     id: "#3394",
-    title: "Final reply can be misplaced into the thinking pane",
+    title: "Tray menu can misbehave after long desktop sessions",
     href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3394",
   },
 ] as const;
@@ -1592,9 +1592,9 @@ export const contentByLocale = {
     newsItems: [
       {
         date: "2026-06-05",
-        title: "Reasonix CLI v1.2.0-rc.1 appears on GitHub releases",
-        body: "The GitHub releases and tags pages published Reasonix CLI v1.2.0-rc.1 on June 5, giving the Go-based main-v2 line a newer prerelease checkpoint beyond v1.1.0.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0-rc.1",
+        title: "Reasonix CLI v1.2.0 becomes the current GitHub release",
+        body: "The GitHub releases page lists Reasonix CLI v1.2.0 on June 5, replacing the earlier rc.1 checkpoint with a stable main-v2 release entry.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0",
       },
       {
         date: "2026-06-04",
@@ -2104,9 +2104,9 @@ export const contentByLocale = {
     newsItems: [
       {
         date: "2026-06-05",
-        title: "Reasonix CLI v1.2.0-rc.1 已出现在 GitHub releases",
-        body: "GitHub 的 releases 与 tags 页面在 6 月 5 日都列出了 Reasonix CLI v1.2.0-rc.1，让基于 Go 的 main-v2 线在 v1.1.0 之后出现新的预发布检查点。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0-rc.1",
+        title: "Reasonix CLI v1.2.0 已成为当前 GitHub release",
+        body: "GitHub releases 页面在 6 月 5 日列出 Reasonix CLI v1.2.0，用稳定版 release 条目取代了更早出现的 rc.1 预发布检查点。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0",
       },
       {
         date: "2026-06-04",
@@ -2134,11 +2134,14 @@ export const contentByLocale = {
       },
     ],
     issueWatch: [
-      { ...sharedIssueWatch[0], title: "折叠按钮的行为偶尔异常" },
-      { ...sharedIssueWatch[1], title: "桌面端长时间运行后托盘菜单可能异常" },
+      {
+        ...sharedIssueWatch[0],
+        title: "桌面端 TUI 重开后会话计费与命中率统计归零",
+      },
+      { ...sharedIssueWatch[1], title: "Apple 无法验证 Reasonix 是否包含恶意软件" },
       {
         ...sharedIssueWatch[2],
-        title: "最终回复偶尔会被误放进思考栏",
+        title: "桌面端长时间运行后托盘菜单可能异常",
       },
     ],
     sourceLinks: sharedSources,
@@ -2619,9 +2622,9 @@ export const contentByLocale = {
     newsItems: [
       {
         date: "2026-06-05",
-        title: "Reasonix CLI v1.2.0-rc.1 已出現在 GitHub releases",
-        body: "GitHub 的 releases 與 tags 頁面在 6 月 5 日都列出 Reasonix CLI v1.2.0-rc.1，讓基於 Go 的 main-v2 線在 v1.1.0 之後出現新的預發布檢查點。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0-rc.1",
+        title: "Reasonix CLI v1.2.0 已成為目前的 GitHub release",
+        body: "GitHub releases 頁面在 6 月 5 日列出 Reasonix CLI v1.2.0，用穩定版 release 條目取代更早出現的 rc.1 預發布檢查點。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0",
       },
       {
         date: "2026-06-04",
@@ -2649,11 +2652,14 @@ export const contentByLocale = {
       },
     ],
     issueWatch: [
-      { ...sharedIssueWatch[0], title: "摺疊按鈕的行為偶爾異常" },
-      { ...sharedIssueWatch[1], title: "桌面端長時間執行後托盤選單可能異常" },
+      {
+        ...sharedIssueWatch[0],
+        title: "桌面端 TUI 重開後會話計費與命中率統計歸零",
+      },
+      { ...sharedIssueWatch[1], title: "Apple 無法驗證 Reasonix 是否包含惡意軟體" },
       {
         ...sharedIssueWatch[2],
-        title: "最終回覆偶爾會被誤放進思考欄",
+        title: "桌面端長時間執行後托盤選單可能異常",
       },
     ],
     sourceLinks: sharedSources,
@@ -3134,9 +3140,9 @@ export const contentByLocale = {
     newsItems: [
       {
         date: "2026-06-05",
-        title: "Reasonix CLI v1.2.0-rc.1 появился в GitHub releases",
-        body: "Страницы GitHub releases и tags от 5 июня показывают Reasonix CLI v1.2.0-rc.1, что дает Go-ветке main-v2 новый prerelease checkpoint после v1.1.0.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0-rc.1",
+        title: "Reasonix CLI v1.2.0 стал текущим GitHub release",
+        body: "Страница GitHub releases от 5 июня показывает Reasonix CLI v1.2.0, заменяя более ранний rc.1 новым стабильным release для ветки main-v2.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0",
       },
       {
         date: "2026-06-04",
@@ -3163,7 +3169,20 @@ export const contentByLocale = {
         href: SITE.deepseekGuide,
       },
     ],
-    issueWatch: sharedIssueWatch,
+    issueWatch: [
+      {
+        ...sharedIssueWatch[0],
+        title: "После повторного открытия desktop TUI статистика billing и cache hit сбрасывается",
+      },
+      {
+        ...sharedIssueWatch[1],
+        title: "Apple не может проверить Reasonix на наличие вредоносного ПО",
+      },
+      {
+        ...sharedIssueWatch[2],
+        title: "После долгой desktop-сессии меню в системном трее может работать некорректно",
+      },
+    ],
     sourceLinks: sharedSources,
     pages: {
       home: {
