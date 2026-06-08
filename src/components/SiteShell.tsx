@@ -157,7 +157,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         <JsonLdScript key={entry["@type"]} data={entry} />
       ))}
       <div className="mx-auto flex w-full max-w-7xl flex-col lg:flex-row">
-        <aside className="border-b border-slate-200 bg-white/85 px-4 py-4 backdrop-blur lg:sticky lg:top-0 lg:h-screen lg:w-72 lg:shrink-0 lg:border-r lg:border-b-0 lg:px-6 lg:py-6">
+        <aside className="border-b border-slate-200 bg-white/85 px-4 py-4 backdrop-blur lg:sticky lg:top-0 lg:h-screen lg:w-72 lg:shrink-0 lg:overflow-y-auto lg:border-r lg:border-b-0 lg:px-6 lg:py-6">
           <Link
             href={localizePath(locale, "/")}
             className="flex items-center gap-3"

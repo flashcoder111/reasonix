@@ -21,6 +21,8 @@ export const SITE = {
   xHandle: "@DS_reasonix",
   x: "https://x.com/DS_reasonix",
   officialSite: "https://esengine.github.io/DeepSeek-Reasonix/",
+  cliReference:
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/CLI-REFERENCE.md",
   deepseekGuide:
     "https://api-docs.deepseek.com/quick_start/agent_integrations/reasonix",
   deepseekV4Release: "https://api-docs.deepseek.com/news/news260424",
@@ -116,6 +118,12 @@ type LocalizedContent = {
   };
   metadataKeywords: readonly string[];
   navItems: readonly NavItem[];
+  commandReference: {
+    title: string;
+    sourceLabel: string;
+    sourceHref: string;
+    items: readonly { command: string; label: string }[];
+  };
   legalLinks: readonly { href: string; label: string }[];
   privacyCommitments: readonly string[];
   officialAccounts: readonly {
@@ -1339,6 +1347,21 @@ export const contentByLocale = {
       { href: "/deepseek", label: "DeepSeek official", icon: "badge", eyebrow: "Signal" },
       { href: "/news", label: "News", icon: "newspaper", eyebrow: "Updates" },
     ],
+    commandReference: {
+      title: "TUI commands",
+      sourceLabel: "CLI ref",
+      sourceHref: SITE.cliReference,
+      items: [
+        { command: "/help", label: "Open the inline command reference." },
+        { command: "/skills", label: "List installed skills and open the picker." },
+        { command: "/skill new <name>", label: "Scaffold a project skill." },
+        { command: "/memory list", label: "Review pinned project memory." },
+        { command: "/mcp", label: "Open the MCP hub." },
+        { command: "/status", label: "Check model, context, and session state." },
+        { command: "/plan on", label: "Use read-only planning before edits." },
+        { command: "/doctor", label: "Run API, config, hook, and project checks." },
+      ],
+    },
     legalLinks: [
       { href: "/about", label: "About Us" },
       { href: "/contact", label: "Contact" },
@@ -1851,6 +1874,21 @@ export const contentByLocale = {
       { href: "/deepseek", label: "DeepSeek 官方推荐", icon: "badge", eyebrow: "Official" },
       { href: "/news", label: "新闻", icon: "newspaper", eyebrow: "News" },
     ],
+    commandReference: {
+      title: "操作指令表",
+      sourceLabel: "官方参考",
+      sourceHref: SITE.cliReference,
+      items: [
+        { command: "/help", label: "查看 TUI 内完整命令说明。" },
+        { command: "/skills", label: "列出已安装 skills 并打开选择器。" },
+        { command: "/skill new <name>", label: "为当前项目创建 skill 模板。" },
+        { command: "/memory list", label: "查看固定的项目记忆。" },
+        { command: "/mcp", label: "打开 MCP hub。" },
+        { command: "/status", label: "检查模型、上下文和会话状态。" },
+        { command: "/plan on", label: "编辑前进入只读规划模式。" },
+        { command: "/doctor", label: "检查 API、配置、hooks 和项目状态。" },
+      ],
+    },
     legalLinks: [
       { href: "/about", label: "关于我们" },
       { href: "/contact", label: "联系我们" },
@@ -2369,6 +2407,21 @@ export const contentByLocale = {
       { href: "/deepseek", label: "DeepSeek 官方推薦", icon: "badge", eyebrow: "Official" },
       { href: "/news", label: "新聞", icon: "newspaper", eyebrow: "News" },
     ],
+    commandReference: {
+      title: "操作指令表",
+      sourceLabel: "官方參考",
+      sourceHref: SITE.cliReference,
+      items: [
+        { command: "/help", label: "查看 TUI 內完整命令說明。" },
+        { command: "/skills", label: "列出已安裝 skills 並開啟選擇器。" },
+        { command: "/skill new <name>", label: "為目前專案建立 skill 模板。" },
+        { command: "/memory list", label: "查看固定的專案記憶。" },
+        { command: "/mcp", label: "開啟 MCP hub。" },
+        { command: "/status", label: "檢查模型、上下文和會話狀態。" },
+        { command: "/plan on", label: "編輯前進入唯讀規劃模式。" },
+        { command: "/doctor", label: "檢查 API、設定、hooks 和專案狀態。" },
+      ],
+    },
     legalLinks: [
       { href: "/about", label: "關於我們" },
       { href: "/contact", label: "聯絡我們" },
@@ -2887,6 +2940,21 @@ export const contentByLocale = {
       { href: "/deepseek", label: "DeepSeek", icon: "badge", eyebrow: "Signal" },
       { href: "/news", label: "Новости", icon: "newspaper", eyebrow: "Updates" },
     ],
+    commandReference: {
+      title: "Команды TUI",
+      sourceLabel: "CLI ref",
+      sourceHref: SITE.cliReference,
+      items: [
+        { command: "/help", label: "Открыть встроенную справку команд." },
+        { command: "/skills", label: "Показать installed skills и picker." },
+        { command: "/skill new <name>", label: "Создать шаблон project skill." },
+        { command: "/memory list", label: "Просмотреть pinned project memory." },
+        { command: "/mcp", label: "Открыть MCP hub." },
+        { command: "/status", label: "Проверить model, context и session state." },
+        { command: "/plan on", label: "Включить read-only plan перед edits." },
+        { command: "/doctor", label: "Проверить API, config, hooks и project." },
+      ],
+    },
     legalLinks: [
       { href: "/about", label: "About Us" },
       { href: "/contact", label: "Contact" },
@@ -3388,6 +3456,8 @@ export function getSeoLandingPage(
 }
 
 export const navItems = contentByLocale[DEFAULT_LOCALE].navItems;
+export const commandReference =
+  contentByLocale[DEFAULT_LOCALE].commandReference;
 export const legalLinks = contentByLocale[DEFAULT_LOCALE].legalLinks;
 export const privacyCommitments =
   contentByLocale[DEFAULT_LOCALE].privacyCommitments;
