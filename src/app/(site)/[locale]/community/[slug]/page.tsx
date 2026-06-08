@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CommunityQuestionPageContent } from "@/components/LocalizedPages";
-import { DEFAULT_LOCALE } from "@/lib/i18n";
+import {
+  isNonDefaultLocale,
+  type NonDefaultLocale,
+} from "@/lib/i18n";
 import {
   getCommunityQuestionRouteMetadata,
   getNoindexRouteMetadata,
@@ -12,30 +15,39 @@ import {
   getCommunityRequestUser,
 } from "@/lib/community-server";
 
-type CommunityQuestionPageProps = {
-  params: Promise<{ slug: string }>;
+type LocalizedCommunityQuestionPageProps = {
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
-}: CommunityQuestionPageProps): Promise<Metadata> {
-  const { slug } = await params;
+}: LocalizedCommunityQuestionPageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
+
+  if (!isNonDefaultLocale(locale)) {
+    return {};
+  }
+
   const result = await getCommunityQuestionDetail(slug);
 
   if (!result.ok) {
     return getNoindexRouteMetadata();
   }
 
-  return getCommunityQuestionRouteMetadata(
-    DEFAULT_LOCALE,
-    result.data.data.question,
-  );
+  return getCommunityQuestionRouteMetadata(locale, result.data.data.question);
 }
 
-export default async function Page({ params }: CommunityQuestionPageProps) {
-  const { slug } = await params;
+export default async function Page({
+  params,
+}: LocalizedCommunityQuestionPageProps) {
+  const { locale, slug } = await params;
+
+  if (!isNonDefaultLocale(locale)) {
+    notFound();
+  }
+
   const viewer = await getCommunityRequestUser();
   const result = await getCommunityQuestionDetail(slug, viewer);
 
@@ -45,7 +57,7 @@ export default async function Page({ params }: CommunityQuestionPageProps) {
 
   return (
     <CommunityQuestionPageContent
-      locale={DEFAULT_LOCALE}
+      locale={locale as NonDefaultLocale}
       slug={slug}
       initialDetail={result.ok ? result.data : null}
       initialError={result.ok ? null : communityDataErrorToApiError(result.error)}

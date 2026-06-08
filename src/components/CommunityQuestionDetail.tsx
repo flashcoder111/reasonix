@@ -25,18 +25,24 @@ import { localeConfig, locales, localizePath, type Locale } from "@/lib/i18n";
 type CommunityQuestionDetailProps = {
   locale: Locale;
   slug: string;
+  initialDetail?: CommunityQuestionDetailResponse | null;
+  initialError?: CommunityApiError | null;
 };
 
 export function CommunityQuestionDetail({
   locale,
   slug,
+  initialDetail = null,
+  initialError = null,
 }: CommunityQuestionDetailProps) {
   const copy = communityCopy[locale];
   const router = useRouter();
   const [detail, setDetail] =
-    useState<CommunityQuestionDetailResponse | null>(null);
-  const [error, setError] = useState<CommunityApiError | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+    useState<CommunityQuestionDetailResponse | null>(initialDetail);
+  const [error, setError] = useState<CommunityApiError | null>(initialError);
+  const [isLoading, setIsLoading] = useState(
+    !initialDetail && !initialError,
+  );
 
   async function loadQuestion() {
     const result = await fetch(`/api/community/questions/${slug}`);

@@ -17,22 +17,30 @@ import { localeConfig, localizePath, type Locale } from "@/lib/i18n";
 
 type CommunityBoardProps = {
   locale: Locale;
+  initialResponse?: CommunityQuestionListResponse | null;
+  initialError?: CommunityApiError | null;
 };
 
 type StatusFilter = "visible" | "hidden" | "all";
 
 const statusFilters: StatusFilter[] = ["visible", "hidden", "all"];
 
-export function CommunityBoard({ locale }: CommunityBoardProps) {
+export function CommunityBoard({
+  locale,
+  initialResponse = null,
+  initialError = null,
+}: CommunityBoardProps) {
   const copy = communityCopy[locale];
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("visible");
   const [queryInput, setQueryInput] = useState("");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [response, setResponse] =
-    useState<CommunityQuestionListResponse | null>(null);
-  const [error, setError] = useState<CommunityApiError | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+    useState<CommunityQuestionListResponse | null>(initialResponse);
+  const [error, setError] = useState<CommunityApiError | null>(initialError);
+  const [isLoading, setIsLoading] = useState(
+    !initialResponse && !initialError,
+  );
 
   const params = useMemo(() => {
     const search = new URLSearchParams({

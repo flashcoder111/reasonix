@@ -4,6 +4,7 @@ import {
   getArticleRoutes,
   getLocalesForArticle,
 } from "@/lib/articles";
+import type { CommunityQuestion } from "@/lib/community";
 import {
   getContent,
   getSeoLandingPage,
@@ -42,7 +43,6 @@ export const ROBOTS_DISALLOW_PATHS = ["/api/", "/__clerk/", "/trpc/"] as const;
 
 export const NOINDEX_ROUTE_PATHS = [
   "/login",
-  "/community",
   "/community/new",
 ] as const;
 
@@ -433,6 +433,68 @@ export function getRouteMetadata(locale: Locale, path: string): Metadata {
       },
       robots: getRouteRobots(normalizedPath),
     };
+}
+
+function getCommunityDescription(body: string): string {
+  const normalized = body.replace(/\s+/g, " ").trim();
+
+  if (normalized.length <= 180) {
+    return normalized;
+  }
+
+  return `${normalized.slice(0, 177).trim()}...`;
+}
+
+export function getCommunityQuestionRouteMetadata(
+  locale: Locale,
+  question: CommunityQuestion,
+): Metadata {
+  const path = `/community/${question.slug}`;
+  const canonical = localizePath(locale, path);
+  const alternateUrls = getRouteAlternateUrls(path);
+  const description = getCommunityDescription(question.body);
+
+  return {
+    metadataBase: new URL(SITE.url),
+    title: question.title,
+    description,
+    alternates: {
+      canonical,
+      languages: alternateUrls,
+    },
+    openGraph: {
+      title: question.title,
+      description,
+      type: "article",
+      locale: localeConfig[locale].ogLocale,
+      url: getAbsoluteUrl(canonical),
+      publishedTime: question.createdAt,
+      modifiedTime: question.updatedAt,
+      images: [
+        {
+          url: SITE.ogImage,
+          width: 640,
+          height: 160,
+          alt: `${SITE.name} logo`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: SITE.xHandle,
+      creator: SITE.xHandle,
+      title: question.title,
+      description,
+      images: [SITE.ogImage],
+    },
+    robots: indexableRobots,
+  };
+}
+
+export function getNoindexRouteMetadata(): Metadata {
+  return {
+    robots: noindexRobots,
+  };
 }
 
 export function getRouteChangeFrequency(

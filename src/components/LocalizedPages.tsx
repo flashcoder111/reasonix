@@ -26,6 +26,11 @@ import { CommunityQuestionForm } from "@/components/CommunityQuestionForm";
 import { CopyCommandBlock } from "@/components/CopyCommandBlock";
 import { LoginExplainer } from "@/components/LoginExplainer";
 import { getArticle, getArticles, type Article } from "@/lib/articles";
+import type {
+  CommunityApiError,
+  CommunityQuestionDetailResponse,
+  CommunityQuestionListResponse,
+} from "@/lib/community";
 import { getContent, getSeoLandingPage, SITE } from "@/lib/content";
 import { localizePath, normalizePath, type Locale } from "@/lib/i18n";
 
@@ -35,6 +40,16 @@ type LocalizedPageProps = {
 
 type ArticlePageProps = LocalizedPageProps & {
   slug: string;
+};
+
+type CommunityPageProps = LocalizedPageProps & {
+  initialResponse?: CommunityQuestionListResponse | null;
+  initialError?: CommunityApiError | null;
+};
+
+type CommunityQuestionPageProps = ArticlePageProps & {
+  initialDetail?: CommunityQuestionDetailResponse | null;
+  initialError?: CommunityApiError | null;
 };
 
 type SeoLandingPageProps = LocalizedPageProps & {
@@ -2058,8 +2073,18 @@ export function TrustPageContent({
   );
 }
 
-export function CommunityPageContent({ locale }: LocalizedPageProps) {
-  return <CommunityBoard locale={locale} />;
+export function CommunityPageContent({
+  locale,
+  initialResponse,
+  initialError,
+}: CommunityPageProps) {
+  return (
+    <CommunityBoard
+      locale={locale}
+      initialResponse={initialResponse}
+      initialError={initialError}
+    />
+  );
 }
 
 export function CommunityNewPageContent({ locale }: LocalizedPageProps) {
@@ -2069,8 +2094,17 @@ export function CommunityNewPageContent({ locale }: LocalizedPageProps) {
 export function CommunityQuestionPageContent({
   locale,
   slug,
-}: ArticlePageProps) {
-  return <CommunityQuestionDetail locale={locale} slug={slug} />;
+  initialDetail,
+  initialError,
+}: CommunityQuestionPageProps) {
+  return (
+    <CommunityQuestionDetail
+      locale={locale}
+      slug={slug}
+      initialDetail={initialDetail}
+      initialError={initialError}
+    />
+  );
 }
 
 export function NotFoundContent({ locale }: LocalizedPageProps) {

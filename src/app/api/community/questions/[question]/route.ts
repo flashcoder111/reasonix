@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import {
+  communityQuestionSelect,
+  getCommunityQuestionDetail,
   getCommunityRequestUser,
   getCommunitySupabase,
   isCommunityDatabaseConfigured,
   mapCommunityQuestion,
-  mapCommunityReply,
   type CommunityQuestionRow,
-  type CommunityReplyRow,
 } from "@/lib/community-server";
 import {
   apiError,
@@ -14,7 +14,6 @@ import {
   readJson,
 } from "@/lib/community-api";
 import { validateQuestionPatchPayload } from "@/lib/community-validation";
-import type { CommunityQuestionDetailResponse } from "@/lib/community";
 
 type QuestionRouteContext = {
   params: Promise<{
@@ -22,71 +21,20 @@ type QuestionRouteContext = {
   }>;
 };
 
-const questionSelect =
-  "id,slug,locale,title,body,author_clerk_id,author_name,author_image_url,status,reply_count,last_reply_at,created_at,updated_at";
-
 export async function GET(_request: Request, { params }: QuestionRouteContext) {
   const { question } = await params;
   const viewer = await getCommunityRequestUser();
+  const result = await getCommunityQuestionDetail(question, viewer);
 
-  if (!isCommunityDatabaseConfigured()) {
-    return databaseNotConfiguredError();
+  if (!result.ok) {
+    return apiError(
+      result.error.code,
+      result.error.message,
+      result.error.status,
+    );
   }
 
-  const supabase = getCommunitySupabase();
-  let questionQuery = supabase
-    .from("community_questions")
-    .select(questionSelect)
-    .eq("slug", question);
-
-  if (!viewer?.isAdmin) {
-    questionQuery = questionQuery.eq("status", "visible");
-  }
-
-  const { data: questionData, error: questionError } =
-    await questionQuery.maybeSingle();
-
-  if (questionError) {
-    return apiError("database_error", questionError.message, 500);
-  }
-
-  if (!questionData) {
-    return apiError("not_found", "Question not found.", 404);
-  }
-
-  let repliesQuery = supabase
-    .from("community_replies")
-    .select(
-      "id,question_id,body,author_clerk_id,author_name,author_image_url,status,created_at,updated_at",
-    )
-    .eq("question_id", (questionData as CommunityQuestionRow).id)
-    .order("created_at", { ascending: true });
-
-  if (!viewer?.isAdmin) {
-    repliesQuery = repliesQuery.eq("status", "visible");
-  }
-
-  const { data: repliesData, error: repliesError } = await repliesQuery;
-
-  if (repliesError) {
-    return apiError("database_error", repliesError.message, 500);
-  }
-
-  return NextResponse.json({
-    data: {
-      question: mapCommunityQuestion(
-        questionData as CommunityQuestionRow,
-        viewer,
-      ),
-      replies: ((repliesData || []) as CommunityReplyRow[]).map((reply) =>
-        mapCommunityReply(reply, viewer),
-      ),
-    },
-    viewer: {
-      isSignedIn: Boolean(viewer),
-      isAdmin: Boolean(viewer?.isAdmin),
-    },
-  } satisfies CommunityQuestionDetailResponse);
+  return NextResponse.json(result.data);
 }
 
 export async function PATCH(request: Request, { params }: QuestionRouteContext) {
@@ -115,7 +63,7 @@ export async function PATCH(request: Request, { params }: QuestionRouteContext) 
   const supabase = getCommunitySupabase();
   const { data: existing, error: existingError } = await supabase
     .from("community_questions")
-    .select(questionSelect)
+    .select(communityQuestionSelect)
     .eq("id", question)
     .maybeSingle();
 
@@ -178,7 +126,7 @@ export async function PATCH(request: Request, { params }: QuestionRouteContext) 
     .from("community_questions")
     .update(patch)
     .eq("id", question)
-    .select(questionSelect)
+    .select(communityQuestionSelect)
     .single();
 
   if (error) {

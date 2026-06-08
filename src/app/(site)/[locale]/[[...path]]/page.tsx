@@ -29,10 +29,12 @@ function getPagePath(path?: string[]) {
 
 export function generateStaticParams() {
   return nonDefaultLocales.flatMap((locale) =>
-    getAllPagePaths(locale).map((path) => ({
-      locale,
-      path: pathToSegments(path),
-    })),
+    getAllPagePaths(locale)
+      .filter((path) => !normalizePath(path).startsWith("/community"))
+      .map((path) => ({
+        locale,
+        path: pathToSegments(path),
+      })),
   );
 }
 
