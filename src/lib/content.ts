@@ -13,7 +13,7 @@ export const SITE = {
   description:
     "Use this Reasonix guide to verify DeepSeek coding agent setup, DeepSeek code workflows, DeepSeek V4 agent choices, GitHub downloads, CLI errors, and privacy boundaries before running commands.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-07",
+  checkedAt: "2026-06-08",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -297,11 +297,11 @@ const sharedSources = [
   },
   {
     label: "CLI release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.3.0",
   },
   {
     label: "Desktop release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
   },
   { label: "DeepSeek official guide", href: SITE.deepseekGuide },
   { label: "DeepSeek V4 release", href: SITE.deepseekV4Release },
@@ -327,12 +327,12 @@ const sharedIssueWatch = [
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "19k", note: "GitHub repo page, 2026-06-07" },
-  { label: "Forks", value: "1.1k", note: "GitHub repo page, 2026-06-07" },
+  { label: "GitHub stars", value: "19.2k", note: "GitHub repo page, 2026-06-08" },
+  { label: "Forks", value: "1.2k", note: "GitHub repo page, 2026-06-08" },
   {
     label: "Open items",
-    value: "201",
-    note: "168 issues + 33 pull requests on GitHub repo page, 2026-06-07",
+    value: "224",
+    note: "188 issues + 36 pull requests on GitHub repo page, 2026-06-08",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1415,10 +1415,10 @@ export const contentByLocale = {
         title: "Desktop release assets",
         tag: "Desktop package",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
         description:
-          "The latest public desktop release is desktop-v1.2.1, with multi-platform desktop archives, latest.json, and minisig signature assets.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+          "The latest public desktop release is desktop-v1.3.0, with multi-platform desktop archives, latest.json, and minisig signature assets.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
       },
     ],
     loginSteps: [
@@ -1591,10 +1591,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-05",
-        title: "Reasonix CLI v1.2.0 becomes the current GitHub release",
-        body: "The GitHub releases page lists Reasonix CLI v1.2.0 on June 5, replacing the earlier rc.1 checkpoint with a stable main-v2 release entry.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0",
+        date: "2026-06-07",
+        title: "Reasonix CLI v1.3.0 lands with split release tags",
+        body: "GitHub tags and releases show Reasonix CLI v1.3.0 on June 7, alongside a new npm-only tag namespace so stable CLI releases no longer have to move in lockstep with npm and Homebrew packaging.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.3.0",
       },
       {
         date: "2026-06-04",
@@ -1603,10 +1603,10 @@ export const contentByLocale = {
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
-        date: "2026-06-05",
-        title: "desktop-v1.2.1 becomes the latest public desktop release",
-        body: "GitHub marked Reasonix Desktop v1.2.1 as the latest release on June 5, highlighting fixes for Windows update overwrite behavior and the macOS system tray startup path.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+        date: "2026-06-07",
+        title: "desktop-v1.3.0 becomes the latest public desktop release",
+        body: "GitHub marked Reasonix Desktop v1.3.0 as the latest release on June 7, bundling the same release-line changes as v1.3.0, including desktop notifications, TUI composer growth fixes, workspace builtin assembly fixes, and legacy session import repair.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
       },
       {
         date: "2026-06-02",
@@ -1705,7 +1705,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub repository, npx start path, npm latest and next tags, main-v2 source build, and desktop-v1.2.1 multi-platform release links.",
+          "Reasonix GitHub repository, npx start path, npm latest and next tags, main-v2 source build, and desktop-v1.3.0 multi-platform release links.",
         eyebrow: "GitHub downloads",
         title: "Reasonix download paths: npx, main-v2 source, and desktop release",
         descriptionBeforeLink: "The official repository is",
@@ -1743,7 +1743,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix news",
         metaDescription:
-          "Reasonix news covering main-v2 commits, GitHub popularity, npm latest, desktop-v1.2.1 release, and DeepSeek official listing.",
+          "Reasonix news covering main-v2 commits, GitHub popularity, npm latest, desktop-v1.3.0 release, and DeepSeek official listing.",
         eyebrow: "News",
         title: "Reasonix news brief",
         description:
@@ -1927,10 +1927,10 @@ export const contentByLocale = {
         title: "桌面版 release 资产",
         tag: "桌面安装包",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.2.1，包含多平台桌面安装包、latest.json 和 minisig 签名资产。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+          "GitHub 最新公开桌面 release 为 desktop-v1.3.0，包含多平台桌面安装包、latest.json 和 minisig 签名资产。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
       },
     ],
     loginSteps: [
@@ -2103,10 +2103,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-05",
-        title: "Reasonix CLI v1.2.0 已成为当前 GitHub release",
-        body: "GitHub releases 页面在 6 月 5 日列出 Reasonix CLI v1.2.0，用稳定版 release 条目取代了更早出现的 rc.1 预发布检查点。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0",
+        date: "2026-06-07",
+        title: "Reasonix CLI v1.3.0 上线并拆分 release tag 体系",
+        body: "GitHub tags 与 releases 显示 6 月 7 日发布 Reasonix CLI v1.3.0，同时把 npm 发布拆到独立 tag 命名空间，避免稳定 CLI release 被 npm 与 Homebrew 包流程强绑定。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.3.0",
       },
       {
         date: "2026-06-04",
@@ -2115,10 +2115,10 @@ export const contentByLocale = {
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
-        date: "2026-06-05",
-        title: "desktop-v1.2.1 成为最新公开桌面版 release",
-        body: "GitHub 在 6 月 5 日把 Reasonix Desktop v1.2.1 标记为最新 release；发布日志重点写到 Windows 更新覆盖当前安装和 macOS 系统托盘启动修复。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+        date: "2026-06-07",
+        title: "desktop-v1.3.0 成为最新公开桌面版 release",
+        body: "GitHub 在 6 月 7 日把 Reasonix Desktop v1.3.0 标记为最新 release；该发布线同时带出桌面通知、TUI 输入区自适应增长、workspace builtin 组装修复，以及 legacy session 导入修复。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
       },
       {
         date: "2026-06-02",
@@ -2226,7 +2226,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 仓库、npx 启动、npm latest 与 next、main-v2 源码构建和 desktop-v1.2.1 多平台安装包入口。",
+          "Reasonix GitHub 仓库、npx 启动、npm latest 与 next、main-v2 源码构建和 desktop-v1.3.0 多平台安装包入口。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载路径：npx、main-v2 源码和桌面 release",
         descriptionBeforeLink: "官方仓库地址为",
@@ -2261,7 +2261,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix 新闻",
         metaDescription:
-          "Reasonix 最新新闻：main-v2 提交、GitHub 热度、npm latest、desktop-v1.2.1 release 和 DeepSeek 官方收录。",
+          "Reasonix 最新新闻：main-v2 提交、GitHub 热度、npm latest、desktop-v1.3.0 release 和 DeepSeek 官方收录。",
         eyebrow: "新闻",
         title: "Reasonix 新闻速览",
         description:
@@ -2445,10 +2445,10 @@ export const contentByLocale = {
         title: "桌面版 release 資產",
         tag: "桌面安裝包",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.2.1，包含多平台桌面安裝包、latest.json 和 minisig 簽名資產。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+          "GitHub 最新公開桌面 release 為 desktop-v1.3.0，包含多平台桌面安裝包、latest.json 和 minisig 簽名資產。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
       },
     ],
     loginSteps: [
@@ -2621,10 +2621,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-05",
-        title: "Reasonix CLI v1.2.0 已成為目前的 GitHub release",
-        body: "GitHub releases 頁面在 6 月 5 日列出 Reasonix CLI v1.2.0，用穩定版 release 條目取代更早出現的 rc.1 預發布檢查點。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0",
+        date: "2026-06-07",
+        title: "Reasonix CLI v1.3.0 上線並拆分 release tag 體系",
+        body: "GitHub tags 與 releases 顯示 6 月 7 日發布 Reasonix CLI v1.3.0，同時把 npm 發布拆到獨立 tag 命名空間，避免穩定 CLI release 被 npm 與 Homebrew 打包流程綁死。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.3.0",
       },
       {
         date: "2026-06-04",
@@ -2633,10 +2633,10 @@ export const contentByLocale = {
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
-        date: "2026-06-05",
-        title: "desktop-v1.2.1 成為最新公開桌面版 release",
-        body: "GitHub 在 6 月 5 日把 Reasonix Desktop v1.2.1 標記為最新 release；發布說明重點寫到 Windows 更新覆蓋目前安裝與 macOS 系統托盤啟動修復。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+        date: "2026-06-07",
+        title: "desktop-v1.3.0 成為最新公開桌面版 release",
+        body: "GitHub 在 6 月 7 日把 Reasonix Desktop v1.3.0 標記為最新 release；該發布線同時帶出桌面通知、TUI 輸入區自適應增長、workspace builtin 組裝修復，以及 legacy session 匯入修復。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
       },
       {
         date: "2026-06-02",
@@ -2744,7 +2744,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 倉庫、npx 啟動、npm latest 與 next、main-v2 原始碼建置和 desktop-v1.2.1 多平台安裝包入口。",
+          "Reasonix GitHub 倉庫、npx 啟動、npm latest 與 next、main-v2 原始碼建置和 desktop-v1.3.0 多平台安裝包入口。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載路徑：npx、main-v2 原始碼和桌面 release",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -2779,7 +2779,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix 新聞",
         metaDescription:
-          "Reasonix 最新新聞：main-v2 提交、GitHub 熱度、npm latest、desktop-v1.2.1 release 和 DeepSeek 官方收錄。",
+          "Reasonix 最新新聞：main-v2 提交、GitHub 熱度、npm latest、desktop-v1.3.0 release 和 DeepSeek 官方收錄。",
         eyebrow: "新聞",
         title: "Reasonix 新聞速覽",
         description:
@@ -2963,10 +2963,10 @@ export const contentByLocale = {
         title: "Desktop release assets",
         tag: "Desktop пакет",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
         description:
-          "Последний публичный desktop release - desktop-v1.2.1 с multi-platform desktop archives, latest.json и minisig signatures.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+          "Последний публичный desktop release - desktop-v1.3.0 с multi-platform desktop archives, latest.json и minisig signatures.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
       },
     ],
     loginSteps: [
@@ -3139,10 +3139,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-05",
-        title: "Reasonix CLI v1.2.0 стал текущим GitHub release",
-        body: "Страница GitHub releases от 5 июня показывает Reasonix CLI v1.2.0, заменяя более ранний rc.1 новым стабильным release для ветки main-v2.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.2.0",
+        date: "2026-06-07",
+        title: "Reasonix CLI v1.3.0 вышел с разделением release tags",
+        body: "GitHub tags и releases показывают Reasonix CLI v1.3.0 от 7 июня, а также отдельное пространство тегов для npm, чтобы стабильные CLI releases больше не были жестко связаны с npm и Homebrew packaging.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.3.0",
       },
       {
         date: "2026-06-04",
@@ -3151,10 +3151,10 @@ export const contentByLocale = {
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
-        date: "2026-06-05",
-        title: "desktop-v1.2.1 стал последним публичным desktop release",
-        body: "GitHub пометил Reasonix Desktop v1.2.1 как latest release 5 июня; changelog выделяет fixes для перезаписи текущей установки на Windows и запуска system tray на macOS.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.2.1",
+        date: "2026-06-07",
+        title: "desktop-v1.3.0 стал последним публичным desktop release",
+        body: "GitHub пометил Reasonix Desktop v1.3.0 как latest release 7 июня; эта release line включает desktop notifications, рост TUI composer под переносы строк, fixes для workspace builtin assembly и repair для импорта legacy sessions.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
       },
       {
         date: "2026-06-02",
@@ -3265,7 +3265,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub загрузки",
         metaDescription:
-          "GitHub репозиторий Reasonix, запуск через npx, npm latest и next tags, source build main-v2 и multi-platform desktop-v1.2.1 release.",
+          "GitHub репозиторий Reasonix, запуск через npx, npm latest и next tags, source build main-v2 и multi-platform desktop-v1.3.0 release.",
         eyebrow: "GitHub загрузки",
         title: "Как получить Reasonix: npx, main-v2 source и desktop release",
         descriptionBeforeLink: "Официальный репозиторий:",
@@ -3303,7 +3303,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Новости Reasonix",
         metaDescription:
-          "Новости Reasonix: commits main-v2, GitHub popularity, npm latest, desktop-v1.2.1 release и официальный листинг DeepSeek.",
+          "Новости Reasonix: commits main-v2, GitHub popularity, npm latest, desktop-v1.3.0 release и официальный листинг DeepSeek.",
         eyebrow: "Новости",
         title: "Краткие новости Reasonix",
         description:
