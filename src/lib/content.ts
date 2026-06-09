@@ -13,7 +13,7 @@ export const SITE = {
   description:
     "Use this Reasonix guide to verify DeepSeek coding agent setup, DeepSeek code workflows, DeepSeek V4 agent choices, GitHub downloads, CLI errors, and privacy boundaries before running commands.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-08",
+  checkedAt: "2026-06-09",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -318,29 +318,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#3450",
-    title: "Session billing and cache stats reset after reopening desktop TUI",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3450",
+    id: "#3599",
+    title: "RewindBoth can silently desync code and conversation after auto-compact",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3599",
   },
   {
-    id: "#3406",
-    title: "Apple cannot verify Reasonix for malware",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3406",
+    id: "#3609",
+    title: 'Desktop "Always Allow" can still reprompt later tool calls in one session',
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3609",
   },
   {
-    id: "#3394",
-    title: "Tray menu can misbehave after long desktop sessions",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3394",
+    id: "#3612",
+    title: "web_fetch can ignore proxy configuration on Windows",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3612",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "19.2k", note: "GitHub repo page, 2026-06-08" },
-  { label: "Forks", value: "1.2k", note: "GitHub repo page, 2026-06-08" },
+  { label: "GitHub stars", value: "19.9k", note: "GitHub repo page, 2026-06-09" },
+  { label: "Forks", value: "1.2k", note: "GitHub repo page, 2026-06-09" },
   {
     label: "Open items",
-    value: "224",
-    note: "188 issues + 36 pull requests on GitHub repo page, 2026-06-08",
+    value: "277",
+    note: "235 issues + 42 pull requests on GitHub repo page, 2026-06-09",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -2174,12 +2174,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "桌面端 TUI 重开后会话计费与命中率统计归零",
+        title: "自动 compact 后 RewindBoth 可能让代码与对话状态不同步",
       },
-      { ...sharedIssueWatch[1], title: "Apple 无法验证 Reasonix 是否包含恶意软件" },
+      {
+        ...sharedIssueWatch[1],
+        title: '桌面端点击“总是允许”后同一会话内后续工具调用仍可能再次弹窗',
+      },
       {
         ...sharedIssueWatch[2],
-        title: "桌面端长时间运行后托盘菜单可能异常",
+        title: "Windows 上 web_fetch 可能不读取代理配置",
       },
     ],
     sourceLinks: sharedSources,
@@ -2707,12 +2710,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "桌面端 TUI 重開後會話計費與命中率統計歸零",
+        title: "自動 compact 後 RewindBoth 可能讓程式碼與對話狀態不同步",
       },
-      { ...sharedIssueWatch[1], title: "Apple 無法驗證 Reasonix 是否包含惡意軟體" },
+      {
+        ...sharedIssueWatch[1],
+        title: '桌面端點擊「總是允許」後，同一會話內後續工具呼叫仍可能再次彈窗',
+      },
       {
         ...sharedIssueWatch[2],
-        title: "桌面端長時間執行後托盤選單可能異常",
+        title: "Windows 上 web_fetch 可能不讀取代理設定",
       },
     ],
     sourceLinks: sharedSources,
@@ -3240,15 +3246,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "После повторного открытия desktop TUI статистика billing и cache hit сбрасывается",
+        title: "После auto-compact RewindBoth может тихо рассинхронизировать код и диалог",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Apple не может проверить Reasonix на наличие вредоносного ПО",
+        title: 'После нажатия "Always Allow" desktop все равно может снова спрашивать разрешение в той же сессии',
       },
       {
         ...sharedIssueWatch[2],
-        title: "После долгой desktop-сессии меню в системном трее может работать некорректно",
+        title: "В Windows web_fetch может игнорировать proxy configuration",
       },
     ],
     sourceLinks: sharedSources,
