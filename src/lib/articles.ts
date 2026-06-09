@@ -537,6 +537,149 @@ const enArticles: Article[] = [
     ],
     sources: sourceWatchSources,
   },
+  {
+    slug: "reasonix-github-repository",
+    title: "Reasonix GitHub repository: what to verify before you clone or download",
+    description:
+      "A practical guide to the Reasonix GitHub repository covering the official repo, default branch, releases, commits, issues, npm package, and the safest checks before you trust a setup guide.",
+    eyebrow: "GitHub repository",
+    date: "2026-06-09",
+    readTime: "8 min",
+    tags: ["Reasonix", "GitHub repository", "DeepSeek", "Source verification"],
+    summary:
+      "The useful answer is not just the repository URL. Readers searching for the Reasonix GitHub repository usually need to know which branch is active, where releases live, how npm and GitHub relate, and what to verify before running commands.",
+    takeaways: [
+      "The official Reasonix repository is `esengine/DeepSeek-Reasonix` on GitHub.",
+      "The current default development branch is `main-v2`, so clone and branch guidance should point there when source inspection matters.",
+      "Readers should verify the repository page, releases, commit stream, issues, and npm package together instead of trusting copied version tables.",
+      "The shortest DeepSeek-backed entry path is still `npx reasonix code`, but repository checks matter before source builds, release downloads, and issue triage.",
+    ],
+    sections: [
+      {
+        heading: "Start with the official repository surfaces",
+        body: [
+          "The core keyword intent is navigational plus trust-checking. A useful article should immediately point readers to the official Reasonix GitHub repository, then explain what each surface answers.",
+          "The repository page answers identity and popularity, releases answer downloadable milestones, commits answer current development movement, issues answer known failures, and npm answers package-install reality.",
+        ],
+        bullets: [
+          "Repository: confirm `esengine/DeepSeek-Reasonix` is the source you are reading.",
+          "Default branch: verify whether `main-v2` is still the active development branch before cloning for source work.",
+          "Releases: use GitHub releases for tagged desktop and CLI milestones.",
+          "npm: check the live package before assuming `npx` or global install behavior.",
+        ],
+      },
+      {
+        heading: "What to check before you clone",
+        body: [
+          "Cloning the repository makes sense when you want to inspect source, verify the current branch structure, read docs, or build locally. It is not required for the first-run DeepSeek path.",
+          "For a first session, DeepSeek's official guide still points users to `npx reasonix code` from the target project directory. The repository becomes more important when the user wants releases, issue context, or source-level validation.",
+        ],
+        bullets: [
+          "Quick start: `cd /path/to/my-project && npx reasonix code`.",
+          "Source check: `git clone https://github.com/esengine/DeepSeek-Reasonix.git` then inspect branches and docs.",
+          "Build path: switch to `main-v2` only after confirming it is still the relevant branch for source work.",
+        ],
+      },
+      {
+        heading: "Decision path for common repository questions",
+        body: [
+          "If the reader wants the safest install path, send them to the DeepSeek guide and npm package first. If they want to audit code or investigate a bug, send them to commits and issues. If they want packaged downloads, send them to releases.",
+          "That decision path prevents a weak article that treats every repository visit as the same task. The keyword is useful only when the page explains where to go next.",
+        ],
+        bullets: [
+          "Need the official command? Check the DeepSeek guide and npm package.",
+          "Need desktop or tagged binaries? Check GitHub releases.",
+          "Need to verify active development? Check `main-v2` commits.",
+          "Need to understand a bug or limitation? Check open GitHub issues before copying third-party fixes.",
+        ],
+      },
+      {
+        heading: "What not to trust",
+        body: [
+          "Do not trust screenshots, reposted version tables, or articles that copy old star counts and then guess installation behavior. Those details drift quickly.",
+          "A better Reasonix article keeps claims conservative: repository identity, branch direction, official quick start, release locations, and links to the live sources.",
+        ],
+      },
+    ],
+    sources: [
+      articleSources.reasonixGithub,
+      articleSources.reasonixCommits,
+      articleSources.reasonixReleases,
+      articleSources.reasonixNpm,
+      articleSources.reasonixDeepSeekGuide,
+    ],
+  },
+  {
+    slug: "reasonix-vs-claude-code",
+    title: "Reasonix vs Claude Code: how to choose the better coding loop",
+    description:
+      "A focused Reasonix vs Claude Code comparison covering DeepSeek-first work, cache behavior, permissions, MCP, setup path, and the decision rule for local coding sessions.",
+    eyebrow: "Claude Code comparison",
+    date: "2026-06-09",
+    readTime: "9 min",
+    tags: ["Reasonix", "Claude Code", "DeepSeek", "Comparison"],
+    summary:
+      "This keyword works when the article is narrower than a three-way benchmark. Reasonix and Claude Code are not substitutes in every scenario: one is a DeepSeek-native terminal loop, the other is a Claude-native coding workflow with broader Anthropic platform assumptions.",
+    takeaways: [
+      "Choose Reasonix when the job is explicitly DeepSeek-first and the reader cares about prefix-cache stability, local terminal control, and `npx reasonix code` as the primary path.",
+      "Choose Claude Code when the team is already standardized on Claude and wants Anthropic-centric permissions, MCP usage, and workflow management.",
+      "The right comparison is about operating loops, not whichever demo looked faster once.",
+      "A serious article should compare setup, approval boundaries, model strategy, long-session behavior, and what to verify before giving the tool repository access.",
+    ],
+    sections: [
+      {
+        heading: "Start with the model and workflow assumption",
+        body: [
+          "Reasonix starts from DeepSeek as the native backend and explains how to run a coding agent inside the terminal with local project context. Claude Code starts from Claude as the default engineering stack and builds workflow features around that assumption.",
+          "That is why a focused two-way comparison is useful. It answers a different question than the broader Reasonix vs Claude Code vs Codex article.",
+        ],
+      },
+      {
+        heading: "When Reasonix is the better fit",
+        body: [
+          "Reasonix is the stronger fit when the reader already wants a DeepSeek coding loop and needs a practical path: local API key setup, `npx reasonix code`, cache-aware long sessions, tool-call repair, MCP support, replay, and terminal-first control.",
+          "The product argument is not that Reasonix wins every enterprise workflow. The argument is that it stays closer to DeepSeek-specific behavior, especially around prefix-cache-friendly sessions and Flash versus Pro decisions.",
+        ],
+        bullets: [
+          "Use Reasonix when the model choice is already DeepSeek.",
+          "Use Reasonix when cache behavior and steady local terminal work matter more than cross-surface platform features.",
+          "Use Reasonix when the reader wants to verify GitHub, npm, releases, and DeepSeek docs directly before trusting a guide.",
+        ],
+      },
+      {
+        heading: "When Claude Code is the better fit",
+        body: [
+          "Claude Code is the better fit when the team is aligned around Claude and wants the broader Anthropic workflow: permissions policy, MCP server usage, administrative controls, and Claude-native engineering habits.",
+          "That does not make it the default answer for a DeepSeek-first query. It means the article should admit where Claude Code is naturally stronger instead of pretending the tools share the same center of gravity.",
+        ],
+        bullets: [
+          "Use Claude Code when Claude is the organizational default.",
+          "Use Claude Code when team policy and Anthropic workflow integration outweigh DeepSeek-native optimization.",
+          "Use Claude Code when the reader is comparing governance and tool surface, not just terminal startup.",
+        ],
+      },
+      {
+        heading: "A practical decision checklist",
+        body: [
+          "Readers need a simple decision path before they hand repository access to any coding agent. The comparison should ask what model the team is committed to, where keys live, how command approval works, and whether long-session behavior matters.",
+          "That checklist is more useful than a feature-count table because it keeps the page anchored to actual engineering risk.",
+        ],
+        bullets: [
+          "Backend question: DeepSeek-first or Claude-first?",
+          "Startup question: `npx reasonix code` in the target repo, or Claude Code's own install/login path?",
+          "Approval question: what commands, edits, and MCP tools should be allowed?",
+          "Session question: do you need DeepSeek cache-aware long loops or broader Claude-native workflow controls?",
+        ],
+      },
+    ],
+    sources: [
+      articleSources.reasonixDeepSeekGuide,
+      articleSources.deepSeekContextCache,
+      articleSources.reasonixGithub,
+      articleSources.claudeCodeOverview,
+      articleSources.claudeCodePermissions,
+    ],
+  },
 ];
 
 const zhCnArticles: Article[] = [
@@ -818,6 +961,131 @@ const zhCnArticles: Article[] = [
       },
     ],
   },
+  {
+    ...enArticles[6],
+    title: "Reasonix GitHub repository：克隆或下载前先核验什么",
+    description:
+      "面向 `reasonix github repository` 搜索意图的实用文章：解释官方仓库、默认分支、releases、commits、issues、npm 包，以及下载或源码检查前该核验哪些点。",
+    eyebrow: "GitHub 仓库",
+    tags: ["Reasonix", "GitHub 仓库", "DeepSeek", "来源核验"],
+    summary:
+      "这个关键词不能只回答仓库链接。用户通常还想知道默认分支是什么、GitHub 与 npm 是什么关系、下载去哪看、源码核验时先看哪几个页面。",
+    takeaways: [
+      "Reasonix 官方 GitHub 仓库是 `esengine/DeepSeek-Reasonix`。",
+      "当前默认开发分支是 `main-v2`，所以涉及源码检查时要先确认分支方向。",
+      "要把 repo、releases、commits、issues 和 npm 包一起看，而不是只看别人复制的版本表。",
+      "首次 DeepSeek 路径仍然是 `npx reasonix code`，但仓库核验对源码构建、release 下载和 bug 排查很重要。",
+    ],
+    sections: [
+      {
+        heading: "先看官方仓库的几个入口",
+        body: [
+          "`reasonix github repository` 的真实需求通常是导航加信任判断。文章开头就应该给出官方仓库，然后解释每个入口分别回答什么问题。",
+          "repo 页面看身份和整体状态，releases 看可下载里程碑，commits 看当前开发活动，issues 看已知问题，npm 看安装现实。",
+        ],
+        bullets: [
+          "Repository：确认你看的就是 `esengine/DeepSeek-Reasonix`。",
+          "Default branch：源码工作前先确认 `main-v2` 仍是当前开发分支。",
+          "Releases：桌面版和带 tag 的里程碑以 GitHub releases 为准。",
+          "npm：`npx` 和全局安装行为先看 live package，不看二手文章。",
+        ],
+      },
+      {
+        heading: "什么时候需要 clone",
+        body: [
+          "想看源码、确认分支结构、读 docs、或者本地构建时，clone 才真正必要。第一次跑通 DeepSeek 路径并不要求先 clone。",
+          "对首次使用者来说，DeepSeek 官方文档仍然是从目标项目目录执行 `npx reasonix code`。只有在你要做源码核验、release 判断或 issue 排查时，GitHub 仓库才是第一入口。",
+        ],
+        bullets: [
+          "快速开始：`cd /path/to/my-project && npx reasonix code`。",
+          "源码核验：`git clone https://github.com/esengine/DeepSeek-Reasonix.git` 后再看分支和 docs。",
+          "构建路径：只有确认 `main-v2` 仍相关时，才继续切分支和本地 build。",
+        ],
+      },
+      {
+        heading: "仓库问题的判断路径",
+        body: [
+          "用户如果只是想安全安装，应优先去 DeepSeek 官方文档和 npm；想看源码或追 bug，再去 commits 和 issues；想拿桌面包或 tagged 版本，再去 releases。",
+          "这条路径能把关键词真正写出价值，而不是把所有 GitHub 访问都写成同一种需求。",
+        ],
+        bullets: [
+          "想确认官方命令：看 DeepSeek guide 和 npm package。",
+          "想下载桌面包或 tagged 二进制：看 GitHub releases。",
+          "想确认开发是否活跃：看 `main-v2` commits。",
+          "想判断 bug 或限制是否已知：先看 open issues，再决定是否信第三方修复。",
+        ],
+      },
+      {
+        heading: "哪些信息不要信",
+        body: [
+          "不要信截图、转述版本表，或者只抄旧 star 数再猜安装行为的文章。这些信息漂移很快。",
+          "更稳妥的写法是只保留保守事实：仓库身份、分支方向、官方 quick start、release 位置，以及 live source 链接。",
+        ],
+      },
+    ],
+  },
+  {
+    ...enArticles[7],
+    title: "Reasonix vs Claude Code：怎么选更适合的 coding loop",
+    description:
+      "面向 `reasonix vs claude code` 的聚焦对比：解释 DeepSeek-first 工作流、缓存行为、权限、MCP、上手路径，以及本地编码会话的选型规则。",
+    eyebrow: "Claude Code 对比",
+    tags: ["Reasonix", "Claude Code", "DeepSeek", "对比"],
+    summary:
+      "这个关键词不该继续写成三方排行榜。Reasonix 和 Claude Code 的核心差异，是一个围绕 DeepSeek-native terminal loop，另一个围绕 Claude-native engineering workflow。",
+    takeaways: [
+      "如果任务明确是 DeepSeek-first，并且关心 prefix cache 稳定、本地终端控制和 `npx reasonix code`，优先看 Reasonix。",
+      "如果团队已经标准化到 Claude，并且更看重 Anthropic 体系的权限、MCP 和工作流治理，Claude Code 更自然。",
+      "真正要比较的是 operating loop，不是哪次 demo 看起来更快。",
+      "靠谱文章应比较上手路径、审批边界、模型策略、长会话行为，以及把仓库权限交给 agent 之前该验证什么。",
+    ],
+    sections: [
+      {
+        heading: "先看模型和工作流前提",
+        body: [
+          "Reasonix 默认从 DeepSeek-native backend 出发，讲的是如何在终端里带着本地项目上下文跑 coding agent。Claude Code 则从 Claude 作为默认工程栈出发，再把工作流能力搭在这层前提上。",
+          "所以这个两方对比是有价值的，它回答的是比三方对比更窄、更实用的问题。",
+        ],
+      },
+      {
+        heading: "什么时候 Reasonix 更合适",
+        body: [
+          "如果读者已经确定要走 DeepSeek coding loop，并且需要本地 API Key、`npx reasonix code`、cache-aware 长会话、tool-call repair、MCP、replay 和终端优先控制，Reasonix 更合适。",
+          "Reasonix 的论点不是“企业工作流全部都赢”，而是它更贴近 DeepSeek 的具体行为，尤其是 prefix cache 友好的长会话和 Flash / Pro 的切换逻辑。",
+        ],
+        bullets: [
+          "模型已经选定 DeepSeek。",
+          "你更在意缓存行为和稳定的本地终端工作，而不是多入口平台能力。",
+          "你希望先直接核验 GitHub、npm、releases 和 DeepSeek 官方文档，再信任何教程。",
+        ],
+      },
+      {
+        heading: "什么时候 Claude Code 更合适",
+        body: [
+          "如果团队已经围绕 Claude 组织工程流程，并且更看重 Anthropic 体系下的权限策略、MCP server 使用、管理能力和 Claude-native 工作方式，Claude Code 更自然。",
+          "这不代表它自动成为 DeepSeek-first 搜索的默认答案，而是说明文章必须承认 Claude Code 在这些方向上确实更强。",
+        ],
+        bullets: [
+          "组织默认就是 Claude。",
+          "团队更关心治理、权限和 Anthropic workflow integration。",
+          "读者在比较的是治理面和工具面，而不只是终端怎么启动。",
+        ],
+      },
+      {
+        heading: "一个实用判断清单",
+        body: [
+          "把仓库权限交给任何 coding agent 之前，都应该先走一遍简短判断：模型前提是什么、密钥放在哪里、命令审批怎么做、长会话到底重要不重要。",
+          "这比纯功能堆表更有用，因为它直接对应工程风险。",
+        ],
+        bullets: [
+          "Backend：DeepSeek-first 还是 Claude-first？",
+          "Startup：是在目标仓库运行 `npx reasonix code`，还是走 Claude Code 自己的安装/登录路径？",
+          "Approval：哪些命令、改动和 MCP 工具允许执行？",
+          "Session：你更需要 DeepSeek cache-aware 长循环，还是更广的 Claude-native workflow controls？",
+        ],
+      },
+    ],
+  },
 ];
 
 const zhTwArticles: Article[] = [
@@ -858,6 +1126,18 @@ const zhTwArticles: Article[] = [
     title: "Reasonix 與開源本機 agent：原始碼可信和 provider 自由度怎麼取捨",
     description:
       "以 Reasonix 為中心，對比開源本機 agent workflow 中的原始碼檢查、provider 選擇、規則、插件和本機控制。",
+  },
+  {
+    ...zhCnArticles[6],
+    title: "Reasonix GitHub repository：clone 或下載前先核驗什麼",
+    description:
+      "面向 `reasonix github repository` 搜尋意圖的實用文章：解釋官方 repo、預設分支、releases、commits、issues、npm package，以及下載或原始碼檢查前該核驗哪些點。",
+  },
+  {
+    ...zhCnArticles[7],
+    title: "Reasonix vs Claude Code：怎麼選更適合的 coding loop",
+    description:
+      "面向 `reasonix vs claude code` 的聚焦對比：解釋 DeepSeek-first 工作流、快取行為、權限、MCP、上手路徑，以及本機編碼會話的選型規則。",
   },
 ];
 
@@ -920,6 +1200,20 @@ const ruArticles: Article[] = [
       "Reasonix и open-source local agents: source trust против provider flexibility",
     description:
       "Reasonix-centered сравнение с open-source local-agent workflows: source inspection, provider choice, rules и local control.",
+  },
+  {
+    ...enArticles[6],
+    title:
+      "Reasonix GitHub repository: что проверить перед clone или download",
+    description:
+      "Практический гид по keyword `reasonix github repository`: официальный repo, default branch, releases, commits, issues, npm package и проверки перед source build или download.",
+  },
+  {
+    ...enArticles[7],
+    title:
+      "Reasonix vs Claude Code: как выбрать более подходящий coding loop",
+    description:
+      "Сфокусированное сравнение Reasonix и Claude Code: DeepSeek-first workflow, cache behavior, permissions, MCP, setup path и rule выбора для local coding sessions.",
   },
 ];
 
