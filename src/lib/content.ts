@@ -13,7 +13,7 @@ export const SITE = {
   description:
     "Use this Reasonix guide to verify DeepSeek coding agent setup, DeepSeek code workflows, DeepSeek V4 agent choices, GitHub downloads, CLI errors, and privacy boundaries before running commands.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-09",
+  checkedAt: "2026-06-10",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -305,7 +305,7 @@ const sharedSources = [
   },
   {
     label: "CLI release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.3.0",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.4.0",
   },
   {
     label: "Desktop release",
@@ -318,29 +318,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#3599",
-    title: "RewindBoth can silently desync code and conversation after auto-compact",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3599",
+    id: "#3739",
+    title: "Smaller-laptop layouts regress after the v1 line UI changes",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3739",
   },
   {
-    id: "#3609",
-    title: 'Desktop "Always Allow" can still reprompt later tool calls in one session',
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3609",
+    id: "#3737",
+    title: "Desktop cannot delete a conversation in current open bug reports",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3737",
   },
   {
-    id: "#3612",
-    title: "web_fetch can ignore proxy configuration on Windows",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3612",
+    id: "#3736",
+    title: "v1.4.0 antivirus false-positive reports are already open on GitHub",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3736",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "19.9k", note: "GitHub repo page, 2026-06-09" },
-  { label: "Forks", value: "1.2k", note: "GitHub repo page, 2026-06-09" },
+  { label: "GitHub stars", value: "20.4k", note: "GitHub repo page, 2026-06-10" },
+  { label: "Forks", value: "1.2k", note: "GitHub repo page, 2026-06-10" },
   {
     label: "Open items",
-    value: "277",
-    note: "235 issues + 42 pull requests on GitHub repo page, 2026-06-09",
+    value: "320",
+    note: "270 issues + 50 pull requests on GitHub releases page, 2026-06-10",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1614,10 +1614,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-07",
-        title: "Reasonix CLI v1.3.0 lands with split release tags",
-        body: "GitHub tags and releases show Reasonix CLI v1.3.0 on June 7, alongside a new npm-only tag namespace so stable CLI releases no longer have to move in lockstep with npm and Homebrew packaging.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.3.0",
+        date: "2026-06-09",
+        title: "Reasonix CLI v1.4.0 ships with review, sandbox, proxy, and desktop fixes",
+        body: "GitHub releases show Reasonix CLI v1.4.0 on June 9, adding the reasonix review subcommand, /sandbox status, proxy tunnelling for web_fetch, stricter permission memory, and multiple desktop and TUI fixes in one source-backed release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.4.0",
       },
       {
         date: "2026-06-04",
@@ -2141,10 +2141,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-07",
-        title: "Reasonix CLI v1.3.0 上线并拆分 release tag 体系",
-        body: "GitHub tags 与 releases 显示 6 月 7 日发布 Reasonix CLI v1.3.0，同时把 npm 发布拆到独立 tag 命名空间，避免稳定 CLI release 被 npm 与 Homebrew 包流程强绑定。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.3.0",
+        date: "2026-06-09",
+        title: "Reasonix CLI v1.4.0 发布，补进 review、sandbox、代理与桌面修复",
+        body: "GitHub releases 显示 6 月 9 日发布 Reasonix CLI v1.4.0，变更包括 reasonix review 子命令、/sandbox status、web_fetch 代理隧道、更稳定的权限记忆，以及多项桌面与 TUI 修复。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.4.0",
       },
       {
         date: "2026-06-04",
@@ -2174,15 +2174,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "自动 compact 后 RewindBoth 可能让代码与对话状态不同步",
+        title: "v1 之后小屏笔记本布局可用性退化，已进入新的公开 bug 列表",
       },
       {
         ...sharedIssueWatch[1],
-        title: '桌面端点击“总是允许”后同一会话内后续工具调用仍可能再次弹窗',
+        title: "桌面端当前公开 bug 显示仍可能出现无法删除对话的问题",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Windows 上 web_fetch 可能不读取代理配置",
+        title: "v1.4.0 已出现杀毒软件误报的公开 issue，下载桌面包前值得先核验",
       },
     ],
     sourceLinks: sharedSources,
@@ -2677,10 +2677,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-07",
-        title: "Reasonix CLI v1.3.0 上線並拆分 release tag 體系",
-        body: "GitHub tags 與 releases 顯示 6 月 7 日發布 Reasonix CLI v1.3.0，同時把 npm 發布拆到獨立 tag 命名空間，避免穩定 CLI release 被 npm 與 Homebrew 打包流程綁死。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.3.0",
+        date: "2026-06-09",
+        title: "Reasonix CLI v1.4.0 上線，補進 review、sandbox、代理與桌面修復",
+        body: "GitHub releases 顯示 6 月 9 日發布 Reasonix CLI v1.4.0，變更包含 reasonix review 子命令、/sandbox status、web_fetch 代理通道、更穩定的權限記憶，以及多項桌面與 TUI 修復。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.4.0",
       },
       {
         date: "2026-06-04",
@@ -2710,15 +2710,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "自動 compact 後 RewindBoth 可能讓程式碼與對話狀態不同步",
+        title: "v1 之後小螢幕筆電的版面可用性退化，已進入新的公開 bug 清單",
       },
       {
         ...sharedIssueWatch[1],
-        title: '桌面端點擊「總是允許」後，同一會話內後續工具呼叫仍可能再次彈窗',
+        title: "桌面端目前的公開 bug 顯示仍可能出現無法刪除對話的問題",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Windows 上 web_fetch 可能不讀取代理設定",
+        title: "v1.4.0 已出現防毒軟體誤報的公開 issue，下載桌面包前值得先核驗",
       },
     ],
     sourceLinks: sharedSources,
@@ -3213,10 +3213,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-07",
-        title: "Reasonix CLI v1.3.0 вышел с разделением release tags",
-        body: "GitHub tags и releases показывают Reasonix CLI v1.3.0 от 7 июня, а также отдельное пространство тегов для npm, чтобы стабильные CLI releases больше не были жестко связаны с npm и Homebrew packaging.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.3.0",
+        date: "2026-06-09",
+        title: "Reasonix CLI v1.4.0 вышел с review, sandbox, proxy и desktop fixes",
+        body: "GitHub releases показывают Reasonix CLI v1.4.0 от 9 июня: добавлены subcommand reasonix review, /sandbox status, proxy tunnelling для web_fetch, более стабильная память approvals и несколько desktop/TUI fixes.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.4.0",
       },
       {
         date: "2026-06-04",
@@ -3246,15 +3246,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "После auto-compact RewindBoth может тихо рассинхронизировать код и диалог",
+        title: "После перехода на v1 маленькие ноутбуки получили новый открытый layout bug",
       },
       {
         ...sharedIssueWatch[1],
-        title: 'После нажатия "Always Allow" desktop все равно может снова спрашивать разрешение в той же сессии',
+        title: "В текущих open issues есть bug, где desktop не может удалить диалог",
       },
       {
         ...sharedIssueWatch[2],
-        title: "В Windows web_fetch может игнорировать proxy configuration",
+        title: "Для v1.4.0 уже открыт issue о ложном срабатывании антивируса",
       },
     ],
     sourceLinks: sharedSources,
