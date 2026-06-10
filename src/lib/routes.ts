@@ -120,7 +120,7 @@ export function getIndexablePagePaths(
 
 export function getAbsoluteUrl(path: string): string {
   const normalized = normalizePath(path);
-  return `${SITE.url}${normalized === "/" ? "" : normalized}`;
+  return `${SITE.url}${normalized}`;
 }
 
 export function getAbsoluteLocalizedUrl(locale: Locale, path: string): string {
@@ -347,6 +347,7 @@ export function getRouteMetadata(locale: Locale, path: string): Metadata {
   const normalizedPath = normalizePath(path);
   const articlePrefix = "/articles/";
   const canonical = localizePath(locale, normalizedPath);
+  const canonicalUrl = getAbsoluteUrl(canonical);
   const alternateUrls = getRouteAlternateUrls(normalizedPath);
 
   if (normalizedPath.startsWith(articlePrefix)) {
@@ -361,7 +362,7 @@ export function getRouteMetadata(locale: Locale, path: string): Metadata {
       title: article.title,
       description: article.description,
       alternates: {
-        canonical,
+        canonical: canonicalUrl,
         languages: alternateUrls,
       },
       openGraph: {
@@ -369,7 +370,7 @@ export function getRouteMetadata(locale: Locale, path: string): Metadata {
         description: article.description,
         type: "article",
         locale: localeConfig[locale].ogLocale,
-        url: getAbsoluteUrl(canonical),
+        url: canonicalUrl,
         publishedTime: article.date,
         images: [
           {
@@ -404,13 +405,13 @@ export function getRouteMetadata(locale: Locale, path: string): Metadata {
     description: copy.description,
     keywords: [...(copy.keywords ?? getContent(locale).metadataKeywords)],
     alternates: {
-      canonical,
+      canonical: canonicalUrl,
       languages: alternateUrls,
     },
       openGraph: {
         type: "website",
         locale: localeConfig[locale].ogLocale,
-        url: getAbsoluteUrl(canonical),
+        url: canonicalUrl,
         siteName: SITE.name,
         title: copy.title,
         description: copy.description,
@@ -451,6 +452,7 @@ export function getCommunityQuestionRouteMetadata(
 ): Metadata {
   const path = `/community/${question.slug}`;
   const canonical = localizePath(locale, path);
+  const canonicalUrl = getAbsoluteUrl(canonical);
   const alternateUrls = getRouteAlternateUrls(path);
   const description = getCommunityDescription(question.body);
 
@@ -459,7 +461,7 @@ export function getCommunityQuestionRouteMetadata(
     title: question.title,
     description,
     alternates: {
-      canonical,
+      canonical: canonicalUrl,
       languages: alternateUrls,
     },
     openGraph: {
@@ -467,7 +469,7 @@ export function getCommunityQuestionRouteMetadata(
       description,
       type: "article",
       locale: localeConfig[locale].ogLocale,
-      url: getAbsoluteUrl(canonical),
+      url: canonicalUrl,
       publishedTime: question.createdAt,
       modifiedTime: question.updatedAt,
       images: [
