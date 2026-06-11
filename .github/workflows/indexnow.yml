@@ -22,6 +22,9 @@ on:
         type: string
         default: "2"
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   submit:
     runs-on: ubuntu-latest
