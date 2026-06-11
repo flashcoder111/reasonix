@@ -1399,9 +1399,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 0.53.2 / next 1.1.0",
+        value: "latest 0.53.2 / next 1.5.0-rc.1",
         detail:
-          "As checked on 2026-06-04, npm latest is 0.53.2 and npm next is 1.1.0. Re-check npm dist-tags before choosing an install path.",
+          "As checked on 2026-06-11, npm latest is 0.53.2, npm next is 1.5.0-rc.1, and npm canary is 1.4.0-canary.3.",
       },
       {
         label: "Official repository",
@@ -1505,7 +1505,7 @@ export const contentByLocale = {
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-06-04, npm latest is 0.53.2 and npm next is 1.1.0. Unpinned npm and npx commands use latest by default; use an explicit tag only when you intentionally want that line.",
+          "As of 2026-06-11, npm latest is 0.53.2, npm next is 1.5.0-rc.1, and npm canary is 1.4.0-canary.3. The package keeps a stable default line plus preview channels.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1621,8 +1621,8 @@ export const contentByLocale = {
       },
       {
         date: "2026-06-04",
-        title: "Reasonix CLI npm tags split latest and next",
-        body: "npm view reasonix dist-tags reports latest as 0.53.2 and next as 1.1.0. Check tags before choosing npx, global npm install, or source build.",
+        title: "Reasonix CLI npm tags now show stable, next, and canary lines",
+        body: "npm dist-tags currently list latest 0.53.2, next 1.5.0-rc.1, and canary 1.4.0-canary.3, keeping the stable CLI package separate from preview release channels.",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
@@ -1640,7 +1640,7 @@ export const contentByLocale = {
       {
         date: "2026-06-02",
         title: "DeepSeek API docs continue to list Reasonix",
-        body: "The DeepSeek API docs include the DeepSeek API key and npx reasonix code startup path. Verify the current Node engine from the npm package before running it.",
+        body: "DeepSeek API docs still list Reasonix as a DeepSeek-native terminal agent, preserving official documentation coverage for the local CLI entrypoint.",
         href: SITE.deepseekGuide,
       },
     ],
@@ -1926,9 +1926,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 0.53.2 / next 1.1.0",
+        value: "latest 0.53.2 / next 1.5.0-rc.1",
         detail:
-          "按 2026-06-04 查询，npm latest 是 0.53.2，npm next 是 1.1.0。安装前先重新检查 npm dist-tags。",
+          "按 2026-06-11 查询，npm latest 是 0.53.2，npm next 是 1.5.0-rc.1，npm canary 是 1.4.0-canary.3。",
       },
       {
         label: "官方仓库",
@@ -2032,7 +2032,7 @@ export const contentByLocale = {
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-06-04 查询，npm latest 是 0.53.2，npm next 是 1.1.0。未指定版本的 npm 和 npx 默认走 latest；只有明确想试 next 线时才指定 tag。",
+          "按 2026-06-11 查询，npm latest 是 0.53.2，npm next 是 1.5.0-rc.1，npm canary 是 1.4.0-canary.3。这个 package 同时保留稳定默认线和预览通道。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2148,8 +2148,8 @@ export const contentByLocale = {
       },
       {
         date: "2026-06-04",
-        title: "Reasonix CLI npm tags 区分 latest 与 next",
-        body: "npm view reasonix dist-tags 显示 latest 为 0.53.2，next 为 1.1.0。选择 npx、全局 npm 安装或源码构建前，先确认 tag。",
+        title: "Reasonix CLI npm tags 显示稳定、next 与 canary 三条线",
+        body: "npm dist-tags 目前列出 latest 0.53.2、next 1.5.0-rc.1 和 canary 1.4.0-canary.3，稳定 CLI 包与预览发布通道保持分离。",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
@@ -2167,7 +2167,7 @@ export const contentByLocale = {
       {
         date: "2026-06-02",
         title: "DeepSeek API 文档继续收录 Reasonix",
-        body: "DeepSeek API 文档的 Reasonix 页面包含 DeepSeek API Key 和 npx reasonix code 启动路径；运行前应再用 npm 包信息确认当前 Node engine。",
+        body: "DeepSeek API 文档仍将 Reasonix 列为 DeepSeek-native terminal agent，并保留本地 CLI 入口说明，官方文档覆盖状态没有撤下。",
         href: SITE.deepseekGuide,
       },
     ],
@@ -2462,9 +2462,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 0.53.2 / next 1.1.0",
+        value: "latest 0.53.2 / next 1.5.0-rc.1",
         detail:
-          "按 2026-06-04 查詢，npm latest 是 0.53.2，npm next 是 1.1.0。安裝前先重新檢查 npm dist-tags。",
+          "按 2026-06-11 查詢，npm latest 是 0.53.2，npm next 是 1.5.0-rc.1，npm canary 是 1.4.0-canary.3。",
       },
       {
         label: "官方倉庫",
@@ -2568,7 +2568,7 @@ export const contentByLocale = {
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-06-04 查詢，npm latest 是 0.53.2，npm next 是 1.1.0。未指定版本的 npm 和 npx 預設走 latest；只有明確想試 next 線時才指定 tag。",
+          "按 2026-06-11 查詢，npm latest 是 0.53.2，npm next 是 1.5.0-rc.1，npm canary 是 1.4.0-canary.3。這個 package 同時保留穩定預設線和預覽通道。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -2684,8 +2684,8 @@ export const contentByLocale = {
       },
       {
         date: "2026-06-04",
-        title: "Reasonix CLI npm tags 區分 latest 與 next",
-        body: "npm view reasonix dist-tags 顯示 latest 為 0.53.2，next 為 1.1.0。選擇 npx、全域 npm 安裝或原始碼建置前，先確認 tag。",
+        title: "Reasonix CLI npm tags 顯示穩定、next 與 canary 三條線",
+        body: "npm dist-tags 目前列出 latest 0.53.2、next 1.5.0-rc.1 和 canary 1.4.0-canary.3，穩定 CLI package 與預覽發布通道保持分離。",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
@@ -2703,7 +2703,7 @@ export const contentByLocale = {
       {
         date: "2026-06-02",
         title: "DeepSeek API 文件繼續收錄 Reasonix",
-        body: "DeepSeek API 文件的 Reasonix 頁面包含 DeepSeek API Key 和 npx reasonix code 啟動路徑；執行前應再用 npm package 資訊確認目前 Node engine。",
+        body: "DeepSeek API 文件仍將 Reasonix 列為 DeepSeek-native terminal agent，並保留本機 CLI 入口說明，官方文件覆蓋狀態沒有撤下。",
         href: SITE.deepseekGuide,
       },
     ],
@@ -2998,9 +2998,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 0.53.2 / next 1.1.0",
+        value: "latest 0.53.2 / next 1.5.0-rc.1",
         detail:
-          "На 2026-06-04 npm latest равен 0.53.2, а npm next равен 1.1.0. Перед установкой заново проверяйте npm dist-tags.",
+          "На 2026-06-11 npm latest равен 0.53.2, npm next равен 1.5.0-rc.1, а npm canary равен 1.4.0-canary.3.",
       },
       {
         label: "Официальный репозиторий",
@@ -3104,7 +3104,7 @@ export const contentByLocale = {
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-06-04 npm latest равен 0.53.2, а npm next равен 1.1.0. Непривязанные npm и npx команды берут latest; указывайте tag явно только когда действительно нужна эта линия.",
+          "На 2026-06-11 npm latest равен 0.53.2, npm next равен 1.5.0-rc.1, а npm canary равен 1.4.0-canary.3. Package сохраняет stable default line и preview channels.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3220,8 +3220,8 @@ export const contentByLocale = {
       },
       {
         date: "2026-06-04",
-        title: "Reasonix CLI npm tags разделяют latest и next",
-        body: "npm view reasonix dist-tags показывает latest 0.53.2 и next 1.1.0. Проверьте tags перед выбором npx, global npm install или source build.",
+        title: "Reasonix CLI npm tags показывают stable, next и canary линии",
+        body: "npm dist-tags сейчас показывают latest 0.53.2, next 1.5.0-rc.1 и canary 1.4.0-canary.3, отделяя stable CLI package от preview release channels.",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
@@ -3239,7 +3239,7 @@ export const contentByLocale = {
       {
         date: "2026-06-02",
         title: "Коллекция DeepSeek agent продолжает включать Reasonix",
-        body: "DeepSeek API docs включают DeepSeek API key и запуск через npx reasonix code. Перед запуском проверьте текущий Node engine в npm package.",
+        body: "DeepSeek API docs по-прежнему перечисляют Reasonix как DeepSeek-native terminal agent и сохраняют official coverage для local CLI entrypoint.",
         href: SITE.deepseekGuide,
       },
     ],
