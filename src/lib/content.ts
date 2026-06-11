@@ -13,7 +13,7 @@ export const SITE = {
   description:
     "Use this Reasonix guide to verify DeepSeek coding agent setup, DeepSeek code workflows, DeepSeek V4 agent choices, GitHub downloads, CLI errors, and privacy boundaries before running commands.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-10",
+  checkedAt: "2026-06-11",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -309,7 +309,7 @@ const sharedSources = [
   },
   {
     label: "Desktop release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
   },
   { label: "DeepSeek official guide", href: SITE.deepseekGuide },
   { label: "DeepSeek V4 release", href: SITE.deepseekV4Release },
@@ -318,29 +318,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#3739",
-    title: "Smaller-laptop layouts regress after the v1 line UI changes",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3739",
+    id: "#3896",
+    title: "YOLO mode switching is broken in a fresh June 10 bug report",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3896",
   },
   {
-    id: "#3737",
-    title: "Desktop cannot delete a conversation in current open bug reports",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3737",
+    id: "#3883",
+    title: "Saved allow rules still mis-handle Bash syntax and prefix matching",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3883",
   },
   {
-    id: "#3736",
-    title: "v1.4.0 antivirus false-positive reports are already open on GitHub",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3736",
+    id: "#3877",
+    title: "Desktop slash-command text localization is still open after the v1.5.0 line",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/3877",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "20.4k", note: "GitHub repo page, 2026-06-10" },
-  { label: "Forks", value: "1.2k", note: "GitHub repo page, 2026-06-10" },
+  { label: "GitHub stars", value: "20.9k", note: "GitHub repo page, 2026-06-11" },
+  { label: "Forks", value: "1.2k", note: "GitHub repo page, 2026-06-11" },
   {
     label: "Open items",
-    value: "320",
-    note: "270 issues + 50 pull requests on GitHub releases page, 2026-06-10",
+    value: "340",
+    note: "286 issues + 54 pull requests on GitHub repo page, 2026-06-11",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1438,10 +1438,10 @@ export const contentByLocale = {
         title: "Desktop release assets",
         tag: "Desktop package",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
         description:
-          "The latest public desktop release is desktop-v1.3.0, with multi-platform desktop archives, latest.json, and minisig signature assets.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
+          "The latest public desktop release is desktop-v1.5.0, adding a Linux .deb package plus new approval, YOLO, and desktop layout fixes in the June 10 release line.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
       },
     ],
     loginSteps: [
@@ -1614,10 +1614,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-09",
-        title: "Reasonix CLI v1.4.0 ships with review, sandbox, proxy, and desktop fixes",
-        body: "GitHub releases show Reasonix CLI v1.4.0 on June 9, adding the reasonix review subcommand, /sandbox status, proxy tunnelling for web_fetch, stricter permission memory, and multiple desktop and TUI fixes in one source-backed release.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.4.0",
+        date: "2026-06-10",
+        title: "Reasonix Desktop v1.5.0 adds Linux .deb packaging and new approval-mode fixes",
+        body: "GitHub releases mark Reasonix Desktop v1.5.0 as the latest release on June 10, adding a Linux .deb package while also fixing pending todo signoff, YOLO ask-tool behavior, and desktop approval-rule layout breakage in the same release line.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
       },
       {
         date: "2026-06-04",
@@ -1728,7 +1728,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub repository, npx start path, npm latest and next tags, main-v2 source build, and desktop-v1.3.0 multi-platform release links.",
+          "Reasonix GitHub repository, npx start path, npm latest and next tags, main-v2 source build, and desktop-v1.5.0 release links.",
         eyebrow: "GitHub downloads",
         title: "Reasonix download paths: npx, main-v2 source, and desktop release",
         descriptionBeforeLink: "The official repository is",
@@ -1766,7 +1766,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix news",
         metaDescription:
-          "Reasonix news covering main-v2 commits, GitHub popularity, npm latest, desktop-v1.3.0 release, and DeepSeek official listing.",
+          "Reasonix news covering main-v2 commits, GitHub popularity, npm latest, desktop-v1.5.0 release, and DeepSeek official listing.",
         eyebrow: "News",
         title: "Reasonix news brief",
         description:
@@ -1965,10 +1965,10 @@ export const contentByLocale = {
         title: "桌面版 release 资产",
         tag: "桌面安装包",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.3.0，包含多平台桌面安装包、latest.json 和 minisig 签名资产。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
+          "GitHub 最新公开桌面 release 为 desktop-v1.5.0，新增 Linux .deb 安装包，并带出审批模式、YOLO 和桌面布局修复。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
       },
     ],
     loginSteps: [
@@ -2141,10 +2141,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-09",
-        title: "Reasonix CLI v1.4.0 发布，补进 review、sandbox、代理与桌面修复",
-        body: "GitHub releases 显示 6 月 9 日发布 Reasonix CLI v1.4.0，变更包括 reasonix review 子命令、/sandbox status、web_fetch 代理隧道、更稳定的权限记忆，以及多项桌面与 TUI 修复。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.4.0",
+        date: "2026-06-10",
+        title: "Reasonix Desktop v1.5.0 上线，新增 Linux .deb 包和审批模式修复",
+        body: "GitHub releases 在 6 月 10 日把 Reasonix Desktop v1.5.0 标记为最新 release；这一发布线新增 Linux .deb 安装包，并同步修复待办 signoff、YOLO ask-tool 行为和桌面审批规则按钮布局问题。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
       },
       {
         date: "2026-06-04",
@@ -2174,15 +2174,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "v1 之后小屏笔记本布局可用性退化，已进入新的公开 bug 列表",
+        title: "6 月 10 日新的公开 bug 显示 YOLO 模式切换仍可能失效",
       },
       {
         ...sharedIssueWatch[1],
-        title: "桌面端当前公开 bug 显示仍可能出现无法删除对话的问题",
+        title: "已保存的允许规则对 Bash 语法和前缀匹配仍有公开问题",
       },
       {
         ...sharedIssueWatch[2],
-        title: "v1.4.0 已出现杀毒软件误报的公开 issue，下载桌面包前值得先核验",
+        title: "desktop-v1.5.0 之后，slash command 文本本地化问题仍在公开列表中",
       },
     ],
     sourceLinks: sharedSources,
@@ -2267,7 +2267,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 仓库、npx 启动、npm latest 与 next、main-v2 源码构建和 desktop-v1.3.0 多平台安装包入口。",
+          "Reasonix GitHub 仓库、npx 启动、npm latest 与 next、main-v2 源码构建和 desktop-v1.5.0 安装包入口。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载路径：npx、main-v2 源码和桌面 release",
         descriptionBeforeLink: "官方仓库地址为",
@@ -2302,7 +2302,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix 新闻",
         metaDescription:
-          "Reasonix 最新新闻：main-v2 提交、GitHub 热度、npm latest、desktop-v1.3.0 release 和 DeepSeek 官方收录。",
+          "Reasonix 最新新闻：main-v2 提交、GitHub 热度、npm latest、desktop-v1.5.0 release 和 DeepSeek 官方收录。",
         eyebrow: "新闻",
         title: "Reasonix 新闻速览",
         description:
@@ -2501,10 +2501,10 @@ export const contentByLocale = {
         title: "桌面版 release 資產",
         tag: "桌面安裝包",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.3.0，包含多平台桌面安裝包、latest.json 和 minisig 簽名資產。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
+          "GitHub 最新公開桌面 release 為 desktop-v1.5.0，新增 Linux .deb 安裝包，並帶出審批模式、YOLO 和桌面版面修復。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
       },
     ],
     loginSteps: [
@@ -2677,10 +2677,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-09",
-        title: "Reasonix CLI v1.4.0 上線，補進 review、sandbox、代理與桌面修復",
-        body: "GitHub releases 顯示 6 月 9 日發布 Reasonix CLI v1.4.0，變更包含 reasonix review 子命令、/sandbox status、web_fetch 代理通道、更穩定的權限記憶，以及多項桌面與 TUI 修復。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.4.0",
+        date: "2026-06-10",
+        title: "Reasonix Desktop v1.5.0 上線，新增 Linux .deb 套件與審批模式修復",
+        body: "GitHub releases 在 6 月 10 日將 Reasonix Desktop v1.5.0 標記為最新 release；這條發布線新增 Linux .deb 安裝包，並同步修復待辦 signoff、YOLO ask-tool 行為與桌面審批規則按鈕版面問題。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
       },
       {
         date: "2026-06-04",
@@ -2710,15 +2710,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "v1 之後小螢幕筆電的版面可用性退化，已進入新的公開 bug 清單",
+        title: "6 月 10 日新的公開 bug 顯示 YOLO 模式切換仍可能失效",
       },
       {
         ...sharedIssueWatch[1],
-        title: "桌面端目前的公開 bug 顯示仍可能出現無法刪除對話的問題",
+        title: "已儲存的允許規則對 Bash 語法和前綴匹配仍有公開問題",
       },
       {
         ...sharedIssueWatch[2],
-        title: "v1.4.0 已出現防毒軟體誤報的公開 issue，下載桌面包前值得先核驗",
+        title: "desktop-v1.5.0 之後，slash command 文字在地化問題仍在公開清單中",
       },
     ],
     sourceLinks: sharedSources,
@@ -2803,7 +2803,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 倉庫、npx 啟動、npm latest 與 next、main-v2 原始碼建置和 desktop-v1.3.0 多平台安裝包入口。",
+          "Reasonix GitHub 倉庫、npx 啟動、npm latest 與 next、main-v2 原始碼建置和 desktop-v1.5.0 安裝包入口。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載路徑：npx、main-v2 原始碼和桌面 release",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -2838,7 +2838,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix 新聞",
         metaDescription:
-          "Reasonix 最新新聞：main-v2 提交、GitHub 熱度、npm latest、desktop-v1.3.0 release 和 DeepSeek 官方收錄。",
+          "Reasonix 最新新聞：main-v2 提交、GitHub 熱度、npm latest、desktop-v1.5.0 release 和 DeepSeek 官方收錄。",
         eyebrow: "新聞",
         title: "Reasonix 新聞速覽",
         description:
@@ -3037,10 +3037,10 @@ export const contentByLocale = {
         title: "Desktop release assets",
         tag: "Desktop пакет",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
         description:
-          "Последний публичный desktop release - desktop-v1.3.0 с multi-platform desktop archives, latest.json и minisig signatures.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.3.0",
+          "Последний публичный desktop release - desktop-v1.5.0: добавлен Linux .deb пакет и включены fixes для approvals, YOLO и desktop layout.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
       },
     ],
     loginSteps: [
@@ -3213,10 +3213,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-09",
-        title: "Reasonix CLI v1.4.0 вышел с review, sandbox, proxy и desktop fixes",
-        body: "GitHub releases показывают Reasonix CLI v1.4.0 от 9 июня: добавлены subcommand reasonix review, /sandbox status, proxy tunnelling для web_fetch, более стабильная память approvals и несколько desktop/TUI fixes.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.4.0",
+        date: "2026-06-10",
+        title: "Reasonix Desktop v1.5.0 вышел с Linux .deb пакетом и fixes для approval mode",
+        body: "GitHub releases помечают Reasonix Desktop v1.5.0 как latest release от 10 июня: добавлен Linux .deb пакет, а в той же release line исправлены pending todo signoff, поведение YOLO ask-tool и поломка layout кнопок approval rules.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.5.0",
       },
       {
         date: "2026-06-04",
@@ -3246,15 +3246,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "После перехода на v1 маленькие ноутбуки получили новый открытый layout bug",
+        title: "Новый open bug от 10 июня показывает сбой переключения YOLO mode",
       },
       {
         ...sharedIssueWatch[1],
-        title: "В текущих open issues есть bug, где desktop не может удалить диалог",
+        title: "Сохраненные allow rules по-прежнему плохо работают с Bash syntax и prefix matching",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Для v1.4.0 уже открыт issue о ложном срабатывании антивируса",
+        title: "После линии desktop-v1.5.0 проблема локализации slash commands остается открытой",
       },
     ],
     sourceLinks: sharedSources,
@@ -3339,7 +3339,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub загрузки",
         metaDescription:
-          "GitHub репозиторий Reasonix, запуск через npx, npm latest и next tags, source build main-v2 и multi-platform desktop-v1.3.0 release.",
+          "GitHub репозиторий Reasonix, запуск через npx, npm latest и next tags, source build main-v2 и desktop-v1.5.0 release.",
         eyebrow: "GitHub загрузки",
         title: "Как получить Reasonix: npx, main-v2 source и desktop release",
         descriptionBeforeLink: "Официальный репозиторий:",
@@ -3377,7 +3377,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Новости Reasonix",
         metaDescription:
-          "Новости Reasonix: commits main-v2, GitHub popularity, npm latest, desktop-v1.3.0 release и официальный листинг DeepSeek.",
+          "Новости Reasonix: commits main-v2, GitHub popularity, npm latest, desktop-v1.5.0 release и официальный листинг DeepSeek.",
         eyebrow: "Новости",
         title: "Краткие новости Reasonix",
         description:
