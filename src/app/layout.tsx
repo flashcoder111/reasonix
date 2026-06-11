@@ -26,6 +26,13 @@ export const metadata: Metadata = {
     ...defaultMetadata.other,
     "google-adsense-account": "ca-pub-9068083570091757",
   },
+  verification: {
+    ...defaultMetadata.verification,
+    other: {
+      ...defaultMetadata.verification?.other,
+      "msvalidate.01": "C014F070EB2B9382BD86C58FD74D70E5",
+    },
+  },
 };
 
 export default function RootLayout({
