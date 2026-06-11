@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "indexnow:submit": "node scripts/submit-indexnow.cjs",
     "lint": "eslint"
   },
   "dependencies": {

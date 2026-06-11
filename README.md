@@ -40,6 +40,26 @@ COMMUNITY_ADMIN_CLERK_IDS=
 
 If Supabase is not configured, community pages render a safe setup notice instead of accepting posts.
 
+## IndexNow
+
+Daily IndexNow submission runs from `.github/workflows/indexnow.yml` at 08:30 Asia/Shanghai. It reads the live sitemap, selects URLs with recent `lastmod` values, verifies the public key file, and submits the selected URLs to `https://api.indexnow.org/indexnow`.
+
+Set the same key in both places:
+
+```bash
+INDEXNOW_KEY=
+```
+
+- Vercel project environment: powers `https://www.deepseekreasonix.com/indexnow-key.txt`
+- GitHub repository secret: powers the scheduled `npm run indexnow:submit` workflow
+
+Useful manual checks:
+
+```bash
+INDEXNOW_KEY=your-key npm run indexnow:submit -- --dry-run
+INDEXNOW_KEY=your-key npm run indexnow:submit -- --all
+```
+
 ## Content sources
 
 - GitHub repo: `https://github.com/esengine/DeepSeek-Reasonix`
