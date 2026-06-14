@@ -13,7 +13,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-14",
+  checkedAt: "2026-06-15",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -319,29 +319,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#4317",
-    title: "A new v1.7.0 bug report says sub-agent task arguments can leak into the user conversation and trigger HTTP 400 errors",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4317",
+    id: "#4398",
+    title: "A new feature request asks Reasonix to import Codex and Claude Code sessions into the Go rewrite",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4398",
   },
   {
-    id: "#4310",
-    title: "Users are reporting repeated permission prompts even after choosing Always Allow",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4310",
+    id: "#4397",
+    title: "A fresh desktop bug report says long transcripts can lose scroll position after tab switches",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4397",
   },
   {
-    id: "#4326",
-    title: "A fresh install request asks for Scoop distribution on Windows",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4326",
+    id: "#4396",
+    title: "Users are reporting that Ask-mode desktop approval choices like Always Allow are not sticking",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4396",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "21.8k", note: "GitHub API, 2026-06-14" },
-  { label: "Forks", value: "1.3k", note: "GitHub API, 2026-06-14" },
+  { label: "GitHub stars", value: "22.0k", note: "GitHub API, 2026-06-15" },
+  { label: "Forks", value: "1.3k", note: "GitHub API, 2026-06-15" },
   {
     label: "Open items",
-    value: "467",
-    note: "404 issues + 63 pull requests on GitHub API, 2026-06-14",
+    value: "483",
+    note: "418 issues + 65 pull requests on GitHub API, 2026-06-15",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1908,9 +1908,9 @@ export const contentByLocale = {
       },
       {
         date: "2026-06-14",
-        title: "Reasonix npm tags still separate stable, next, and canary package lines",
-        body: "npm dist-tags checked on June 14 still keep the stable CLI on latest 0.53.2, the preview line on next 1.7.0-rc.1, and canary on 1.4.0-canary.3, preserving a split between the default package and preview channels.",
-        href: "https://www.npmjs.com/package/reasonix",
+        title: "Reasonix adds a built-in CodeGraph update flow without hot-swapping active MCP sessions",
+        body: "GitHub commit f07e908 on June 14 adds a built-in CodeGraph update path plus desktop background checks in notify, download, and auto-next-session modes; downloads now verify SHA256SUMS, and running MCP sessions stay on their current tool schema until reconnect.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f07e9084ef4128dd48ed2f2e85a94bb6bbfb6bc8",
       },
     ],
     issueWatch: sharedIssueWatch,
@@ -2444,23 +2444,23 @@ export const contentByLocale = {
       },
       {
         date: "2026-06-14",
-        title: "Reasonix npm tags 仍然把 stable、next 和 canary 分线维护",
-        body: "6 月 14 日检查的 npm dist-tags 仍然显示 latest 0.53.2、next 1.7.0-rc.1、canary 1.4.0-canary.3，默认安装线和预览通道继续分开维护。",
-        href: "https://www.npmjs.com/package/reasonix",
+        title: "Reasonix 新增内置 CodeGraph 更新流程，同时避免热切换正在运行的 MCP 会话",
+        body: "GitHub commit f07e908 显示 6 月 14 日新增内置 CodeGraph 更新路径和桌面后台检查模式，支持 notify、download、auto-next-session；下载会校验 SHA256SUMS，而正在运行的 MCP 会话会保持当前工具 schema，直到重新连接。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f07e9084ef4128dd48ed2f2e85a94bb6bbfb6bc8",
       },
     ],
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "新的 v1.7.0 bug 报告称 sub-agent 任务参数会泄露到用户对话里并触发 HTTP 400",
+        title: "新的功能请求希望 Reasonix 在 Go 重写线上支持导入 Codex 与 Claude Code 会话",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有用户报告即使选择“总是允许”，Reasonix 仍会频繁重复索要权限",
+        title: "新的桌面端 bug 报告称长会话在切换标签后会丢失滚动到底部的位置",
       },
       {
         ...sharedIssueWatch[2],
-        title: "新的安装请求希望在 Windows 上支持通过 Scoop 分发",
+        title: "有用户报告 Ask 模式下桌面端“总是允许”等授权选择不会真正生效",
       },
     ],
     sourceLinks: sharedSources,
@@ -2989,23 +2989,23 @@ export const contentByLocale = {
       },
       {
         date: "2026-06-14",
-        title: "Reasonix npm tags 仍然把 stable、next 和 canary 分線維護",
-        body: "6 月 14 日檢查的 npm dist-tags 仍然顯示 latest 0.53.2、next 1.7.0-rc.1、canary 1.4.0-canary.3，預設安裝線與預覽通道繼續分開維護。",
-        href: "https://www.npmjs.com/package/reasonix",
+        title: "Reasonix 新增內建 CodeGraph 更新流程，同時避免熱切換正在運行的 MCP 工作階段",
+        body: "GitHub commit f07e908 顯示 6 月 14 日新增內建 CodeGraph 更新路徑與桌面背景檢查模式，支援 notify、download、auto-next-session；下載會校驗 SHA256SUMS，而正在運行的 MCP 工作階段會保持目前工具 schema，直到重新連線。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f07e9084ef4128dd48ed2f2e85a94bb6bbfb6bc8",
       },
     ],
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "新的 v1.7.0 bug 回報指出 sub-agent 任務參數會洩漏到使用者對話並觸發 HTTP 400",
+        title: "新的功能請求希望 Reasonix 在 Go 重寫線支援匯入 Codex 與 Claude Code 工作階段",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有使用者回報即使選了「一律允許」，Reasonix 仍會頻繁重複要求權限",
+        title: "新的桌面端 bug 回報指出長會話在切換分頁後會遺失滾動到底部的位置",
       },
       {
         ...sharedIssueWatch[2],
-        title: "新的安裝請求希望在 Windows 上支援透過 Scoop 分發",
+        title: "有使用者回報 Ask 模式下桌面端「一律允許」等授權選項不會真正生效",
       },
     ],
     sourceLinks: sharedSources,
@@ -3534,23 +3534,23 @@ export const contentByLocale = {
       },
       {
         date: "2026-06-14",
-        title: "Reasonix npm tags по-прежнему держат отдельные линии stable, next и canary",
-        body: "Проверка npm dist-tags от 14 июня по-прежнему показывает latest 0.53.2, next 1.7.0-rc.1 и canary 1.4.0-canary.3, сохраняя разделение между default package line и preview channels.",
-        href: "https://www.npmjs.com/package/reasonix",
+        title: "Reasonix добавляет встроенный поток обновления CodeGraph без горячей замены активных MCP-сеансов",
+        body: "GitHub commit f07e908 от 14 июня добавляет встроенный путь обновления CodeGraph и desktop background checks в режимах notify, download и auto-next-session; загрузки теперь проверяют SHA256SUMS, а активные MCP-сеансы сохраняют текущую schema tools до переподключения.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f07e9084ef4128dd48ed2f2e85a94bb6bbfb6bc8",
       },
     ],
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "Новый bug report по v1.7.0 говорит, что аргументы sub-agent task могут утекать в пользовательский диалог и вызывать HTTP 400",
+        title: "Новый feature request просит импорт сеансов Codex и Claude Code в Go rewrite ветке Reasonix",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Пользователи сообщают о повторных запросах разрешений даже после выбора Always Allow",
+        title: "Новый desktop bug report говорит, что длинные transcript-сессии теряют позицию прокрутки после переключения вкладок",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Новый install request просит поддержку дистрибуции через Scoop на Windows",
+        title: "Пользователи сообщают, что desktop approval choices вроде Always Allow не сохраняются в режиме Ask",
       },
     ],
     sourceLinks: sharedSources,
