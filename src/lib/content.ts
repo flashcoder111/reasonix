@@ -8,10 +8,10 @@ const normalizedSiteUrl =
 
 export const SITE = {
   name: "Reasonix",
-  title: "DeepSeek Reasonix | DeepSeek coding agent and V4 code guide",
-  slogan: "Reasonix is DeepSeek's dedicated agent.",
+  title: "DeepSeek Reasonix: Reasonix Desktop, CLI, GitHub, and Claude Code Comparison",
+  slogan: "DeepSeek Reasonix is a dedicated coding agent",
   description:
-    "Use this Reasonix guide to verify DeepSeek coding agent setup, DeepSeek code workflows, DeepSeek V4 agent choices, GitHub downloads, CLI errors, and privacy boundaries before running commands.",
+    "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
   checkedAt: "2026-06-14",
   authorName: "Reasonix editorial desk",
@@ -74,6 +74,7 @@ export const seoLandingPagePaths = [
   "/deepseek-code",
   "/deepseek-v4-agent",
   "/deepseek-v4-code",
+  "/github-copilot-deepseek-v4",
 ] as const;
 
 export type SeoLandingPagePath = (typeof seoLandingPagePaths)[number];
@@ -345,6 +346,261 @@ const sharedProjectStats = [
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
 
+const githubCopilotDeepseekV4PageByLocale = {
+  en: {
+    path: "/github-copilot-deepseek-v4",
+    metaTitle:
+      "GitHub Copilot DeepSeek V4: can Reasonix replace Copilot for coding?",
+    metaDescription:
+      "GitHub Copilot DeepSeek V4 guide comparing Copilot-style coding assistance with Reasonix, DeepSeek V4 Flash/Pro, GitHub source checks, and local terminal work.",
+    eyebrow: "GitHub Copilot DeepSeek V4",
+    title: "GitHub Copilot DeepSeek V4 coding workflow",
+    description:
+      "This page separates the GitHub Copilot DeepSeek V4 search from the homepage. It explains when Reasonix is a DeepSeek-native local coding workflow and when Copilot-style IDE assistance is still the better fit.",
+    primaryKeyword: "github copilot deepseek v4",
+    secondaryKeywords: [
+      "GitHub Copilot DeepSeek",
+      "DeepSeek V4 coding assistant",
+      "Reasonix GitHub",
+      "Reasonix vs GitHub Copilot",
+    ],
+    definitionTitle: "What this search usually means",
+    definition:
+      "People searching for GitHub Copilot DeepSeek V4 are usually comparing IDE autocomplete and chat assistance with a DeepSeek-backed coding workflow that can run in a local repository.",
+    factTitle: "Facts to keep the page grounded",
+    facts: [
+      "Reasonix source and releases should be verified through the GitHub repository before installation.",
+      "DeepSeek V4 model choices belong in the local Reasonix workflow through Flash and Pro controls.",
+      "GitHub Copilot-style assistance is different from a terminal agent that reads files, runs commands, and keeps reviewable history.",
+    ],
+    stepsTitle: "How to compare the workflows",
+    steps: [
+      "Use Copilot-style tools when IDE completion and inline suggestions are the main job.",
+      "Use Reasonix when the task needs a DeepSeek-native loop inside a local project directory.",
+      "Verify the Reasonix GitHub repository, npm package, and DeepSeek guide before running install commands.",
+      "Start with Flash for routine work and switch to Pro only when the next step needs deeper reasoning.",
+    ],
+    modelTitle: "Where Reasonix fits",
+    modelBody:
+      "Reasonix should not be described as a Copilot clone. Its stronger claim is a DeepSeek-native terminal loop for repository-aware coding, command review, cache-friendly sessions, and source-verifiable downloads.",
+    commandTitle: "Reasonix GitHub and V4 check",
+    command:
+      "npm view reasonix dist-tags\ncd /path/to/my-project\nnpx reasonix code\n# inside TUI: /help, /pro, /preset max",
+    faqTitle: "GitHub Copilot DeepSeek V4 FAQ",
+    faqs: [
+      {
+        question: "Is Reasonix the same as GitHub Copilot?",
+        answer:
+          "No. Copilot-style tools focus on IDE assistance, while Reasonix is positioned as a DeepSeek-native terminal coding agent.",
+      },
+      {
+        question: "Where should I verify Reasonix before installing it?",
+        answer:
+          "Use the official GitHub repository, npm package metadata, GitHub releases, and the DeepSeek Reasonix guide before running commands.",
+      },
+      {
+        question: "When should I use DeepSeek V4 Pro?",
+        answer:
+          "Use Flash for routine iteration and reserve Pro for harder planning, debugging, migration, or cross-file reasoning.",
+      },
+    ],
+    relatedTitle: "Related Reasonix and DeepSeek V4 pages",
+    ctaTitle: "Compare before you switch coding workflows",
+    ctaBody:
+      "Start with source verification, then decide whether IDE assistance or a DeepSeek-native terminal loop is the better fit for the task.",
+    ctaLabel: "Open DeepSeek guide",
+  },
+  "zh-cn": {
+    path: "/github-copilot-deepseek-v4",
+    metaTitle:
+      "GitHub Copilot DeepSeek V4：Reasonix 能否替代 Copilot 写代码？",
+    metaDescription:
+      "GitHub Copilot DeepSeek V4 长尾页：对比 Copilot 式编码辅助、Reasonix、DeepSeek V4 Flash/Pro、GitHub 来源核验和本地终端工作流。",
+    eyebrow: "GitHub Copilot DeepSeek V4",
+    title: "GitHub Copilot DeepSeek V4 编码工作流",
+    description:
+      "这个页面把 GitHub Copilot DeepSeek V4 搜索从首页拆出来，单独说明 Reasonix 适合 DeepSeek-native 本地 coding workflow 的场景，以及 Copilot 式 IDE 辅助仍然更合适的场景。",
+    primaryKeyword: "github copilot deepseek v4",
+    secondaryKeywords: [
+      "GitHub Copilot DeepSeek",
+      "DeepSeek V4 coding assistant",
+      "Reasonix GitHub",
+      "Reasonix vs GitHub Copilot",
+    ],
+    definitionTitle: "这个搜索通常想问什么",
+    definition:
+      "搜索 GitHub Copilot DeepSeek V4 的用户通常是在比较 IDE 自动补全/聊天辅助，与一个能在本地仓库里运行的 DeepSeek-backed coding workflow。",
+    factTitle: "需要先锚定的事实",
+    facts: [
+      "Reasonix 的源码和 release 应先通过 GitHub 仓库核验。",
+      "DeepSeek V4 的模型选择应落到 Reasonix 本地流程里的 Flash 和 Pro 控制。",
+      "GitHub Copilot 式辅助不同于能读文件、跑命令并保留可审查历史的终端 agent。",
+    ],
+    stepsTitle: "如何比较两种工作流",
+    steps: [
+      "主要需要 IDE 补全和行内建议时，用 Copilot 式工具。",
+      "任务需要在本地项目目录里跑 DeepSeek-native loop 时，用 Reasonix。",
+      "运行安装命令前，核验 Reasonix GitHub 仓库、npm package 和 DeepSeek 官方文档。",
+      "日常任务先用 Flash，需要更强推理的下一步再切 Pro。",
+    ],
+    modelTitle: "Reasonix 的位置",
+    modelBody:
+      "不要把 Reasonix 写成 Copilot clone。它更适合描述为 DeepSeek-native 终端循环：面向仓库、可审查命令、缓存友好长会话和可核验下载来源。",
+    commandTitle: "Reasonix GitHub 与 V4 核验命令",
+    command:
+      "npm view reasonix dist-tags\ncd /path/to/my-project\nnpx reasonix code\n# TUI 内：/help、/pro、/preset max",
+    faqTitle: "GitHub Copilot DeepSeek V4 常见问题",
+    faqs: [
+      {
+        question: "Reasonix 和 GitHub Copilot 一样吗？",
+        answer:
+          "不一样。Copilot 式工具主要是 IDE 辅助，Reasonix 则是 DeepSeek-native 终端 coding agent。",
+      },
+      {
+        question: "安装 Reasonix 前应该在哪里核验？",
+        answer:
+          "先看官方 GitHub 仓库、npm package metadata、GitHub releases 和 DeepSeek Reasonix 文档。",
+      },
+      {
+        question: "什么时候用 DeepSeek V4 Pro？",
+        answer:
+          "日常迭代用 Flash；复杂计划、调试、迁移或跨文件推理再用 Pro。",
+      },
+    ],
+    relatedTitle: "相关 Reasonix 与 DeepSeek V4 页面",
+    ctaTitle: "切换编码工作流前先比较清楚",
+    ctaBody:
+      "先做来源核验，再判断当前任务更适合 IDE 辅助，还是 DeepSeek-native 终端循环。",
+    ctaLabel: "打开 DeepSeek 官方文档",
+  },
+  "zh-tw": {
+    path: "/github-copilot-deepseek-v4",
+    metaTitle:
+      "GitHub Copilot DeepSeek V4：Reasonix 能否替代 Copilot 寫程式？",
+    metaDescription:
+      "GitHub Copilot DeepSeek V4 長尾頁：對比 Copilot 式編碼輔助、Reasonix、DeepSeek V4 Flash/Pro、GitHub 來源核驗和本機終端工作流。",
+    eyebrow: "GitHub Copilot DeepSeek V4",
+    title: "GitHub Copilot DeepSeek V4 編碼工作流",
+    description:
+      "這個頁面把 GitHub Copilot DeepSeek V4 搜尋從首頁拆出來，單獨說明 Reasonix 適合 DeepSeek-native 本機 coding workflow 的場景，以及 Copilot 式 IDE 輔助仍然更合適的場景。",
+    primaryKeyword: "github copilot deepseek v4",
+    secondaryKeywords: [
+      "GitHub Copilot DeepSeek",
+      "DeepSeek V4 coding assistant",
+      "Reasonix GitHub",
+      "Reasonix vs GitHub Copilot",
+    ],
+    definitionTitle: "這個搜尋通常想問什麼",
+    definition:
+      "搜尋 GitHub Copilot DeepSeek V4 的使用者通常是在比較 IDE 自動補全/聊天輔助，與一個能在本機倉庫裡執行的 DeepSeek-backed coding workflow。",
+    factTitle: "需要先錨定的事實",
+    facts: [
+      "Reasonix 的原始碼和 release 應先透過 GitHub 倉庫核驗。",
+      "DeepSeek V4 的模型選擇應落到 Reasonix 本機流程裡的 Flash 和 Pro 控制。",
+      "GitHub Copilot 式輔助不同於能讀檔案、跑命令並保留可審查歷史的終端 agent。",
+    ],
+    stepsTitle: "如何比較兩種工作流",
+    steps: [
+      "主要需要 IDE 補全和行內建議時，用 Copilot 式工具。",
+      "任務需要在本機專案目錄裡跑 DeepSeek-native loop 時，用 Reasonix。",
+      "執行安裝命令前，核驗 Reasonix GitHub 倉庫、npm package 和 DeepSeek 官方文件。",
+      "日常任務先用 Flash，需要更強推理的下一步再切 Pro。",
+    ],
+    modelTitle: "Reasonix 的位置",
+    modelBody:
+      "不要把 Reasonix 寫成 Copilot clone。它更適合描述為 DeepSeek-native 終端循環：面向倉庫、可審查命令、快取友好長會話和可核驗下載來源。",
+    commandTitle: "Reasonix GitHub 與 V4 核驗命令",
+    command:
+      "npm view reasonix dist-tags\ncd /path/to/my-project\nnpx reasonix code\n# TUI 內：/help、/pro、/preset max",
+    faqTitle: "GitHub Copilot DeepSeek V4 常見問題",
+    faqs: [
+      {
+        question: "Reasonix 和 GitHub Copilot 一樣嗎？",
+        answer:
+          "不一樣。Copilot 式工具主要是 IDE 輔助，Reasonix 則是 DeepSeek-native 終端 coding agent。",
+      },
+      {
+        question: "安裝 Reasonix 前應該在哪裡核驗？",
+        answer:
+          "先看官方 GitHub 倉庫、npm package metadata、GitHub releases 和 DeepSeek Reasonix 文件。",
+      },
+      {
+        question: "什麼時候用 DeepSeek V4 Pro？",
+        answer:
+          "日常迭代用 Flash；複雜計畫、調試、遷移或跨檔案推理再用 Pro。",
+      },
+    ],
+    relatedTitle: "相關 Reasonix 與 DeepSeek V4 頁面",
+    ctaTitle: "切換編碼工作流前先比較清楚",
+    ctaBody:
+      "先做來源核驗，再判斷目前任務更適合 IDE 輔助，還是 DeepSeek-native 終端循環。",
+    ctaLabel: "開啟 DeepSeek 官方文件",
+  },
+  ru: {
+    path: "/github-copilot-deepseek-v4",
+    metaTitle:
+      "GitHub Copilot DeepSeek V4: can Reasonix replace Copilot for coding?",
+    metaDescription:
+      "GitHub Copilot DeepSeek V4 guide comparing Copilot-style coding assistance with Reasonix, DeepSeek V4 Flash/Pro, GitHub source checks, and local terminal work.",
+    eyebrow: "GitHub Copilot DeepSeek V4",
+    title: "GitHub Copilot DeepSeek V4 coding workflow",
+    description:
+      "This page keeps the GitHub Copilot DeepSeek V4 query separate from the homepage and compares Copilot-style IDE help with a DeepSeek-native Reasonix terminal workflow.",
+    primaryKeyword: "github copilot deepseek v4",
+    secondaryKeywords: [
+      "GitHub Copilot DeepSeek",
+      "DeepSeek V4 coding assistant",
+      "Reasonix GitHub",
+      "Reasonix vs GitHub Copilot",
+    ],
+    definitionTitle: "What this search means",
+    definition:
+      "Users usually want to compare IDE autocomplete and chat assistance with a DeepSeek-backed workflow that can run inside a local repository.",
+    factTitle: "Facts to verify",
+    facts: [
+      "Verify Reasonix source and releases through the GitHub repository before installation.",
+      "DeepSeek V4 model choices belong in the Reasonix workflow through Flash and Pro controls.",
+      "Copilot-style assistance is different from a terminal agent that reads files, runs commands, and keeps reviewable history.",
+    ],
+    stepsTitle: "How to compare workflows",
+    steps: [
+      "Use Copilot-style tools when IDE completion is the main job.",
+      "Use Reasonix when the task needs a DeepSeek-native loop inside a local project directory.",
+      "Verify the Reasonix GitHub repository, npm package, and DeepSeek guide before install commands.",
+      "Start with Flash for routine work and switch to Pro only for deeper reasoning.",
+    ],
+    modelTitle: "Where Reasonix fits",
+    modelBody:
+      "Reasonix is not a Copilot clone. It is better framed as a DeepSeek-native terminal loop for repository-aware coding, command review, long sessions, and source-verifiable downloads.",
+    commandTitle: "Reasonix GitHub and V4 check",
+    command:
+      "npm view reasonix dist-tags\ncd /path/to/my-project\nnpx reasonix code\n# inside TUI: /help, /pro, /preset max",
+    faqTitle: "GitHub Copilot DeepSeek V4 FAQ",
+    faqs: [
+      {
+        question: "Is Reasonix the same as GitHub Copilot?",
+        answer:
+          "No. Copilot-style tools focus on IDE assistance, while Reasonix is a DeepSeek-native terminal coding agent.",
+      },
+      {
+        question: "Where should I verify Reasonix?",
+        answer:
+          "Use the official GitHub repository, npm metadata, GitHub releases, and the DeepSeek Reasonix guide.",
+      },
+      {
+        question: "When should I use DeepSeek V4 Pro?",
+        answer:
+          "Use Flash for routine iteration and Pro for harder planning, debugging, migration, or cross-file reasoning.",
+      },
+    ],
+    relatedTitle: "Related Reasonix and DeepSeek V4 pages",
+    ctaTitle: "Compare before switching workflows",
+    ctaBody:
+      "Verify the source first, then decide whether IDE assistance or a DeepSeek-native terminal loop fits the task.",
+    ctaLabel: "Open DeepSeek guide",
+  },
+} satisfies Record<Locale, SeoLandingPage>;
+
 export const seoLandingPagesByLocale = {
   en: [
     {
@@ -591,6 +847,7 @@ export const seoLandingPagesByLocale = {
         "Use the official V4 release for model facts and the Reasonix guide for the terminal coding path.",
       ctaLabel: "Open DeepSeek guide",
     },
+    githubCopilotDeepseekV4PageByLocale.en,
   ],
   "zh-cn": [
     {
@@ -829,6 +1086,7 @@ export const seoLandingPagesByLocale = {
         "用官方 V4 发布页确认模型事实，用 Reasonix 官方文档确认终端 coding 路径。",
       ctaLabel: "打开 DeepSeek 官方文档",
     },
+    githubCopilotDeepseekV4PageByLocale["zh-cn"],
   ],
   "zh-tw": [
     {
@@ -1067,6 +1325,7 @@ export const seoLandingPagesByLocale = {
         "用官方 V4 發布頁確認模型事實，用 Reasonix 官方文件確認終端 coding 路徑。",
       ctaLabel: "開啟 DeepSeek 官方文件",
     },
+    githubCopilotDeepseekV4PageByLocale["zh-tw"],
   ],
   ru: [
     {
@@ -1305,6 +1564,7 @@ export const seoLandingPagesByLocale = {
         "Use the V4 release for model facts and the Reasonix guide for the terminal coding path.",
       ctaLabel: "Open DeepSeek guide",
     },
+    githubCopilotDeepseekV4PageByLocale.ru,
   ],
 } satisfies Record<Locale, readonly SeoLandingPage[]>;
 
@@ -1324,6 +1584,15 @@ export const contentByLocale = {
     metadataKeywords: [
       "Reasonix",
       "DeepSeek Reasonix",
+      "deepseek reasonix",
+      "deepseekreasonix",
+      "reasonix deepseek",
+      "deepseek resonix",
+      "resonix deepseek",
+      "reasonix vs claude code",
+      "reasonix desktop",
+      "reasonix github",
+      "github copilot deepseek v4",
       "Reasonix download",
       "Reasonix errors",
       "DeepSeek official recommendation",
@@ -1348,7 +1617,7 @@ export const contentByLocale = {
       { href: "/news", label: "News", icon: "newspaper", eyebrow: "Updates" },
     ],
     commandReference: {
-      title: "TUI commands",
+      title: "Reasonix CLI and TUI commands",
       sourceLabel: "CLI ref",
       sourceHref: SITE.cliReference,
       items: [
@@ -1649,7 +1918,7 @@ export const contentByLocale = {
     pages: {
       home: {
         eyebrow: "DeepSeek-native coding agent guide",
-        title: "Start the DeepSeek-focused coding agent from your terminal",
+        title: "Reasonix Desktop, CLI, GitHub, and Claude Code comparison",
         primaryCta: "View GitHub downloads",
         secondaryCta: "Troubleshoot CLI errors",
         terminalNote:
@@ -1658,18 +1927,18 @@ export const contentByLocale = {
         articleReadLabel: "Read",
         sectionsTitle: "Product overview",
         seoClusterEyebrow: "DeepSeek long-tail guides",
-        seoClusterTitle: "DeepSeek coding agent and V4 code pages",
+        seoClusterTitle: "DeepSeek Reasonix coding agent and V4 code guides",
         seoClusterDescription:
-          "These focused pages answer DeepSeek coding-agent, DeepSeek code, DeepSeek V4 agent, and DeepSeek V4 code searches before routing readers back to Reasonix.",
+          "These focused pages answer DeepSeek coding-agent, DeepSeek code, DeepSeek V4 agent, DeepSeek V4 code, and GitHub Copilot DeepSeek V4 searches before routing readers back to Reasonix.",
         latestNewsTitle: "Latest Reasonix AI coding agent news",
       },
       articles: {
         metaTitle:
-          "Reasonix guides: getting started, cache architecture, Claude, Codex, and AI CLI comparisons",
+          "Reasonix guides: prefix cache, Claude Code, Codex, and AI CLI comparisons",
         metaDescription:
           "Reasonix article library covering setup, DeepSeek prefix-cache architecture, Reasonix versus Claude Code and Codex, and Reasonix versus generic AI CLI tools.",
         eyebrow: "High-quality articles",
-        title: "Reasonix guides, cache architecture, and agent comparisons",
+        title: "Reasonix guides, prefix cache, and Claude Code comparisons",
         description:
           "Start with the official DeepSeek path, then read how Reasonix keeps cache-friendly long sessions and where it differs from Claude Code, Codex, and generic AI CLI tools.",
         readLabel: "Read article",
@@ -1837,10 +2106,10 @@ export const contentByLocale = {
   },
   "zh-cn": {
     site: {
-      title: "Reasonix | DeepSeek Reasonix 资讯站",
-      slogan: "Reasonix 是 DeepSeek 专属 agent。",
+      title: "DeepSeek Reasonix：Reasonix Desktop、CLI、GitHub 与 Claude Code 对比",
+      slogan: "DeepSeek Reasonix 是专用 coding agent",
       description:
-        "帮助你在运行命令前核对 DeepSeek 官方推荐、GitHub 下载、常见命令行报错、FAQ、隐私说明和近期项目新闻。",
+        "用这份 DeepSeek Reasonix 指南对比 Reasonix vs Claude Code，核验 Reasonix Desktop 与 GitHub 下载，并在本地运行 DeepSeek V4 coding workflow。",
       shellSubtitle: "DeepSeek Reasonix 简体中文资讯",
       contentPrinciplesTitle: "密钥留在本机",
       contentPrinciplesBody:
@@ -1851,6 +2120,15 @@ export const contentByLocale = {
     metadataKeywords: [
       "Reasonix",
       "DeepSeek Reasonix",
+      "deepseek reasonix",
+      "deepseekreasonix",
+      "reasonix deepseek",
+      "deepseek resonix",
+      "resonix deepseek",
+      "reasonix vs claude code",
+      "reasonix desktop",
+      "reasonix github",
+      "github copilot deepseek v4",
       "Reasonix 下载",
       "Reasonix 报错",
       "DeepSeek 官方推荐",
@@ -1875,7 +2153,7 @@ export const contentByLocale = {
       { href: "/news", label: "新闻", icon: "newspaper", eyebrow: "News" },
     ],
     commandReference: {
-      title: "操作指令表",
+      title: "Reasonix CLI 与 TUI 命令",
       sourceLabel: "官方参考",
       sourceHref: SITE.cliReference,
       items: [
@@ -2189,7 +2467,7 @@ export const contentByLocale = {
     pages: {
       home: {
         eyebrow: "DeepSeek-native coding agent guide",
-        title: "从终端启动面向 DeepSeek 的 coding agent",
+        title: "Reasonix Desktop、CLI、GitHub 与 Claude Code 对比",
         primaryCta: "查看 GitHub 下载",
         secondaryCta: "排查命令行报错",
         terminalNote:
@@ -2198,17 +2476,17 @@ export const contentByLocale = {
         articleReadLabel: "阅读",
         sectionsTitle: "产品介绍",
         seoClusterEyebrow: "DeepSeek 长尾页面",
-        seoClusterTitle: "DeepSeek coding agent 与 V4 code 入口",
+        seoClusterTitle: "DeepSeek Reasonix coding agent 与 V4 code 指南",
         seoClusterDescription:
-          "这些页面专门承接 DeepSeek coding agent、DeepSeek code、DeepSeek V4 agent 和 DeepSeek V4 code 搜索，再把读者导回 Reasonix。",
+          "这些页面专门承接 DeepSeek coding agent、DeepSeek code、DeepSeek V4 agent、DeepSeek V4 code 和 GitHub Copilot DeepSeek V4 搜索，再把读者导回 Reasonix。",
         latestNewsTitle: "Reasonix AI coding agent 最新新闻",
       },
       articles: {
-        metaTitle: "Reasonix 文章：上手、缓存架构、Claude/Codex 和通用 AI CLI 对比",
+        metaTitle: "Reasonix 文章：上手、prefix cache、Claude Code/Codex 和通用 AI CLI 对比",
         metaDescription:
           "Reasonix 文章库：如何上手、DeepSeek prefix cache 架构、Reasonix vs Claude Code vs Codex，以及 Reasonix vs 通用 AI CLI。",
         eyebrow: "高质量文章",
-        title: "Reasonix 上手、缓存机制和 agent 对比",
+        title: "Reasonix 指南、prefix cache 与 Claude Code 对比",
         description:
           "先按 DeepSeek 官方路径跑通 Reasonix，再理解它的 cache-first loop，并对比 Claude Code、Codex 和通用 AI CLI。",
         readLabel: "阅读文章",
@@ -2373,10 +2651,10 @@ export const contentByLocale = {
   },
   "zh-tw": {
     site: {
-      title: "Reasonix | DeepSeek Reasonix 資訊站",
-      slogan: "Reasonix 是 DeepSeek 專屬 agent。",
+      title: "DeepSeek Reasonix：Reasonix Desktop、CLI、GitHub 與 Claude Code 對比",
+      slogan: "DeepSeek Reasonix 是專用 coding agent",
       description:
-        "幫助你在執行命令前核對 DeepSeek 官方推薦、GitHub 下載、常見命令列報錯、FAQ、隱私說明和近期專案新聞。",
+        "用這份 DeepSeek Reasonix 指南對比 Reasonix vs Claude Code，核驗 Reasonix Desktop 與 GitHub 下載，並在本機執行 DeepSeek V4 coding workflow。",
       shellSubtitle: "DeepSeek Reasonix 繁體中文資訊",
       contentPrinciplesTitle: "密鑰留在本機",
       contentPrinciplesBody:
@@ -2387,6 +2665,15 @@ export const contentByLocale = {
     metadataKeywords: [
       "Reasonix",
       "DeepSeek Reasonix",
+      "deepseek reasonix",
+      "deepseekreasonix",
+      "reasonix deepseek",
+      "deepseek resonix",
+      "resonix deepseek",
+      "reasonix vs claude code",
+      "reasonix desktop",
+      "reasonix github",
+      "github copilot deepseek v4",
       "Reasonix 下載",
       "Reasonix 報錯",
       "DeepSeek 官方推薦",
@@ -2411,7 +2698,7 @@ export const contentByLocale = {
       { href: "/news", label: "新聞", icon: "newspaper", eyebrow: "News" },
     ],
     commandReference: {
-      title: "操作指令表",
+      title: "Reasonix CLI 與 TUI 命令",
       sourceLabel: "官方參考",
       sourceHref: SITE.cliReference,
       items: [
@@ -2725,7 +3012,7 @@ export const contentByLocale = {
     pages: {
       home: {
         eyebrow: "DeepSeek-native coding agent guide",
-        title: "從終端機啟動面向 DeepSeek 的 coding agent",
+        title: "Reasonix Desktop、CLI、GitHub 與 Claude Code 對比",
         primaryCta: "查看 GitHub 下載",
         secondaryCta: "排查命令列報錯",
         terminalNote:
@@ -2734,17 +3021,17 @@ export const contentByLocale = {
         articleReadLabel: "閱讀",
         sectionsTitle: "產品介紹",
         seoClusterEyebrow: "DeepSeek 長尾頁面",
-        seoClusterTitle: "DeepSeek coding agent 與 V4 code 入口",
+        seoClusterTitle: "DeepSeek Reasonix coding agent 與 V4 code 指南",
         seoClusterDescription:
-          "這些頁面專門承接 DeepSeek coding agent、DeepSeek code、DeepSeek V4 agent 和 DeepSeek V4 code 搜尋，再把讀者導回 Reasonix。",
+          "這些頁面專門承接 DeepSeek coding agent、DeepSeek code、DeepSeek V4 agent、DeepSeek V4 code 和 GitHub Copilot DeepSeek V4 搜尋，再把讀者導回 Reasonix。",
         latestNewsTitle: "Reasonix AI coding agent 最新新聞",
       },
       articles: {
-        metaTitle: "Reasonix 文章：上手、快取架構、Claude/Codex 和通用 AI CLI 對比",
+        metaTitle: "Reasonix 文章：上手、prefix cache、Claude Code/Codex 和通用 AI CLI 對比",
         metaDescription:
           "Reasonix 文章庫：如何上手、DeepSeek prefix cache 架構、Reasonix vs Claude Code vs Codex，以及 Reasonix vs 通用 AI CLI。",
         eyebrow: "高品質文章",
-        title: "Reasonix 上手、快取機制和 agent 對比",
+        title: "Reasonix 指南、prefix cache 與 Claude Code 對比",
         description:
           "先按 DeepSeek 官方路徑跑通 Reasonix，再理解它的 cache-first loop，並對比 Claude Code、Codex 和通用 AI CLI。",
         readLabel: "閱讀文章",
@@ -2909,10 +3196,10 @@ export const contentByLocale = {
   },
   ru: {
     site: {
-      title: "Reasonix | Информационный сайт Reasonix",
-      slogan: "Reasonix - не еще один coding agent.",
+      title: "DeepSeek Reasonix: Reasonix Desktop, CLI, GitHub, and Claude Code Comparison",
+      slogan: "DeepSeek Reasonix is a dedicated coding agent",
       description:
-        "Перед запуском команд проверьте рекомендации DeepSeek, загрузки GitHub, типовые ошибки CLI, FAQ, приватность и новости проекта.",
+        "Compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
       shellSubtitle: "Информационный сайт Reasonix",
       contentPrinciplesTitle: "Ключи остаются локально",
       contentPrinciplesBody:
@@ -2923,6 +3210,15 @@ export const contentByLocale = {
     metadataKeywords: [
       "Reasonix",
       "DeepSeek Reasonix",
+      "deepseek reasonix",
+      "deepseekreasonix",
+      "reasonix deepseek",
+      "deepseek resonix",
+      "resonix deepseek",
+      "reasonix vs claude code",
+      "reasonix desktop",
+      "reasonix github",
+      "github copilot deepseek v4",
       "скачать Reasonix",
       "ошибки Reasonix",
       "официальная рекомендация DeepSeek",
@@ -2947,7 +3243,7 @@ export const contentByLocale = {
       { href: "/news", label: "Новости", icon: "newspaper", eyebrow: "Updates" },
     ],
     commandReference: {
-      title: "Команды TUI",
+      title: "Reasonix CLI and TUI commands",
       sourceLabel: "CLI ref",
       sourceHref: SITE.cliReference,
       items: [
@@ -3261,7 +3557,7 @@ export const contentByLocale = {
     pages: {
       home: {
         eyebrow: "DeepSeek-native coding agent guide",
-        title: "Запускайте DeepSeek-native coding work из терминала",
+        title: "Reasonix Desktop, CLI, GitHub, and Claude Code comparison",
         primaryCta: "Открыть GitHub загрузки",
         secondaryCta: "Разобрать ошибки CLI",
         terminalNote:
@@ -3270,17 +3566,17 @@ export const contentByLocale = {
         articleReadLabel: "Читать",
         sectionsTitle: "Обзор продукта",
         seoClusterEyebrow: "DeepSeek long-tail pages",
-        seoClusterTitle: "DeepSeek coding agent and V4 code entries",
+        seoClusterTitle: "DeepSeek Reasonix coding agent and V4 code guides",
         seoClusterDescription:
-          "These pages answer DeepSeek coding agent, DeepSeek code, DeepSeek V4 agent, and DeepSeek V4 code searches before routing readers back to Reasonix.",
+          "These pages answer DeepSeek coding agent, DeepSeek code, DeepSeek V4 agent, DeepSeek V4 code, and GitHub Copilot DeepSeek V4 searches before routing readers back to Reasonix.",
         latestNewsTitle: "Последние новости Reasonix AI coding agent",
       },
       articles: {
-        metaTitle: "Статьи о Reasonix и типах coding agents",
+        metaTitle: "Reasonix guides: prefix cache, Claude Code, Codex, and AI CLI comparisons",
         metaDescription:
           "Библиотека статей Reasonix о позиционировании Reasonix, DeepSeek-native setup, product advantages, типах coding agents и engineering workflow.",
         eyebrow: "Качественные статьи",
-        title: "Reasonix guides, cache architecture, and agent comparisons",
+        title: "Reasonix guides, prefix cache, and Claude Code comparisons",
         description:
           "Start with the official DeepSeek path, then compare Reasonix cache-first architecture with Claude Code, Codex, and generic AI CLI workflows.",
         readLabel: "Читать статью",

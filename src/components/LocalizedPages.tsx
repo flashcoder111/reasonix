@@ -472,7 +472,7 @@ export function HomePage({ locale }: LocalizedPageProps) {
           </div>
 
           <h1 className="max-w-5xl text-4xl font-semibold leading-tight tracking-normal text-slate-950 sm:text-6xl lg:text-7xl">
-            Reasonix
+            DeepSeek Reasonix
           </h1>
 
           <p className="mt-4 text-lg font-medium leading-8 text-emerald-900 sm:text-2xl">

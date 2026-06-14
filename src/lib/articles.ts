@@ -344,9 +344,9 @@ const enArticles: Article[] = [
   },
   {
     slug: "reasonix-vs-claude-code-codex",
-    title: "Reasonix vs Claude Code vs Codex: compare the operating loop",
+    title: "Reasonix vs Claude Code: DeepSeek-native agent workflow comparison",
     description:
-      "A practical comparison of Reasonix, Claude Code, Codex, and generic AI CLI tools through setup, cache behavior, permissions, provider strategy, and long-running work.",
+      "A practical Reasonix vs Claude Code comparison that also uses Codex and generic AI CLI tools as secondary context for setup, cache behavior, permissions, provider strategy, and long-running work.",
     eyebrow: "Head-to-head",
     date: "2026-06-03",
     readTime: "10 min",
@@ -784,7 +784,7 @@ const zhCnArticles: Article[] = [
   },
   {
     ...enArticles[2],
-    title: "Reasonix vs Claude Code vs Codex：比较的是运行循环，不是截图",
+    title: "Reasonix vs Claude Code：DeepSeek-native agent workflow 对比",
     description:
       "从上手路径、缓存机制、权限、provider 策略和长任务形态，对比 Reasonix、Claude Code、Codex 与通用 AI CLI。",
     eyebrow: "三方对比",
@@ -1105,7 +1105,7 @@ const zhTwArticles: Article[] = [
   },
   {
     ...zhCnArticles[2],
-    title: "Reasonix vs Claude Code vs Codex：比較的是運行循環，不是截圖",
+    title: "Reasonix vs Claude Code：DeepSeek-native agent workflow 對比",
     description:
       "從上手路徑、快取機制、權限、provider 策略和長任務形態，對比 Reasonix、Claude Code、Codex 與通用 AI CLI。",
   },
@@ -1176,7 +1176,7 @@ const ruArticles: Article[] = [
   {
     ...enArticles[2],
     title:
-      "Reasonix vs Claude Code vs Codex: сравнивайте operating loop",
+      "Reasonix vs Claude Code: DeepSeek-native agent workflow comparison",
     description:
       "Reasonix, Claude Code, Codex и generic AI CLI через setup, cache behavior, permissions, provider strategy и long-running work.",
   },
