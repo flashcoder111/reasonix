@@ -70,7 +70,7 @@ function getBreadcrumbItems(
 }
 
 function getAbsoluteSiteUrl(path: string) {
-  return `${SITE.url}${path === "/" ? "" : path}`;
+  return path === "/" ? `${SITE.url}/` : `${SITE.url}${path}`;
 }
 
 function JsonLdScript({ data }: { data: Record<string, unknown> }) {
@@ -92,6 +92,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   const loginItem = content.navItems.find((item) => item.href === "/login");
   const breadcrumbItems = getBreadcrumbItems(content, locale, path);
   const localizedPath = localizePath(locale, path);
+  const siteRootUrl = getAbsoluteSiteUrl("/");
   const pageUrl = getAbsoluteSiteUrl(localizedPath);
   const webPageJsonLd = {
     "@context": "https://schema.org",
@@ -110,7 +111,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         "@type": "ListItem",
         position: 1,
         name: SITE.name,
-        item: SITE.url,
+        item: siteRootUrl,
       },
       ...breadcrumbItems.map((item, index) => ({
         "@type": "ListItem",
@@ -128,7 +129,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             "@type": "Organization",
             "@id": `${SITE.url}/#organization`,
             name: SITE.name,
-            url: SITE.url,
+            url: siteRootUrl,
             logo: SITE.ogImage,
             sameAs: [SITE.github, SITE.x],
           },
@@ -137,7 +138,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             "@type": "WebSite",
             "@id": `${SITE.url}/#website`,
             name: SITE.name,
-            url: SITE.url,
+            url: siteRootUrl,
             publisher: { "@id": `${SITE.url}/#organization` },
             inLanguage: localeConfig[locale].htmlLang,
           },

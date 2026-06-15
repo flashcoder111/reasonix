@@ -42,6 +42,29 @@ const nextConfig: NextConfig = {
       },
     ];
 
+    const indexRedirects = [
+      {
+        source: "/index.html",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/index.htm",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/:locale(zh-cn|zh-tw|ru)/index.html",
+        destination: "/:locale",
+        permanent: true,
+      },
+      {
+        source: "/:locale(zh-cn|zh-tw|ru)/index.htm",
+        destination: "/:locale",
+        permanent: true,
+      },
+    ];
+
     const articleRedirects = [
       [
         "reasonix-claude-codex-opencode-comparison",
@@ -68,6 +91,7 @@ const nextConfig: NextConfig = {
     return [
       ...clerkRedirects,
       ...domainRedirects,
+      ...indexRedirects,
       ...articleRedirects.flatMap(([from, to]) => [
         {
           source: `/articles/${from}`,

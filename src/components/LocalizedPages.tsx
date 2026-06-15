@@ -106,7 +106,9 @@ function getCommentPrivacyCopy(locale: Locale) {
 
 function getAbsoluteLocalizedUrl(locale: Locale, path: string) {
   const localizedPath = localizePath(locale, path);
-  return `${SITE.url}${localizedPath === "/" ? "" : localizedPath}`;
+  return localizedPath === "/"
+    ? `${SITE.url}/`
+    : `${SITE.url}${localizedPath}`;
 }
 
 function JsonLdScript({ data }: { data: Record<string, unknown> }) {
