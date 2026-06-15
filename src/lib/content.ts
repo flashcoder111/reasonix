@@ -13,7 +13,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-15",
+  checkedAt: "2026-06-16",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -306,11 +306,11 @@ const sharedSources = [
   },
   {
     label: "CLI release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.7.0",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.8.0",
   },
   {
     label: "Desktop release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
   },
   { label: "DeepSeek official guide", href: SITE.deepseekGuide },
   { label: "DeepSeek V4 release", href: SITE.deepseekV4Release },
@@ -319,29 +319,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#4398",
-    title: "A new feature request asks Reasonix to import Codex and Claude Code sessions into the Go rewrite",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4398",
+    id: "#4544",
+    title: "A new macOS desktop bug report says session change tracking can stay empty after agent edits",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4544",
   },
   {
-    id: "#4397",
-    title: "A fresh desktop bug report says long transcripts can lose scroll position after tab switches",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4397",
+    id: "#4542",
+    title: "A fresh desktop configuration request asks for a visual-input toggle in model settings",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4542",
   },
   {
-    id: "#4396",
-    title: "Users are reporting that Ask-mode desktop approval choices like Always Allow are not sticking",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4396",
+    id: "#4536",
+    title: "Windows users are reporting that project-level model selection can ignore the configured default",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4536",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "22.0k", note: "GitHub API, 2026-06-15" },
-  { label: "Forks", value: "1.3k", note: "GitHub API, 2026-06-15" },
+  { label: "GitHub stars", value: "22.3k", note: "GitHub API, 2026-06-16" },
+  { label: "Forks", value: "1.3k", note: "GitHub API, 2026-06-16" },
   {
     label: "Open items",
-    value: "483",
-    note: "418 issues + 65 pull requests on GitHub API, 2026-06-15",
+    value: "549",
+    note: "478 issues + 71 pull requests on GitHub API, 2026-06-16",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1707,10 +1707,10 @@ export const contentByLocale = {
         title: "Desktop release assets",
         tag: "Desktop package",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
         description:
-          "The latest public desktop release is desktop-v1.7.0, shipping signed DMG, .deb, tar.gz, and Windows installer artifacts while adding local history retrieval, crash reporting upgrades, Shell interpreter settings, and a Windows ARM64 desktop build.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+          "The latest public desktop release is desktop-v1.8.1, shipping signed DMG, .deb, tar.gz, and Windows installer artifacts while tightening top-tab spacing, making the performance-pressure prompt idempotent, and fixing DeepSeek billing-source breakdowns.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
     ],
     loginSteps: [
@@ -1889,16 +1889,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-13",
-        title: "Reasonix CLI v1.7.0 becomes the latest stable command-line release",
-        body: "GitHub releases published Reasonix CLI v1.7.0 on June 13 with signed archives for macOS, Linux, and Windows; the stable tag adds reasoning-language controls, MCP shell PATH fixes, migration repairs, image-attachment vision handling, self-update, and built-in time plus Context7 MCP support.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.7.0",
+        date: "2026-06-15",
+        title: "Reasonix CLI v1.8.0 becomes the latest stable command-line release",
+        body: "GitHub releases published Reasonix CLI v1.8.0 on June 15 with signed archives for macOS, Linux, and Windows; the stable tag adds MiMo vision model inputs, ACP session model-and-effort switching, desktop bot diagnostics, switchable workbench layout, and the built-in CodeGraph MCP update flow.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.8.0",
       },
       {
-        date: "2026-06-13",
-        title: "Reasonix Desktop v1.7.0 is the current public GUI release line",
-        body: "GitHub releases published desktop-v1.7.0 on June 13 with signed DMG, .deb, tar.gz, and Windows installer artifacts while adding local history retrieval, crash dashboard upgrades, notification sounds, Shell interpreter settings, status-bar customization, and a Windows ARM64 desktop build.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+        date: "2026-06-15",
+        title: "Reasonix Desktop v1.8.1 is the current public GUI release line",
+        body: "GitHub releases published desktop-v1.8.1 on June 15 with signed DMG, .deb, tar.gz, and Windows installer artifacts while fixing top-tab spacing, making the performance-pressure prompt idempotent per label, and correcting DeepSeek billing-source breakdowns.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
         date: "2026-06-12",
@@ -1997,7 +1997,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub repository, npx start path, npm latest and next tags, main-v2 source build, and desktop-v1.7.0 release links.",
+          "Reasonix GitHub repository, npx start path, npm latest and next tags, main-v2 source build, and desktop-v1.8.1 release links.",
         eyebrow: "GitHub downloads",
         title: "Reasonix download paths: npx, main-v2 source, and desktop release",
         descriptionBeforeLink: "The official repository is",
@@ -2035,7 +2035,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix news",
         metaDescription:
-          "Reasonix news covering main-v2 commits, GitHub popularity, npm latest, and the current v1.7.0 CLI and desktop release lines.",
+          "Reasonix news covering main-v2 commits, GitHub popularity, npm latest, and the current v1.8.x CLI and desktop release lines.",
         eyebrow: "News",
         title: "Reasonix news brief",
         description:
@@ -2243,10 +2243,10 @@ export const contentByLocale = {
         title: "桌面版 release 资产",
         tag: "桌面安装包",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.7.0，提供签名 DMG、.deb、tar.gz 和 Windows installer，并新增本地历史检索、崩溃上报增强、Shell 解释器设置和 Windows ARM64 桌面构建。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+          "GitHub 最新公开桌面 release 为 desktop-v1.8.1，提供签名 DMG、.deb、tar.gz 和 Windows installer，并修复顶部标签栏留白，让性能压力提示按标签幂等触发，并修正 DeepSeek 费用来源拆分。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
     ],
     loginSteps: [
@@ -2425,16 +2425,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-13",
-        title: "Reasonix CLI v1.7.0 成为最新稳定命令行发布",
-        body: "GitHub releases 在 6 月 13 日发布 Reasonix CLI v1.7.0，提供 macOS、Linux、Windows 的签名归档包；这条稳定线新增思考语言控制、MCP shell PATH 修复、迁移补丁、图片附件 vision 处理、自更新以及内置 time 和 Context7 MCP 支持。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.7.0",
+        date: "2026-06-15",
+        title: "Reasonix CLI v1.8.0 成为最新稳定命令行发布",
+        body: "GitHub releases 在 6 月 15 日发布 Reasonix CLI v1.8.0，提供 macOS、Linux、Windows 的签名归档包；这条稳定线新增 MiMo vision 模型输入、ACP 会话模型与 effort 切换、桌面 bot 诊断、可切换 workbench 布局，以及内置 CodeGraph MCP 更新流程。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.8.0",
       },
       {
-        date: "2026-06-13",
-        title: "Reasonix Desktop v1.7.0 成为当前公开 GUI 发布线",
-        body: "GitHub releases 在 6 月 13 日发布 desktop-v1.7.0，提供签名 DMG、.deb、tar.gz 和 Windows installer；这条发布线新增本地历史检索、崩溃仪表盘增强、通知音效、Shell 解释器设置、状态栏自定义和 Windows ARM64 桌面构建。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+        date: "2026-06-15",
+        title: "Reasonix Desktop v1.8.1 成为当前公开 GUI 发布线",
+        body: "GitHub releases 在 6 月 15 日发布 desktop-v1.8.1，提供签名 DMG、.deb、tar.gz 和 Windows installer；这条发布线修复顶部标签栏留白，让性能压力提示按标签幂等触发，并修正 DeepSeek 费用来源拆分。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
         date: "2026-06-12",
@@ -2545,7 +2545,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 仓库、npx 启动、npm latest 与 next、main-v2 源码构建和 desktop-v1.7.0 安装包入口。",
+          "Reasonix GitHub 仓库、npx 启动、npm latest 与 next、main-v2 源码构建和 desktop-v1.8.1 安装包入口。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载路径：npx、main-v2 源码和桌面 release",
         descriptionBeforeLink: "官方仓库地址为",
@@ -2580,7 +2580,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix 新闻",
         metaDescription:
-          "Reasonix 最新新闻：main-v2 提交、GitHub 热度、npm latest，以及当前 v1.7.0 CLI 和桌面发布线。",
+          "Reasonix 最新新闻：main-v2 提交、GitHub 热度、npm latest，以及当前 v1.8.x CLI 与桌面发布线。",
         eyebrow: "新闻",
         title: "Reasonix 新闻速览",
         description:
@@ -2788,10 +2788,10 @@ export const contentByLocale = {
         title: "桌面版 release 資產",
         tag: "桌面安裝包",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.7.0，提供簽名 DMG、.deb、tar.gz 和 Windows installer，並新增本機歷史檢索、崩潰回報增強、Shell 解譯器設定和 Windows ARM64 桌面建置。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+          "GitHub 最新公開桌面 release 為 desktop-v1.8.1，提供簽名 DMG、.deb、tar.gz 和 Windows installer，並修復頂部標籤列留白，讓效能壓力提示按標籤冪等觸發，並修正 DeepSeek 費用來源拆分。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
     ],
     loginSteps: [
@@ -2970,16 +2970,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-13",
-        title: "Reasonix CLI v1.7.0 成為最新穩定命令列發布",
-        body: "GitHub releases 在 6 月 13 日發布 Reasonix CLI v1.7.0，提供 macOS、Linux、Windows 的簽名封存包；這條穩定線新增思考語言控制、MCP shell PATH 修復、遷移補丁、圖片附件 vision 處理、自我更新以及內建 time 和 Context7 MCP 支援。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.7.0",
+        date: "2026-06-15",
+        title: "Reasonix CLI v1.8.0 成為最新穩定命令列發布",
+        body: "GitHub releases 在 6 月 15 日發布 Reasonix CLI v1.8.0，提供 macOS、Linux、Windows 的簽名封存包；這條穩定線新增 MiMo vision 模型輸入、ACP 工作階段模型與 effort 切換、桌面 bot 診斷、可切換 workbench 版型，以及內建 CodeGraph MCP 更新流程。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.8.0",
       },
       {
-        date: "2026-06-13",
-        title: "Reasonix Desktop v1.7.0 成為目前公開 GUI 發布線",
-        body: "GitHub releases 在 6 月 13 日發布 desktop-v1.7.0，提供簽名 DMG、.deb、tar.gz 和 Windows installer；這條發布線新增本機歷史檢索、崩潰儀表板增強、通知音效、Shell 解譯器設定、狀態列自訂和 Windows ARM64 桌面建置。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+        date: "2026-06-15",
+        title: "Reasonix Desktop v1.8.1 成為目前公開 GUI 發布線",
+        body: "GitHub releases 在 6 月 15 日發布 desktop-v1.8.1，提供簽名 DMG、.deb、tar.gz 和 Windows installer；這條發布線修復頂部標籤列留白，讓效能壓力提示按標籤冪等觸發，並修正 DeepSeek 費用來源拆分。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
         date: "2026-06-12",
@@ -3090,7 +3090,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 倉庫、npx 啟動、npm latest 與 next、main-v2 原始碼建置和 desktop-v1.7.0 安裝包入口。",
+          "Reasonix GitHub 倉庫、npx 啟動、npm latest 與 next、main-v2 原始碼建置和 desktop-v1.8.1 安裝包入口。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載路徑：npx、main-v2 原始碼和桌面 release",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -3125,7 +3125,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Reasonix 新聞",
         metaDescription:
-          "Reasonix 最新新聞：main-v2 提交、GitHub 熱度、npm latest，以及目前 v1.7.0 CLI 和桌面發布線。",
+          "Reasonix 最新新聞：main-v2 提交、GitHub 熱度、npm latest，以及目前 v1.8.x CLI 和桌面發布線。",
         eyebrow: "新聞",
         title: "Reasonix 新聞速覽",
         description:
@@ -3333,10 +3333,10 @@ export const contentByLocale = {
         title: "Desktop release assets",
         tag: "Desktop пакет",
         command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
         description:
-          "Последний публичный desktop release - desktop-v1.7.0: доступны подписанные DMG, .deb, tar.gz и Windows installer, а release line добавляет local history retrieval, upgrades crash reporting, настройки Shell interpreter и Windows ARM64 desktop build.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+          "Последний публичный desktop release - desktop-v1.8.1: доступны подписанные DMG, .deb, tar.gz и Windows installer, а release line исправляет отступы верхних вкладок, делает performance-pressure prompt идемпотентным для каждого ярлыка и корректирует breakdown источников расходов DeepSeek.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
     ],
     loginSteps: [
@@ -3515,16 +3515,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-13",
-        title: "Reasonix CLI v1.7.0 становится актуальным stable command-line release",
-        body: "GitHub releases опубликовали Reasonix CLI v1.7.0 13 июня с подписанными архивами для macOS, Linux и Windows; stable tag добавляет controls для reasoning language, fixes для MCP shell PATH, migration repairs, image-attachment vision handling, self-update и встроенную поддержку MCP time и Context7.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.7.0",
+        date: "2026-06-15",
+        title: "Reasonix CLI v1.8.0 становится актуальным stable command-line release",
+        body: "GitHub releases опубликовали Reasonix CLI v1.8.0 15 июня с подписанными архивами для macOS, Linux и Windows; stable tag добавляет поддержку входов MiMo vision, переключение модели и effort в ACP-сеансах, desktop bot diagnostics, switchable workbench layout и встроенный поток обновления CodeGraph MCP.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.8.0",
       },
       {
-        date: "2026-06-13",
-        title: "Reasonix Desktop v1.7.0 - текущая публичная GUI release line",
-        body: "GitHub releases опубликовали desktop-v1.7.0 13 июня с подписанными DMG, .deb, tar.gz и Windows installer артефактами; эта release line добавляет local history retrieval, upgrades crash dashboard, notification sounds, настройки Shell interpreter, customization status bar и Windows ARM64 desktop build.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.7.0",
+        date: "2026-06-15",
+        title: "Reasonix Desktop v1.8.1 - текущая публичная GUI release line",
+        body: "GitHub releases опубликовали desktop-v1.8.1 15 июня с подписанными DMG, .deb, tar.gz и Windows installer артефактами; эта release line исправляет отступы верхних вкладок, делает performance-pressure prompt идемпотентным для каждого ярлыка и корректирует breakdown источников расходов DeepSeek.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
         date: "2026-06-12",
@@ -3635,7 +3635,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub загрузки",
         metaDescription:
-          "GitHub репозиторий Reasonix, запуск через npx, npm latest и next tags, source build main-v2 и desktop-v1.7.0 release.",
+          "GitHub репозиторий Reasonix, запуск через npx, npm latest и next tags, source build main-v2 и desktop-v1.8.1 release.",
         eyebrow: "GitHub загрузки",
         title: "Как получить Reasonix: npx, main-v2 source и desktop release",
         descriptionBeforeLink: "Официальный репозиторий:",
@@ -3673,7 +3673,7 @@ export const contentByLocale = {
       news: {
         metaTitle: "Новости Reasonix",
         metaDescription:
-          "Новости Reasonix: commits main-v2, GitHub popularity, npm latest и текущие release lines CLI и desktop v1.7.0.",
+          "Новости Reasonix: commits main-v2, GitHub popularity, npm latest и текущие release lines CLI и desktop v1.8.x.",
         eyebrow: "Новости",
         title: "Краткие новости Reasonix",
         description:
