@@ -46,6 +46,10 @@ export const NOINDEX_ROUTE_PATHS = [
   "/community/new",
 ] as const;
 
+const NOINDEX_EXACT_ROUTE_PATHS = [
+  "/articles",
+] as const;
+
 export const LEGACY_REDIRECTED_PATHS = [
   "/articles/reasonix-claude-codex-opencode-comparison",
   "/articles/claude-code-vs-codex-vs-opencode",
@@ -64,6 +68,9 @@ const INDEXING_DISALLOW_PATHS = [
 ] as const;
 
 const LEGACY_REDIRECTED_PATH_SET = new Set<string>(LEGACY_REDIRECTED_PATHS);
+const NOINDEX_EXACT_ROUTE_PATH_SET = new Set<string>(
+  NOINDEX_EXACT_ROUTE_PATHS,
+);
 
 const indexableRobots = {
   index: true,
@@ -100,6 +107,10 @@ export function isIndexableRoutePath(path: string): boolean {
   const normalized = normalizePath(path);
 
   if (LEGACY_REDIRECTED_PATH_SET.has(normalized)) {
+    return false;
+  }
+
+  if (NOINDEX_EXACT_ROUTE_PATH_SET.has(normalized)) {
     return false;
   }
 
