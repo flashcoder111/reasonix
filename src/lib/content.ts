@@ -27,7 +27,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-16",
+  checkedAt: "2026-06-17",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -383,40 +383,44 @@ const sharedSources = [
     label: "Desktop release",
     href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
   },
+  {
+    label: "README quick start",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/blob/main-v2/README.md",
+  },
+  {
+    label: "Config paths doc",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/blob/main-v2/docs/CONFIG_PATHS.md",
+  },
   { label: "DeepSeek official guide", href: SITE.deepseekGuide },
   { label: "DeepSeek V4 release", href: SITE.deepseekV4Release },
-  {
-    label: "DeepSeek V4 gray rollout signal",
-    href: "https://linux.do/t/topic/2404493",
-  },
   { label: "npm package", href: "https://www.npmjs.com/package/reasonix" },
 ] as const;
 
 const sharedIssueWatch = [
   {
-    id: "#4544",
-    title: "A new macOS desktop bug report says session change tracking can stay empty after agent edits",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4544",
+    id: "#4633",
+    title: "A new data-loss bug report says rewind can clear records from other sessions",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4633",
   },
   {
-    id: "#4542",
-    title: "A fresh desktop configuration request asks for a visual-input toggle in model settings",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4542",
+    id: "#4629",
+    title: "A new safety request asks the default deny list to block destructive git restore-style commands",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4629",
   },
   {
-    id: "#4536",
-    title: "Windows users are reporting that project-level model selection can ignore the configured default",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4536",
+    id: "#4626",
+    title: "An open bug says approval waits can hang and exit instead of accepting user confirmation",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4626",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "22,319", note: "GitHub API, 2026-06-16" },
-  { label: "Forks", value: "1,344", note: "GitHub API, 2026-06-16" },
+  { label: "GitHub stars", value: "22,624", note: "GitHub API, 2026-06-17" },
+  { label: "Forks", value: "1,358", note: "GitHub API, 2026-06-17" },
   {
     label: "Open items",
-    value: "552",
-    note: "GitHub API open issues + pull requests, 2026-06-16",
+    value: "568",
+    note: "GitHub API open issues + pull requests, 2026-06-17",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1748,9 +1752,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 0.53.2 / next 1.7.0-rc.1",
+        value: "latest 0.53.2 / next 1.8.0-rc.1",
         detail:
-          "As checked on 2026-06-14, npm latest is 0.53.2, npm next is 1.7.0-rc.1, and npm canary is 1.4.0-canary.3.",
+          "As checked on 2026-06-17, npm latest is 0.53.2, npm next is 1.8.0-rc.1, and npm canary is 1.8.0-canary.9.",
       },
       {
         label: "Official repository",
@@ -1980,10 +1984,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
-        date: "2026-06-15",
-        title: "DeepSeek V4 starts a gray rollout across user accounts",
-        body: "A June 15 LINUX DO thread points to a DeepSeek V4 gray rollout: some users report being routed to a newer V4-family experience with stronger coding and SVG behavior, while availability remains account-dependent. The news item now tracks that staged V4 rollout signal.",
-        href: "https://linux.do/t/topic/2404493",
+        date: "2026-06-16",
+        title: "Reasonix documents its default credential-store fallback and no longer blocks saves on shadow warnings",
+        body: "GitHub commits a148c43, d6d18e1, and a4037eb on June 16 document `credentials_store = \"auto\"` as the default path, clarify that OS keyrings are preferred before the file fallback, and keep provider-key saves successful even when an existing environment variable would override the stored key after restart.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/a4037ebdb0c44f2a7eb5c3727ca42936c24466a0",
+      },
+      {
+        date: "2026-06-16",
+        title: "Reasonix main-v2 now opens interactive sessions with bare `reasonix`",
+        body: "GitHub commit 74d0ab6 on June 16 updates the documented interactive entry from `reasonix chat` to bare `reasonix`, and the same-day resume fixes 1a02582 and c1953f2 preserve saved model state more reliably when users reopen past sessions.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/74d0ab6d937f30ff6c6429e1880447326186f017",
       },
       {
         date: "2026-06-12",
@@ -2294,9 +2304,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 0.53.2 / next 1.7.0-rc.1",
+        value: "latest 0.53.2 / next 1.8.0-rc.1",
         detail:
-          "按 2026-06-14 查询，npm latest 是 0.53.2，npm next 是 1.7.0-rc.1，npm canary 是 1.4.0-canary.3。",
+          "按 2026-06-17 查询，npm latest 是 0.53.2，npm next 是 1.8.0-rc.1，npm canary 是 1.8.0-canary.9。",
       },
       {
         label: "官方仓库",
@@ -2526,10 +2536,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
-        date: "2026-06-15",
-        title: "DeepSeek V4 开始面向部分账号灰度发布",
-        body: "6 月 15 日 LINUX DO 讨论指向 DeepSeek V4 灰度发布：部分用户被路由到新的 V4 体验，并反馈代码和 SVG 输出能力更强，但账号之间可见状态仍不一致。这条新闻按 DeepSeek V4 分阶段灰度发布信号记录。",
-        href: "https://linux.do/t/topic/2404493",
+        date: "2026-06-16",
+        title: "Reasonix 公开默认凭据存储回退路径，并且不再因 shadow warning 阻止保存",
+        body: "GitHub commits a148c43、d6d18e1 和 a4037eb 显示 6 月 16 日开始把 `credentials_store = \"auto\"` 作为默认路径写入文档，明确优先使用系统密钥库、不可用时再回退到文件，并让 provider key 在已有同名环境变量会覆盖重启后结果时只给 warning、不再阻止保存。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/a4037ebdb0c44f2a7eb5c3727ca42936c24466a0",
+      },
+      {
+        date: "2026-06-16",
+        title: "Reasonix main-v2 现在可直接用裸 `reasonix` 打开交互式会话",
+        body: "GitHub commit 74d0ab6 显示 6 月 16 日官方交互入口从 `reasonix chat` 调整为裸 `reasonix`；同日的 1a02582 和 c1953f2 还补强了恢复旧会话时的模型状态，减少重开会话后丢失已保存模型选择的问题。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/74d0ab6d937f30ff6c6429e1880447326186f017",
       },
       {
         date: "2026-06-12",
@@ -2547,15 +2563,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "新的功能请求希望 Reasonix 在 Go 重写线上支持导入 Codex 与 Claude Code 会话",
+        title: "新的数据丢失 bug 报告称回溯会话可能清空其他会话记录",
       },
       {
         ...sharedIssueWatch[1],
-        title: "新的桌面端 bug 报告称长会话在切换标签后会丢失滚动到底部的位置",
+        title: "新的安全建议希望默认 deny 列表拦住 git restore 一类破坏性命令",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有用户报告 Ask 模式下桌面端“总是允许”等授权选择不会真正生效",
+        title: "有未关闭 bug 指出等待确认输入时可能卡住并直接退出",
       },
     ],
     sourceLinks: sharedSources,
@@ -2849,9 +2865,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 0.53.2 / next 1.7.0-rc.1",
+        value: "latest 0.53.2 / next 1.8.0-rc.1",
         detail:
-          "按 2026-06-14 查詢，npm latest 是 0.53.2，npm next 是 1.7.0-rc.1，npm canary 是 1.4.0-canary.3。",
+          "按 2026-06-17 查詢，npm latest 是 0.53.2，npm next 是 1.8.0-rc.1，npm canary 是 1.8.0-canary.9。",
       },
       {
         label: "官方倉庫",
@@ -3081,10 +3097,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
-        date: "2026-06-15",
-        title: "DeepSeek V4 開始面向部分帳號灰度發布",
-        body: "6 月 15 日 LINUX DO 討論指向 DeepSeek V4 灰度發布：部分使用者被路由到新的 V4 體驗，並回報程式碼和 SVG 輸出能力更強，但帳號之間可見狀態仍不一致。這條新聞按 DeepSeek V4 分階段灰度發布信號記錄。",
-        href: "https://linux.do/t/topic/2404493",
+        date: "2026-06-16",
+        title: "Reasonix 公開預設憑據儲存回退路徑，並且不再因 shadow warning 阻止儲存",
+        body: "GitHub commits a148c43、d6d18e1 和 a4037eb 顯示 6 月 16 日開始把 `credentials_store = \"auto\"` 寫成預設路徑，明確優先使用系統金鑰庫、不可用時再回退到檔案，並讓 provider key 在已有同名環境變數會覆蓋重啟後結果時只給 warning、不再阻止儲存。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/a4037ebdb0c44f2a7eb5c3727ca42936c24466a0",
+      },
+      {
+        date: "2026-06-16",
+        title: "Reasonix main-v2 現在可直接用裸 `reasonix` 打開互動式會話",
+        body: "GitHub commit 74d0ab6 顯示 6 月 16 日官方互動入口從 `reasonix chat` 調整為裸 `reasonix`；同日的 1a02582 和 c1953f2 也補強了恢復舊會話時的模型狀態，降低重開會話後遺失已儲存模型選擇的情況。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/74d0ab6d937f30ff6c6429e1880447326186f017",
       },
       {
         date: "2026-06-12",
@@ -3102,15 +3124,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "新的功能請求希望 Reasonix 在 Go 重寫線支援匯入 Codex 與 Claude Code 工作階段",
+        title: "新的資料遺失 bug 回報指出回溯會話可能清空其他會話記錄",
       },
       {
         ...sharedIssueWatch[1],
-        title: "新的桌面端 bug 回報指出長會話在切換分頁後會遺失滾動到底部的位置",
+        title: "新的安全建議希望預設 deny 清單攔住 git restore 一類破壞性命令",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有使用者回報 Ask 模式下桌面端「一律允許」等授權選項不會真正生效",
+        title: "有未關閉 bug 指出等待確認輸入時可能卡住並直接退出",
       },
     ],
     sourceLinks: sharedSources,
@@ -3404,9 +3426,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 0.53.2 / next 1.7.0-rc.1",
+        value: "latest 0.53.2 / next 1.8.0-rc.1",
         detail:
-          "На 2026-06-14 npm latest равен 0.53.2, npm next равен 1.7.0-rc.1, а npm canary равен 1.4.0-canary.3.",
+          "На 2026-06-17 npm latest равен 0.53.2, npm next равен 1.8.0-rc.1, а npm canary равен 1.8.0-canary.9.",
       },
       {
         label: "Официальный репозиторий",
@@ -3636,10 +3658,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
-        date: "2026-06-15",
-        title: "DeepSeek V4 начинает gray rollout для части аккаунтов",
-        body: "Тема LINUX DO от 15 июня указывает на gray rollout DeepSeek V4: часть пользователей сообщает, что их аккаунты попадают в более новую V4-family выдачу с более сильным coding и SVG output, а доступность остается неравномерной между аккаунтами. Эта новость отслеживает staged rollout signal для DeepSeek V4.",
-        href: "https://linux.do/t/topic/2404493",
+        date: "2026-06-16",
+        title: "Reasonix документирует путь fallback для credential store по умолчанию и больше не блокирует сохранение из-за shadow warning",
+        body: "GitHub commits a148c43, d6d18e1 и a4037eb от 16 июня фиксируют `credentials_store = \"auto\"` как путь по умолчанию, уточняют приоритет системного keyring перед файловым fallback и оставляют сохранение provider key успешным даже тогда, когда одноименная переменная окружения после перезапуска перекроет сохраненный ключ.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/a4037ebdb0c44f2a7eb5c3727ca42936c24466a0",
+      },
+      {
+        date: "2026-06-16",
+        title: "Reasonix main-v2 теперь открывает интерактивные сессии командой bare `reasonix`",
+        body: "GitHub commit 74d0ab6 от 16 июня меняет документированный интерактивный вход с `reasonix chat` на bare `reasonix`, а исправления 1a02582 и c1953f2 того же дня надежнее сохраняют выбранную модель при возобновлении прошлых сессий.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/74d0ab6d937f30ff6c6429e1880447326186f017",
       },
       {
         date: "2026-06-12",
@@ -3657,15 +3685,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "Новый feature request просит импорт сеансов Codex и Claude Code в Go rewrite ветке Reasonix",
+        title: "Новый отчёт о потере данных говорит, что rewind сессии может очистить записи из других сессий",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Новый desktop bug report говорит, что длинные transcript-сессии теряют позицию прокрутки после переключения вкладок",
+        title: "Новый safety request просит включить destructive команды вроде git restore в default deny list",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Пользователи сообщают, что desktop approval choices вроде Always Allow не сохраняются в режиме Ask",
+        title: "Открытый bug говорит, что ожидание подтверждения ввода может зависнуть и завершить сессию",
       },
     ],
     sourceLinks: sharedSources,
