@@ -5,16 +5,21 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   ArrowUpRight,
+  BadgeCheck,
+  BookOpen,
   ChevronRight,
+  CircleHelp,
   ExternalLink,
   FileText,
   GitBranch,
   GitFork,
+  LayoutDashboard,
   LogIn,
+  Newspaper,
   ShieldCheck,
+  Terminal,
 } from "lucide-react";
 import { ClerkNavAccount } from "@/components/ClerkNavAccount";
-import { SidebarNav } from "@/components/SidebarNav";
 import { isClerkConfigured } from "@/lib/auth";
 import { getContent, getSeoLandingPage, SITE } from "@/lib/content";
 import {
@@ -73,6 +78,30 @@ function getAbsoluteSiteUrl(path: string) {
   return path === "/" ? `${SITE.url}/` : `${SITE.url}${path}`;
 }
 
+const navIcons = {
+  layout: LayoutDashboard,
+  book: BookOpen,
+  login: LogIn,
+  community: GitFork,
+  help: CircleHelp,
+  github: GitBranch,
+  terminal: Terminal,
+  badge: BadgeCheck,
+  newspaper: Newspaper,
+} as const;
+
+const mobileNavLabels = {
+  layout: "Home",
+  book: "Read",
+  login: "Login",
+  community: "Ask",
+  help: "FAQ",
+  github: "Git",
+  terminal: "CLI",
+  badge: "DS",
+  newspaper: "News",
+} as const;
+
 function JsonLdScript({ data }: { data: Record<string, unknown> }) {
   return (
     <script
@@ -90,6 +119,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   const content = getContent(locale);
   const footer = content.pages.footer;
   const loginItem = content.navItems.find((item) => item.href === "/login");
+  const navItems = content.navItems.filter((item) => item.href !== "/login");
   const breadcrumbItems = getBreadcrumbItems(content, locale, path);
   const localizedPath = localizePath(locale, path);
   const siteRootUrl = getAbsoluteSiteUrl("/");
@@ -148,7 +178,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
     <div
       lang={localeConfig[locale].htmlLang}
-      className="min-h-screen bg-[#f6f7f4] text-slate-950"
+      className="min-h-screen bg-[#f6f7f4] pb-20 text-slate-950 lg:pb-0"
     >
       <JsonLdScript data={webPageJsonLd} />
       {breadcrumbItems.length > 0 ? (
@@ -157,37 +187,56 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       {homeJsonLd.map((entry) => (
         <JsonLdScript key={entry["@type"]} data={entry} />
       ))}
-      <div className="mx-auto flex w-full max-w-7xl flex-col lg:flex-row">
-        <aside className="border-b border-slate-200 bg-white/85 px-4 py-4 backdrop-blur lg:sticky lg:top-0 lg:h-screen lg:w-72 lg:shrink-0 lg:overflow-y-auto lg:border-r lg:border-b-0 lg:px-6 lg:py-6">
+      <header className="sticky top-0 z-40 border-b border-white/70 bg-white/72 px-4 py-3 shadow-sm shadow-slate-950/[0.03] backdrop-blur-2xl sm:px-6">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
           <Link
             href={localizePath(locale, "/")}
-            className="flex items-center gap-3"
+            className="flex min-w-0 shrink-0 items-center gap-3"
           >
-            <span className="grid h-10 w-10 place-items-center rounded-lg bg-emerald-950 text-sm font-semibold text-white">
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-[linear-gradient(135deg,#0f172a,#0369a1_58%,#047857)] text-sm font-semibold text-white shadow-sm shadow-sky-900/20">
               RX
             </span>
             <span className="min-w-0">
-              <span className="block truncate text-base font-semibold tracking-tight">
+              <span className="block truncate text-base font-semibold leading-5 text-slate-950">
                 {SITE.name}
               </span>
-              <span className="block truncate text-xs text-slate-500">
+              <span className="hidden truncate text-xs text-slate-500 sm:block">
                 {content.site.shellSubtitle}
               </span>
             </span>
           </Link>
 
-          <div className="mt-5 lg:mt-8">
-            <SidebarNav />
-          </div>
-        </aside>
+          <nav
+            aria-label="Primary"
+            className="hidden min-w-0 flex-1 items-center justify-center gap-1 2xl:flex"
+          >
+            {navItems.map((item) => {
+              const Icon = navIcons[item.icon] ?? LayoutDashboard;
+              const href = localizePath(locale, item.href);
+              const active =
+                path === item.href ||
+                (item.href !== "/" && path.startsWith(`${item.href}/`));
 
-        <div className="min-w-0 flex-1">
-          <header className="border-b border-slate-200 bg-white/75 px-4 py-3 backdrop-blur sm:px-6 lg:px-10">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="text-sm text-slate-500">
-                {content.site.lastCheckedLabel}: {SITE.checkedAt}
-              </p>
-              <div className="flex flex-wrap items-center gap-2 text-sm">
+              return (
+                <Link
+                  key={item.href}
+                  href={href}
+                  aria-current={active ? "page" : undefined}
+                  className={[
+                    "inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition",
+                    active
+                      ? "bg-slate-950 text-white shadow-sm"
+                      : "text-slate-600 hover:bg-white/70 hover:text-slate-950",
+                  ].join(" ")}
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="flex min-w-0 shrink-0 items-center justify-end gap-1 text-sm sm:gap-2">
                 {isClerkConfigured ? (
                   <ClerkNavAccount
                     href={localizePath(locale, "/login")}
@@ -196,13 +245,13 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                 ) : (
                   <Link
                     href={localizePath(locale, "/login")}
-                    className="inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 font-medium text-emerald-950 transition hover:border-emerald-300 hover:bg-emerald-100"
+                    className="hidden items-center gap-2 rounded-xl bg-sky-50 px-3 py-2 font-semibold text-sky-800 ring-1 ring-sky-100 transition hover:bg-sky-100 sm:inline-flex"
                   >
                     <LogIn className="h-4 w-4" aria-hidden="true" />
                     {loginItem?.label ?? "Login"}
                   </Link>
                 )}
-                <div className="flex rounded-lg border border-slate-200 bg-white p-1">
+                <div className="flex rounded-xl bg-white/70 p-1 shadow-sm ring-1 ring-slate-200/80 backdrop-blur-xl">
                   {locales.map((targetLocale) => {
                     const isActive = targetLocale === locale;
 
@@ -214,8 +263,8 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                         className={[
                           "rounded-md px-2.5 py-1.5 text-xs font-semibold transition",
                           isActive
-                            ? "bg-emerald-950 text-white"
-                            : "text-slate-600 hover:bg-slate-100 hover:text-slate-950",
+                            ? "bg-slate-950 text-white"
+                            : "text-slate-600 hover:bg-white hover:text-slate-950",
                         ].join(" ")}
                       >
                         {localeConfig[targetLocale].shortLabel}
@@ -227,7 +276,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                   href={SITE.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 font-medium text-slate-700 transition hover:border-slate-300 hover:text-slate-950"
+                  className="hidden items-center gap-2 rounded-xl bg-white/72 px-3 py-2 font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200/80 transition hover:bg-white hover:text-slate-950 md:inline-flex"
                 >
                   <GitBranch className="h-4 w-4" aria-hidden="true" />
                   GitHub
@@ -236,15 +285,52 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                   href={SITE.deepseekGuide}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-emerald-950 px-3 py-2 font-medium text-white transition hover:bg-emerald-900"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-slate-950 px-2.5 py-2 font-semibold text-white shadow-sm transition hover:bg-slate-800 sm:gap-2 sm:px-3"
                 >
-                  {content.site.deepseekButtonLabel}
-                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  <span className="hidden sm:inline">
+                    {content.site.deepseekButtonLabel}
+                  </span>
+                  <span className="sm:hidden">Install</span>
+                  <ArrowUpRight
+                    className="hidden h-4 w-4 sm:block"
+                    aria-hidden="true"
+                  />
                 </a>
-              </div>
-            </div>
-          </header>
+          </div>
+        </div>
 
+        <nav
+          aria-label="Primary compact"
+          className="mx-auto mt-3 hidden max-w-7xl gap-1 overflow-x-auto lg:flex 2xl:hidden"
+        >
+          {navItems.map((item) => {
+            const Icon = navIcons[item.icon] ?? LayoutDashboard;
+            const href = localizePath(locale, item.href);
+            const active =
+              path === item.href ||
+              (item.href !== "/" && path.startsWith(`${item.href}/`));
+
+            return (
+              <Link
+                key={item.href}
+                href={href}
+                aria-current={active ? "page" : undefined}
+                className={[
+                  "inline-flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition",
+                  active
+                    ? "bg-slate-950 text-white"
+                    : "text-slate-600 hover:bg-white/70 hover:text-slate-950",
+                ].join(" ")}
+              >
+                <Icon className="h-4 w-4" aria-hidden="true" />
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+      </header>
+
+      <div className="mx-auto w-full max-w-7xl">
           <main className="px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
             {breadcrumbItems.length > 0 ? (
               <nav
@@ -417,8 +503,40 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
               </div>
             </div>
           </footer>
-        </div>
       </div>
+
+      <nav
+        aria-label="Mobile primary"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 px-2 py-2 shadow-[0_-12px_30px_rgba(15,23,42,0.08)] backdrop-blur lg:hidden"
+      >
+        <div className="flex gap-1 overflow-x-auto">
+          {navItems.map((item) => {
+            const Icon = navIcons[item.icon] ?? LayoutDashboard;
+            const href = localizePath(locale, item.href);
+            const active =
+              path === item.href ||
+              (item.href !== "/" && path.startsWith(`${item.href}/`));
+
+            return (
+              <Link
+                key={item.href}
+                href={href}
+                aria-current={active ? "page" : undefined}
+                aria-label={item.label}
+                className={[
+                  "flex min-w-11 flex-1 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold leading-none transition",
+                  active
+                    ? "bg-emerald-950 text-white"
+                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-950",
+                ].join(" ")}
+              >
+                <Icon className="h-4 w-4" aria-hidden="true" />
+                <span>{mobileNavLabels[item.icon] ?? item.label}</span>
+              </Link>
+            );
+          })}
+        </div>
+      </nav>
     </div>
   );
 }

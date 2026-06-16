@@ -1,15 +1,29 @@
 import { DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const canonicalSiteUrl = "https://www.deepseekreasonix.com";
+const sitemapExcludedHosts = new Set(["clerk.deepseekreasonix.com"]);
+
+function isSitemapExcludedSiteUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return sitemapExcludedHosts.has(url.hostname.toLowerCase());
+  } catch {
+    return false;
+  }
+}
+
 const normalizedSiteUrl =
-  configuredSiteUrl && configuredSiteUrl !== "https://deepseekreasonix.com"
+  configuredSiteUrl &&
+  configuredSiteUrl !== "https://deepseekreasonix.com" &&
+  !isSitemapExcludedSiteUrl(configuredSiteUrl)
     ? configuredSiteUrl.replace(/\/$/, "")
-    : "https://www.deepseekreasonix.com";
+    : canonicalSiteUrl;
 
 export const SITE = {
   name: "Reasonix",
-  title: "DeepSeek Reasonix: Reasonix Desktop, CLI, GitHub, and Claude Code Comparison",
-  slogan: "DeepSeek Reasonix is a dedicated coding agent",
+  title: "DeepSeek Reasonix: DeepSeek Native Coding Agent",
+  slogan: "DeepSeek Reasonix built for long, cheap sessions.",
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
@@ -28,6 +42,62 @@ export const SITE = {
   deepseekV4Release: "https://api-docs.deepseek.com/news/news260424",
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
+
+export const reasonixCliVersion = "v1.8.1";
+
+const desktopReleaseTag = `desktop-${reasonixCliVersion}`;
+const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
+
+export const desktopDownloadAssets = {
+  release: `https://github.com/esengine/DeepSeek-Reasonix/releases/tag/${desktopReleaseTag}`,
+  macos: `${desktopDownloadBase}/Reasonix-darwin-universal.dmg`,
+  windows: `${desktopDownloadBase}/Reasonix-windows-amd64-installer.exe`,
+  linux: `${desktopDownloadBase}/Reasonix-linux-amd64.deb`,
+} as const;
+
+export type DesktopDownloadPlatform = "macos" | "windows" | "linux";
+
+export type DesktopDownloadOption = {
+  platform: DesktopDownloadPlatform;
+  label: string;
+  href: string;
+};
+
+export type DesktopDownloadCopy = {
+  releaseHref: string;
+  options: readonly DesktopDownloadOption[];
+};
+
+function createDesktopDownloadCopy({
+  macosLabel,
+  windowsLabel,
+  linuxLabel,
+}: {
+  macosLabel: string;
+  windowsLabel: string;
+  linuxLabel: string;
+}): DesktopDownloadCopy {
+  return {
+    releaseHref: desktopDownloadAssets.release,
+    options: [
+      {
+        platform: "macos",
+        label: macosLabel,
+        href: desktopDownloadAssets.macos,
+      },
+      {
+        platform: "windows",
+        label: windowsLabel,
+        href: desktopDownloadAssets.windows,
+      },
+      {
+        platform: "linux",
+        label: linuxLabel,
+        href: desktopDownloadAssets.linux,
+      },
+    ],
+  };
+}
 
 export const communitySteps = [
   {
@@ -137,6 +207,7 @@ type LocalizedContent = {
     note: string;
   }[];
   projectStats: readonly { label: string; value: string; note: string }[];
+  desktopDownload: DesktopDownloadCopy;
   quickFacts: readonly { label: string; value: string; detail: string }[];
   downloadOptions: readonly {
     title: string;
@@ -314,6 +385,10 @@ const sharedSources = [
   },
   { label: "DeepSeek official guide", href: SITE.deepseekGuide },
   { label: "DeepSeek V4 release", href: SITE.deepseekV4Release },
+  {
+    label: "DeepSeek V4 gray rollout signal",
+    href: "https://linux.do/t/topic/2404493",
+  },
   { label: "npm package", href: "https://www.npmjs.com/package/reasonix" },
 ] as const;
 
@@ -336,12 +411,12 @@ const sharedIssueWatch = [
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "22.3k", note: "GitHub API, 2026-06-16" },
-  { label: "Forks", value: "1.3k", note: "GitHub API, 2026-06-16" },
+  { label: "GitHub stars", value: "22,319", note: "GitHub API, 2026-06-16" },
+  { label: "Forks", value: "1,344", note: "GitHub API, 2026-06-16" },
   {
     label: "Open items",
-    value: "549",
-    note: "478 issues + 71 pull requests on GitHub API, 2026-06-16",
+    value: "552",
+    note: "GitHub API open issues + pull requests, 2026-06-16",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1665,6 +1740,11 @@ export const contentByLocale = {
       },
     ],
     projectStats: sharedProjectStats,
+    desktopDownload: createDesktopDownloadCopy({
+      macosLabel: "macOS DMG",
+      windowsLabel: "Windows installer",
+      linuxLabel: "Linux .deb",
+    }),
     quickFacts: [
       {
         label: "Current npm tags",
@@ -1706,11 +1786,10 @@ export const contentByLocale = {
       {
         title: "Desktop release assets",
         tag: "Desktop package",
-        command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        command: `open ${desktopDownloadAssets.release}`,
         description:
           "The latest public desktop release is desktop-v1.8.1, shipping signed DMG, .deb, tar.gz, and Windows installer artifacts while tightening top-tab spacing, making the performance-pressure prompt idempotent, and fixing DeepSeek billing-source breakdowns.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        href: desktopDownloadAssets.release,
       },
     ],
     loginSteps: [
@@ -1901,6 +1980,12 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
+        date: "2026-06-15",
+        title: "DeepSeek V4 starts a gray rollout across user accounts",
+        body: "A June 15 LINUX DO thread points to a DeepSeek V4 gray rollout: some users report being routed to a newer V4-family experience with stronger coding and SVG behavior, while availability remains account-dependent. The news item now tracks that staged V4 rollout signal.",
+        href: "https://linux.do/t/topic/2404493",
+      },
+      {
         date: "2026-06-12",
         title: "Reasonix main-v2 adds Traditional Chinese locale coverage across desktop and CLI",
         body: "GitHub commit f7a61cf on June 12 adds zh-TW desktop locale support, Traditional Chinese CLI catalog entries, locale detection for zh-Hant and zh-HK style inputs, and Taiwan-specific terminology throughout the new locale surface.",
@@ -1918,7 +2003,7 @@ export const contentByLocale = {
     pages: {
       home: {
         eyebrow: "DeepSeek-native coding agent guide",
-        title: "Reasonix Desktop, CLI, GitHub, and Claude Code comparison",
+        title: "",
         primaryCta: "View GitHub downloads",
         secondaryCta: "Troubleshoot CLI errors",
         terminalNote:
@@ -1926,8 +2011,8 @@ export const contentByLocale = {
         articlesTitle: "Deep-dive articles",
         articleReadLabel: "Read",
         sectionsTitle: "Product overview",
-        seoClusterEyebrow: "DeepSeek long-tail guides",
-        seoClusterTitle: "DeepSeek Reasonix coding agent and V4 code guides",
+        seoClusterEyebrow: "DeepSeek guides",
+        seoClusterTitle: "how to use DeepSeek Reasonix coding agent",
         seoClusterDescription:
           "These focused pages answer DeepSeek coding-agent, DeepSeek code, DeepSeek V4 agent, DeepSeek V4 code, and GitHub Copilot DeepSeek V4 searches before routing readers back to Reasonix.",
         latestNewsTitle: "Latest Reasonix AI coding agent news",
@@ -1938,7 +2023,7 @@ export const contentByLocale = {
         metaDescription:
           "Reasonix article library covering setup, DeepSeek prefix-cache architecture, Reasonix versus Claude Code and Codex, and Reasonix versus generic AI CLI tools.",
         eyebrow: "High-quality articles",
-        title: "Reasonix guides, prefix cache, and Claude Code comparisons",
+        title: "DeepSeek guides",
         description:
           "Start with the official DeepSeek path, then read how Reasonix keeps cache-friendly long sessions and where it differs from Claude Code, Codex, and generic AI CLI tools.",
         readLabel: "Read article",
@@ -1997,14 +2082,14 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub repository, npx start path, npm latest and next tags, main-v2 source build, and desktop-v1.8.1 release links.",
+          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.8.1 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub downloads",
-        title: "Reasonix download paths: npx, main-v2 source, and desktop release",
+        title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "The official repository is",
         descriptionAfterLink:
-          ". Check npm dist-tags before deciding between the default latest package, the next tag, and a main-v2 source build.",
+          ". Compare the npm command, Homebrew command, and packaged desktop downloads before choosing an install path.",
         note:
-          "If your goal is to run Reasonix immediately, start with npx reasonix code. If your goal is a reusable install, use npm i -g reasonix. Clone main-v2 when you need source-level verification.",
+          "Use npm or Homebrew when you want the CLI in your terminal. Use the desktop packages when you want a packaged app for Mac, Windows, or Linux.",
       },
       errors: {
         metaTitle: "Reasonix CLI error commands",
@@ -2107,7 +2192,7 @@ export const contentByLocale = {
   "zh-cn": {
     site: {
       title: "DeepSeek Reasonix：Reasonix Desktop、CLI、GitHub 与 Claude Code 对比",
-      slogan: "DeepSeek Reasonix 是专用 coding agent",
+      slogan: "DeepSeek Reasonix 为长时间低成本会话而构建。",
       description:
         "用这份 DeepSeek Reasonix 指南对比 Reasonix vs Claude Code，核验 Reasonix Desktop 与 GitHub 下载，并在本地运行 DeepSeek V4 coding workflow。",
       shellSubtitle: "DeepSeek Reasonix 简体中文资讯",
@@ -2201,6 +2286,11 @@ export const contentByLocale = {
       },
     ],
     projectStats: sharedProjectStats,
+    desktopDownload: createDesktopDownloadCopy({
+      macosLabel: "macOS DMG",
+      windowsLabel: "Windows 安装器",
+      linuxLabel: "Linux .deb",
+    }),
     quickFacts: [
       {
         label: "当前 npm tags",
@@ -2242,11 +2332,10 @@ export const contentByLocale = {
       {
         title: "桌面版 release 资产",
         tag: "桌面安装包",
-        command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        command: `open ${desktopDownloadAssets.release}`,
         description:
           "GitHub 最新公开桌面 release 为 desktop-v1.8.1，提供签名 DMG、.deb、tar.gz 和 Windows installer，并修复顶部标签栏留白，让性能压力提示按标签幂等触发，并修正 DeepSeek 费用来源拆分。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        href: desktopDownloadAssets.release,
       },
     ],
     loginSteps: [
@@ -2437,6 +2526,12 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
+        date: "2026-06-15",
+        title: "DeepSeek V4 开始面向部分账号灰度发布",
+        body: "6 月 15 日 LINUX DO 讨论指向 DeepSeek V4 灰度发布：部分用户被路由到新的 V4 体验，并反馈代码和 SVG 输出能力更强，但账号之间可见状态仍不一致。这条新闻按 DeepSeek V4 分阶段灰度发布信号记录。",
+        href: "https://linux.do/t/topic/2404493",
+      },
+      {
         date: "2026-06-12",
         title: "Reasonix main-v2 新增繁体中文桌面与 CLI 语言覆盖",
         body: "GitHub commit f7a61cf 显示 6 月 12 日 main-v2 新增 zh-TW 桌面 locale、繁体中文 CLI 词库、zh-Hant 与 zh-HK 等输入识别，以及一整套台湾用语的界面文案。",
@@ -2475,8 +2570,8 @@ export const contentByLocale = {
         articlesTitle: "深度文章",
         articleReadLabel: "阅读",
         sectionsTitle: "产品介绍",
-        seoClusterEyebrow: "DeepSeek 长尾页面",
-        seoClusterTitle: "DeepSeek Reasonix coding agent 与 V4 code 指南",
+        seoClusterEyebrow: "DeepSeek 指南",
+        seoClusterTitle: "如何使用 DeepSeek Reasonix coding agent",
         seoClusterDescription:
           "这些页面专门承接 DeepSeek coding agent、DeepSeek code、DeepSeek V4 agent、DeepSeek V4 code 和 GitHub Copilot DeepSeek V4 搜索，再把读者导回 Reasonix。",
         latestNewsTitle: "Reasonix AI coding agent 最新新闻",
@@ -2486,7 +2581,7 @@ export const contentByLocale = {
         metaDescription:
           "Reasonix 文章库：如何上手、DeepSeek prefix cache 架构、Reasonix vs Claude Code vs Codex，以及 Reasonix vs 通用 AI CLI。",
         eyebrow: "高质量文章",
-        title: "Reasonix 指南、prefix cache 与 Claude Code 对比",
+        title: "DeepSeek 指南",
         description:
           "先按 DeepSeek 官方路径跑通 Reasonix，再理解它的 cache-first loop，并对比 Claude Code、Codex 和通用 AI CLI。",
         readLabel: "阅读文章",
@@ -2545,13 +2640,13 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 仓库、npx 启动、npm latest 与 next、main-v2 源码构建和 desktop-v1.8.1 安装包入口。",
+          "Reasonix GitHub 下载地址：npm next 安装、Homebrew tap 安装，以及 Mac、Windows、Linux 的 desktop-v1.8.1 桌面端打包下载。",
         eyebrow: "GitHub 下载地址",
-        title: "Reasonix 下载路径：npx、main-v2 源码和桌面 release",
+        title: "Reasonix 下载方式：npm、Homebrew 和桌面端打包下载",
         descriptionBeforeLink: "官方仓库地址为",
-        descriptionAfterLink: "。选择默认 latest 包、next tag 或 main-v2 源码构建前，请先检查 npm dist-tags。",
+        descriptionAfterLink: "。这里把 npm 命令、Homebrew 命令和桌面端打包下载放在一起对比。",
         note:
-          "如果你的目标是“能马上跑起来”，优先用 npx reasonix code；如果要长期安装，用 npm i -g reasonix；需要源码级验证时再 clone main-v2。",
+          "想在终端里使用 CLI，就在 npm 和 Homebrew 两种方式里选；想安装图形界面，就下载对应系统的桌面端安装包。",
       },
       errors: {
         metaTitle: "Reasonix 相关报错命令行",
@@ -2652,7 +2747,7 @@ export const contentByLocale = {
   "zh-tw": {
     site: {
       title: "DeepSeek Reasonix：Reasonix Desktop、CLI、GitHub 與 Claude Code 對比",
-      slogan: "DeepSeek Reasonix 是專用 coding agent",
+      slogan: "DeepSeek Reasonix 為長時間低成本會話而構建。",
       description:
         "用這份 DeepSeek Reasonix 指南對比 Reasonix vs Claude Code，核驗 Reasonix Desktop 與 GitHub 下載，並在本機執行 DeepSeek V4 coding workflow。",
       shellSubtitle: "DeepSeek Reasonix 繁體中文資訊",
@@ -2746,6 +2841,11 @@ export const contentByLocale = {
       },
     ],
     projectStats: sharedProjectStats,
+    desktopDownload: createDesktopDownloadCopy({
+      macosLabel: "macOS DMG",
+      windowsLabel: "Windows 安裝器",
+      linuxLabel: "Linux .deb",
+    }),
     quickFacts: [
       {
         label: "目前 npm tags",
@@ -2787,11 +2887,10 @@ export const contentByLocale = {
       {
         title: "桌面版 release 資產",
         tag: "桌面安裝包",
-        command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        command: `open ${desktopDownloadAssets.release}`,
         description:
           "GitHub 最新公開桌面 release 為 desktop-v1.8.1，提供簽名 DMG、.deb、tar.gz 和 Windows installer，並修復頂部標籤列留白，讓效能壓力提示按標籤冪等觸發，並修正 DeepSeek 費用來源拆分。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        href: desktopDownloadAssets.release,
       },
     ],
     loginSteps: [
@@ -2982,6 +3081,12 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
+        date: "2026-06-15",
+        title: "DeepSeek V4 開始面向部分帳號灰度發布",
+        body: "6 月 15 日 LINUX DO 討論指向 DeepSeek V4 灰度發布：部分使用者被路由到新的 V4 體驗，並回報程式碼和 SVG 輸出能力更強，但帳號之間可見狀態仍不一致。這條新聞按 DeepSeek V4 分階段灰度發布信號記錄。",
+        href: "https://linux.do/t/topic/2404493",
+      },
+      {
         date: "2026-06-12",
         title: "Reasonix main-v2 新增繁體中文桌面與 CLI 語言覆蓋",
         body: "GitHub commit f7a61cf 顯示 6 月 12 日 main-v2 新增 zh-TW 桌面 locale、繁體中文 CLI 詞庫、zh-Hant 與 zh-HK 等輸入辨識，以及一整套台灣用語的介面文案。",
@@ -3020,8 +3125,8 @@ export const contentByLocale = {
         articlesTitle: "深度文章",
         articleReadLabel: "閱讀",
         sectionsTitle: "產品介紹",
-        seoClusterEyebrow: "DeepSeek 長尾頁面",
-        seoClusterTitle: "DeepSeek Reasonix coding agent 與 V4 code 指南",
+        seoClusterEyebrow: "DeepSeek 指南",
+        seoClusterTitle: "如何使用 DeepSeek Reasonix coding agent",
         seoClusterDescription:
           "這些頁面專門承接 DeepSeek coding agent、DeepSeek code、DeepSeek V4 agent、DeepSeek V4 code 和 GitHub Copilot DeepSeek V4 搜尋，再把讀者導回 Reasonix。",
         latestNewsTitle: "Reasonix AI coding agent 最新新聞",
@@ -3031,7 +3136,7 @@ export const contentByLocale = {
         metaDescription:
           "Reasonix 文章庫：如何上手、DeepSeek prefix cache 架構、Reasonix vs Claude Code vs Codex，以及 Reasonix vs 通用 AI CLI。",
         eyebrow: "高品質文章",
-        title: "Reasonix 指南、prefix cache 與 Claude Code 對比",
+        title: "DeepSeek 指南",
         description:
           "先按 DeepSeek 官方路徑跑通 Reasonix，再理解它的 cache-first loop，並對比 Claude Code、Codex 和通用 AI CLI。",
         readLabel: "閱讀文章",
@@ -3090,13 +3195,13 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 倉庫、npx 啟動、npm latest 與 next、main-v2 原始碼建置和 desktop-v1.8.1 安裝包入口。",
+          "Reasonix GitHub 下載地址：npm next 安裝、Homebrew tap 安裝，以及 Mac、Windows、Linux 的 desktop-v1.8.1 桌面端打包下載。",
         eyebrow: "GitHub 下載地址",
-        title: "Reasonix 下載路徑：npx、main-v2 原始碼和桌面 release",
+        title: "Reasonix 下載方式：npm、Homebrew 和桌面端打包下載",
         descriptionBeforeLink: "官方倉庫地址為",
-        descriptionAfterLink: "。選擇預設 latest package、next tag 或 main-v2 原始碼建置前，請先檢查 npm dist-tags。",
+        descriptionAfterLink: "。這裡把 npm 命令、Homebrew 命令和桌面端打包下載放在一起對比。",
         note:
-          "如果你的目標是「能馬上跑起來」，優先用 npx reasonix code；如果要長期安裝，用 npm i -g reasonix；需要原始碼級驗證時再 clone main-v2。",
+          "想在終端機裡使用 CLI，就在 npm 和 Homebrew 兩種方式裡選；想安裝圖形介面，就下載對應系統的桌面端安裝包。",
       },
       errors: {
         metaTitle: "Reasonix 相關報錯命令列",
@@ -3196,8 +3301,8 @@ export const contentByLocale = {
   },
   ru: {
     site: {
-      title: "DeepSeek Reasonix: Reasonix Desktop, CLI, GitHub, and Claude Code Comparison",
-      slogan: "DeepSeek Reasonix is a dedicated coding agent",
+      title: "DeepSeek Reasonix: DeepSeek Native Coding Agent",
+      slogan: "DeepSeek Reasonix создан для долгих и недорогих сессий.",
       description:
         "Compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
       shellSubtitle: "Информационный сайт Reasonix",
@@ -3291,6 +3396,11 @@ export const contentByLocale = {
       },
     ],
     projectStats: sharedProjectStats,
+    desktopDownload: createDesktopDownloadCopy({
+      macosLabel: "macOS DMG",
+      windowsLabel: "Windows installer",
+      linuxLabel: "Linux .deb",
+    }),
     quickFacts: [
       {
         label: "Текущие npm tags",
@@ -3332,11 +3442,10 @@ export const contentByLocale = {
       {
         title: "Desktop release assets",
         tag: "Desktop пакет",
-        command:
-          "open https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        command: `open ${desktopDownloadAssets.release}`,
         description:
           "Последний публичный desktop release - desktop-v1.8.1: доступны подписанные DMG, .deb, tar.gz и Windows installer, а release line исправляет отступы верхних вкладок, делает performance-pressure prompt идемпотентным для каждого ярлыка и корректирует breakdown источников расходов DeepSeek.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        href: desktopDownloadAssets.release,
       },
     ],
     loginSteps: [
@@ -3527,6 +3636,12 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
       },
       {
+        date: "2026-06-15",
+        title: "DeepSeek V4 начинает gray rollout для части аккаунтов",
+        body: "Тема LINUX DO от 15 июня указывает на gray rollout DeepSeek V4: часть пользователей сообщает, что их аккаунты попадают в более новую V4-family выдачу с более сильным coding и SVG output, а доступность остается неравномерной между аккаунтами. Эта новость отслеживает staged rollout signal для DeepSeek V4.",
+        href: "https://linux.do/t/topic/2404493",
+      },
+      {
         date: "2026-06-12",
         title: "Reasonix main-v2 добавляет покрытие Traditional Chinese для desktop и CLI",
         body: "GitHub commit f7a61cf от 12 июня добавляет desktop locale zh-TW, словарь Traditional Chinese для CLI, распознавание zh-Hant и zh-HK style inputs и полный набор тайваньской терминологии в новом locale surface.",
@@ -3557,7 +3672,7 @@ export const contentByLocale = {
     pages: {
       home: {
         eyebrow: "DeepSeek-native coding agent guide",
-        title: "Reasonix Desktop, CLI, GitHub, and Claude Code comparison",
+        title: "",
         primaryCta: "Открыть GitHub загрузки",
         secondaryCta: "Разобрать ошибки CLI",
         terminalNote:
@@ -3565,8 +3680,8 @@ export const contentByLocale = {
         articlesTitle: "Глубокие статьи",
         articleReadLabel: "Читать",
         sectionsTitle: "Обзор продукта",
-        seoClusterEyebrow: "DeepSeek long-tail pages",
-        seoClusterTitle: "DeepSeek Reasonix coding agent and V4 code guides",
+        seoClusterEyebrow: "Руководства DeepSeek",
+        seoClusterTitle: "Как пользоваться DeepSeek Reasonix coding agent",
         seoClusterDescription:
           "These pages answer DeepSeek coding agent, DeepSeek code, DeepSeek V4 agent, DeepSeek V4 code, and GitHub Copilot DeepSeek V4 searches before routing readers back to Reasonix.",
         latestNewsTitle: "Последние новости Reasonix AI coding agent",
@@ -3576,7 +3691,7 @@ export const contentByLocale = {
         metaDescription:
           "Библиотека статей Reasonix о позиционировании Reasonix, DeepSeek-native setup, product advantages, типах coding agents и engineering workflow.",
         eyebrow: "Качественные статьи",
-        title: "Reasonix guides, prefix cache, and Claude Code comparisons",
+        title: "Руководства DeepSeek",
         description:
           "Start with the official DeepSeek path, then compare Reasonix cache-first architecture with Claude Code, Codex, and generic AI CLI workflows.",
         readLabel: "Читать статью",
@@ -3635,14 +3750,14 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub загрузки",
         metaDescription:
-          "GitHub репозиторий Reasonix, запуск через npx, npm latest и next tags, source build main-v2 и desktop-v1.8.1 release.",
+          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.8.1 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub загрузки",
-        title: "Как получить Reasonix: npx, main-v2 source и desktop release",
+        title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "Официальный репозиторий:",
         descriptionAfterLink:
-          ". Проверьте npm dist-tags перед выбором default latest package, next tag или source build main-v2.",
+          ". Compare the npm command, Homebrew command, and packaged desktop downloads before choosing an install path.",
         note:
-          "Если нужно быстро запустить Reasonix, начните с npx reasonix code. Для постоянной установки используйте npm i -g reasonix. Клонируйте main-v2 для source-level проверки.",
+          "Use npm or Homebrew when you want the CLI in your terminal. Use the desktop packages when you want a packaged app for Mac, Windows, or Linux.",
       },
       errors: {
         metaTitle: "Reasonix: команды для ошибок CLI",

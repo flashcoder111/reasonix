@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import {
   ArrowLeft,
   ArrowRight,
-  ArrowUpRight,
   BadgeCheck,
   BookOpen,
   Bug,
@@ -19,12 +18,15 @@ import {
   Terminal,
   CircleHelp,
 } from "lucide-react";
+import { ArticleCarousel } from "@/components/ArticleCarousel";
 import { ArticleDiscussionLink } from "@/components/ArticleDiscussionLink";
 import { CommunityBoard } from "@/components/CommunityBoard";
 import { CommunityQuestionDetail } from "@/components/CommunityQuestionDetail";
 import { CommunityQuestionForm } from "@/components/CommunityQuestionForm";
 import { CopyCommandBlock } from "@/components/CopyCommandBlock";
+import { DownloadInstallTabs } from "@/components/DownloadInstallTabs";
 import { LoginExplainer } from "@/components/LoginExplainer";
+import { ReasonixAgentVisual } from "@/components/ReasonixAgentVisual";
 import { getArticle, getArticles, type Article } from "@/lib/articles";
 import type {
   CommunityApiError,
@@ -266,6 +268,188 @@ function getNewsEditorialCopy(locale: Locale) {
   };
 }
 
+function getHomeCommandCards(locale: Locale) {
+  if (locale === "zh-cn") {
+    return [
+      {
+        title: "安装",
+        description: "需要长期复用本地命令时再全局安装；临时体验仍可使用 npx。",
+        command: "npm i -g reasonix@next",
+      },
+      {
+        title: "指向你的仓库",
+        description:
+          "在目标项目目录启动，让文件上下文、命令输出和项目记忆绑定到正确仓库。",
+        command: "cd your-project && reasonix code",
+      },
+      {
+        title: "交给它任务",
+        description:
+          "用自然语言说明目标；Reasonix 会先规划，再让改动和 diff 可审核。",
+        command: "> refactor the auth flow",
+      },
+      {
+        title: "先进入计划模式",
+        description: "需要看方案再编辑时，用只读规划控制写入边界。",
+        command: "/plan on",
+      },
+      {
+        title: "切换强推理",
+        description: "复杂重构或长时间调试时，为下一轮或整段会话使用更强模型设置。",
+        command: "/pro",
+      },
+      {
+        title: "诊断配置",
+        description: "启动异常时检查 API、配置、hooks 和项目状态。",
+        command: "/doctor",
+      },
+    ] as const;
+  }
+
+  if (locale === "zh-tw") {
+    return [
+      {
+        title: "安裝",
+        description: "需要長期復用本機命令時再全域安裝；臨時體驗仍可使用 npx。",
+        command: "npm i -g reasonix@next",
+      },
+      {
+        title: "指向你的倉庫",
+        description:
+          "在目標專案目錄啟動，讓檔案上下文、命令輸出和專案記憶綁定到正確倉庫。",
+        command: "cd your-project && reasonix code",
+      },
+      {
+        title: "交給它任務",
+        description:
+          "用自然語言說明目標；Reasonix 會先規劃，再讓改動和 diff 可審核。",
+        command: "> refactor the auth flow",
+      },
+      {
+        title: "先進入計畫模式",
+        description: "需要先看方案再編輯時，用唯讀規劃控制寫入邊界。",
+        command: "/plan on",
+      },
+      {
+        title: "切換強推理",
+        description: "複雜重構或長時間除錯時，為下一輪或整段會話使用更強模型設定。",
+        command: "/pro",
+      },
+      {
+        title: "診斷設定",
+        description: "啟動異常時檢查 API、設定、hooks 和專案狀態。",
+        command: "/doctor",
+      },
+    ] as const;
+  }
+
+  if (locale === "ru") {
+    return [
+      {
+        title: "Install",
+        description:
+          "Use a global install only when you want a reusable local command; npx still works for a trial run.",
+        command: "npm i -g reasonix@next",
+      },
+      {
+        title: "Point at your repo",
+        description:
+          "Start inside the target project so files, command output, and project memory attach to the right repository.",
+        command: "cd your-project && reasonix code",
+      },
+      {
+        title: "Give it a task",
+        description:
+          "Describe the goal in plain language; Reasonix can plan first and keep the diff reviewable.",
+        command: "> refactor the auth flow",
+      },
+      {
+        title: "Plan before edits",
+        description:
+          "Use read-only planning when you want to review the approach before write operations.",
+        command: "/plan on",
+      },
+      {
+        title: "Use stronger reasoning",
+        description:
+          "Switch for a hard refactor or a long debugging path that needs more model effort.",
+        command: "/pro",
+      },
+      {
+        title: "Diagnose setup",
+        description: "Check API, config, hooks, and project state when startup fails.",
+        command: "/doctor",
+      },
+    ] as const;
+  }
+
+  return [
+    {
+      title: "Install",
+      description:
+        "Use a global install only when you want a reusable local command; npx still works for a trial run.",
+      command: "npm i -g reasonix@next",
+    },
+    {
+      title: "Point at your repo",
+      description:
+        "Start inside the target project so files, command output, and project memory attach to the right repository.",
+      command: "cd your-project && reasonix code",
+    },
+    {
+      title: "Give it a task",
+      description:
+        "Describe the goal in plain language; Reasonix can plan first and keep the diff reviewable.",
+      command: "> refactor the auth flow",
+    },
+    {
+      title: "Plan before edits",
+      description:
+        "Use read-only planning when you want to review the approach before write operations.",
+      command: "/plan on",
+    },
+    {
+      title: "Use stronger reasoning",
+      description:
+        "Switch for a hard refactor or a long debugging path that needs more model effort.",
+      command: "/pro",
+    },
+    {
+      title: "Diagnose setup",
+      description: "Check API, config, hooks, and project state when startup fails.",
+      command: "/doctor",
+    },
+  ] as const;
+}
+
+function getHomeHeroCopy(locale: Locale) {
+  if (locale === "zh-cn") {
+    return {
+      brand: "Reasonix",
+      description: "DeepSeek 原生编码 agent",
+    };
+  }
+
+  if (locale === "zh-tw") {
+    return {
+      brand: "Reasonix",
+      description: "DeepSeek 原生編碼 agent",
+    };
+  }
+
+  if (locale === "ru") {
+    return {
+      brand: "Reasonix",
+      description: "DeepSeek-нативный агент для кодирования",
+    };
+  }
+
+  return {
+    brand: "Reasonix",
+    description: "DeepSeek native coding agent",
+  };
+}
+
 function getDownloadVerificationCopy(locale: Locale) {
   if (locale === "zh-cn") {
     return {
@@ -400,11 +584,13 @@ function SeoLandingLinks({
   title,
   description,
   currentPath,
+  compact = false,
 }: LocalizedPageProps & {
   eyebrow: string;
   title: string;
   description: string;
   currentPath?: string;
+  compact?: boolean;
 }) {
   const content = getContent(locale);
   const pages = content.seoLandingPages.filter(
@@ -412,35 +598,52 @@ function SeoLandingLinks({
   );
 
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-      <div className="mb-5 max-w-3xl">
-        <p className="text-sm font-semibold uppercase tracking-normal text-emerald-800">
+    <section
+      className={[
+        "rx-glass-strong rounded-[2rem]",
+        compact ? "p-4 sm:p-5" : "p-5 sm:p-6",
+      ].join(" ")}
+    >
+      <div className={compact ? "mb-4" : "mb-5 max-w-3xl"}>
+        <p className="text-sm font-semibold uppercase tracking-normal text-sky-700">
           {eyebrow}
         </p>
-        <h2 className="mt-2 text-2xl font-semibold leading-tight text-slate-950 sm:text-3xl">
+        <h2
+          className={[
+            "mt-2 font-semibold leading-tight text-slate-950",
+            compact ? "text-2xl" : "text-2xl sm:text-3xl",
+          ].join(" ")}
+        >
           {title}
         </h2>
-        <p className="mt-3 text-sm leading-6 text-slate-600">
-          {description}
-        </p>
+        {compact ? null : (
+          <p className="mt-3 text-sm leading-6 text-slate-600">
+            {description}
+          </p>
+        )}
       </div>
       <div className="grid gap-3 md:grid-cols-2">
         {pages.map((page) => (
           <Link
             key={page.path}
             href={localizePath(locale, page.path)}
-            className="rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-white"
+            className={[
+              "rx-glass rounded-2xl transition hover:-translate-y-0.5 hover:bg-white/72",
+              compact ? "p-3" : "p-4",
+            ].join(" ")}
           >
-            <span className="rounded-md bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-900">
+            <span className="rounded-full bg-sky-50 px-2.5 py-1 text-xs font-semibold text-sky-800 ring-1 ring-sky-100">
               {page.primaryKeyword}
             </span>
             <h3 className="mt-3 text-base font-semibold leading-6 text-slate-950">
               {page.title}
             </h3>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              {page.metaDescription}
-            </p>
-            <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-emerald-900">
+            {compact ? null : (
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                {page.metaDescription}
+              </p>
+            )}
+            <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-sky-800">
               {page.eyebrow}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </span>
@@ -451,10 +654,59 @@ function SeoLandingLinks({
   );
 }
 
+function ProjectStatsGrid({
+  stats,
+  className = "",
+}: {
+  stats: ReadonlyArray<{ label: string; value: string; note: string }>;
+  className?: string;
+}) {
+  const largeColumnClass =
+    stats.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4";
+
+  return (
+    <dl
+      className={[
+        "grid grid-cols-2 gap-3",
+        largeColumnClass,
+        className,
+      ].join(" ")}
+    >
+      {stats.map((stat) => (
+        <div
+          key={stat.label}
+          className="rx-glass rounded-2xl px-4 py-4 text-left shadow-[0_18px_50px_-30px_rgba(15,23,42,0.28)]"
+        >
+          <dt className="text-xs font-semibold uppercase tracking-normal text-slate-500">
+            {stat.label}
+          </dt>
+          <dd className="mt-2 truncate text-2xl font-semibold tracking-normal text-slate-950">
+            {stat.value}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 export function HomePage({ locale }: LocalizedPageProps) {
   const content = getContent(locale);
   const articles = getArticles(locale);
   const page = content.pages.home;
+  const heroCopy = getHomeHeroCopy(locale);
+  const commandCards = getHomeCommandCards(locale);
+  const primaryDownload = content.downloadOptions[0];
+  const terminalCommand =
+    primaryDownload?.command ??
+    "cd /path/to/your-project\nnpx reasonix code\n# inside the TUI: /pro, /plan, /skill, /mcp";
+  const articleCarouselItems = articles.slice(0, 4).map((article) => ({
+    slug: article.slug,
+    title: article.title,
+    description: article.description,
+    eyebrow: article.eyebrow,
+    date: article.date,
+    readTime: article.readTime,
+  }));
   const featureIcons = [
     BadgeCheck,
     Terminal,
@@ -463,189 +715,281 @@ export function HomePage({ locale }: LocalizedPageProps) {
     GitFork,
     Clock3,
   ] as const;
+  const featureRingLayout = [
+    "lg:col-start-1 lg:col-span-6 lg:row-start-1",
+    "lg:col-start-7 lg:col-span-6 lg:row-start-1",
+    "lg:col-start-1 lg:col-span-4 lg:row-start-2",
+    "lg:col-start-9 lg:col-span-4 lg:row-start-2",
+    "lg:col-start-1 lg:col-span-6 lg:row-start-3",
+    "lg:col-start-7 lg:col-span-6 lg:row-start-3",
+  ] as const;
+  const heroProjectStats = content.projectStats.filter(
+    (stat) => stat.label !== "Default branch",
+  );
 
   return (
-    <div className="-mx-4 -my-6 bg-white text-slate-950 sm:-mx-6 lg:-mx-10 lg:-my-10">
-      <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-6xl flex-col items-center px-4 pb-12 pt-10 text-center sm:px-6 sm:pb-16 sm:pt-16 lg:pb-20 lg:pt-20">
-          <div className="mb-6 inline-flex max-w-full items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-900">
-            <BadgeCheck className="h-4 w-4 shrink-0" aria-hidden="true" />
-            <span className="truncate">{page.eyebrow}</span>
-          </div>
-
-          <h1 className="max-w-5xl text-4xl font-semibold leading-tight tracking-normal text-slate-950 sm:text-6xl lg:text-7xl">
-            DeepSeek Reasonix
-          </h1>
-
-          <p className="mt-4 text-lg font-medium leading-8 text-emerald-900 sm:text-2xl">
-            {page.title}
-          </p>
-
-          <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-            {content.site.description}
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={SITE.github}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-emerald-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-900"
-            >
-              <Download className="h-4 w-4" aria-hidden="true" />
-              {page.primaryCta}
-              <ExternalLink className="h-4 w-4" aria-hidden="true" />
-            </a>
-            <Link
-              href={localizePath(locale, "/errors")}
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:text-slate-950"
-            >
-              {page.secondaryCta}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </div>
-
-          <div className="mt-10 grid w-full gap-4 text-left lg:grid-cols-[1fr_360px] lg:items-stretch">
-            <div className="rounded-lg border border-slate-200 bg-slate-50 p-5 sm:p-6">
-              <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                <Terminal
-                  className="h-4 w-4 text-emerald-800"
-                  aria-hidden="true"
-                />
-                {content.quickFacts[2]?.label}
+    <div className="-mx-4 -my-6 overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#f4fbf7_46%,#ffffff_100%)] text-slate-950 sm:-mx-6 lg:-mx-10 lg:-my-10">
+      <section className="relative overflow-hidden">
+        <div className="motion-hero-grid absolute inset-0" aria-hidden="true" />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(219,234,254,0.78),rgba(255,255,255,0.18)_42%,rgba(209,250,229,0.48)_100%)]"
+          aria-hidden="true"
+        />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 pb-10 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14">
+          <div className="grid items-center gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
+            <div className="motion-rise motion-delay-1 text-left">
+              <div className="flex max-w-full flex-wrap gap-2">
+                <span className="rx-glass inline-flex max-w-full items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold text-slate-800">
+                  <BadgeCheck
+                    className="h-4 w-4 shrink-0 text-sky-600"
+                    aria-hidden="true"
+                  />
+                  <span className="truncate">{page.eyebrow}</span>
+                </span>
+                <span className="rx-glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold text-slate-700">
+                  <Clock3
+                    className="h-4 w-4 text-emerald-700"
+                    aria-hidden="true"
+                  />
+                  {SITE.checkedAt}
+                </span>
               </div>
-              <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-950 p-4 text-sm leading-7 text-emerald-200">
-                {
-                  "cd /path/to/your-project\nnpx reasonix code\n# inside the TUI: /pro, /plan, /skill, /mcp"
-                }
-              </pre>
-              <p className="mt-4 text-sm leading-6 text-slate-600">
-                {page.terminalNote}
-              </p>
+
+              <h1 className="mt-7 max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-slate-950 sm:text-5xl lg:text-6xl">
+                <span className="block">{heroCopy.brand}</span>
+                <span className="block bg-[linear-gradient(90deg,#0f172a,#0369a1_48%,#047857)] bg-clip-text text-transparent">
+                  {heroCopy.description}
+                </span>
+              </h1>
+
+              {page.title ? (
+                <p className="mt-5 max-w-2xl text-base font-medium leading-7 text-slate-600 sm:text-lg">
+                  {page.title}
+                </p>
+              ) : null}
+
+              <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                <a
+                  href={SITE.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rx-button-primary inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl px-5 text-sm font-semibold text-white"
+                >
+                  {page.primaryCta}
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                </a>
+                <Link
+                  href={localizePath(locale, "/errors")}
+                  className="rx-glass inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl px-5 text-sm font-semibold text-slate-800 transition hover:bg-white/72"
+                >
+                  {page.secondaryCta}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+
+              <ProjectStatsGrid
+                stats={heroProjectStats}
+                className="mt-7 hidden w-full max-w-3xl lg:grid"
+              />
             </div>
 
-            <dl className="grid grid-cols-2 gap-3 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-              {content.projectStats.map((stat) => (
-                <div key={stat.label} className="rounded-lg bg-slate-50 p-3">
-                  <dt className="text-xs text-slate-500">{stat.label}</dt>
-                  <dd className="mt-1 text-lg font-semibold text-slate-950">
-                    {stat.value}
-                  </dd>
-                  <dd className="mt-1 text-xs text-slate-500">{stat.note}</dd>
+            <div className="motion-rise motion-delay-2">
+              <ReasonixAgentVisual />
+            </div>
+          </div>
+
+          <ProjectStatsGrid
+            stats={heroProjectStats}
+            className="motion-rise motion-delay-3 mt-6 w-full lg:hidden"
+          />
+
+          <div className="motion-rise motion-delay-3 mt-8 grid gap-4 lg:grid-cols-[1.25fr_0.75fr]">
+            <section className="rx-glass-strong rounded-[2rem] p-4 shadow-[0_24px_90px_-54px_rgba(15,23,42,0.42)] sm:p-5">
+              <div className="flex flex-col gap-2 px-1 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-normal text-sky-700">
+                    Install Reasonix
+                  </p>
+                  <h2 className="mt-1 text-xl font-semibold leading-tight text-slate-950 sm:text-2xl">
+                    {content.quickFacts[2]?.label ?? "Reasonix entry"}
+                  </h2>
                 </div>
+                <span className="inline-flex w-fit items-center gap-2 rounded-full bg-emerald-50/80 px-3 py-1.5 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-200/80">
+                  <span
+                    className="motion-pulse-dot h-2 w-2 rounded-full bg-emerald-500"
+                    aria-hidden="true"
+                  />
+                  npx / npm / desktop
+                </span>
+              </div>
+              <DownloadInstallTabs
+                locale={locale}
+                desktopDownload={content.desktopDownload}
+              />
+            </section>
+
+            <section className="rx-glass-strong rounded-[2rem] p-4 shadow-[0_24px_90px_-54px_rgba(15,23,42,0.34)] sm:p-5">
+              <div className="mb-3 flex items-center justify-between gap-3 px-1">
+                <div className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900">
+                  <Terminal className="h-4 w-4 text-sky-700" aria-hidden="true" />
+                  {page.terminalNote}
+                </div>
+                <span className="rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold text-white">
+                  CLI
+                </span>
+              </div>
+              <CopyCommandBlock command={terminalCommand} locale={locale} />
+            </section>
+          </div>
+
+          <a
+            href={SITE.github}
+            target="_blank"
+            rel="noreferrer"
+            className="motion-rise motion-delay-4 rx-glass mt-4 flex flex-col gap-3 rounded-[1.75rem] p-4 text-left transition hover:bg-white/72 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <span className="flex min-w-0 items-center gap-3">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-slate-950 text-white">
+                <GitBranch className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-xs font-semibold uppercase tracking-normal text-slate-500">
+                  GitHub repository
+                </span>
+                <span className="mt-1 block truncate text-base font-semibold text-slate-950">
+                  esengine/DeepSeek-Reasonix
+                </span>
+              </span>
+            </span>
+            <span className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-800 ring-1 ring-sky-100">
+              Open GitHub
+              <ExternalLink className="h-4 w-4" aria-hidden="true" />
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section className="relative border-y border-white/70 bg-white/50">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
+          <div className="command-strip-scroll rx-glass overflow-x-auto overflow-y-hidden rounded-[2rem] py-5 text-left sm:overflow-hidden">
+            <div className="motion-marquee-track flex w-max">
+              {[...commandCards, ...commandCards].map((card, index) => (
+                <article
+                  key={`${card.command}-${index}`}
+                  className="flex min-h-[172px] w-[min(82vw,22rem)] snap-start flex-col justify-between border-r border-slate-200/70 px-6 sm:w-[22rem] lg:px-8"
+                >
+                  <div>
+                    <h3 className="text-lg font-semibold leading-7 text-slate-950">
+                      {card.title}
+                    </h3>
+                    <p className="mt-3 text-sm font-medium leading-6 text-slate-600">
+                      {card.description}
+                    </p>
+                  </div>
+                  <code className="mt-5 inline-flex max-w-full items-center gap-2 self-start overflow-hidden rounded-full bg-white/78 px-4 py-2 text-sm font-semibold leading-none text-slate-700 shadow-sm ring-1 ring-slate-200/80">
+                    <span className="truncate">{card.command}</span>
+                  </code>
+                </article>
               ))}
-            </dl>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
-        <div className="grid gap-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-normal text-emerald-800">
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+        <div className="grid gap-4 lg:grid-cols-12 lg:items-stretch">
+          <div className="motion-rise flex min-h-[15rem] flex-col justify-center text-center lg:col-start-5 lg:col-span-4 lg:row-start-2">
+            <p className="text-sm font-semibold uppercase tracking-normal text-emerald-500">
               {page.sectionsTitle}
             </p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-semibold leading-tight text-slate-950 sm:text-4xl">
+            <h2 className="mt-3 bg-[linear-gradient(90deg,#0f172a,#0369a1_50%,#047857)] bg-clip-text text-3xl font-semibold leading-tight tracking-normal text-transparent sm:text-4xl">
               {content.site.slogan}
             </h2>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
-              {content.site.contentPrinciplesBody}
-            </p>
           </div>
 
-          <div className="grid gap-3 md:grid-cols-2">
-            {content.featureBlocks.map((feature, index) => {
-              const FeatureIcon = featureIcons[index % featureIcons.length];
+          {content.featureBlocks.map((feature, index) => {
+            const FeatureIcon = featureIcons[index % featureIcons.length];
+            const layoutClass = featureRingLayout[index] ?? "";
 
-              return (
-                <article
-                  key={feature.title}
-                  className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition hover:border-emerald-200 hover:shadow-md"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-800 ring-1 ring-emerald-100">
-                      <FeatureIcon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    <h3 className="text-base font-semibold leading-6 text-slate-950">
-                      {feature.title}
-                    </h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-5 text-slate-600">
+            return (
+              <article
+                key={feature.title}
+                className={[
+                  "motion-feature-row rx-glass grid h-full gap-3 rounded-[1.5rem] p-4 transition hover:bg-white/70 sm:grid-cols-[auto_1fr] sm:p-5 lg:flex lg:flex-col lg:justify-between",
+                  layoutClass,
+                ].join(" ")}
+                style={{ animationDelay: `${index * 90}ms` }}
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sky-50 text-sky-700 ring-1 ring-sky-100">
+                  <FeatureIcon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-base font-semibold leading-6 text-slate-950">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">
                     {feature.body}
                   </p>
-                </article>
-              );
-            })}
-          </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-12 sm:px-6 lg:pb-16">
+      <section className="mx-auto max-w-7xl px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
         <SeoLandingLinks
           locale={locale}
           eyebrow={page.seoClusterEyebrow}
           title={page.seoClusterTitle}
           description={page.seoClusterDescription}
+          compact
         />
       </section>
 
-      <section className="border-y border-slate-800 bg-slate-950">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
+      <section className="border-y border-white/70 bg-white/58">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-normal text-emerald-300">
+              <p className="text-sm font-semibold uppercase tracking-normal text-sky-700">
                 {page.articlesTitle}
               </p>
-              <h2 className="mt-2 text-3xl font-semibold text-white">
+              <h2 className="mt-2 text-2xl font-semibold text-slate-950 sm:text-3xl">
                 {content.pages.articles.title}
               </h2>
             </div>
-            <p className="max-w-xl text-sm leading-6 text-slate-300">
-              {content.pages.articles.description}
-            </p>
+            <Link
+              href={localizePath(locale, "/articles")}
+              className="inline-flex w-fit items-center gap-2 text-sm font-semibold text-sky-800 hover:text-sky-700"
+            >
+              {content.pages.articles.readLabel}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {articles.slice(0, 4).map((article) => (
-              <Link
-                key={article.slug}
-                href={localizePath(locale, `/articles/${article.slug}`)}
-                className="rounded-lg border border-slate-700 bg-slate-900 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-slate-900/80"
-              >
-                <span className="rounded-md bg-emerald-300 px-2 py-1 text-xs font-semibold text-slate-950">
-                  {article.eyebrow}
-                </span>
-                <h3 className="mt-4 text-lg font-semibold leading-snug text-white">
-                  {article.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-slate-300">
-                  {article.description}
-                </p>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-300">
-                  {page.articleReadLabel}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </span>
-              </Link>
-            ))}
-          </div>
+          <ArticleCarousel
+            locale={locale}
+            articles={articleCarouselItems}
+            readLabel={page.articleReadLabel}
+          />
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
-        <div className="mb-8 flex items-center gap-2 sm:mb-10">
-          <Newspaper className="h-5 w-5 text-emerald-800" aria-hidden="true" />
-          <h2 className="text-2xl font-semibold text-slate-950">
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+        <div className="mb-6 flex items-center gap-2">
+          <Newspaper className="h-5 w-5 text-sky-700" aria-hidden="true" />
+          <h2 className="text-2xl font-semibold text-slate-950 sm:text-3xl">
             {page.latestNewsTitle}
           </h2>
         </div>
-        <div className="divide-y divide-slate-200 rounded-lg border border-slate-200 bg-white shadow-sm">
+        <div className="rx-glass-strong divide-y divide-slate-200/70 overflow-hidden rounded-[2rem]">
           {content.newsItems.slice(0, 3).map((item) => (
             <a
               key={item.title}
               href={item.href}
               target="_blank"
               rel="noreferrer"
-              className="block p-5 transition hover:bg-slate-50"
+              className="block p-5 transition hover:bg-white/50"
             >
               <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500">
                 <Clock3 className="h-4 w-4" aria-hidden="true" />
@@ -654,9 +998,6 @@ export function HomePage({ locale }: LocalizedPageProps) {
               <h3 className="mt-2 text-lg font-semibold text-slate-950">
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
-                {item.body}
-              </p>
             </a>
           ))}
         </div>
@@ -1020,36 +1361,10 @@ export function GithubPageContent({ locale }: LocalizedPageProps) {
         ))}
       </section>
 
-      <section className="grid gap-4 lg:grid-cols-3">
-        {content.downloadOptions.map((option) => (
-          <article
-            key={option.title}
-            className="flex flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
-          >
-            <div className="flex items-center justify-between gap-4">
-              <span className="rounded-md bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-600">
-                {option.tag}
-              </span>
-              <a
-                href={option.href}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 text-slate-500 transition hover:border-emerald-300 hover:text-emerald-900"
-                aria-label={option.title}
-              >
-                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-            </div>
-            <h2 className="mt-4 text-lg font-semibold text-slate-950">
-              {option.title}
-            </h2>
-            <CopyCommandBlock command={option.command} locale={locale} />
-            <p className="mt-4 text-sm leading-6 text-slate-600">
-              {option.description}
-            </p>
-          </article>
-        ))}
-      </section>
+      <DownloadInstallTabs
+        locale={locale}
+        desktopDownload={content.desktopDownload}
+      />
 
       <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
         <h2 className="text-xl font-semibold text-slate-950">
