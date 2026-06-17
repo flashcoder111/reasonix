@@ -27,7 +27,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-17",
+  checkedAt: "2026-06-18",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -43,7 +43,7 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.8.1";
+export const reasonixCliVersion = "v1.9.1";
 
 const desktopReleaseTag = `desktop-${reasonixCliVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -377,11 +377,11 @@ const sharedSources = [
   },
   {
     label: "CLI release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.8.0",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.9.1",
   },
   {
     label: "Desktop release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.9.1",
   },
   {
     label: "README quick start",
@@ -398,29 +398,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#4633",
-    title: "A new data-loss bug report says rewind can clear records from other sessions",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4633",
+    id: "#4735",
+    title: "An open 1.9.1 replay bug says old sessions can still hit HTTP 400 from a missing tool-call name",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4735",
   },
   {
-    id: "#4629",
-    title: "A new safety request asks the default deny list to block destructive git restore-style commands",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4629",
+    id: "#4751",
+    title: "A desktop bug report says some MCP servers still cannot be deleted from the UI",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4751",
   },
   {
-    id: "#4626",
-    title: "An open bug says approval waits can hang and exit instead of accepting user confirmation",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4626",
+    id: "#4731",
+    title: "An open CodeGraph MCP bug says background listeners can survive shutdown or disable actions",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4731",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "22,624", note: "GitHub API, 2026-06-17" },
-  { label: "Forks", value: "1,358", note: "GitHub API, 2026-06-17" },
+  { label: "GitHub stars", value: "22,900", note: "GitHub API, 2026-06-18" },
+  { label: "Forks", value: "1,369", note: "GitHub API, 2026-06-18" },
   {
     label: "Open items",
-    value: "568",
-    note: "GitHub API open issues + pull requests, 2026-06-17",
+    value: "636",
+    note: "GitHub API open issues + pull requests, 2026-06-18",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1792,7 +1792,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.8.1, shipping signed DMG, .deb, tar.gz, and Windows installer artifacts while tightening top-tab spacing, making the performance-pressure prompt idempotent, and fixing DeepSeek billing-source breakdowns.",
+          "The latest public desktop release is desktop-v1.9.1, packaging DMG, .deb, tar.gz, and Windows installer assets while rolling up anchored popover fixes, global MCP config backfill, stranded-session recovery after version downgrades, and smoother no-auth provider setup.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1972,16 +1972,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-15",
-        title: "Reasonix CLI v1.8.0 becomes the latest stable command-line release",
-        body: "GitHub releases published Reasonix CLI v1.8.0 on June 15 with signed archives for macOS, Linux, and Windows; the stable tag adds MiMo vision model inputs, ACP session model-and-effort switching, desktop bot diagnostics, switchable workbench layout, and the built-in CodeGraph MCP update flow.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.8.0",
+        date: "2026-06-17",
+        title: "Reasonix CLI v1.9.1 is now the latest stable command-line release",
+        body: "GitHub releases published Reasonix CLI v1.9.1 on June 17; the stable line rolls up no-auth custom model providers, re-running setup without losing sibling built-in entries, detached background-job preservation, and session-switch fixes across CLI and desktop.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.9.1",
       },
       {
-        date: "2026-06-15",
-        title: "Reasonix Desktop v1.8.1 is the current public GUI release line",
-        body: "GitHub releases published desktop-v1.8.1 on June 15 with signed DMG, .deb, tar.gz, and Windows installer artifacts while fixing top-tab spacing, making the performance-pressure prompt idempotent per label, and correcting DeepSeek billing-source breakdowns.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        date: "2026-06-17",
+        title: "Reasonix Desktop v1.9.1 becomes the current public GUI release line",
+        body: "GitHub releases published desktop-v1.9.1 on June 17 with DMG, .deb, tar.gz, and Windows installer assets; the release line rolls up anchored popover fixes, global MCP config backfill, stranded-session recovery after version downgrades, no-auth provider support, and faster settings refresh behavior.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.9.1",
       },
       {
         date: "2026-06-16",
@@ -1996,16 +1996,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/74d0ab6d937f30ff6c6429e1880447326186f017",
       },
       {
-        date: "2026-06-12",
-        title: "Reasonix main-v2 adds Traditional Chinese locale coverage across desktop and CLI",
-        body: "GitHub commit f7a61cf on June 12 adds zh-TW desktop locale support, Traditional Chinese CLI catalog entries, locale detection for zh-Hant and zh-HK style inputs, and Taiwan-specific terminology throughout the new locale surface.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f7a61cfd074e541228c38e2ac489fc4997bf1924",
+        date: "2026-06-17",
+        title: "Reasonix main-v2 now backfills missing tool-call names when older sessions replay",
+        body: "GitHub commit abb0310 on June 17 backfills empty tool-call names and arguments from paired tool results so pre-adde2d3e sessions no longer fail replay with HTTP 400 missing-field errors; the same-day regression follow-up 1e5d796 keeps healthy sessions unchanged.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/abb0310402aca385a897a1fe58b95416125f1da6",
       },
       {
-        date: "2026-06-14",
-        title: "Reasonix adds a built-in CodeGraph update flow without hot-swapping active MCP sessions",
-        body: "GitHub commit f07e908 on June 14 adds a built-in CodeGraph update path plus desktop background checks in notify, download, and auto-next-session modes; downloads now verify SHA256SUMS, and running MCP sessions stay on their current tool schema until reconnect.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f07e9084ef4128dd48ed2f2e85a94bb6bbfb6bc8",
+        date: "2026-06-17",
+        title: "Reasonix main-v2 trims redundant desktop session reloads during restore",
+        body: "GitHub commit dcc434e and merge ef1f38c on June 17 stop repeated desktop session reload work during restore, reducing startup parse and preload overhead before the first restored session render.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/ef1f38c898405bd222bb38bd80c5af07ac5d3ce4",
       },
     ],
     issueWatch: sharedIssueWatch,
@@ -2092,7 +2092,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.8.1 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.9.1 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub downloads",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "The official repository is",
@@ -2344,7 +2344,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.8.1，提供签名 DMG、.deb、tar.gz 和 Windows installer，并修复顶部标签栏留白，让性能压力提示按标签幂等触发，并修正 DeepSeek 费用来源拆分。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.9.1，提供 DMG、.deb、tar.gz 和 Windows installer 资产，并整合锚定弹层滚动修复、全局 MCP 配置回填、版本降级后的会话恢复，以及更顺滑的免密 provider 设置。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2524,16 +2524,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-15",
-        title: "Reasonix CLI v1.8.0 成为最新稳定命令行发布",
-        body: "GitHub releases 在 6 月 15 日发布 Reasonix CLI v1.8.0，提供 macOS、Linux、Windows 的签名归档包；这条稳定线新增 MiMo vision 模型输入、ACP 会话模型与 effort 切换、桌面 bot 诊断、可切换 workbench 布局，以及内置 CodeGraph MCP 更新流程。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.8.0",
+        date: "2026-06-17",
+        title: "Reasonix CLI v1.9.1 成为最新稳定命令行发布",
+        body: "GitHub releases 在 6 月 17 日发布 Reasonix CLI v1.9.1；这条稳定线整合了免密自定义模型 provider、重复运行 setup 时保留内建兄弟条目、保留显式分离的后台任务，以及 CLI 与桌面端的会话切换修复。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.9.1",
       },
       {
-        date: "2026-06-15",
-        title: "Reasonix Desktop v1.8.1 成为当前公开 GUI 发布线",
-        body: "GitHub releases 在 6 月 15 日发布 desktop-v1.8.1，提供签名 DMG、.deb、tar.gz 和 Windows installer；这条发布线修复顶部标签栏留白，让性能压力提示按标签幂等触发，并修正 DeepSeek 费用来源拆分。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        date: "2026-06-17",
+        title: "Reasonix Desktop v1.9.1 成为当前公开 GUI 发布线",
+        body: "GitHub releases 在 6 月 17 日发布 desktop-v1.9.1，提供 DMG、.deb、tar.gz 和 Windows installer 资产；这条发布线整合锚定弹层滚动修复、全局 MCP 配置回填、版本降级后的会话恢复、免密 provider 支持，以及更快的设置刷新表现。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.9.1",
       },
       {
         date: "2026-06-16",
@@ -2548,30 +2548,30 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/74d0ab6d937f30ff6c6429e1880447326186f017",
       },
       {
-        date: "2026-06-12",
-        title: "Reasonix main-v2 新增繁体中文桌面与 CLI 语言覆盖",
-        body: "GitHub commit f7a61cf 显示 6 月 12 日 main-v2 新增 zh-TW 桌面 locale、繁体中文 CLI 词库、zh-Hant 与 zh-HK 等输入识别，以及一整套台湾用语的界面文案。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f7a61cfd074e541228c38e2ac489fc4997bf1924",
+        date: "2026-06-17",
+        title: "Reasonix main-v2 现在会在旧会话回放时补齐缺失的 tool-call 名称",
+        body: "GitHub commit abb0310 显示 6 月 17 日会从成对的 tool result 中补齐空的 tool-call 名称和参数，让 pre-adde2d3e 旧会话不再因 replay 触发 HTTP 400 missing-field 报错；同日的 1e5d796 回归测试继续保证健康会话不被改写。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/abb0310402aca385a897a1fe58b95416125f1da6",
       },
       {
-        date: "2026-06-14",
-        title: "Reasonix 新增内置 CodeGraph 更新流程，同时避免热切换正在运行的 MCP 会话",
-        body: "GitHub commit f07e908 显示 6 月 14 日新增内置 CodeGraph 更新路径和桌面后台检查模式，支持 notify、download、auto-next-session；下载会校验 SHA256SUMS，而正在运行的 MCP 会话会保持当前工具 schema，直到重新连接。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f07e9084ef4128dd48ed2f2e85a94bb6bbfb6bc8",
+        date: "2026-06-17",
+        title: "Reasonix main-v2 在恢复桌面会话时减少了重复 reload",
+        body: "GitHub commit dcc434e 和 merge ef1f38c 显示 6 月 17 日恢复桌面会话时会跳过重复 reload 工作，减少首个已恢复会话渲染前的启动解析与预加载开销。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/ef1f38c898405bd222bb38bd80c5af07ac5d3ce4",
       },
     ],
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "新的数据丢失 bug 报告称回溯会话可能清空其他会话记录",
+        title: "有 1.9.1 回放 bug 报告称旧会话仍可能因缺失 tool-call 名称触发 HTTP 400",
       },
       {
         ...sharedIssueWatch[1],
-        title: "新的安全建议希望默认 deny 列表拦住 git restore 一类破坏性命令",
+        title: "有桌面端 bug 报告称部分 MCP server 仍然无法在界面里删除",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有未关闭 bug 指出等待确认输入时可能卡住并直接退出",
+        title: "有 CodeGraph MCP bug 报告称关闭或禁用后后台监听仍可能继续存在",
       },
     ],
     sourceLinks: sharedSources,
@@ -2656,7 +2656,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 下载地址：npm next 安装、Homebrew tap 安装，以及 Mac、Windows、Linux 的 desktop-v1.8.1 桌面端打包下载。",
+          "Reasonix GitHub 下载地址：npm next 安装、Homebrew tap 安装，以及 Mac、Windows、Linux 的 desktop-v1.9.1 桌面端打包下载。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载方式：npm、Homebrew 和桌面端打包下载",
         descriptionBeforeLink: "官方仓库地址为",
@@ -2905,7 +2905,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.8.1，提供簽名 DMG、.deb、tar.gz 和 Windows installer，並修復頂部標籤列留白，讓效能壓力提示按標籤冪等觸發，並修正 DeepSeek 費用來源拆分。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.9.1，提供 DMG、.deb、tar.gz 和 Windows installer 資產，並整合錨定彈層捲動修復、全域 MCP 設定回填、版本降級後的會話恢復，以及更順暢的免密 provider 設定。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3085,16 +3085,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-15",
-        title: "Reasonix CLI v1.8.0 成為最新穩定命令列發布",
-        body: "GitHub releases 在 6 月 15 日發布 Reasonix CLI v1.8.0，提供 macOS、Linux、Windows 的簽名封存包；這條穩定線新增 MiMo vision 模型輸入、ACP 工作階段模型與 effort 切換、桌面 bot 診斷、可切換 workbench 版型，以及內建 CodeGraph MCP 更新流程。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.8.0",
+        date: "2026-06-17",
+        title: "Reasonix CLI v1.9.1 成為最新穩定命令列發布",
+        body: "GitHub releases 在 6 月 17 日發布 Reasonix CLI v1.9.1；這條穩定線整合了免密自訂模型 provider、重跑 setup 時保留內建兄弟項目、保留顯式分離的背景工作，以及 CLI 與桌面端的會話切換修復。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.9.1",
       },
       {
-        date: "2026-06-15",
-        title: "Reasonix Desktop v1.8.1 成為目前公開 GUI 發布線",
-        body: "GitHub releases 在 6 月 15 日發布 desktop-v1.8.1，提供簽名 DMG、.deb、tar.gz 和 Windows installer；這條發布線修復頂部標籤列留白，讓效能壓力提示按標籤冪等觸發，並修正 DeepSeek 費用來源拆分。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        date: "2026-06-17",
+        title: "Reasonix Desktop v1.9.1 成為目前公開 GUI 發布線",
+        body: "GitHub releases 在 6 月 17 日發布 desktop-v1.9.1，提供 DMG、.deb、tar.gz 和 Windows installer 資產；這條發布線整合錨定彈層捲動修復、全域 MCP 設定回填、版本降級後的會話恢復、免密 provider 支援，以及更快的設定刷新表現。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.9.1",
       },
       {
         date: "2026-06-16",
@@ -3109,30 +3109,30 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/74d0ab6d937f30ff6c6429e1880447326186f017",
       },
       {
-        date: "2026-06-12",
-        title: "Reasonix main-v2 新增繁體中文桌面與 CLI 語言覆蓋",
-        body: "GitHub commit f7a61cf 顯示 6 月 12 日 main-v2 新增 zh-TW 桌面 locale、繁體中文 CLI 詞庫、zh-Hant 與 zh-HK 等輸入辨識，以及一整套台灣用語的介面文案。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f7a61cfd074e541228c38e2ac489fc4997bf1924",
+        date: "2026-06-17",
+        title: "Reasonix main-v2 現在會在舊會話回放時補齊缺失的 tool-call 名稱",
+        body: "GitHub commit abb0310 顯示 6 月 17 日會從成對的 tool result 中補齊空的 tool-call 名稱和參數，讓 pre-adde2d3e 舊會話不再因 replay 觸發 HTTP 400 missing-field 錯誤；同日的 1e5d796 回歸測試持續保證健康會話不被改寫。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/abb0310402aca385a897a1fe58b95416125f1da6",
       },
       {
-        date: "2026-06-14",
-        title: "Reasonix 新增內建 CodeGraph 更新流程，同時避免熱切換正在運行的 MCP 工作階段",
-        body: "GitHub commit f07e908 顯示 6 月 14 日新增內建 CodeGraph 更新路徑與桌面背景檢查模式，支援 notify、download、auto-next-session；下載會校驗 SHA256SUMS，而正在運行的 MCP 工作階段會保持目前工具 schema，直到重新連線。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f07e9084ef4128dd48ed2f2e85a94bb6bbfb6bc8",
+        date: "2026-06-17",
+        title: "Reasonix main-v2 在恢復桌面會話時減少了重複 reload",
+        body: "GitHub commit dcc434e 與 merge ef1f38c 顯示 6 月 17 日恢復桌面會話時會跳過重複 reload 工作，減少首個已恢復會話渲染前的啟動解析與預載開銷。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/ef1f38c898405bd222bb38bd80c5af07ac5d3ce4",
       },
     ],
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "新的資料遺失 bug 回報指出回溯會話可能清空其他會話記錄",
+        title: "有 1.9.1 回放 bug 回報指出舊會話仍可能因缺失 tool-call 名稱觸發 HTTP 400",
       },
       {
         ...sharedIssueWatch[1],
-        title: "新的安全建議希望預設 deny 清單攔住 git restore 一類破壞性命令",
+        title: "有桌面端 bug 回報指出部分 MCP server 仍然無法在介面裡刪除",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有未關閉 bug 指出等待確認輸入時可能卡住並直接退出",
+        title: "有 CodeGraph MCP bug 回報指出關閉或停用後背景監聽仍可能持續存在",
       },
     ],
     sourceLinks: sharedSources,
@@ -3217,7 +3217,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 下載地址：npm next 安裝、Homebrew tap 安裝，以及 Mac、Windows、Linux 的 desktop-v1.8.1 桌面端打包下載。",
+          "Reasonix GitHub 下載地址：npm next 安裝、Homebrew tap 安裝，以及 Mac、Windows、Linux 的 desktop-v1.9.1 桌面端打包下載。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載方式：npm、Homebrew 和桌面端打包下載",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -3466,7 +3466,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.8.1: доступны подписанные DMG, .deb, tar.gz и Windows installer, а release line исправляет отступы верхних вкладок, делает performance-pressure prompt идемпотентным для каждого ярлыка и корректирует breakdown источников расходов DeepSeek.",
+          "Последний публичный desktop release - desktop-v1.9.1: доступны DMG, .deb, tar.gz и Windows installer артефакты, а release line объединяет исправления anchored popover, backfill глобальной MCP-конфигурации, восстановление сессий после downgrade и более гладкую настройку no-auth provider.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3646,16 +3646,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-15",
-        title: "Reasonix CLI v1.8.0 становится актуальным stable command-line release",
-        body: "GitHub releases опубликовали Reasonix CLI v1.8.0 15 июня с подписанными архивами для macOS, Linux и Windows; stable tag добавляет поддержку входов MiMo vision, переключение модели и effort в ACP-сеансах, desktop bot diagnostics, switchable workbench layout и встроенный поток обновления CodeGraph MCP.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.8.0",
+        date: "2026-06-17",
+        title: "Reasonix CLI v1.9.1 становится актуальным stable command-line release",
+        body: "GitHub releases опубликовали Reasonix CLI v1.9.1 17 июня; stable line объединяет поддержку no-auth custom model providers, повторный setup без потери sibling built-in entries, сохранение explicit detached background jobs и исправления переключения сессий в CLI и desktop.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.9.1",
       },
       {
-        date: "2026-06-15",
-        title: "Reasonix Desktop v1.8.1 - текущая публичная GUI release line",
-        body: "GitHub releases опубликовали desktop-v1.8.1 15 июня с подписанными DMG, .deb, tar.gz и Windows installer артефактами; эта release line исправляет отступы верхних вкладок, делает performance-pressure prompt идемпотентным для каждого ярлыка и корректирует breakdown источников расходов DeepSeek.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.8.1",
+        date: "2026-06-17",
+        title: "Reasonix Desktop v1.9.1 - текущая публичная GUI release line",
+        body: "GitHub releases опубликовали desktop-v1.9.1 17 июня с DMG, .deb, tar.gz и Windows installer артефактами; эта release line объединяет исправления anchored popover, backfill глобальной MCP-конфигурации, восстановление сессий после downgrade, поддержку no-auth provider и более быстрый refresh настроек.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.9.1",
       },
       {
         date: "2026-06-16",
@@ -3670,30 +3670,30 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/74d0ab6d937f30ff6c6429e1880447326186f017",
       },
       {
-        date: "2026-06-12",
-        title: "Reasonix main-v2 добавляет покрытие Traditional Chinese для desktop и CLI",
-        body: "GitHub commit f7a61cf от 12 июня добавляет desktop locale zh-TW, словарь Traditional Chinese для CLI, распознавание zh-Hant и zh-HK style inputs и полный набор тайваньской терминологии в новом locale surface.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f7a61cfd074e541228c38e2ac489fc4997bf1924",
+        date: "2026-06-17",
+        title: "Reasonix main-v2 теперь дополняет пропущенные tool-call names при replay старых сессий",
+        body: "GitHub commit abb0310 от 17 июня дополняет пустые имена и аргументы tool-call из парных tool results, поэтому старые pre-adde2d3e сессии больше не падают на replay с HTTP 400 missing-field; regression follow-up 1e5d796 того же дня сохраняет healthy sessions без изменений.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/abb0310402aca385a897a1fe58b95416125f1da6",
       },
       {
-        date: "2026-06-14",
-        title: "Reasonix добавляет встроенный поток обновления CodeGraph без горячей замены активных MCP-сеансов",
-        body: "GitHub commit f07e908 от 14 июня добавляет встроенный путь обновления CodeGraph и desktop background checks в режимах notify, download и auto-next-session; загрузки теперь проверяют SHA256SUMS, а активные MCP-сеансы сохраняют текущую schema tools до переподключения.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/f07e9084ef4128dd48ed2f2e85a94bb6bbfb6bc8",
+        date: "2026-06-17",
+        title: "Reasonix main-v2 сокращает лишние desktop session reloads при restore",
+        body: "GitHub commit dcc434e и merge ef1f38c от 17 июня убирают повторные reload во время восстановления desktop session, снижая стартовые parse и preload затраты до первого restored session render.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/ef1f38c898405bd222bb38bd80c5af07ac5d3ce4",
       },
     ],
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "Новый отчёт о потере данных говорит, что rewind сессии может очистить записи из других сессий",
+        title: "Открытый 1.9.1 replay bug говорит, что старые сессии всё ещё могут ловить HTTP 400 из-за пустого tool-call name",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Новый safety request просит включить destructive команды вроде git restore в default deny list",
+        title: "Desktop bug report говорит, что некоторые MCP servers всё ещё нельзя удалить из UI",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Открытый bug говорит, что ожидание подтверждения ввода может зависнуть и завершить сессию",
+        title: "Открытый CodeGraph MCP bug говорит, что фоновые listeners могут пережить disable или shutdown",
       },
     ],
     sourceLinks: sharedSources,
@@ -3778,7 +3778,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub загрузки",
         metaDescription:
-          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.8.1 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.9.1 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub загрузки",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "Официальный репозиторий:",
