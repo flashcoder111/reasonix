@@ -18,9 +18,9 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-The production canonical host is `https://www.deepseekreasonix.com`. Keep
-`NEXT_PUBLIC_SITE_URL` aligned with that host unless DNS and TLS for the apex
-domain are fully configured.
+The production canonical host is `https://deepseekreasonix.com`. Keep
+`NEXT_PUBLIC_SITE_URL` aligned with that host so sitemap, canonical, hreflang,
+and structured data URLs do not point at redirecting www URLs.
 
 GA4 is enabled through the Google tag in the root layout. The default
 measurement ID is `G-TE1DZDDZYC`; set `NEXT_PUBLIC_GA_MEASUREMENT_ID` if the
@@ -50,7 +50,7 @@ Set the same key in both places:
 INDEXNOW_KEY=
 ```
 
-- Vercel project environment: powers `https://www.deepseekreasonix.com/indexnow-key.txt`
+- Vercel project environment: powers `https://deepseekreasonix.com/indexnow-key.txt`
 - GitHub repository secret: powers the scheduled `npm run indexnow:submit` workflow
 
 Useful manual checks:

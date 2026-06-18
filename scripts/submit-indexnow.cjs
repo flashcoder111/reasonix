@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const DEFAULT_SITE_URL = "https://www.deepseekreasonix.com";
+const DEFAULT_SITE_URL = "https://deepseekreasonix.com";
 const DEFAULT_ENDPOINT = "https://api.indexnow.org/indexnow";
 const MAX_BATCH_SIZE = 10_000;
 

@@ -5,20 +5,20 @@ const nextConfig: NextConfig = {
     const domainRedirects = [
       {
         source: "/:path*",
-        has: [{ type: "host", value: "deepseekreasonix.com" }],
-        destination: "https://www.deepseekreasonix.com/:path*",
+        has: [{ type: "host", value: "www.deepseekreasonix.com" }],
+        destination: "https://deepseekreasonix.com/:path*",
         permanent: true,
       },
       {
         source: "/:path*",
         has: [{ type: "host", value: "reasonix.click" }],
-        destination: "https://www.deepseekreasonix.com/:path*",
+        destination: "https://deepseekreasonix.com/:path*",
         permanent: true,
       },
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.reasonix.click" }],
-        destination: "https://www.deepseekreasonix.com/:path*",
+        destination: "https://deepseekreasonix.com/:path*",
         permanent: true,
       },
       {
@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
             value: "reasonix(?:-[a-z0-9-]+)?\\.vercel\\.app",
           },
         ],
-        destination: "https://www.deepseekreasonix.com/:path*",
+        destination: "https://deepseekreasonix.com/:path*",
         permanent: true,
       },
     ];

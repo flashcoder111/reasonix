@@ -1,22 +1,31 @@
 import { DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-const canonicalSiteUrl = "https://www.deepseekreasonix.com";
-const sitemapExcludedHosts = new Set(["clerk.deepseekreasonix.com"]);
+const canonicalSiteUrl = "https://deepseekreasonix.com";
 
-function isSitemapExcludedSiteUrl(value: string): boolean {
+// Hosts that must never be emitted as the canonical site URL. The bare apex
+// domain is the canonical host, so www and project aliases must not be used in
+// canonical tags / hreflang / sitemap because that would feed Google
+// redirecting URLs and trigger "Page with redirect" / duplicate reports.
+const nonCanonicalHosts = new Set([
+  "www.deepseekreasonix.com",
+  "reasonix.click",
+  "www.reasonix.click",
+  "clerk.deepseekreasonix.com",
+]);
+
+function isNonCanonicalSiteUrl(value: string): boolean {
   try {
     const url = new URL(value);
-    return sitemapExcludedHosts.has(url.hostname.toLowerCase());
+    return nonCanonicalHosts.has(url.hostname.toLowerCase());
   } catch {
-    return false;
+    // A value we cannot parse is never safe to trust as canonical.
+    return true;
   }
 }
 
 const normalizedSiteUrl =
-  configuredSiteUrl &&
-  configuredSiteUrl !== "https://deepseekreasonix.com" &&
-  !isSitemapExcludedSiteUrl(configuredSiteUrl)
+  configuredSiteUrl && !isNonCanonicalSiteUrl(configuredSiteUrl)
     ? configuredSiteUrl.replace(/\/$/, "")
     : canonicalSiteUrl;
 
