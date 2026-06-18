@@ -83,6 +83,26 @@ export const articleSources = {
     label: "Codex CLI getting started",
     href: "https://help.openai.com/en/articles/11096431",
   },
+  codexCliDocs: {
+    label: "Codex CLI docs",
+    href: "https://developers.openai.com/codex/cli",
+  },
+  cursorDocs: {
+    label: "Cursor docs",
+    href: "https://cursor.com/docs",
+  },
+  cursorProduct: {
+    label: "Cursor product page",
+    href: "https://cursor.com/product",
+  },
+  githubCopilotDocs: {
+    label: "GitHub Copilot docs",
+    href: "https://docs.github.com/copilot",
+  },
+  githubCopilotCloudAgent: {
+    label: "GitHub Copilot cloud agent",
+    href: "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent",
+  },
   wechatReasonixDeepDive: {
     label: "WeChat reference: Reasonix deep dive",
     href: "https://mp.weixin.qq.com/s/-sJx62sDD5uLSQJvfpJuAg",
@@ -680,6 +700,219 @@ const enArticles: Article[] = [
       articleSources.claudeCodePermissions,
     ],
   },
+  {
+    slug: "reasonix-vs-codex",
+    title: "Reasonix vs Codex: DeepSeek-native loop or OpenAI coding agent?",
+    description:
+      "A focused Reasonix vs Codex comparison for developers choosing between a DeepSeek-native local terminal workflow and OpenAI's Codex app, CLI, IDE, cloud, and multi-agent surfaces.",
+    eyebrow: "Codex comparison",
+    date: "2026-06-16",
+    readTime: "9 min",
+    tags: ["Reasonix", "Codex", "DeepSeek", "Comparison"],
+    summary:
+      "Reasonix vs Codex is not a generic model benchmark. Reasonix is best explained as a DeepSeek-native local coding loop, while Codex is an OpenAI coding agent that spans app, CLI, IDE, cloud work, worktrees, skills, and team workflows.",
+    takeaways: [
+      "Choose Reasonix when the core requirement is a DeepSeek-first terminal session with local project control and cache-aware long work.",
+      "Choose Codex when the team wants OpenAI coding models across app, CLI, IDE, cloud delegation, worktrees, and parallel agent workflows.",
+      "Compare operating loops before comparing screenshots: local DeepSeek economics versus OpenAI's broader agent platform.",
+      "A credible article should admit that Codex is stronger when multi-surface delegation and OpenAI account workflows are the deciding factor.",
+    ],
+    sections: [
+      {
+        heading: "Start with the backend assumption",
+        body: [
+          "Reasonix starts from a DeepSeek-native assumption: run a coding agent from the target repository, keep local setup explicit, and shape long sessions around DeepSeek cache behavior.",
+          "Codex starts from an OpenAI assumption: use an OpenAI coding agent across the Codex app, CLI, IDE, cloud environments, worktrees, skills, and background workflows. That is a different product center, not just a different model name.",
+        ],
+      },
+      {
+        heading: "When Reasonix is the better fit",
+        body: [
+          "Reasonix is the better fit when the reader already wants DeepSeek, wants a terminal-first loop, and cares about cache-friendly long sessions more than a broad account platform.",
+          "The practical path stays concrete: verify the Reasonix source, prepare the DeepSeek key locally, run `npx reasonix code` from the project directory, then watch how planning, tool calls, replay, and compaction behave over time.",
+        ],
+        bullets: [
+          "Use Reasonix when DeepSeek is the chosen backend.",
+          "Use Reasonix when local terminal control matters more than cloud delegation.",
+          "Use Reasonix when long-session cost and prefix-cache behavior are part of the decision.",
+        ],
+      },
+      {
+        heading: "When Codex is the better fit",
+        body: [
+          "Codex is the better fit when the team wants OpenAI's coding stack across multiple surfaces: a dedicated app, terminal CLI, IDE extension, cloud tasks, worktrees, skills, and parallel agent work.",
+          "That makes Codex a more natural choice for teams already organized around ChatGPT/OpenAI identity, cloud delegation, and broad agent workflows. A Reasonix page should say that plainly instead of pretending every coding-agent decision is won in the terminal.",
+        ],
+        bullets: [
+          "Use Codex when OpenAI models and account workflows are already the team standard.",
+          "Use Codex when cloud tasks, worktrees, app review, and IDE handoff matter.",
+          "Use Codex when the job is multi-agent orchestration rather than a focused DeepSeek terminal loop.",
+        ],
+      },
+      {
+        heading: "Decision checklist",
+        body: [
+          "Before choosing either tool, compare how the work will actually run: where credentials live, whether edits happen locally or in cloud workspaces, how commands are approved, and how the final diff is reviewed.",
+          "That checklist keeps the Reasonix vs Codex keyword useful. It routes DeepSeek-first local work toward Reasonix and routes OpenAI platform work toward Codex.",
+        ],
+        bullets: [
+          "Backend: DeepSeek-first or OpenAI-first?",
+          "Surface: terminal-only, or app plus IDE plus cloud?",
+          "Review: local replay and command history, or cloud worktrees and pull-request workflows?",
+          "Scale: one focused local session, or several delegated agent tasks in parallel?",
+        ],
+      },
+    ],
+    sources: [
+      articleSources.reasonixDeepSeekGuide,
+      articleSources.deepSeekContextCache,
+      articleSources.reasonixGithub,
+      articleSources.codexProduct,
+      articleSources.codexCliDocs,
+    ],
+  },
+  {
+    slug: "reasonix-vs-cursor",
+    title: "Reasonix vs Cursor: terminal DeepSeek workflow or agentic editor?",
+    description:
+      "A focused Reasonix vs Cursor comparison covering DeepSeek-native terminal work, Cursor's agentic editor and cloud surfaces, codebase context, rules, MCP, review, and team workflows.",
+    eyebrow: "Cursor comparison",
+    date: "2026-06-16",
+    readTime: "9 min",
+    tags: ["Reasonix", "Cursor", "DeepSeek", "Comparison"],
+    summary:
+      "Reasonix vs Cursor is a workflow choice. Reasonix centers a DeepSeek-native local terminal loop, while Cursor centers an agentic editor and workspace experience across desktop, CLI, cloud agents, review, rules, and codebase context.",
+    takeaways: [
+      "Choose Reasonix when the main job is DeepSeek-first local coding from the project terminal.",
+      "Choose Cursor when the editor experience, codebase indexing, rules, review, and cross-surface agent workspace are the center of the workflow.",
+      "Reasonix should not be framed as a full Cursor replacement; it has a narrower DeepSeek-native lane.",
+      "The useful comparison is terminal loop versus agentic editor, not a feature-count fight.",
+    ],
+    sections: [
+      {
+        heading: "Compare the work surface",
+        body: [
+          "Reasonix starts inside the project terminal. The site should explain how a DeepSeek-backed coding loop reads local context, proposes work, runs commands, handles tool calls, and keeps the session reviewable.",
+          "Cursor starts from a different surface: an AI coding editor and agent workspace. Its strongest story is not only chat output, but how agents work with codebase context, rules, terminal commands, review, CLI, cloud agents, and team workflows.",
+        ],
+      },
+      {
+        heading: "When Reasonix is the better fit",
+        body: [
+          "Reasonix is the better fit when the reader wants a focused DeepSeek path and does not need the whole coding environment to move into a new editor.",
+          "That matters for developers who already have an editor setup but want a DeepSeek-native terminal agent for long debugging, refactors, source verification, and cache-aware iteration.",
+        ],
+        bullets: [
+          "Use Reasonix when DeepSeek backend behavior is part of the buying decision.",
+          "Use Reasonix when the project terminal is the natural control point.",
+          "Use Reasonix when source verification, local key handling, and session replay matter more than editor replacement.",
+        ],
+      },
+      {
+        heading: "When Cursor is the better fit",
+        body: [
+          "Cursor is the better fit when the reader wants the editor itself to be the agent workspace. Its value comes from codebase understanding, agent planning and building, terminal access, rules, review, cloud agents, and multiple surfaces around the same development environment.",
+          "For teams already standardized on Cursor, Reasonix should be presented as a narrower DeepSeek-native route, not as a claim that the full editor workflow should be replaced.",
+        ],
+        bullets: [
+          "Use Cursor when codebase indexing and editor-native workflows are essential.",
+          "Use Cursor when agents, review, CLI, cloud work, and rules should live in one workspace.",
+          "Use Cursor when the team wants a shared AI editor standard rather than a terminal-specific DeepSeek tool.",
+        ],
+      },
+      {
+        heading: "Decision checklist",
+        body: [
+          "The right comparison asks where the developer wants to spend the day: in an existing editor plus a DeepSeek terminal agent, or inside an agentic editor built around codebase context and review.",
+          "That framing keeps the page credible. Reasonix owns the DeepSeek terminal loop; Cursor owns a broader editor-centered workflow.",
+        ],
+        bullets: [
+          "Surface: terminal loop or editor workspace?",
+          "Backend: DeepSeek-first or model/tool choice inside Cursor?",
+          "Context: explicit local session state or editor-level codebase indexing?",
+          "Team fit: lightweight focused CLI path or shared AI editor workflow?",
+        ],
+      },
+    ],
+    sources: [
+      articleSources.reasonixDeepSeekGuide,
+      articleSources.deepSeekContextCache,
+      articleSources.reasonixGithub,
+      articleSources.cursorDocs,
+      articleSources.cursorProduct,
+    ],
+  },
+  {
+    slug: "reasonix-vs-github-copilot",
+    title: "Reasonix vs GitHub Copilot: DeepSeek terminal loop or Copilot coding agent?",
+    description:
+      "A focused Reasonix vs GitHub Copilot comparison covering DeepSeek-native local sessions, IDE assistance, Copilot cloud agent, GitHub pull-request workflows, MCP, and team governance.",
+    eyebrow: "GitHub Copilot comparison",
+    date: "2026-06-16",
+    readTime: "9 min",
+    tags: ["Reasonix", "GitHub Copilot", "DeepSeek", "Comparison"],
+    summary:
+      "Reasonix vs GitHub Copilot should separate two intents: Reasonix is a DeepSeek-native local terminal loop, while GitHub Copilot spans IDE assistance, GitHub-hosted cloud agent work, pull requests, custom agents, MCP, and organization controls.",
+    takeaways: [
+      "Choose Reasonix when the reader wants DeepSeek-first coding from the local project terminal.",
+      "Choose GitHub Copilot when the team wants IDE help, GitHub issue-to-branch work, pull-request review, cloud agent sessions, and GitHub-native governance.",
+      "Do not confuse GitHub Copilot with generic Microsoft Copilot; this page targets coding-agent search intent.",
+      "The strongest comparison is local DeepSeek terminal work versus GitHub-centered development workflow.",
+    ],
+    sections: [
+      {
+        heading: "Name the right Copilot",
+        body: [
+          "For this keyword, the relevant Microsoft-backed tool is GitHub Copilot, not Microsoft 365 Copilot. The intent is coding assistance and coding-agent workflow, not office-document generation.",
+          "That matters because GitHub Copilot now covers more than autocomplete: documentation, IDE workflows, cloud agent sessions, custom agents, MCP, pull-request review, and organization policy all belong in the comparison.",
+        ],
+      },
+      {
+        heading: "When Reasonix is the better fit",
+        body: [
+          "Reasonix is the better fit when the searcher is explicitly looking for a DeepSeek-native coding path and wants the work to start from the local repository terminal.",
+          "The page should route that reader toward official source checks, local DeepSeek key setup, `npx reasonix code`, and careful review of commands, edits, replay, cache behavior, and long-session compaction.",
+        ],
+        bullets: [
+          "Use Reasonix when DeepSeek is the desired model backend.",
+          "Use Reasonix when the workflow should stay local and terminal-first.",
+          "Use Reasonix when cache-aware long sessions matter more than GitHub-native automation.",
+        ],
+      },
+      {
+        heading: "When GitHub Copilot is the better fit",
+        body: [
+          "GitHub Copilot is the better fit when the team wants assistance directly inside IDEs and GitHub workflows, especially where issues, branches, pull requests, review, repository policy, and organization access already live in GitHub.",
+          "Copilot cloud agent is also a different shape of workflow: it can work on repository tasks in a GitHub-hosted environment, create a branch, and leave changes for review. That is stronger for GitHub-native delegation than for a DeepSeek-specific local loop.",
+        ],
+        bullets: [
+          "Use GitHub Copilot when IDE assistance and GitHub pull-request flow are the priority.",
+          "Use GitHub Copilot when cloud agent sessions should work from issues, branches, or GitHub prompts.",
+          "Use GitHub Copilot when organization policy and GitHub-native governance decide the tool choice.",
+        ],
+      },
+      {
+        heading: "Decision checklist",
+        body: [
+          "A serious comparison should ask whether the job should happen beside the developer in a local terminal or inside the GitHub development system.",
+          "That avoids a weak article that treats Copilot as only autocomplete. It also keeps Reasonix honest: Reasonix has the clearer DeepSeek-native terminal lane, while GitHub Copilot has the broader GitHub workflow lane.",
+        ],
+        bullets: [
+          "Backend: DeepSeek-first or GitHub/OpenAI/Microsoft Copilot stack?",
+          "Surface: local terminal session or IDE plus GitHub cloud agent?",
+          "Review: Reasonix replay and local diff, or GitHub branch and pull-request review?",
+          "Governance: local source/key checks or GitHub organization controls?",
+        ],
+      },
+    ],
+    sources: [
+      articleSources.reasonixDeepSeekGuide,
+      articleSources.deepSeekContextCache,
+      articleSources.reasonixGithub,
+      articleSources.githubCopilotDocs,
+      articleSources.githubCopilotCloudAgent,
+    ],
+  },
 ];
 
 const zhCnArticles: Article[] = [
@@ -1086,6 +1319,192 @@ const zhCnArticles: Article[] = [
       },
     ],
   },
+  {
+    ...enArticles[8],
+    title: "Reasonix vs Codex：DeepSeek-native loop 还是 OpenAI coding agent？",
+    description:
+      "面向 `reasonix vs codex` 的聚焦对比：解释 Reasonix 的 DeepSeek-native 本地终端工作流，以及 Codex 的 App、CLI、IDE、云端、多 agent 和 OpenAI 体系能力。",
+    eyebrow: "Codex 对比",
+    tags: ["Reasonix", "Codex", "DeepSeek", "对比"],
+    summary:
+      "Reasonix vs Codex 不该写成普通模型跑分。Reasonix 更适合解释为 DeepSeek-native 本地 coding loop；Codex 则是 OpenAI 体系里的 coding agent，覆盖 app、CLI、IDE、云端 worktree、skills 和团队流程。",
+    takeaways: [
+      "如果核心需求是 DeepSeek-first、本地终端控制和 cache-aware 长会话，优先看 Reasonix。",
+      "如果团队需要 OpenAI 编码模型、Codex app、CLI、IDE、云端委派、worktree 和并行 agent 工作流，Codex 更自然。",
+      "先比较 operating loop，再比较界面截图：本地 DeepSeek 经济性和 OpenAI 平台能力不是同一个问题。",
+      "靠谱页面应该承认 Codex 在多入口委派、OpenAI 账号体系和团队 agent workflow 上更强。",
+    ],
+    sections: [
+      {
+        heading: "先看后端前提",
+        body: [
+          "Reasonix 从 DeepSeek-native 前提出发：在目标仓库里启动 coding agent，明确本地配置，并围绕 DeepSeek cache 行为组织长会话。",
+          "Codex 从 OpenAI 前提出发：通过 Codex app、CLI、IDE、云端环境、worktree、skills 和后台流程使用 OpenAI coding agent。这不是换一个模型名，而是产品重心不同。",
+        ],
+      },
+      {
+        heading: "什么时候 Reasonix 更合适",
+        body: [
+          "如果读者已经想用 DeepSeek，并且更在意 terminal-first loop、cache-friendly 长会话，而不是更宽的账号平台，Reasonix 更合适。",
+          "实际路径应该写得具体：核验 Reasonix 来源，本地准备 DeepSeek key，在项目目录运行 `npx reasonix code`，再观察 planning、tool call、replay 和 compaction 在长任务里的表现。",
+        ],
+        bullets: [
+          "DeepSeek 已经是选定后端时，用 Reasonix。",
+          "本地终端控制比云端委派更重要时，用 Reasonix。",
+          "长会话成本和 prefix cache 行为是选型因素时，用 Reasonix。",
+        ],
+      },
+      {
+        heading: "什么时候 Codex 更合适",
+        body: [
+          "如果团队要的是 OpenAI coding stack 的多入口能力，Codex 更自然：app、terminal CLI、IDE extension、云端任务、worktree、skills 和并行 agent 工作都在它的叙事里。",
+          "已经围绕 ChatGPT/OpenAI 身份、云端委派和更宽 agent workflow 组织工作的团队，选择 Codex 更顺。Reasonix 页面应该直接承认这一点，而不是假装所有 coding-agent 选择都在终端里决胜。",
+        ],
+        bullets: [
+          "OpenAI 模型和账号流程已经是团队标准时，用 Codex。",
+          "云端任务、worktree、app review 和 IDE handoff 很重要时，用 Codex。",
+          "任务是多 agent 编排，而不是聚焦 DeepSeek 终端循环时，用 Codex。",
+        ],
+      },
+      {
+        heading: "判断清单",
+        body: [
+          "选择前先比较工作怎么实际运行：credential 放在哪里，改动发生在本地还是云端 workspace，命令如何审批，最终 diff 怎么 review。",
+          "这样 `reasonix vs codex` 才有价值：DeepSeek-first 本地工作导向 Reasonix，OpenAI 平台型工作导向 Codex。",
+        ],
+        bullets: [
+          "Backend：DeepSeek-first 还是 OpenAI-first？",
+          "Surface：只要终端，还是 app + IDE + cloud？",
+          "Review：本地 replay 和命令历史，还是云端 worktree 和 PR 流程？",
+          "Scale：一个聚焦本地会话，还是多个并行委派 agent 任务？",
+        ],
+      },
+    ],
+  },
+  {
+    ...enArticles[9],
+    title: "Reasonix vs Cursor：终端 DeepSeek 工作流还是 agentic editor？",
+    description:
+      "面向 `reasonix vs cursor` 的聚焦对比：覆盖 DeepSeek-native 终端工作、Cursor 的 agentic editor / cloud surfaces、代码库上下文、rules、MCP、review 和团队流程。",
+    eyebrow: "Cursor 对比",
+    tags: ["Reasonix", "Cursor", "DeepSeek", "对比"],
+    summary:
+      "Reasonix vs Cursor 是工作流选择。Reasonix 以 DeepSeek-native 本地终端循环为中心；Cursor 以 agentic editor 和 workspace 为中心，覆盖 desktop、CLI、cloud agents、review、rules 和代码库上下文。",
+    takeaways: [
+      "如果主要任务是在项目终端里做 DeepSeek-first 本地编码，优先看 Reasonix。",
+      "如果 editor experience、codebase indexing、rules、review 和跨入口 agent workspace 是核心，Cursor 更自然。",
+      "不要把 Reasonix 写成完整 Cursor 替代品；它更适合占据窄而清楚的 DeepSeek-native 路线。",
+      "有用的对比是 terminal loop 和 agentic editor 的差异，而不是功能数量对打。",
+    ],
+    sections: [
+      {
+        heading: "先比较工作界面",
+        body: [
+          "Reasonix 从项目终端开始。页面应该解释 DeepSeek-backed coding loop 如何读取本地上下文、提出计划、执行命令、处理 tool call，并保持会话可复盘。",
+          "Cursor 从另一个界面开始：AI coding editor 和 agent workspace。它的强项不只是 chat output，而是 agent 如何结合代码库上下文、rules、terminal commands、review、CLI、cloud agents 和团队流程工作。",
+        ],
+      },
+      {
+        heading: "什么时候 Reasonix 更合适",
+        body: [
+          "如果读者想要的是聚焦 DeepSeek 的路径，并且不希望整个编码环境迁到新 editor，Reasonix 更合适。",
+          "这适合已经有固定编辑器配置、但想要一个 DeepSeek-native terminal agent 来做长时间 debug、refactor、来源核验和 cache-aware iteration 的开发者。",
+        ],
+        bullets: [
+          "DeepSeek 后端行为是选型重点时，用 Reasonix。",
+          "项目终端是自然控制点时，用 Reasonix。",
+          "来源核验、本地 key 处理和 session replay 比 editor replacement 更重要时，用 Reasonix。",
+        ],
+      },
+      {
+        heading: "什么时候 Cursor 更合适",
+        body: [
+          "如果读者希望 editor 本身就是 agent workspace，Cursor 更合适。它的价值来自代码库理解、agent planning/building、terminal access、rules、review、cloud agents，以及围绕同一个开发环境的多入口能力。",
+          "对于已经标准化到 Cursor 的团队，Reasonix 应该被描述成更窄的 DeepSeek-native 路线，而不是声称要替代完整 editor workflow。",
+        ],
+        bullets: [
+          "代码库索引和 editor-native workflow 是核心时，用 Cursor。",
+          "agent、review、CLI、cloud work 和 rules 需要在一个 workspace 里时，用 Cursor。",
+          "团队想要统一 AI editor 标准，而不是终端特定 DeepSeek 工具时，用 Cursor。",
+        ],
+      },
+      {
+        heading: "判断清单",
+        body: [
+          "正确的问题是：开发者一天主要待在哪里？现有编辑器加 DeepSeek terminal agent，还是进入以代码库上下文和 review 为中心的 agentic editor？",
+          "这个框架更可信：Reasonix 负责 DeepSeek terminal loop，Cursor 负责更宽的 editor-centered workflow。",
+        ],
+        bullets: [
+          "Surface：terminal loop 还是 editor workspace？",
+          "Backend：DeepSeek-first，还是 Cursor 里的模型/工具选择？",
+          "Context：显式本地会话状态，还是 editor-level codebase indexing？",
+          "Team fit：轻量聚焦 CLI 路线，还是共享 AI editor workflow？",
+        ],
+      },
+    ],
+  },
+  {
+    ...enArticles[10],
+    title: "Reasonix vs GitHub Copilot：DeepSeek 终端循环还是 Copilot coding agent？",
+    description:
+      "面向 `reasonix vs github copilot` 的聚焦对比：覆盖 DeepSeek-native 本地会话、IDE 辅助、Copilot cloud agent、GitHub PR 流程、MCP 和团队治理。",
+    eyebrow: "GitHub Copilot 对比",
+    tags: ["Reasonix", "GitHub Copilot", "DeepSeek", "对比"],
+    summary:
+      "Reasonix vs GitHub Copilot 要区分两个搜索意图：Reasonix 是 DeepSeek-native 本地终端循环；GitHub Copilot 覆盖 IDE 辅助、GitHub-hosted cloud agent、pull request、custom agents、MCP 和组织控制。",
+    takeaways: [
+      "如果读者想从本地项目终端启动 DeepSeek-first coding，优先看 Reasonix。",
+      "如果团队需要 IDE help、GitHub issue-to-branch、PR review、cloud agent sessions 和 GitHub-native governance，GitHub Copilot 更自然。",
+      "不要把 GitHub Copilot 混成泛化的 Microsoft Copilot；这个页面吃的是 coding-agent 搜索意图。",
+      "最强对比是本地 DeepSeek 终端工作 vs GitHub-centered development workflow。",
+    ],
+    sections: [
+      {
+        heading: "先说清楚是哪一个 Copilot",
+        body: [
+          "这个关键词里相关的微软系工具是 GitHub Copilot，不是 Microsoft 365 Copilot。搜索意图是 coding assistance 和 coding-agent workflow，不是办公文档生成。",
+          "这点很重要，因为 GitHub Copilot 已经不只是 autocomplete：documentation、IDE workflows、cloud agent sessions、custom agents、MCP、pull-request review 和 organization policy 都应该进入对比。",
+        ],
+      },
+      {
+        heading: "什么时候 Reasonix 更合适",
+        body: [
+          "如果搜索者明确要找 DeepSeek-native coding path，并且希望从本地仓库终端启动工作，Reasonix 更合适。",
+          "页面应该把这个读者导向官方来源核验、本地 DeepSeek key setup、`npx reasonix code`，以及对命令、编辑、replay、cache behavior 和长会话 compaction 的审查。",
+        ],
+        bullets: [
+          "希望模型后端是 DeepSeek 时，用 Reasonix。",
+          "工作流要保持 local 和 terminal-first 时，用 Reasonix。",
+          "cache-aware 长会话比 GitHub-native automation 更重要时，用 Reasonix。",
+        ],
+      },
+      {
+        heading: "什么时候 GitHub Copilot 更合适",
+        body: [
+          "如果团队希望辅助直接进入 IDE 和 GitHub 工作流，尤其是 issues、branches、pull requests、review、repository policy 和组织权限本来就在 GitHub 里，GitHub Copilot 更合适。",
+          "Copilot cloud agent 也是另一种工作形态：它可以在 GitHub-hosted environment 里处理仓库任务、创建 branch，并留下改动供 review。这对 GitHub-native delegation 更强，但不是 DeepSeek-specific local loop。",
+        ],
+        bullets: [
+          "IDE assistance 和 GitHub PR flow 是重点时，用 GitHub Copilot。",
+          "cloud agent sessions 需要从 issue、branch 或 GitHub prompt 启动时，用 GitHub Copilot。",
+          "组织策略和 GitHub-native governance 决定工具选型时，用 GitHub Copilot。",
+        ],
+      },
+      {
+        heading: "判断清单",
+        body: [
+          "严肃对比应该问：任务应该在开发者旁边的本地终端发生，还是在 GitHub 开发系统里发生？",
+          "这能避免把 Copilot 弱化成只有 autocomplete，也能让 Reasonix 保持诚实：Reasonix 的 DeepSeek-native terminal lane 更清楚，GitHub Copilot 的 GitHub workflow lane 更宽。",
+        ],
+        bullets: [
+          "Backend：DeepSeek-first，还是 GitHub/OpenAI/Microsoft Copilot stack？",
+          "Surface：本地终端会话，还是 IDE + GitHub cloud agent？",
+          "Review：Reasonix replay 和本地 diff，还是 GitHub branch 和 PR review？",
+          "Governance：本地来源/key 核验，还是 GitHub organization controls？",
+        ],
+      },
+    ],
+  },
 ];
 
 const zhTwArticles: Article[] = [
@@ -1138,6 +1557,25 @@ const zhTwArticles: Article[] = [
     title: "Reasonix vs Claude Code：怎麼選更適合的 coding loop",
     description:
       "面向 `reasonix vs claude code` 的聚焦對比：解釋 DeepSeek-first 工作流、快取行為、權限、MCP、上手路徑，以及本機編碼會話的選型規則。",
+  },
+  {
+    ...zhCnArticles[8],
+    title: "Reasonix vs Codex：DeepSeek-native loop 還是 OpenAI coding agent？",
+    description:
+      "面向 `reasonix vs codex` 的聚焦對比：解釋 Reasonix 的 DeepSeek-native 本機終端工作流，以及 Codex 的 App、CLI、IDE、雲端、多 agent 和 OpenAI 體系能力。",
+  },
+  {
+    ...zhCnArticles[9],
+    title: "Reasonix vs Cursor：終端 DeepSeek 工作流還是 agentic editor？",
+    description:
+      "面向 `reasonix vs cursor` 的聚焦對比：覆蓋 DeepSeek-native 終端工作、Cursor 的 agentic editor / cloud surfaces、程式碼庫上下文、rules、MCP、review 和團隊流程。",
+  },
+  {
+    ...zhCnArticles[10],
+    title:
+      "Reasonix vs GitHub Copilot：DeepSeek 終端循環還是 Copilot coding agent？",
+    description:
+      "面向 `reasonix vs github copilot` 的聚焦對比：覆蓋 DeepSeek-native 本機會話、IDE 輔助、Copilot cloud agent、GitHub PR 流程、MCP 和團隊治理。",
   },
 ];
 
@@ -1214,6 +1652,27 @@ const ruArticles: Article[] = [
       "Reasonix vs Claude Code: как выбрать более подходящий coding loop",
     description:
       "Сфокусированное сравнение Reasonix и Claude Code: DeepSeek-first workflow, cache behavior, permissions, MCP, setup path и rule выбора для local coding sessions.",
+  },
+  {
+    ...enArticles[8],
+    title:
+      "Reasonix vs Codex: DeepSeek-native loop или OpenAI coding agent?",
+    description:
+      "Сфокусированное сравнение Reasonix и Codex: DeepSeek-native local terminal workflow против Codex app, CLI, IDE, cloud, multi-agent и OpenAI workflow surfaces.",
+  },
+  {
+    ...enArticles[9],
+    title:
+      "Reasonix vs Cursor: terminal DeepSeek workflow или agentic editor?",
+    description:
+      "Сравнение Reasonix и Cursor: DeepSeek-native terminal work, Cursor agentic editor, cloud surfaces, codebase context, rules, MCP, review и team workflows.",
+  },
+  {
+    ...enArticles[10],
+    title:
+      "Reasonix vs GitHub Copilot: DeepSeek terminal loop или Copilot coding agent?",
+    description:
+      "Сравнение Reasonix и GitHub Copilot: DeepSeek-native local sessions, IDE assistance, Copilot cloud agent, GitHub pull-request workflows, MCP и team governance.",
   },
 ];
 
