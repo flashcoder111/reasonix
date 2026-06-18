@@ -188,7 +188,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         <JsonLdScript key={entry["@type"]} data={entry} />
       ))}
       <header className="sticky top-0 z-40 border-b border-white/70 bg-white/72 px-4 py-3 shadow-sm shadow-slate-950/[0.03] backdrop-blur-2xl sm:px-6">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 min-[1800px]:max-w-[112rem]">
           <Link
             href={localizePath(locale, "/")}
             className="flex min-w-0 shrink-0 items-center gap-3"
@@ -208,7 +208,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
           <nav
             aria-label="Primary"
-            className="hidden min-w-0 flex-1 items-center justify-center gap-1 2xl:flex"
+            className="command-strip-scroll hidden min-w-0 flex-1 items-center justify-center gap-1 overflow-x-auto min-[1800px]:flex"
           >
             {navItems.map((item) => {
               const Icon = navIcons[item.icon] ?? LayoutDashboard;
@@ -223,13 +223,13 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                   href={href}
                   aria-current={active ? "page" : undefined}
                   className={[
-                    "inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition",
+                    "inline-flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold whitespace-nowrap transition",
                     active
                       ? "bg-slate-950 text-white shadow-sm"
                       : "text-slate-600 hover:bg-white/70 hover:text-slate-950",
                   ].join(" ")}
                 >
-                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
                   <span>{item.label}</span>
                 </Link>
               );
@@ -301,7 +301,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
         <nav
           aria-label="Primary compact"
-          className="mx-auto mt-3 hidden max-w-7xl gap-1 overflow-x-auto lg:flex 2xl:hidden"
+          className="command-strip-scroll mx-auto mt-3 hidden max-w-7xl gap-1 overflow-x-auto lg:flex min-[1800px]:!hidden"
         >
           {navItems.map((item) => {
             const Icon = navIcons[item.icon] ?? LayoutDashboard;
@@ -316,13 +316,13 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                 href={href}
                 aria-current={active ? "page" : undefined}
                 className={[
-                  "inline-flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition",
+                  "inline-flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold whitespace-nowrap transition",
                   active
                     ? "bg-slate-950 text-white"
                     : "text-slate-600 hover:bg-white/70 hover:text-slate-950",
                 ].join(" ")}
               >
-                <Icon className="h-4 w-4" aria-hidden="true" />
+                <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
                 {item.label}
               </Link>
             );
