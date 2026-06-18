@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-18",
+  checkedAt: "2026-06-19",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -407,29 +407,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#4735",
-    title: "An open 1.9.1 replay bug says old sessions can still hit HTTP 400 from a missing tool-call name",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4735",
+    id: "#4809",
+    title: "An open desktop security report says some Windows users see the v1.9.1 binary flagged during download",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4809",
   },
   {
-    id: "#4751",
-    title: "A desktop bug report says some MCP servers still cannot be deleted from the UI",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4751",
+    id: "#4814",
+    title: "An open provider bug says DeepSeek official pricing can overwrite a user-set USD currency display",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4814",
   },
   {
-    id: "#4731",
-    title: "An open CodeGraph MCP bug says background listeners can survive shutdown or disable actions",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4731",
+    id: "#4822",
+    title: "An open desktop bot bug says QQ bot conversations can start but still stay hidden from the visible session list",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4822",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "22,900", note: "GitHub API, 2026-06-18" },
-  { label: "Forks", value: "1,369", note: "GitHub API, 2026-06-18" },
+  { label: "GitHub stars", value: "23,101", note: "GitHub API, 2026-06-19" },
+  { label: "Forks", value: "1,386", note: "GitHub API, 2026-06-19" },
   {
     label: "Open items",
-    value: "636",
-    note: "GitHub API open issues + pull requests, 2026-06-18",
+    value: "655",
+    note: "GitHub API open issues + pull requests, 2026-06-19",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1975,6 +1975,13 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-06-18",
+        title:
+          "Reasonix main-v2 ships post-v1.9.1 fixes for new-session history, DeepSeek pricing metadata, and transcript rendering",
+        body: "GitHub commits d8d3f5f, 8afe6f0, and 4a59ba2 on June 18 keep new sessions from inheriting stale desktop history, backfill missing official provider context-window metadata, and fix TUI transcript divider width while the latest public release line remains v1.9.1.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
+      {
         date: "2026-06-13",
         title: "Reasonix main-v2 now restores pending plan prompts after users switch back to a tab",
         body: "GitHub commit bd6b414 on June 13 replays pending plan prompts whenever a plan-mode tab becomes active again, so the revise or execute approval modal no longer disappears after a tab switch.",
@@ -2526,6 +2533,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
+      {
+        date: "2026-06-18",
+        title:
+          "Reasonix main-v2 在 v1.9.1 之后继续修复新会话历史、DeepSeek 价格元数据和 transcript 渲染",
+        body: "GitHub commits d8d3f5f、8afe6f0 和 4a59ba2 显示 6 月 18 日的 main-v2 让桌面端新会话不再继承陈旧历史，补回官方 provider 缺失的 context window 元数据，并修复 TUI transcript 分割线宽度；当前公开 release 线仍是 v1.9.1。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
       {
         date: "2026-06-13",
         title: "Reasonix main-v2 现在会在切回标签页时恢复待处理计划提示",
@@ -3088,6 +3102,13 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-06-18",
+        title:
+          "Reasonix main-v2 在 v1.9.1 之後持續修復新會話歷史、DeepSeek 價格中繼資料與 transcript 渲染",
+        body: "GitHub commits d8d3f5f、8afe6f0 和 4a59ba2 顯示 6 月 18 日的 main-v2 讓桌面端新會話不再繼承陳舊歷史，補回官方 provider 缺失的 context window 中繼資料，並修復 TUI transcript 分隔線寬度；目前公開 release line 仍是 v1.9.1。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
+      {
         date: "2026-06-13",
         title: "Reasonix main-v2 現在會在切回分頁時恢復待處理的計畫提示",
         body: "GitHub commit bd6b414 顯示 6 月 13 日 main-v2 在 plan-mode 分頁重新啟用時會重播待處理提示，因此 revise 或 execute 審批視窗不再因切換分頁而消失。",
@@ -3648,6 +3669,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-06-18",
+        title:
+          "Reasonix main-v2 после v1.9.1 продолжает править историю новых сессий, метаданные цен DeepSeek и rendering transcript",
+        body: "GitHub commits d8d3f5f, 8afe6f0 и 4a59ba2 от 18 июня не дают новым desktop-сессиям наследовать stale history, возвращают недостающие context-window metadata для official provider и исправляют ширину divider в TUI transcript; при этом текущая публичная release line по-прежнему v1.9.1.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
       {
         date: "2026-06-13",
         title: "Reasonix main-v2 теперь восстанавливает ожидающие plan prompts после возврата на вкладку",
