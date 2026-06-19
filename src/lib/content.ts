@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-19",
+  checkedAt: "2026-06-20",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -407,29 +407,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#4809",
-    title: "An open desktop security report says some Windows users see the v1.9.1 binary flagged during download",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4809",
+    id: "#4867",
+    title: "An open plan-execute bug says guidance-only executor handoffs can still trigger unnecessary tool nudges and invented work",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4867",
   },
   {
-    id: "#4814",
-    title: "An open provider bug says DeepSeek official pricing can overwrite a user-set USD currency display",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4814",
+    id: "#4863",
+    title: "An open Windows MCP approval bug says some Feishu approval prompts can freeze the active conversation after approve or reject",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4863",
   },
   {
-    id: "#4822",
-    title: "An open desktop bot bug says QQ bot conversations can start but still stay hidden from the visible session list",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4822",
+    id: "#4860",
+    title: "An open Linux agent bug says some sessions can still hang and ignore stop attempts during long-running turns",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4860",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "23,101", note: "GitHub API, 2026-06-19" },
-  { label: "Forks", value: "1,386", note: "GitHub API, 2026-06-19" },
+  { label: "GitHub stars", value: "23,213", note: "GitHub API, 2026-06-20" },
+  { label: "Forks", value: "1,397", note: "GitHub API, 2026-06-20" },
   {
     label: "Open items",
-    value: "655",
-    note: "GitHub API open issues + pull requests, 2026-06-19",
+    value: "669",
+    note: "GitHub API open issues + pull requests, 2026-06-20",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1975,10 +1975,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-18",
+        date: "2026-06-19",
         title:
-          "Reasonix main-v2 ships post-v1.9.1 fixes for new-session history, DeepSeek pricing metadata, and transcript rendering",
-        body: "GitHub commits d8d3f5f, 8afe6f0, and 4a59ba2 on June 18 keep new sessions from inheriting stale desktop history, backfill missing official provider context-window metadata, and fix TUI transcript divider width while the latest public release line remains v1.9.1.",
+          "Reasonix main-v2 now recovers expired HTTP MCP sessions and tightens lifecycle spawn handling after v1.9.1",
+        body: "GitHub PR #4788 and commits 379ef9f and 9e17a60 on June 19 reinitialize expired Streamable HTTP MCP sessions before retrying the original tool call, and follow-up lifecycle fixes reduce duplicate spawn races while the latest public release line remains v1.9.1.",
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
@@ -2534,10 +2534,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-18",
+        date: "2026-06-19",
         title:
-          "Reasonix main-v2 在 v1.9.1 之后继续修复新会话历史、DeepSeek 价格元数据和 transcript 渲染",
-        body: "GitHub commits d8d3f5f、8afe6f0 和 4a59ba2 显示 6 月 18 日的 main-v2 让桌面端新会话不再继承陈旧历史，补回官方 provider 缺失的 context window 元数据，并修复 TUI transcript 分割线宽度；当前公开 release 线仍是 v1.9.1。",
+          "Reasonix main-v2 在 v1.9.1 之后补上过期 HTTP MCP 会话恢复，并继续收紧生命周期拉起逻辑",
+        body: "GitHub PR #4788 与 commits 379ef9f、9e17a60 显示 6 月 19 日的 main-v2 会在 Streamable HTTP MCP 会话过期后先重建 session 再重试原始 tool call，并继续减少生命周期阶段的重复拉起竞争；当前公开 release 线仍是 v1.9.1。",
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
@@ -2586,15 +2586,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有 1.9.1 回放 bug 报告称旧会话仍可能因缺失 tool-call 名称触发 HTTP 400",
+        title: "有计划执行 bug 报告称纯指导型 executor handoff 仍可能被额外工具催促并引出无关操作",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有桌面端 bug 报告称部分 MCP server 仍然无法在界面里删除",
+        title: "有 Windows MCP 审批 bug 报告称飞书审批弹窗在批准或拒绝后仍可能卡住当前对话",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 CodeGraph MCP bug 报告称关闭或禁用后后台监听仍可能继续存在",
+        title: "有 Linux agent bug 报告称部分长回合会话仍可能卡死且无法停止",
       },
     ],
     sourceLinks: sharedSources,
@@ -3102,10 +3102,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-18",
+        date: "2026-06-19",
         title:
-          "Reasonix main-v2 在 v1.9.1 之後持續修復新會話歷史、DeepSeek 價格中繼資料與 transcript 渲染",
-        body: "GitHub commits d8d3f5f、8afe6f0 和 4a59ba2 顯示 6 月 18 日的 main-v2 讓桌面端新會話不再繼承陳舊歷史，補回官方 provider 缺失的 context window 中繼資料，並修復 TUI transcript 分隔線寬度；目前公開 release line 仍是 v1.9.1。",
+          "Reasonix main-v2 在 v1.9.1 之後補上過期 HTTP MCP 會話恢復，並持續收緊生命週期拉起邏輯",
+        body: "GitHub PR #4788 與 commits 379ef9f、9e17a60 顯示 6 月 19 日的 main-v2 會在 Streamable HTTP MCP 會話過期後先重建 session 再重試原始 tool call，並持續減少生命週期階段的重複拉起競態；目前公開 release line 仍是 v1.9.1。",
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
@@ -3154,15 +3154,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有 1.9.1 回放 bug 回報指出舊會話仍可能因缺失 tool-call 名稱觸發 HTTP 400",
+        title: "有計畫執行 bug 回報指出純指導型 executor handoff 仍可能被額外工具催促並引出無關操作",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有桌面端 bug 回報指出部分 MCP server 仍然無法在介面裡刪除",
+        title: "有 Windows MCP 審批 bug 回報指出飛書審批彈窗在批准或拒絕後仍可能卡住當前對話",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 CodeGraph MCP bug 回報指出關閉或停用後背景監聽仍可能持續存在",
+        title: "有 Linux agent bug 回報指出部分長回合會話仍可能卡死且無法停止",
       },
     ],
     sourceLinks: sharedSources,
@@ -3670,10 +3670,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-18",
+        date: "2026-06-19",
         title:
-          "Reasonix main-v2 после v1.9.1 продолжает править историю новых сессий, метаданные цен DeepSeek и rendering transcript",
-        body: "GitHub commits d8d3f5f, 8afe6f0 и 4a59ba2 от 18 июня не дают новым desktop-сессиям наследовать stale history, возвращают недостающие context-window metadata для official provider и исправляют ширину divider в TUI transcript; при этом текущая публичная release line по-прежнему v1.9.1.",
+          "Reasonix main-v2 после v1.9.1 восстанавливает истекшие HTTP MCP sessions и ужесточает lifecycle spawn handling",
+        body: "GitHub PR #4788 и commits 379ef9f, 9e17a60 от 19 июня заново инициализируют Streamable HTTP MCP session перед повтором исходного tool call после истечения session id и уменьшают duplicate spawn races на этапе lifecycle; при этом текущая публичная release line по-прежнему v1.9.1.",
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
@@ -3722,15 +3722,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "Открытый 1.9.1 replay bug говорит, что старые сессии всё ещё могут ловить HTTP 400 из-за пустого tool-call name",
+        title: "Открытый plan-execute bug говорит, что guidance-only executor handoff всё ещё может вызвать лишние tool nudges и выдуманные действия",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Desktop bug report говорит, что некоторые MCP servers всё ещё нельзя удалить из UI",
+        title: "Открытый Windows MCP approval bug говорит, что Feishu approval prompts могут зависать после approve или reject",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Открытый CodeGraph MCP bug говорит, что фоновые listeners могут пережить disable или shutdown",
+        title: "Открытый Linux agent bug говорит, что некоторые длинные сессии всё ещё могут зависать и игнорировать stop",
       },
     ],
     sourceLinks: sharedSources,
