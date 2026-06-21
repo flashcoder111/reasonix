@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-21",
+  checkedAt: "2026-06-22",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -407,29 +407,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#4980",
-    title: "An open Linux agent bug says some file edits still skip approval prompts and leave rollback controls unavailable during active turns",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4980",
+    id: "#5004",
+    title: "An open macOS config bug says local permission settings can still fail to take effect",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5004",
   },
   {
-    id: "#4982",
-    title: "An open agent feature request asks Reasonix to surface the list of files already read in the current session",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4982",
+    id: "#4995",
+    title: "An open Windows desktop bug says desktop-v1.10.0 can fail to start MCP servers until users roll back",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4995",
   },
   {
-    id: "#4969",
-    title: "An open rendering request says nested task and parallel-task cards still need clearer subagent hierarchy in the UI",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4969",
+    id: "#4986",
+    title: "An open Windows desktop crash report says some stuck runs still cannot be stopped cleanly after restart",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4986",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "23,445", note: "GitHub API, 2026-06-21" },
-  { label: "Forks", value: "1,416", note: "GitHub API, 2026-06-21" },
+  { label: "GitHub stars", value: "23,539", note: "GitHub API, 2026-06-22" },
+  { label: "Forks", value: "1,420", note: "GitHub API, 2026-06-22" },
   {
     label: "Open items",
-    value: "707",
-    note: "GitHub API open issues + pull requests, 2026-06-21",
+    value: "720",
+    note: "GitHub API open issues + pull requests, 2026-06-22",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1975,11 +1975,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-21",
+        date: "2026-06-22",
         title:
-          "Reasonix main-v2 now keeps cancelled work recoverable and moves auto-plan plus step limits to user-level settings after v1.10.0",
-        body: "GitHub commits 53d515b, f946170, 62180a9, 01d9b17, and 2db7acf on June 21 keep running turns escapable after cancel, preserve cancelled batch results, and shift agent step limits plus auto-plan behavior to user-level settings while the latest public release line is now v1.10.0.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+          "Reasonix main-v2 follows v1.10.0 with desktop shortcut fixes, command palette recovery, and cleaner panel rendering",
+        body: "GitHub commits 7ab2f40, 037cabe, ba7b19e, 50313c8, 28325fc, and faacd02 merged on June 21 swap the default sidebar and shell shortcuts, make Cmd+K open and focus reliably again, restore native Cmd+up/down scrolling, tighten panel spacing and light-mode header contrast, and document the integrated desktop shortcut set while the latest public release line remains v1.10.0.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/051239b633604195c8449f13df31024dee7d3cc9",
       },
       {
         date: "2026-06-13",
@@ -2534,11 +2534,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-21",
+        date: "2026-06-22",
         title:
-          "Reasonix main-v2 在 v1.10.0 之后补上取消后可退出、保留取消批次结果，并把 auto-plan 与轮数上限收敛到用户级设置",
-        body: "GitHub commits 53d515b、f946170、62180a9、01d9b17 和 2db7acf 显示 6 月 21 日的 main-v2 会让运行中回合在 cancel 后仍可退出、保留已取消批次的结果，并把 agent step limits 与 auto-plan 行为切到用户级配置；当前公开 release 线已是 v1.10.0。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+          "Reasonix main-v2 在 v1.10.0 之后继续补桌面快捷键、命令面板恢复与侧栏渲染修复",
+        body: "GitHub commits 7ab2f40、037cabe、ba7b19e、50313c8、28325fc 和 faacd02 显示 6 月 21 日合入的 main-v2 调整了侧栏与 Shell 默认快捷键，让 Cmd+K 再次稳定打开并聚焦命令面板，恢复 Cmd+上/下 原生滚动，同时收紧右侧面板间距、浅色模式头部背景，并补上集成后的桌面快捷键文档；当前公开 release 线仍是 v1.10.0。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/051239b633604195c8449f13df31024dee7d3cc9",
       },
       {
         date: "2026-06-13",
@@ -3102,11 +3102,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-21",
+        date: "2026-06-22",
         title:
-          "Reasonix main-v2 在 v1.10.0 之後補上取消後可退出、保留取消批次結果，並把 auto-plan 與輪數上限收斂到使用者級設定",
-        body: "GitHub commits 53d515b、f946170、62180a9、01d9b17 和 2db7acf 顯示 6 月 21 日的 main-v2 會讓執行中的回合在 cancel 後仍可退出、保留已取消批次的結果，並把 agent step limits 與 auto-plan 行為切到使用者級設定；目前公開 release line 已是 v1.10.0。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+          "Reasonix main-v2 在 v1.10.0 之後繼續補桌面快捷鍵、命令面板恢復與側欄渲染修復",
+        body: "GitHub commits 7ab2f40、037cabe、ba7b19e、50313c8、28325fc 和 faacd02 顯示 6 月 21 日合入的 main-v2 調整了側欄與 Shell 預設快捷鍵，讓 Cmd+K 再次穩定開啟並聚焦命令面板，恢復 Cmd+上/下 原生捲動，同時收緊右側面板間距、淺色模式標頭背景，並補上整合後的桌面快捷鍵文件；目前公開 release line 仍是 v1.10.0。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/051239b633604195c8449f13df31024dee7d3cc9",
       },
       {
         date: "2026-06-13",
@@ -3670,11 +3670,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-21",
+        date: "2026-06-22",
         title:
-          "Reasonix main-v2 после v1.10.0 сохраняет результаты отмененных батчей и переводит auto-plan со step limits в пользовательские настройки",
-        body: "GitHub commits 53d515b, f946170, 62180a9, 01d9b17 и 2db7acf от 21 июня оставляют running turns escapable после cancel, сохраняют результаты отмененных batch tasks и переносят agent step limits вместе с auto-plan в user-level settings; текущая публичная release line уже v1.10.0.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+          "Reasonix main-v2 после v1.10.0 дорабатывает desktop shortcuts, восстановление command palette и рендеринг боковых панелей",
+        body: "GitHub commits 7ab2f40, 037cabe, ba7b19e, 50313c8, 28325fc и faacd02, влитые 21 июня, меняют стандартные shortcuts для sidebar и shell, снова делают Cmd+K стабильным для открытия и фокуса command palette, возвращают нативный скролл по Cmd+up/down, подтягивают spacing правой панели и светлый header background, а также документируют интегрированный набор desktop shortcuts; текущая публичная release line по-прежнему v1.10.0.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commit/051239b633604195c8449f13df31024dee7d3cc9",
       },
       {
         date: "2026-06-13",
