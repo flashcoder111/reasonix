@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-20",
+  checkedAt: "2026-06-21",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,7 +52,7 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.9.1";
+export const reasonixCliVersion = "v1.10.0";
 
 const desktopReleaseTag = `desktop-${reasonixCliVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -386,11 +386,11 @@ const sharedSources = [
   },
   {
     label: "CLI release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.9.1",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.10.0",
   },
   {
     label: "Desktop release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.9.1",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.10.0",
   },
   {
     label: "README quick start",
@@ -407,29 +407,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#4867",
-    title: "An open plan-execute bug says guidance-only executor handoffs can still trigger unnecessary tool nudges and invented work",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4867",
+    id: "#4980",
+    title: "An open Linux agent bug says some file edits still skip approval prompts and leave rollback controls unavailable during active turns",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4980",
   },
   {
-    id: "#4863",
-    title: "An open Windows MCP approval bug says some Feishu approval prompts can freeze the active conversation after approve or reject",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4863",
+    id: "#4982",
+    title: "An open agent feature request asks Reasonix to surface the list of files already read in the current session",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4982",
   },
   {
-    id: "#4860",
-    title: "An open Linux agent bug says some sessions can still hang and ignore stop attempts during long-running turns",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4860",
+    id: "#4969",
+    title: "An open rendering request says nested task and parallel-task cards still need clearer subagent hierarchy in the UI",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/4969",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "23,213", note: "GitHub API, 2026-06-20" },
-  { label: "Forks", value: "1,397", note: "GitHub API, 2026-06-20" },
+  { label: "GitHub stars", value: "23,445", note: "GitHub API, 2026-06-21" },
+  { label: "Forks", value: "1,416", note: "GitHub API, 2026-06-21" },
   {
     label: "Open items",
-    value: "669",
-    note: "GitHub API open issues + pull requests, 2026-06-20",
+    value: "707",
+    note: "GitHub API open issues + pull requests, 2026-06-21",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1801,7 +1801,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.9.1, packaging DMG, .deb, tar.gz, and Windows installer assets while rolling up anchored popover fixes, global MCP config backfill, stranded-session recovery after version downgrades, and smoother no-auth provider setup.",
+          "The latest public desktop release is desktop-v1.10.0, packaging DMG, .deb, tar.gz, and Windows installer assets while rolling up signed Windows installers, old-session replay backfills, startup and Settings performance work, and project-session cache reductions.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1975,10 +1975,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-19",
+        date: "2026-06-21",
         title:
-          "Reasonix main-v2 now recovers expired HTTP MCP sessions and tightens lifecycle spawn handling after v1.9.1",
-        body: "GitHub PR #4788 and commits 379ef9f and 9e17a60 on June 19 reinitialize expired Streamable HTTP MCP sessions before retrying the original tool call, and follow-up lifecycle fixes reduce duplicate spawn races while the latest public release line remains v1.9.1.",
+          "Reasonix main-v2 now keeps cancelled work recoverable and moves auto-plan plus step limits to user-level settings after v1.10.0",
+        body: "GitHub commits 53d515b, f946170, 62180a9, 01d9b17, and 2db7acf on June 21 keep running turns escapable after cancel, preserve cancelled batch results, and shift agent step limits plus auto-plan behavior to user-level settings while the latest public release line is now v1.10.0.",
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
@@ -1988,16 +1988,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-17",
-        title: "Reasonix CLI v1.9.1 is now the latest stable command-line release",
-        body: "GitHub releases published Reasonix CLI v1.9.1 on June 17; the stable line rolls up no-auth custom model providers, re-running setup without losing sibling built-in entries, detached background-job preservation, and session-switch fixes across CLI and desktop.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.9.1",
+        date: "2026-06-20",
+        title: "Reasonix CLI v1.10.0 becomes the latest stable command-line release",
+        body: "GitHub releases published Reasonix CLI v1.10.0 on June 20; the stable line versions BranchMeta counts, moves memory-write disk I/O off the controller lock, caches turn-count previews in .meta sidecars, and drops the now-redundant project-session disk cache.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.10.0",
       },
       {
-        date: "2026-06-17",
-        title: "Reasonix Desktop v1.9.1 becomes the current public GUI release line",
-        body: "GitHub releases published desktop-v1.9.1 on June 17 with DMG, .deb, tar.gz, and Windows installer assets; the release line rolls up anchored popover fixes, global MCP config backfill, stranded-session recovery after version downgrades, no-auth provider support, and faster settings refresh behavior.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.9.1",
+        date: "2026-06-20",
+        title: "Reasonix Desktop v1.10.0 becomes the current public GUI release line",
+        body: "GitHub releases published desktop-v1.10.0 on June 20 with DMG, .deb, tar.gz, and Windows installer assets; the release line adds SignPath-backed Windows signing, old-session replay backfills, startup and Settings performance work, built-in Auto Research, and desktop session restore fixes.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.10.0",
       },
       {
         date: "2026-06-16",
@@ -2108,7 +2108,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.9.1 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.10.0 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub downloads",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "The official repository is",
@@ -2360,7 +2360,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.9.1，提供 DMG、.deb、tar.gz 和 Windows installer 资产，并整合锚定弹层滚动修复、全局 MCP 配置回填、版本降级后的会话恢复，以及更顺滑的免密 provider 设置。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.10.0，提供 DMG、.deb、tar.gz 和 Windows installer 资产，并整合 Windows installer 签名、旧会话 replay 回填、启动与设置性能优化，以及 project-session cache 精简。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2534,10 +2534,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-19",
+        date: "2026-06-21",
         title:
-          "Reasonix main-v2 在 v1.9.1 之后补上过期 HTTP MCP 会话恢复，并继续收紧生命周期拉起逻辑",
-        body: "GitHub PR #4788 与 commits 379ef9f、9e17a60 显示 6 月 19 日的 main-v2 会在 Streamable HTTP MCP 会话过期后先重建 session 再重试原始 tool call，并继续减少生命周期阶段的重复拉起竞争；当前公开 release 线仍是 v1.9.1。",
+          "Reasonix main-v2 在 v1.10.0 之后补上取消后可退出、保留取消批次结果，并把 auto-plan 与轮数上限收敛到用户级设置",
+        body: "GitHub commits 53d515b、f946170、62180a9、01d9b17 和 2db7acf 显示 6 月 21 日的 main-v2 会让运行中回合在 cancel 后仍可退出、保留已取消批次的结果，并把 agent step limits 与 auto-plan 行为切到用户级配置；当前公开 release 线已是 v1.10.0。",
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
@@ -2547,16 +2547,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-17",
-        title: "Reasonix CLI v1.9.1 成为最新稳定命令行发布",
-        body: "GitHub releases 在 6 月 17 日发布 Reasonix CLI v1.9.1；这条稳定线整合了免密自定义模型 provider、重复运行 setup 时保留内建兄弟条目、保留显式分离的后台任务，以及 CLI 与桌面端的会话切换修复。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.9.1",
+        date: "2026-06-20",
+        title: "Reasonix CLI v1.10.0 成为最新稳定命令行发布",
+        body: "GitHub releases 在 6 月 20 日发布 Reasonix CLI v1.10.0；这条稳定线把 BranchMeta 计数结构显式版本化，把 memory-write 磁盘 I/O 移出 controller lock，并把 turn count 与 preview 缓存进 .meta sidecar，同时移除了冗余的 project-session disk cache。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.10.0",
       },
       {
-        date: "2026-06-17",
-        title: "Reasonix Desktop v1.9.1 成为当前公开 GUI 发布线",
-        body: "GitHub releases 在 6 月 17 日发布 desktop-v1.9.1，提供 DMG、.deb、tar.gz 和 Windows installer 资产；这条发布线整合锚定弹层滚动修复、全局 MCP 配置回填、版本降级后的会话恢复、免密 provider 支持，以及更快的设置刷新表现。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.9.1",
+        date: "2026-06-20",
+        title: "Reasonix Desktop v1.10.0 成为当前公开 GUI 发布线",
+        body: "GitHub releases 在 6 月 20 日发布 desktop-v1.10.0，提供 DMG、.deb、tar.gz 和 Windows installer 资产；这条发布线加入 SignPath 驱动的 Windows installer 签名、旧会话 replay 回填、启动与设置性能优化、内置 Auto Research，以及桌面会话恢复修复。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.10.0",
       },
       {
         date: "2026-06-16",
@@ -2586,15 +2586,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有计划执行 bug 报告称纯指导型 executor handoff 仍可能被额外工具催促并引出无关操作",
+        title: "有 Linux agent bug 报告称部分文件修改仍会跳过审批提示，并且回溯控制在运行中不可用",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 Windows MCP 审批 bug 报告称飞书审批弹窗在批准或拒绝后仍可能卡住当前对话",
+        title: "有 agent 功能请求希望在当前会话里直接显示已经读取过的文件列表",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 Linux agent bug 报告称部分长回合会话仍可能卡死且无法停止",
+        title: "有渲染改进请求指出 task 与 parallel_tasks 的嵌套层级在界面里仍不够清晰",
       },
     ],
     sourceLinks: sharedSources,
@@ -2679,7 +2679,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 下载地址：npm next 安装、Homebrew tap 安装，以及 Mac、Windows、Linux 的 desktop-v1.9.1 桌面端打包下载。",
+          "Reasonix GitHub 下载地址：npm next 安装、Homebrew tap 安装，以及 Mac、Windows、Linux 的 desktop-v1.10.0 桌面端打包下载。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载方式：npm、Homebrew 和桌面端打包下载",
         descriptionBeforeLink: "官方仓库地址为",
@@ -2928,7 +2928,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.9.1，提供 DMG、.deb、tar.gz 和 Windows installer 資產，並整合錨定彈層捲動修復、全域 MCP 設定回填、版本降級後的會話恢復，以及更順暢的免密 provider 設定。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.10.0，提供 DMG、.deb、tar.gz 和 Windows installer 資產，並整合 Windows installer 簽名、舊會話 replay 回填、啟動與設定效能優化，以及 project-session cache 精簡。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3102,10 +3102,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-19",
+        date: "2026-06-21",
         title:
-          "Reasonix main-v2 在 v1.9.1 之後補上過期 HTTP MCP 會話恢復，並持續收緊生命週期拉起邏輯",
-        body: "GitHub PR #4788 與 commits 379ef9f、9e17a60 顯示 6 月 19 日的 main-v2 會在 Streamable HTTP MCP 會話過期後先重建 session 再重試原始 tool call，並持續減少生命週期階段的重複拉起競態；目前公開 release line 仍是 v1.9.1。",
+          "Reasonix main-v2 在 v1.10.0 之後補上取消後可退出、保留取消批次結果，並把 auto-plan 與輪數上限收斂到使用者級設定",
+        body: "GitHub commits 53d515b、f946170、62180a9、01d9b17 和 2db7acf 顯示 6 月 21 日的 main-v2 會讓執行中的回合在 cancel 後仍可退出、保留已取消批次的結果，並把 agent step limits 與 auto-plan 行為切到使用者級設定；目前公開 release line 已是 v1.10.0。",
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
@@ -3115,16 +3115,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-17",
-        title: "Reasonix CLI v1.9.1 成為最新穩定命令列發布",
-        body: "GitHub releases 在 6 月 17 日發布 Reasonix CLI v1.9.1；這條穩定線整合了免密自訂模型 provider、重跑 setup 時保留內建兄弟項目、保留顯式分離的背景工作，以及 CLI 與桌面端的會話切換修復。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.9.1",
+        date: "2026-06-20",
+        title: "Reasonix CLI v1.10.0 成為最新穩定命令列發布",
+        body: "GitHub releases 在 6 月 20 日發布 Reasonix CLI v1.10.0；這條穩定線把 BranchMeta 計數結構顯式版本化，把 memory-write 磁碟 I/O 移出 controller lock，並把 turn count 與 preview 緩存在 .meta sidecar，同時移除冗餘的 project-session disk cache。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.10.0",
       },
       {
-        date: "2026-06-17",
-        title: "Reasonix Desktop v1.9.1 成為目前公開 GUI 發布線",
-        body: "GitHub releases 在 6 月 17 日發布 desktop-v1.9.1，提供 DMG、.deb、tar.gz 和 Windows installer 資產；這條發布線整合錨定彈層捲動修復、全域 MCP 設定回填、版本降級後的會話恢復、免密 provider 支援，以及更快的設定刷新表現。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.9.1",
+        date: "2026-06-20",
+        title: "Reasonix Desktop v1.10.0 成為目前公開 GUI 發布線",
+        body: "GitHub releases 在 6 月 20 日發布 desktop-v1.10.0，提供 DMG、.deb、tar.gz 和 Windows installer 資產；這條發布線加入 SignPath 驅動的 Windows installer 簽名、舊會話 replay 回填、啟動與設定效能優化、內建 Auto Research，以及桌面會話恢復修復。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.10.0",
       },
       {
         date: "2026-06-16",
@@ -3154,15 +3154,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有計畫執行 bug 回報指出純指導型 executor handoff 仍可能被額外工具催促並引出無關操作",
+        title: "有 Linux agent bug 回報指出部分檔案修改仍會跳過審批提示，且回溯控制在執行中不可用",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 Windows MCP 審批 bug 回報指出飛書審批彈窗在批准或拒絕後仍可能卡住當前對話",
+        title: "有 agent 功能請求希望在目前會話裡直接顯示已經讀取過的檔案清單",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 Linux agent bug 回報指出部分長回合會話仍可能卡死且無法停止",
+        title: "有渲染改進請求指出 task 與 parallel_tasks 的巢狀層級在介面裡仍不夠清楚",
       },
     ],
     sourceLinks: sharedSources,
@@ -3247,7 +3247,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 下載地址：npm next 安裝、Homebrew tap 安裝，以及 Mac、Windows、Linux 的 desktop-v1.9.1 桌面端打包下載。",
+          "Reasonix GitHub 下載地址：npm next 安裝、Homebrew tap 安裝，以及 Mac、Windows、Linux 的 desktop-v1.10.0 桌面端打包下載。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載方式：npm、Homebrew 和桌面端打包下載",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -3496,7 +3496,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.9.1: доступны DMG, .deb, tar.gz и Windows installer артефакты, а release line объединяет исправления anchored popover, backfill глобальной MCP-конфигурации, восстановление сессий после downgrade и более гладкую настройку no-auth provider.",
+          "Последний публичный desktop release - desktop-v1.10.0: доступны DMG, .deb, tar.gz и Windows installer артефакты, а release line объединяет SignPath-подписанный Windows installer, backfill replay старых сессий, ускорение startup и Settings и сокращение project-session cache.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3670,10 +3670,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-19",
+        date: "2026-06-21",
         title:
-          "Reasonix main-v2 после v1.9.1 восстанавливает истекшие HTTP MCP sessions и ужесточает lifecycle spawn handling",
-        body: "GitHub PR #4788 и commits 379ef9f, 9e17a60 от 19 июня заново инициализируют Streamable HTTP MCP session перед повтором исходного tool call после истечения session id и уменьшают duplicate spawn races на этапе lifecycle; при этом текущая публичная release line по-прежнему v1.9.1.",
+          "Reasonix main-v2 после v1.10.0 сохраняет результаты отмененных батчей и переводит auto-plan со step limits в пользовательские настройки",
+        body: "GitHub commits 53d515b, f946170, 62180a9, 01d9b17 и 2db7acf от 21 июня оставляют running turns escapable после cancel, сохраняют результаты отмененных batch tasks и переносят agent step limits вместе с auto-plan в user-level settings; текущая публичная release line уже v1.10.0.",
         href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
       },
       {
@@ -3683,16 +3683,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-17",
-        title: "Reasonix CLI v1.9.1 становится актуальным stable command-line release",
-        body: "GitHub releases опубликовали Reasonix CLI v1.9.1 17 июня; stable line объединяет поддержку no-auth custom model providers, повторный setup без потери sibling built-in entries, сохранение explicit detached background jobs и исправления переключения сессий в CLI и desktop.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.9.1",
+        date: "2026-06-20",
+        title: "Reasonix CLI v1.10.0 становится актуальным stable command-line release",
+        body: "GitHub releases опубликовали Reasonix CLI v1.10.0 20 июня; stable line версионирует BranchMeta counts, выносит memory-write disk I/O из controller lock, кеширует turn count и preview в .meta sidecar и убирает redundant project-session disk cache.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.10.0",
       },
       {
-        date: "2026-06-17",
-        title: "Reasonix Desktop v1.9.1 - текущая публичная GUI release line",
-        body: "GitHub releases опубликовали desktop-v1.9.1 17 июня с DMG, .deb, tar.gz и Windows installer артефактами; эта release line объединяет исправления anchored popover, backfill глобальной MCP-конфигурации, восстановление сессий после downgrade, поддержку no-auth provider и более быстрый refresh настроек.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.9.1",
+        date: "2026-06-20",
+        title: "Reasonix Desktop v1.10.0 - текущая публичная GUI release line",
+        body: "GitHub releases опубликовали desktop-v1.10.0 20 июня с DMG, .deb, tar.gz и Windows installer артефактами; эта release line добавляет SignPath-подписанный Windows installer, backfill replay старых сессий, ускорение startup и Settings, встроенный Auto Research и исправления desktop session restore.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.10.0",
       },
       {
         date: "2026-06-16",
@@ -3722,15 +3722,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "Открытый plan-execute bug говорит, что guidance-only executor handoff всё ещё может вызвать лишние tool nudges и выдуманные действия",
+        title: "Открытый Linux agent bug говорит, что часть file edits всё ещё проходит без approval prompt, а rollback controls недоступны во время active turn",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Открытый Windows MCP approval bug говорит, что Feishu approval prompts могут зависать после approve или reject",
+        title: "Открытый agent feature request просит показывать список файлов, уже прочитанных в текущей сессии",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Открытый Linux agent bug говорит, что некоторые длинные сессии всё ещё могут зависать и игнорировать stop",
+        title: "Открытый rendering request говорит, что nested task и parallel_tasks cards всё ещё недостаточно ясно показывают иерархию subagent",
       },
     ],
     sourceLinks: sharedSources,
@@ -3815,7 +3815,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub загрузки",
         metaDescription:
-          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.9.1 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.10.0 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub загрузки",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "Официальный репозиторий:",
