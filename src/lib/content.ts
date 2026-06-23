@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-23",
+  checkedAt: "2026-06-24",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,7 +52,7 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.11.0";
+export const reasonixCliVersion = "v1.11.1";
 
 const desktopReleaseTag = `desktop-${reasonixCliVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -386,11 +386,11 @@ const sharedSources = [
   },
   {
     label: "CLI release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.11.0",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.11.1",
   },
   {
     label: "Desktop release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.0",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
   },
   {
     label: "README quick start",
@@ -407,29 +407,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#5080",
-    title: "An open desktop bug says the highlighted input border can still shift the GUI layout",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5080",
+    id: "#5187",
+    title: "An open Windows 11 report says Security Center and Chrome can still flag recent desktop builds as malicious",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5187",
   },
   {
-    id: "#5079",
-    title: "An open desktop bug says removed projects can reappear in the sidebar on every restart",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5079",
+    id: "#5185",
+    title: "An open desktop bug says switching session tabs can still stall for one to two seconds",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5185",
   },
   {
-    id: "#5078",
-    title: "An open new-session bug says some first replies can still fail with an empty final answer blocked state",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5078",
+    id: "#5184",
+    title: "An open desktop bug says session switches can still reset Todo completion, plan mode, and model selection",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5184",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "23,813", note: "GitHub API, 2026-06-23" },
-  { label: "Forks", value: "1,452", note: "GitHub API, 2026-06-23" },
+  { label: "GitHub stars", value: "24,111", note: "GitHub API, 2026-06-24" },
+  { label: "Forks", value: "1,468", note: "GitHub API, 2026-06-24" },
   {
     label: "Open items",
-    value: "729",
-    note: "GitHub API open issues + pull requests, 2026-06-23",
+    value: "790",
+    note: "GitHub API open issues + pull requests, 2026-06-24",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1801,7 +1801,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.11.0, packaging DMG, .deb, tar.gz, and Windows installer assets while rolling up goal-state writes off the controller lock, guarded legacy-topic migration, SessionAPI/store refactors across desktop surfaces, and sidebar runtime fixes.",
+          "The latest public desktop release is desktop-v1.11.1, packaging DMG, .deb, tar.gz, and Windows installer assets while adding remote MCP headers, non-blocking session switching, stronger single-surface tab persistence and pruning, rewind and plan-prompt recovery, and preserved tab plugin context after boot.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1975,11 +1975,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-22",
+        date: "2026-06-23",
         title:
-          "Reasonix v1.11.0 and desktop-v1.11.0 become the latest public release line",
-        body: "GitHub releases published v1.11.0 and desktop-v1.11.0 on June 22; the CLI line adds `/reload-cmd`, workspace-image attachments for vision turns, a grace round when tool-call budgets run out, and persisted lazy MCP schema cache, while the desktop line moves goal-state writes off the controller lock, gates legacy topic migration behind per-directory markers, and rolls SessionAPI/store refactors plus sidebar runtime fixes into the packaged app.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.0",
+          "Reasonix v1.11.1 and desktop-v1.11.1 become the latest public release line",
+        body: "GitHub releases published v1.11.1 and desktop-v1.11.1 on June 23; the CLI line closes a bot session race, moves QQ, Weixin, and Feishu integrations onto shared connection-lifecycle primitives, restores interrupted model streams, and keeps provider credentials on the global .env path, while the desktop line adds remote MCP headers, non-blocking session switching, stronger single-surface tab persistence and pruning, rewind and plan-prompt recovery, and preserved tab plugin context after boot.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
       },
       {
         date: "2026-06-13",
@@ -1988,16 +1988,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-22",
-        title: "Reasonix CLI v1.11.0 becomes the latest stable command-line release",
-        body: "GitHub releases published Reasonix CLI v1.11.0 on June 22; the stable line adds `/reload-cmd` for hot-reloading custom slash commands, attaches workspace images to vision turns, preserves one grace round when tool-call budgets are exhausted, persists lazy MCP schema cache, and hardens session-trash fallback handling.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.11.0",
+        date: "2026-06-23",
+        title: "Reasonix CLI v1.11.1 becomes the latest stable command-line release",
+        body: "GitHub releases published Reasonix CLI v1.11.1 on June 23; the stable line closes the getOrCreateSession race for bot sessions, consolidates QQ, Weixin, and Feishu onto shared connection-lifecycle primitives, restores interrupted model streams, keeps provider credentials on the global .env path, and carries the serve UI event-retry follow-up into the shipped CLI line.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.11.1",
       },
       {
-        date: "2026-06-22",
-        title: "Reasonix Desktop v1.11.0 becomes the current public GUI release line",
-        body: "GitHub releases published desktop-v1.11.0 on June 22 with DMG, .deb, tar.gz, and Windows installer assets; the release line moves goal-state writes off the controller lock, gates legacy topic migration behind per-directory markers, migrates desktop surfaces onto the SessionAPI/store path, and rolls in PE handoff, planner-routing, sidebar, and startup follow-up fixes.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.0",
+        date: "2026-06-23",
+        title: "Reasonix Desktop v1.11.1 becomes the current public GUI release line",
+        body: "GitHub releases published desktop-v1.11.1 on June 23 with DMG, .deb, tar.gz, and Windows installer assets; the release line adds remote MCP headers, makes session switching non-blocking, hardens single-surface tab persistence and pruning, consolidates rewind and plan-prompt recovery, and preserves tab plugin context after boot.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
       },
       {
         date: "2026-06-16",
@@ -2108,7 +2108,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.11.0 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.11.1 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub downloads",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "The official repository is",
@@ -2360,7 +2360,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.11.0，提供 DMG、.deb、tar.gz 和 Windows installer 资产，并整合 goal-state 写盘移出 controller lock、按目录标记控制旧 topic 迁移，以及 SessionAPI/store 路径和侧栏运行时修复。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.11.1，提供 DMG、.deb、tar.gz 和 Windows installer 资产，并加入远程 MCP headers、非阻塞会话切换、单界面标签持久化与剪枝补强、rewind 与计划提示恢复，以及启动后保留标签插件上下文。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2534,11 +2534,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-22",
+        date: "2026-06-23",
         title:
-          "Reasonix v1.11.0 与 desktop-v1.11.0 成为最新公开发布线",
-        body: "GitHub releases 显示 6 月 22 日发布的 v1.11.0 与 desktop-v1.11.0 把 `/reload-cmd`、workspace image 进入 vision turn、tool-call budget 用尽后的 grace round，以及 lazy MCP schema cache 持久化带进稳定 CLI；桌面端则把 goal-state 写盘移出 controller lock，用按目录 marker 控制旧 topic 迁移，并把 SessionAPI/store 路径、PE handoff、planner 路由和侧栏运行时修复一起并入打包版本。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.0",
+          "Reasonix v1.11.1 与 desktop-v1.11.1 成为最新公开发布线",
+        body: "GitHub releases 显示 6 月 23 日发布的 v1.11.1 与 desktop-v1.11.1 把 bot 会话的 getOrCreateSession race 收口，并把 QQ、微信、飞书接入统一的 connection-lifecycle primitives，同时恢复中断模型流、固定 provider credentials 走全局 .env；桌面端则加入远程 MCP headers、非阻塞会话切换、单界面标签持久化与剪枝补强、rewind 与计划提示恢复，以及启动后保留标签插件上下文。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
       },
       {
         date: "2026-06-13",
@@ -2547,16 +2547,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-22",
-        title: "Reasonix CLI v1.11.0 成为最新稳定命令行发布",
-        body: "GitHub releases 在 6 月 22 日发布 Reasonix CLI v1.11.0；这条稳定线加入 `/reload-cmd` 热重载自定义 slash command、把 workspace image 附到 vision turn、在 tool-call budget 用尽时保留一轮 grace round，并持久化 lazy MCP schema cache、补强 session trash 回退处理。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.11.0",
+        date: "2026-06-23",
+        title: "Reasonix CLI v1.11.1 成为最新稳定命令行发布",
+        body: "GitHub releases 在 6 月 23 日发布 Reasonix CLI v1.11.1；这条稳定线收口 bot 会话的 getOrCreateSession race，把 QQ、微信、飞书接入统一 connection-lifecycle primitives，恢复长任务断流，并把 provider credentials 固定回全局 .env 路径，同时带入 serve UI 事件重试的后续修补。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.11.1",
       },
       {
-        date: "2026-06-22",
-        title: "Reasonix Desktop v1.11.0 成为当前公开 GUI 发布线",
-        body: "GitHub releases 在 6 月 22 日发布 desktop-v1.11.0，提供 DMG、.deb、tar.gz 和 Windows installer 资产；这条发布线把 goal-state 写盘移出 controller lock，用按目录 marker 控制旧 topic 迁移，并把 SessionAPI/store 路径迁移、PE handoff、planner 路由、侧栏与启动后续修复一起纳入桌面端打包版本。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.0",
+        date: "2026-06-23",
+        title: "Reasonix Desktop v1.11.1 成为当前公开 GUI 发布线",
+        body: "GitHub releases 在 6 月 23 日发布 desktop-v1.11.1，提供 DMG、.deb、tar.gz 和 Windows installer 资产；这条发布线加入远程 MCP headers，把会话切换改成非阻塞，补强单界面标签持久化与剪枝，整合 rewind 与计划提示恢复，并修复启动后标签插件上下文丢失。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
       },
       {
         date: "2026-06-16",
@@ -2679,7 +2679,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 下载地址：npm next 安装、Homebrew tap 安装，以及 Mac、Windows、Linux 的 desktop-v1.11.0 桌面端打包下载。",
+          "Reasonix GitHub 下载地址：npm next 安装、Homebrew tap 安装，以及 Mac、Windows、Linux 的 desktop-v1.11.1 桌面端打包下载。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载方式：npm、Homebrew 和桌面端打包下载",
         descriptionBeforeLink: "官方仓库地址为",
@@ -2928,7 +2928,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.11.0，提供 DMG、.deb、tar.gz 和 Windows installer 資產，並整合 goal-state 寫盤移出 controller lock、依目錄 marker 控制舊 topic 遷移，以及 SessionAPI/store 路徑與側欄執行期修復。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.11.1，提供 DMG、.deb、tar.gz 和 Windows installer 資產，並加入遠端 MCP headers、非阻塞會話切換、單介面分頁持久化與剪枝補強、rewind 與計畫提示恢復，以及啟動後保留分頁外掛上下文。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3102,11 +3102,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-22",
+        date: "2026-06-23",
         title:
-          "Reasonix v1.11.0 與 desktop-v1.11.0 成為最新公開發布線",
-        body: "GitHub releases 顯示 6 月 22 日發布的 v1.11.0 與 desktop-v1.11.0，把 `/reload-cmd`、workspace image 進入 vision turn、tool-call budget 用盡後的 grace round，以及 lazy MCP schema cache 持久化帶進穩定 CLI；桌面端則把 goal-state 寫盤移出 controller lock，用依目錄 marker 控制舊 topic 遷移，並把 SessionAPI/store 路徑、PE handoff、planner 路由與側欄執行期修復一起併入打包版本。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.0",
+          "Reasonix v1.11.1 與 desktop-v1.11.1 成為最新公開發布線",
+        body: "GitHub releases 顯示 6 月 23 日發布的 v1.11.1 與 desktop-v1.11.1，把 bot 會話的 getOrCreateSession race 收口，並把 QQ、微信、飛書接到統一的 connection-lifecycle primitives，同時恢復中斷模型流、固定 provider credentials 走全域 .env；桌面端則加入遠端 MCP headers、非阻塞會話切換、單介面分頁持久化與剪枝補強、rewind 與計畫提示恢復，以及啟動後保留分頁外掛上下文。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
       },
       {
         date: "2026-06-13",
@@ -3115,16 +3115,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-22",
-        title: "Reasonix CLI v1.11.0 成為最新穩定命令列發布",
-        body: "GitHub releases 在 6 月 22 日發布 Reasonix CLI v1.11.0；這條穩定線加入 `/reload-cmd` 熱重載自訂 slash command、把 workspace image 附到 vision turn、在 tool-call budget 用盡時保留一輪 grace round，並持久化 lazy MCP schema cache、補強 session trash 回退處理。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.11.0",
+        date: "2026-06-23",
+        title: "Reasonix CLI v1.11.1 成為最新穩定命令列發布",
+        body: "GitHub releases 在 6 月 23 日發布 Reasonix CLI v1.11.1；這條穩定線收口 bot 會話的 getOrCreateSession race，把 QQ、微信、飛書接入統一 connection-lifecycle primitives，恢復長任務斷流，並把 provider credentials 固定回全域 .env 路徑，同時帶入 serve UI 事件重試的後續修補。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.11.1",
       },
       {
-        date: "2026-06-22",
-        title: "Reasonix Desktop v1.11.0 成為目前公開 GUI 發布線",
-        body: "GitHub releases 在 6 月 22 日發布 desktop-v1.11.0，提供 DMG、.deb、tar.gz 和 Windows installer 資產；這條發布線把 goal-state 寫盤移出 controller lock，用依目錄 marker 控制舊 topic 遷移，並把 SessionAPI/store 路徑遷移、PE handoff、planner 路由、側欄與啟動後續修復一起納入桌面端打包版本。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.0",
+        date: "2026-06-23",
+        title: "Reasonix Desktop v1.11.1 成為目前公開 GUI 發布線",
+        body: "GitHub releases 在 6 月 23 日發布 desktop-v1.11.1，提供 DMG、.deb、tar.gz 和 Windows installer 資產；這條發布線加入遠端 MCP headers，把會話切換改成非阻塞，補強單介面分頁持久化與剪枝，整合 rewind 與計畫提示恢復，並修復啟動後分頁外掛上下文遺失。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
       },
       {
         date: "2026-06-16",
@@ -3247,7 +3247,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 下載地址：npm next 安裝、Homebrew tap 安裝，以及 Mac、Windows、Linux 的 desktop-v1.11.0 桌面端打包下載。",
+          "Reasonix GitHub 下載地址：npm next 安裝、Homebrew tap 安裝，以及 Mac、Windows、Linux 的 desktop-v1.11.1 桌面端打包下載。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載方式：npm、Homebrew 和桌面端打包下載",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -3496,7 +3496,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.11.0: доступны DMG, .deb, tar.gz и Windows installer артефакты, а release line объединяет вынос записи goal state из controller lock, marker-переход для legacy topic migration, а также SessionAPI/store refactors и sidebar runtime fixes.",
+          "Последний публичный desktop release - desktop-v1.11.1: доступны DMG, .deb, tar.gz и Windows installer артефакты, а release line добавляет remote MCP headers, non-blocking session switching, более надежные single-surface tab persistence и pruning, rewind и plan-prompt recovery, а также сохранение tab plugin context после запуска.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3670,11 +3670,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-22",
+        date: "2026-06-23",
         title:
-          "Reasonix v1.11.0 и desktop-v1.11.0 становятся актуальной публичной release line",
-        body: "GitHub releases от 22 июня выводят v1.11.0 и desktop-v1.11.0 в публичный stable line: CLI получает `/reload-cmd`, вложение workspace images в vision turns, grace round при исчерпании tool-call budget и persisted lazy MCP schema cache, а desktop line переносит запись goal state за пределы controller lock, включает per-directory markers для legacy topic migration и собирает SessionAPI/store refactors вместе с PE handoff, planner routing и sidebar runtime fixes.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.0",
+          "Reasonix v1.11.1 и desktop-v1.11.1 становятся актуальной публичной release line",
+        body: "GitHub releases от 23 июня выводят v1.11.1 и desktop-v1.11.1 в публичный stable line: CLI закрывает race в bot sessions, переводит QQ, Weixin и Feishu на shared connection-lifecycle primitives, восстанавливает interrupted model streams и возвращает provider credentials на global .env path, а desktop line добавляет remote MCP headers, non-blocking session switching, более надежные single-surface tab persistence и pruning, rewind и plan-prompt recovery, а также сохранение tab plugin context после запуска.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
       },
       {
         date: "2026-06-13",
@@ -3683,16 +3683,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-22",
-        title: "Reasonix CLI v1.11.0 становится актуальным stable command-line release",
-        body: "GitHub releases опубликовали Reasonix CLI v1.11.0 22 июня; stable line добавляет `/reload-cmd` для hot-reload custom slash commands, прикрепляет workspace images к vision turns, сохраняет grace round при исчерпании tool-call budget, персистит lazy MCP schema cache и усиливает fallback-обработку session trash.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.11.0",
+        date: "2026-06-23",
+        title: "Reasonix CLI v1.11.1 становится актуальным stable command-line release",
+        body: "GitHub releases опубликовали Reasonix CLI v1.11.1 23 июня; stable line закрывает getOrCreateSession race для bot sessions, переводит QQ, Weixin и Feishu на shared connection-lifecycle primitives, восстанавливает interrupted model streams, возвращает provider credentials на global .env path и включает follow-up для event retries в serve UI.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.11.1",
       },
       {
-        date: "2026-06-22",
-        title: "Reasonix Desktop v1.11.0 - текущая публичная GUI release line",
-        body: "GitHub releases опубликовали desktop-v1.11.0 22 июня с DMG, .deb, tar.gz и Windows installer артефактами; эта release line выносит запись goal state из controller lock, включает per-directory markers для legacy topic migration и подтягивает в packaged app SessionAPI/store migration, PE handoff, planner routing, sidebar и startup follow-up fixes.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.0",
+        date: "2026-06-23",
+        title: "Reasonix Desktop v1.11.1 - текущая публичная GUI release line",
+        body: "GitHub releases опубликовали desktop-v1.11.1 23 июня с DMG, .deb, tar.gz и Windows installer артефактами; эта release line добавляет remote MCP headers, делает session switching non-blocking, усиливает single-surface tab persistence и pruning, объединяет rewind и plan-prompt recovery и сохраняет tab plugin context после запуска.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
       },
       {
         date: "2026-06-16",
@@ -3815,7 +3815,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub загрузки",
         metaDescription:
-          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.11.0 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.11.1 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub загрузки",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "Официальный репозиторий:",
