@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-24",
+  checkedAt: "2026-06-25",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -407,29 +407,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#5187",
-    title: "An open Windows 11 report says Security Center and Chrome can still flag recent desktop builds as malicious",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5187",
+    id: "#5263",
+    title: "An open desktop feature request asks to persist tool approval mode per session tab",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5263",
   },
   {
-    id: "#5185",
-    title: "An open desktop bug says switching session tabs can still stall for one to two seconds",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5185",
+    id: "#5255",
+    title: "An open bug report says some Reasonix sessions can still disconnect unexpectedly",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5255",
   },
   {
-    id: "#5184",
-    title: "An open desktop bug says session switches can still reset Todo completion, plan mode, and model selection",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5184",
+    id: "#5254",
+    title: "An open TUI feature request asks for a multiline composer input mode",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5254",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "24,111", note: "GitHub API, 2026-06-24" },
-  { label: "Forks", value: "1,468", note: "GitHub API, 2026-06-24" },
+  { label: "GitHub stars", value: "24,388", note: "GitHub API, 2026-06-25" },
+  { label: "Forks", value: "1,481", note: "GitHub API, 2026-06-25" },
   {
     label: "Open items",
-    value: "790",
-    note: "GitHub API open issues + pull requests, 2026-06-24",
+    value: "813",
+    note: "GitHub API open issues + pull requests, 2026-06-25",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1975,11 +1975,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-23",
+        date: "2026-06-24",
         title:
-          "Reasonix v1.11.1 and desktop-v1.11.1 become the latest public release line",
-        body: "GitHub releases published v1.11.1 and desktop-v1.11.1 on June 23; the CLI line closes a bot session race, moves QQ, Weixin, and Feishu integrations onto shared connection-lifecycle primitives, restores interrupted model streams, and keeps provider credentials on the global .env path, while the desktop line adds remote MCP headers, non-blocking session switching, stronger single-surface tab persistence and pruning, rewind and plan-prompt recovery, and preserved tab plugin context after boot.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
+          "Reasonix main-v2 centralizes plan mode policy and hardens review boundaries",
+        body: "GitHub PR #5246 plus follow-up commits 9059773, e3b4d2a, and b1326ef merged on June 24 to centralize plan-mode policy, add read-only subagent paths, keep unsafe bash and write-capable tools behind stricter plan-mode gates, and stop MCP readOnly hints from bypassing those checks; same-day fixes 0456f97 and a8c91c4 also isolate CLI locale state and stabilize the login-shell probe test path.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/5246",
       },
       {
         date: "2026-06-13",
@@ -2534,11 +2534,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-23",
-        title:
-          "Reasonix v1.11.1 与 desktop-v1.11.1 成为最新公开发布线",
-        body: "GitHub releases 显示 6 月 23 日发布的 v1.11.1 与 desktop-v1.11.1 把 bot 会话的 getOrCreateSession race 收口，并把 QQ、微信、飞书接入统一的 connection-lifecycle primitives，同时恢复中断模型流、固定 provider credentials 走全局 .env；桌面端则加入远程 MCP headers、非阻塞会话切换、单界面标签持久化与剪枝补强、rewind 与计划提示恢复，以及启动后保留标签插件上下文。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
+        date: "2026-06-24",
+        title: "Reasonix main-v2 集中 plan mode 策略并收紧审批边界",
+        body: "GitHub PR #5246 及其后续 commits 9059773、e3b4d2a 和 b1326ef 显示 6 月 24 日 main-v2 把 plan-mode policy 集中到同一条执行边界，补入只读 subagent 路径，把 unsafe bash 与可写工具继续挡在更严格的 plan-mode gate 后面，并阻止 MCP readOnly hint 绕过这些检查；同日的 0456f97 与 a8c91c4 还隔离了 CLI locale 状态，并补强 login-shell probe 测试路径的稳定性。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/5246",
       },
       {
         date: "2026-06-13",
@@ -2586,15 +2585,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有 Linux agent bug 报告称部分文件修改仍会跳过审批提示，并且回溯控制在运行中不可用",
+        title: "有桌面端功能请求希望把工具审批模式按会话标签分别持久化",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 agent 功能请求希望在当前会话里直接显示已经读取过的文件列表",
+        title: "有 bug 报告称部分 Reasonix 会话仍会无故断开",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有渲染改进请求指出 task 与 parallel_tasks 的嵌套层级在界面里仍不够清晰",
+        title: "有 TUI 功能请求希望加入多行 composer 输入模式",
       },
     ],
     sourceLinks: sharedSources,
@@ -3102,11 +3101,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-23",
-        title:
-          "Reasonix v1.11.1 與 desktop-v1.11.1 成為最新公開發布線",
-        body: "GitHub releases 顯示 6 月 23 日發布的 v1.11.1 與 desktop-v1.11.1，把 bot 會話的 getOrCreateSession race 收口，並把 QQ、微信、飛書接到統一的 connection-lifecycle primitives，同時恢復中斷模型流、固定 provider credentials 走全域 .env；桌面端則加入遠端 MCP headers、非阻塞會話切換、單介面分頁持久化與剪枝補強、rewind 與計畫提示恢復，以及啟動後保留分頁外掛上下文。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
+        date: "2026-06-24",
+        title: "Reasonix main-v2 集中 plan mode 策略並收緊審批邊界",
+        body: "GitHub PR #5246 與後續 commits 9059773、e3b4d2a 和 b1326ef 顯示 6 月 24 日 main-v2 把 plan-mode policy 收斂到同一條執行邊界，補入唯讀 subagent 路徑，讓 unsafe bash 與可寫工具持續被更嚴格的 plan-mode gate 擋下，並阻止 MCP readOnly hint 繞過這些檢查；同日的 0456f97 與 a8c91c4 也隔離了 CLI locale 狀態，並補強 login-shell probe 測試路徑的穩定性。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/5246",
       },
       {
         date: "2026-06-13",
@@ -3154,15 +3152,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有 Linux agent bug 回報指出部分檔案修改仍會跳過審批提示，且回溯控制在執行中不可用",
+        title: "有桌面端功能請求希望把工具審批模式按會話分頁分別持久化",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 agent 功能請求希望在目前會話裡直接顯示已經讀取過的檔案清單",
+        title: "有 bug 回報指出部分 Reasonix 會話仍會無故斷線",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有渲染改進請求指出 task 與 parallel_tasks 的巢狀層級在介面裡仍不夠清楚",
+        title: "有 TUI 功能請求希望加入多行 composer 輸入模式",
       },
     ],
     sourceLinks: sharedSources,
@@ -3670,11 +3668,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-23",
+        date: "2026-06-24",
         title:
-          "Reasonix v1.11.1 и desktop-v1.11.1 становятся актуальной публичной release line",
-        body: "GitHub releases от 23 июня выводят v1.11.1 и desktop-v1.11.1 в публичный stable line: CLI закрывает race в bot sessions, переводит QQ, Weixin и Feishu на shared connection-lifecycle primitives, восстанавливает interrupted model streams и возвращает provider credentials на global .env path, а desktop line добавляет remote MCP headers, non-blocking session switching, более надежные single-surface tab persistence и pruning, rewind и plan-prompt recovery, а также сохранение tab plugin context после запуска.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.11.1",
+          "Reasonix main-v2 централизует plan mode policy и ужесточает границы review",
+        body: "GitHub PR #5246 и follow-up commits 9059773, e3b4d2a и b1326ef, влитые 24 июня, собирают plan-mode policy в единый execution boundary, добавляют read-only subagent paths, оставляют unsafe bash и write-capable tools за более строгими plan-mode gates и не дают MCP readOnly hints обходить эти проверки; исправления 0456f97 и a8c91c4 того же дня также изолируют CLI locale state и стабилизируют login-shell probe test path.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/5246",
       },
       {
         date: "2026-06-13",
@@ -3722,15 +3720,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "Открытый Linux agent bug говорит, что часть file edits всё ещё проходит без approval prompt, а rollback controls недоступны во время active turn",
+        title: "Открытый desktop feature request просит сохранять tool approval mode отдельно для каждой вкладки сессии",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Открытый agent feature request просит показывать список файлов, уже прочитанных в текущей сессии",
+        title: "Открытый bug report говорит, что часть сессий Reasonix всё ещё может неожиданно обрываться",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Открытый rendering request говорит, что nested task и parallel_tasks cards всё ещё недостаточно ясно показывают иерархию subagent",
+        title: "Открытый TUI feature request просит добавить multiline режим ввода для composer",
       },
     ],
     sourceLinks: sharedSources,
