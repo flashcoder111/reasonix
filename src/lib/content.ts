@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-27",
+  checkedAt: "2026-06-28",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -407,29 +407,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#5374",
-    title: "An open bug report says session switching can still reset the selected collaboration mode",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5374",
+    id: "#5449",
+    title: "An open desktop feature request asks for a pure chat mode without the current coding-agent layout",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5449",
   },
   {
-    id: "#5373",
-    title: "An open bug report says @ file references do not open the picker inside the plan input box",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5373",
+    id: "#5446",
+    title: "An open bug report says pasting multiline text can fail before the model receives the content",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5446",
   },
   {
-    id: "#5371",
-    title: "An open MCP issue asks for a configurable stdio timeout instead of the current fixed 60-second limit",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5371",
+    id: "#5444",
+    title: "An open MCP feature request asks for per-plugin disabled_tools filtering instead of global tool exposure",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5444",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "24,927", note: "GitHub API, 2026-06-27" },
-  { label: "Forks", value: "1,511", note: "GitHub API, 2026-06-27" },
+  { label: "GitHub stars", value: "25,095", note: "GitHub API, 2026-06-28" },
+  { label: "Forks", value: "1,529", note: "GitHub API, 2026-06-28" },
   {
     label: "Open items",
-    value: "852",
-    note: "GitHub API open issues + pull requests, 2026-06-27",
+    value: "867",
+    note: "GitHub API open issues + pull requests, 2026-06-28",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1763,7 +1763,7 @@ export const contentByLocale = {
         label: "Current npm tags",
         value: "latest 0.53.2 / next 1.12.0-rc.1",
         detail:
-          "As checked on 2026-06-27, npm latest is 0.53.2, npm next is 1.12.0-rc.1, and npm canary remains 1.8.0-canary.9.",
+          "As checked on 2026-06-28, npm latest is 0.53.2, npm next is 1.12.0-rc.1, and npm canary remains 1.8.0-canary.9.",
       },
       {
         label: "Official repository",
@@ -1975,10 +1975,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-27",
+        date: "2026-06-28",
         title:
-          "Reasonix main-v2 gates direct image input by model capability and tightens desktop restore fixes",
-        body: "GitHub compare fb364be...main-v2 plus merged PRs #5272, #5378, #5398, and #5399 show the post-v1.12.0 branch now suppresses native image payloads for text-only models while keeping attachments usable as local refs, restores transcript mouse-wheel scrolling in the CLI, keeps the code-block copy button pinned outside the scroll area, and makes desktop rewind target authoritative checkpoints with earlier current-turn file snapshots.",
+          "Reasonix main-v2 adds sandbox read-blocking, resumes desktop telemetry stats, and repairs older DeepSeek tool histories",
+        body: "GitHub compare fb364be...main-v2 plus merged PRs #5304, #5345, #5353, and #5359 show the post-v1.12.0 branch now adds a `forbid_read` sandbox key for paths users do not want the agent to read, restores persisted desktop cost and cache-hit stats on resume, backfills missing tool-result names so older sessions stop failing with DeepSeek HTTP 400 provider errors, and adds a Windows home-directory fallback for config discovery.",
         href: "https://github.com/esengine/DeepSeek-Reasonix/compare/fb364bef8775b14b7fb5f0d455460c99411ec293...main-v2",
       },
       {
@@ -2322,7 +2322,7 @@ export const contentByLocale = {
         label: "当前 npm tags",
         value: "latest 0.53.2 / next 1.12.0-rc.1",
         detail:
-          "按 2026-06-27 查询，npm latest 是 0.53.2，npm next 是 1.12.0-rc.1，npm canary 仍是 1.8.0-canary.9。",
+          "按 2026-06-28 查询，npm latest 是 0.53.2，npm next 是 1.12.0-rc.1，npm canary 仍是 1.8.0-canary.9。",
       },
       {
         label: "官方仓库",
@@ -2534,9 +2534,9 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-27",
-        title: "Reasonix main-v2 按模型能力收紧图片直传，并补强桌面回放修复",
-        body: "GitHub compare fb364be...main-v2 与已合入的 PR #5272、#5378、#5398、#5399 显示，v1.12.0 之后的 main-v2 会对纯文本模型停止发送原生图片 payload，但继续把附件保留为本地 refs；同时恢复 CLI transcript 的鼠标滚轮滚动，把代码块复制按钮固定在滚动区外，并让桌面端 rewind 对齐权威 checkpoint，且更早暴露当前回合的文件快照。",
+        date: "2026-06-28",
+        title: "Reasonix main-v2 新增 sandbox 读屏蔽、恢复桌面统计回放，并修补旧会话的 DeepSeek tool 历史",
+        body: "GitHub compare fb364be...main-v2 与已合入的 PR #5304、#5345、#5353、#5359 显示，v1.12.0 之后的 main-v2 新增 `forbid_read` sandbox 键，让用户可阻止 agent 读取指定路径；桌面端恢复会话时会重新带回已持久化的 cost 与 cache-hit 统计；旧会话缺失 tool-result 名称时会在发送前补齐，避免 DeepSeek provider 因 HTTP 400 报错；Windows 也补入 home 目录回退路径，减少配置发现失败。",
         href: "https://github.com/esengine/DeepSeek-Reasonix/compare/fb364bef8775b14b7fb5f0d455460c99411ec293...main-v2",
       },
       {
@@ -2585,15 +2585,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有 bug 报告称切换会话后当前协作方式仍可能被重置",
+        title: "有桌面端需求希望提供不带现有 coding-agent 布局的纯 chat 模式",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 bug 报告称 plan 输入框内手动输入 @ 时不会弹出文件引用选择器",
+        title: "有 bug 报告称粘贴多行文本时模型在接收前就会丢失内容",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 MCP 问题希望把 stdio tool 的 60 秒超时改成可配置项",
+        title: "有 MCP 需求希望按 plugin 单独禁用 tools，而不是全部暴露后再统一处理",
       },
     ],
     sourceLinks: sharedSources,
@@ -2889,7 +2889,7 @@ export const contentByLocale = {
         label: "目前 npm tags",
         value: "latest 0.53.2 / next 1.12.0-rc.1",
         detail:
-          "按 2026-06-27 查詢，npm latest 是 0.53.2，npm next 是 1.12.0-rc.1，npm canary 仍是 1.8.0-canary.9。",
+          "按 2026-06-28 查詢，npm latest 是 0.53.2，npm next 是 1.12.0-rc.1，npm canary 仍是 1.8.0-canary.9。",
       },
       {
         label: "官方倉庫",
@@ -3101,9 +3101,9 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-27",
-        title: "Reasonix main-v2 依模型能力收緊圖片直傳，並補強桌面回放修復",
-        body: "GitHub compare fb364be...main-v2 與已合入的 PR #5272、#5378、#5398、#5399 顯示，v1.12.0 之後的 main-v2 會對純文字模型停止送出原生圖片 payload，但仍保留附件作為本地 refs；同時恢復 CLI transcript 的滑鼠滾輪捲動，把程式碼區塊複製按鈕固定在捲動區外，並讓桌面端 rewind 對齊權威 checkpoint，且更早暴露目前回合的檔案快照。",
+        date: "2026-06-28",
+        title: "Reasonix main-v2 新增 sandbox 讀取封鎖、恢復桌面統計回放，並修補舊會話的 DeepSeek tool 歷史",
+        body: "GitHub compare fb364be...main-v2 與已合入的 PR #5304、#5345、#5353、#5359 顯示，v1.12.0 之後的 main-v2 新增 `forbid_read` sandbox 鍵，讓使用者可阻止 agent 讀取指定路徑；桌面端恢復會話時會重新帶回已持久化的 cost 與 cache-hit 統計；舊會話缺失 tool-result 名稱時會在送出前補齊，避免 DeepSeek provider 因 HTTP 400 報錯；Windows 也補入 home 目錄回退路徑，降低設定發現失敗。",
         href: "https://github.com/esengine/DeepSeek-Reasonix/compare/fb364bef8775b14b7fb5f0d455460c99411ec293...main-v2",
       },
       {
@@ -3152,15 +3152,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有 bug 回報指出切換會話後目前協作方式仍可能被重置",
+        title: "有桌面端需求希望提供不帶現有 coding-agent 佈局的純 chat 模式",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 bug 回報指出在 plan 輸入框手動輸入 @ 時不會開啟檔案引用選擇器",
+        title: "有 bug 回報指出貼上多行文字時模型在接收前就會遺失內容",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 MCP 問題希望把 stdio tool 的 60 秒逾時改成可配置項",
+        title: "有 MCP 需求希望依 plugin 個別禁用 tools，而不是全部暴露後再統一處理",
       },
     ],
     sourceLinks: sharedSources,
@@ -3456,7 +3456,7 @@ export const contentByLocale = {
         label: "Текущие npm tags",
         value: "latest 0.53.2 / next 1.12.0-rc.1",
         detail:
-          "На 2026-06-27 npm latest равен 0.53.2, npm next равен 1.12.0-rc.1, а npm canary по-прежнему равен 1.8.0-canary.9.",
+          "На 2026-06-28 npm latest равен 0.53.2, npm next равен 1.12.0-rc.1, а npm canary по-прежнему равен 1.8.0-canary.9.",
       },
       {
         label: "Официальный репозиторий",
@@ -3668,10 +3668,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-27",
+        date: "2026-06-28",
         title:
-          "Reasonix main-v2 ограничивает прямую передачу изображений по возможностям модели и усиливает desktop restore fixes",
-        body: "GitHub compare fb364be...main-v2 и влитые PR #5272, #5378, #5398 и #5399 показывают, что после v1.12.0 ветка main-v2 больше не отправляет native image payloads для text-only models, но сохраняет вложения как local refs; одновременно возвращается прокрутка transcript колесом мыши в CLI, кнопка копирования code block закрепляется вне scroll area, а desktop rewind начинает опираться на authoritative checkpoints и раньше открывает snapshots файлов текущего хода.",
+          "Reasonix main-v2 добавляет sandbox read-blocking, возвращает desktop telemetry stats и чинит старые DeepSeek tool histories",
+        body: "GitHub compare fb364be...main-v2 и влитые PR #5304, #5345, #5353 и #5359 показывают, что после v1.12.0 ветка main-v2 получила ключ sandbox `forbid_read`, чтобы пользователь мог запретить агенту чтение отдельных путей, стала восстанавливать сохраненные desktop cost и cache-hit stats при resume, начала дополнять пропущенные имена tool-result перед отправкой старых сессий в DeepSeek и тем самым убирать HTTP 400 provider errors, а также добавила Windows fallback для поиска домашнего каталога в config discovery.",
         href: "https://github.com/esengine/DeepSeek-Reasonix/compare/fb364bef8775b14b7fb5f0d455460c99411ec293...main-v2",
       },
       {
@@ -3720,15 +3720,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "Открытый bug report говорит, что переключение сессии все еще может сбрасывать выбранный collaboration mode",
+        title: "Открытый desktop feature request просит pure chat mode без текущего coding-agent layout",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Открытый bug report говорит, что ввод @ в plan input не открывает picker файловых ссылок",
+        title: "Открытый bug report говорит, что multiline paste может теряться до того, как модель получит текст",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Открытый MCP issue просит сделать stdio timeout настраиваемым вместо фиксированных 60 секунд",
+        title: "Открытый MCP feature request просит per-plugin disabled_tools вместо глобального набора доступных tools",
       },
     ],
     sourceLinks: sharedSources,
