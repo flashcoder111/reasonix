@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-26",
+  checkedAt: "2026-06-27",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -407,29 +407,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#5318",
-    title: "An open feature request asks Reasonix to enforce context-length limits dynamically instead of a fixed window",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5318",
+    id: "#5374",
+    title: "An open bug report says session switching can still reset the selected collaboration mode",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5374",
   },
   {
-    id: "#5317",
-    title: "An open bug report says archiving a chat can drop its name and create a blank conversation",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5317",
+    id: "#5373",
+    title: "An open bug report says @ file references do not open the picker inside the plan input box",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5373",
   },
   {
-    id: "#5316",
-    title: "An open memory-compiler bug report says internal compiler text can leak into chat turns",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5316",
+    id: "#5371",
+    title: "An open MCP issue asks for a configurable stdio timeout instead of the current fixed 60-second limit",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5371",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "24,644", note: "GitHub API, 2026-06-26" },
-  { label: "Forks", value: "1,495", note: "GitHub API, 2026-06-26" },
+  { label: "GitHub stars", value: "24,927", note: "GitHub API, 2026-06-27" },
+  { label: "Forks", value: "1,511", note: "GitHub API, 2026-06-27" },
   {
     label: "Open items",
-    value: "817",
-    note: "GitHub API open issues + pull requests, 2026-06-26",
+    value: "852",
+    note: "GitHub API open issues + pull requests, 2026-06-27",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1763,7 +1763,7 @@ export const contentByLocale = {
         label: "Current npm tags",
         value: "latest 0.53.2 / next 1.12.0-rc.1",
         detail:
-          "As checked on 2026-06-26, npm latest is 0.53.2, npm next is 1.12.0-rc.1, and npm canary remains 1.8.0-canary.9.",
+          "As checked on 2026-06-27, npm latest is 0.53.2, npm next is 1.12.0-rc.1, and npm canary remains 1.8.0-canary.9.",
       },
       {
         label: "Official repository",
@@ -1975,11 +1975,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-25",
+        date: "2026-06-27",
         title:
-          "Reasonix main-v2 strips cancelled turns, hides leaked memory-compiler text, and closes new approval deadlocks",
-        body: "GitHub PRs #5303, #5307, #5308, #5285, and #5313 merged on June 25 to strip incomplete turn messages after user cancel, remove memory-compiler execution blocks from displayed user messages while preserving compiled previews, move bot approval replies off the dispatch goroutine to avoid deadlocks, fail fast if serve auth nonce generation cannot read crypto randomness, and coalesce desktop topic navigation more safely.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/5303",
+          "Reasonix main-v2 gates direct image input by model capability and tightens desktop restore fixes",
+        body: "GitHub compare fb364be...main-v2 plus merged PRs #5272, #5378, #5398, and #5399 show the post-v1.12.0 branch now suppresses native image payloads for text-only models while keeping attachments usable as local refs, restores transcript mouse-wheel scrolling in the CLI, keeps the code-block copy button pinned outside the scroll area, and makes desktop rewind target authoritative checkpoints with earlier current-turn file snapshots.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/compare/fb364bef8775b14b7fb5f0d455460c99411ec293...main-v2",
       },
       {
         date: "2026-06-13",
@@ -2322,7 +2322,7 @@ export const contentByLocale = {
         label: "当前 npm tags",
         value: "latest 0.53.2 / next 1.12.0-rc.1",
         detail:
-          "按 2026-06-26 查询，npm latest 是 0.53.2，npm next 是 1.12.0-rc.1，npm canary 仍是 1.8.0-canary.9。",
+          "按 2026-06-27 查询，npm latest 是 0.53.2，npm next 是 1.12.0-rc.1，npm canary 仍是 1.8.0-canary.9。",
       },
       {
         label: "官方仓库",
@@ -2534,10 +2534,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-25",
-        title: "Reasonix main-v2 清理取消残留回合、隐藏 memory compiler 泄漏文本，并补上审批死锁修复",
-        body: "GitHub PR #5303、#5307、#5308、#5285 和 #5313 显示 6 月 25 日 main-v2 会在用户取消后剥离未完成回合，把 memory-compiler execution block 从用户消息显示层移除但保留编译预览，把 bot approval reply 挪出 dispatch goroutine 以避免死锁，并在 serve auth 随机 nonce 生成失败时立即报错，同时收紧桌面 topic navigation 的合并竞态。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/5303",
+        date: "2026-06-27",
+        title: "Reasonix main-v2 按模型能力收紧图片直传，并补强桌面回放修复",
+        body: "GitHub compare fb364be...main-v2 与已合入的 PR #5272、#5378、#5398、#5399 显示，v1.12.0 之后的 main-v2 会对纯文本模型停止发送原生图片 payload，但继续把附件保留为本地 refs；同时恢复 CLI transcript 的鼠标滚轮滚动，把代码块复制按钮固定在滚动区外，并让桌面端 rewind 对齐权威 checkpoint，且更早暴露当前回合的文件快照。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/compare/fb364bef8775b14b7fb5f0d455460c99411ec293...main-v2",
       },
       {
         date: "2026-06-13",
@@ -2585,15 +2585,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有功能请求希望按剩余上下文动态限制长度，而不是只靠固定窗口",
+        title: "有 bug 报告称切换会话后当前协作方式仍可能被重置",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 bug 报告称归档到回收站时会丢失对话名称并生成空白会话",
+        title: "有 bug 报告称 plan 输入框内手动输入 @ 时不会弹出文件引用选择器",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 memory compiler 相关 bug 报告称内部编译文本会泄漏到聊天内容里",
+        title: "有 MCP 问题希望把 stdio tool 的 60 秒超时改成可配置项",
       },
     ],
     sourceLinks: sharedSources,
@@ -2889,7 +2889,7 @@ export const contentByLocale = {
         label: "目前 npm tags",
         value: "latest 0.53.2 / next 1.12.0-rc.1",
         detail:
-          "按 2026-06-26 查詢，npm latest 是 0.53.2，npm next 是 1.12.0-rc.1，npm canary 仍是 1.8.0-canary.9。",
+          "按 2026-06-27 查詢，npm latest 是 0.53.2，npm next 是 1.12.0-rc.1，npm canary 仍是 1.8.0-canary.9。",
       },
       {
         label: "官方倉庫",
@@ -3101,10 +3101,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-25",
-        title: "Reasonix main-v2 清理取消殘留回合、隱藏 memory compiler 洩漏文字，並補上審批死鎖修復",
-        body: "GitHub PR #5303、#5307、#5308、#5285 與 #5313 顯示 6 月 25 日 main-v2 會在使用者取消後剝離未完成回合，把 memory-compiler execution block 從使用者訊息顯示層移除但保留編譯預覽，將 bot approval reply 移出 dispatch goroutine 以避免死鎖，並在 serve auth 隨機 nonce 生成失敗時立即報錯，同時收緊桌面 topic navigation 的合併競態。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/5303",
+        date: "2026-06-27",
+        title: "Reasonix main-v2 依模型能力收緊圖片直傳，並補強桌面回放修復",
+        body: "GitHub compare fb364be...main-v2 與已合入的 PR #5272、#5378、#5398、#5399 顯示，v1.12.0 之後的 main-v2 會對純文字模型停止送出原生圖片 payload，但仍保留附件作為本地 refs；同時恢復 CLI transcript 的滑鼠滾輪捲動，把程式碼區塊複製按鈕固定在捲動區外，並讓桌面端 rewind 對齊權威 checkpoint，且更早暴露目前回合的檔案快照。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/compare/fb364bef8775b14b7fb5f0d455460c99411ec293...main-v2",
       },
       {
         date: "2026-06-13",
@@ -3152,15 +3152,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有功能請求希望依剩餘上下文動態限制長度，而不是只靠固定視窗",
+        title: "有 bug 回報指出切換會話後目前協作方式仍可能被重置",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 bug 回報指出封存到回收桶時會遺失對話名稱並生成空白會話",
+        title: "有 bug 回報指出在 plan 輸入框手動輸入 @ 時不會開啟檔案引用選擇器",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 memory compiler 相關 bug 回報指出內部編譯文字會洩漏到聊天內容",
+        title: "有 MCP 問題希望把 stdio tool 的 60 秒逾時改成可配置項",
       },
     ],
     sourceLinks: sharedSources,
@@ -3456,7 +3456,7 @@ export const contentByLocale = {
         label: "Текущие npm tags",
         value: "latest 0.53.2 / next 1.12.0-rc.1",
         detail:
-          "На 2026-06-26 npm latest равен 0.53.2, npm next равен 1.12.0-rc.1, а npm canary по-прежнему равен 1.8.0-canary.9.",
+          "На 2026-06-27 npm latest равен 0.53.2, npm next равен 1.12.0-rc.1, а npm canary по-прежнему равен 1.8.0-canary.9.",
       },
       {
         label: "Официальный репозиторий",
@@ -3668,11 +3668,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-25",
+        date: "2026-06-27",
         title:
-          "Reasonix main-v2 очищает отмененные turns, прячет утечки memory-compiler текста и закрывает новые approval deadlocks",
-        body: "GitHub PR #5303, #5307, #5308, #5285 и #5313, влитые 25 июня, убирают incomplete turn messages после user cancel, вырезают memory-compiler execution blocks из отображаемых user messages при сохранении compiled previews, переносят bot approval replies за пределы dispatch goroutine, чтобы не ловить deadlock, аварийно завершают serve auth при сбое чтения crypto randomness и безопаснее коалесцируют desktop topic navigation.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/5303",
+          "Reasonix main-v2 ограничивает прямую передачу изображений по возможностям модели и усиливает desktop restore fixes",
+        body: "GitHub compare fb364be...main-v2 и влитые PR #5272, #5378, #5398 и #5399 показывают, что после v1.12.0 ветка main-v2 больше не отправляет native image payloads для text-only models, но сохраняет вложения как local refs; одновременно возвращается прокрутка transcript колесом мыши в CLI, кнопка копирования code block закрепляется вне scroll area, а desktop rewind начинает опираться на authoritative checkpoints и раньше открывает snapshots файлов текущего хода.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/compare/fb364bef8775b14b7fb5f0d455460c99411ec293...main-v2",
       },
       {
         date: "2026-06-13",
@@ -3720,15 +3720,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "Открытый feature request просит динамически ограничивать длину контекста по оставшемуся бюджету, а не фиксированным окном",
+        title: "Открытый bug report говорит, что переключение сессии все еще может сбрасывать выбранный collaboration mode",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Открытый bug report говорит, что архивирование в корзину может стирать имя чата и создавать пустую сессию",
+        title: "Открытый bug report говорит, что ввод @ в plan input не открывает picker файловых ссылок",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Открытый bug report по memory compiler говорит, что внутренний compiler text может утекать в chat turns",
+        title: "Открытый MCP issue просит сделать stdio timeout настраиваемым вместо фиксированных 60 секунд",
       },
     ],
     sourceLinks: sharedSources,
