@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-29",
+  checkedAt: "2026-06-30",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -1975,6 +1975,13 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-06-29",
+        title:
+          "DeepSeek V4 formal release is targeted for mid-July with peak-hour API pricing",
+        body: "Multiple Chinese outlets reported on June 29, citing DeepSeek upgrade emails to API users, that the formal DeepSeek V4 release is planned for mid-July. The reported pricing change keeps normal-hour V4 Pro and V4 Flash prices unchanged but doubles API calls during Beijing peak windows, 09:00-12:00 and 14:00-18:00. For Reasonix users running DeepSeek-backed coding agents, that makes off-peak scheduling and Flash-first defaults more important before switching to Pro for harder work.",
+        href: "https://wap.eastmoney.com/a/202606293786894351.html",
+      },
+      {
         date: "2026-06-28",
         title:
           "Reasonix CLI v1.13.0 hardens memory handling, provider-key defaults, and MCP execution safety",
@@ -2533,6 +2540,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
+      {
+        date: "2026-06-29",
+        title: "DeepSeek V4 正式版计划 7 月中旬上线，并同步引入 API 峰谷定价",
+        body: "6 月 29 日多家媒体报道，DeepSeek 向 API 用户发送升级提醒邮件：V4 正式版计划 7 月中旬上线，并在正式版发布后引入峰谷定价。V4 Pro 与 V4 Flash 的平时价格保持不变，但北京时间 09:00-12:00、14:00-18:00 高峰时段按平时 2 倍计费。对 Reasonix 这类 DeepSeek-native coding agent 来说，日常长会话更适合继续 Flash-first，在复杂推理前再切 Pro，并尽量把批量任务放到非高峰时段。",
+        href: "https://wap.eastmoney.com/a/202606293786894351.html",
+      },
       {
         date: "2026-06-28",
         title: "Reasonix CLI v1.13.0 把 memory 处理、provider key 默认路径和 MCP 执行安全推进到稳定线",
@@ -3101,6 +3114,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-06-29",
+        title: "DeepSeek V4 正式版計畫 7 月中旬上線，並同步引入 API 峰谷定價",
+        body: "6 月 29 日多家媒體報導，DeepSeek 向 API 使用者發送升級提醒郵件：V4 正式版計畫 7 月中旬上線，並在正式版發布後引入峰谷定價。V4 Pro 與 V4 Flash 的平時價格保持不變，但北京時間 09:00-12:00、14:00-18:00 高峰時段按平時 2 倍計費。對 Reasonix 這類 DeepSeek-native coding agent 來說，日常長會話更適合繼續 Flash-first，在複雜推理前再切 Pro，並盡量把批次任務放到非高峰時段。",
+        href: "https://wap.eastmoney.com/a/202606293786894351.html",
+      },
+      {
         date: "2026-06-28",
         title: "Reasonix CLI v1.13.0 把 memory 處理、provider key 預設與 MCP 執行安全推進到穩定線",
         body: "GitHub 在 6 月 28 日發布 Reasonix CLI v1.13.0，把穩定命令列發布線推進到這批分支狀態：補強 memory 與權限回歸處理、統一自訂 provider key 的環境變數推導、修補舊會話缺失 tool-result 名稱時的送出失敗、把 `forbid_read` 真正落實到 reader tools、恢復桌面 resume 後的 telemetry 統計，並統一 MCP call timeout，同時讓帶引號的 MCP editor 指令與已完成 todo 的 resume 保留更可靠。",
@@ -3667,6 +3686,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-06-29",
+        title:
+          "DeepSeek V4 formal release is targeted for mid-July with peak-hour API pricing",
+        body: "Chinese media reported on June 29, citing DeepSeek upgrade emails to API users, that the formal DeepSeek V4 release is planned for mid-July. The reported change keeps normal-hour V4 Pro and V4 Flash prices unchanged but doubles API calls during Beijing peak windows, 09:00-12:00 and 14:00-18:00. For Reasonix users, the practical rule is still Flash-first for long coding sessions, Pro only for harder reasoning, and batch runs outside peak windows when possible.",
+        href: "https://wap.eastmoney.com/a/202606293786894351.html",
+      },
       {
         date: "2026-06-28",
         title:
