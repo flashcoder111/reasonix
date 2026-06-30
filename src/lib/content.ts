@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-06-30",
+  checkedAt: "2026-07-01",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,7 +52,7 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.13.1";
+export const reasonixCliVersion = "v1.14.0";
 
 const desktopReleaseTag = `desktop-${reasonixCliVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -386,11 +386,11 @@ const sharedSources = [
   },
   {
     label: "CLI release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.1",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
   },
   {
     label: "Desktop release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.13.1",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.14.0",
   },
   {
     label: "README quick start",
@@ -407,29 +407,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#5602",
-    title: "An open planning request asks Reasonix to detect plan-versus-execution count mismatches before batch tasks silently drop work",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5602",
+    id: "#5663",
+    title: "An open desktop feature request asks for scrollbar styling and cleaner indentation between user messages and thinking blocks",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5663",
   },
   {
-    id: "#5601",
-    title: "An open bug report says stale plan-mode constraints can leak into later execution sessions and misguide tool use",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5601",
+    id: "#5651",
+    title: "An open bug report says failed MCP entries can get stuck and stop users from deleting the broken integration",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5651",
   },
   {
-    id: "#5599",
-    title: "An open Windows bug says write_file can fail silently on locked .docx files without lock detection or retry guidance",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5599",
+    id: "#5642",
+    title: "An open bug report says connected models can still misread the active project path during coding runs",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/5642",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "25,349", note: "GitHub API, 2026-06-30" },
-  { label: "Forks", value: "1,554", note: "GitHub API, 2026-06-30" },
+  { label: "GitHub stars", value: "25,479", note: "GitHub API, 2026-07-01" },
+  { label: "Forks", value: "1,566", note: "GitHub API, 2026-07-01" },
   {
     label: "Open items",
-    value: "928",
-    note: "GitHub API open issues + pull requests, 2026-06-30",
+    value: "907",
+    note: "GitHub API open issues + pull requests, 2026-07-01",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1761,9 +1761,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 0.53.2 / next 1.13.1-rc.1",
+        value: "latest 0.53.2 / next 1.14.0-rc.1",
         detail:
-          "As checked on 2026-06-30, npm latest is 0.53.2, npm next is 1.13.1-rc.1, and npm canary remains 1.8.0-canary.9.",
+          "As checked on 2026-07-01, npm latest is 0.53.2, npm next is 1.14.0-rc.1, and npm canary remains 1.8.0-canary.9.",
       },
       {
         label: "Official repository",
@@ -1801,7 +1801,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.13.1, packaging DMG, .deb, tar.gz, and Windows installer assets while adding session-scoped external folder refs, Memory v5 task-vs-chat classifier improvements, cumulative token metric cards, status-bar scoping, long-history desktop lag fixes, edit-file old_string drift tolerance, and better run_skill history visibility.",
+          "The latest public desktop release is desktop-v1.14.0, packaging DMG, .deb, tar.gz, and Windows installer assets while adding Mermaid rendering, custom-provider full URL support, planner/executor cache telemetry fixes, multiline-paste and prompt-edit preservation, and desktop repairs for workspace binding, hydration storms, compact-transcript visibility, and topic-title recovery.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1975,11 +1975,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-06-29",
+        date: "2026-06-30",
         title:
-          "Reasonix v1.13.1 moves the public CLI and Desktop release lines to Memory v5 gating and external-folder reference fixes",
-        body: "GitHub released Reasonix CLI v1.13.1 and desktop-v1.13.1 on June 29. The new stable line adds session-scoped external folder refs, filters Memory v5 prompt and citation noise more aggressively through task-versus-chat classification, fixes plan-revision file references, improves token and status-bar metrics, keeps run_skill subjects visible in desktop history, and makes edit_file old_string matching more tolerant of whitespace drift.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.1",
+          "Reasonix v1.14.0 moves the public CLI and Desktop release lines to Mermaid rendering and custom-provider fixes",
+        body: "GitHub released Reasonix CLI v1.14.0 and desktop-v1.14.0 on June 30. The new stable line adds Mermaid diagram rendering, custom-provider full request URLs with clearer OpenAI-default handling, planner/executor cache telemetry breakdown, multiline-paste and prompt-edit preservation, and desktop fixes for hydration storms, session-workspace binding, compact-transcript visibility, and project-switch topic restoration.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
         date: "2026-06-29",
@@ -1989,11 +1989,11 @@ export const contentByLocale = {
         href: "https://wap.eastmoney.com/a/202606293786894351.html",
       },
       {
-        date: "2026-06-28",
+        date: "2026-06-30",
         title:
-          "Reasonix CLI v1.13.0 hardens memory handling, provider-key defaults, and MCP execution safety",
-        body: "GitHub released Reasonix CLI v1.13.0 on June 28, moving the stable command-line line to the branch state that hardens memory and permission regressions, unifies custom provider-key environment derivation, repairs older sessions that were missing tool-result names, enforces `forbid_read` across reader tools, restores resumed desktop telemetry stats, and standardizes MCP call timeouts while quoted MCP editor commands and completed todos survive resume more reliably.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.0",
+          "Reasonix CLI v1.14.0 adds Mermaid rendering, /cls, cursor-shape control, and custom-provider URL support",
+        body: "GitHub released Reasonix CLI v1.14.0 on June 30, moving the stable line to the branch state that integrates Mermaid rendering, accepts official MCP header-array shapes, allows `complete_step` by todo index, adds `/cls` plus configurable `cursor_shape` for the TUI, documents full custom-provider request URLs, preserves original prompts on edits, and hardens context-maintenance and startup-environment checks.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
         date: "2026-06-13",
@@ -2002,16 +2002,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-29",
-        title: "Reasonix CLI v1.13.0 becomes the latest stable command-line release",
-        body: "GitHub releases published Reasonix CLI v1.13.1 on June 29; the stable line now includes session-scoped external folder refs, Memory v5 task-vs-chat classifier gating, filtered tool_result citation noise, plan-revision file-reference fixes, live bot approval mode updates, and CLI/Desktop follow-through that keeps run_skill history and edit_file matching more reliable.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.1",
+        date: "2026-06-30",
+        title: "Reasonix CLI v1.14.0 becomes the latest stable command-line release",
+        body: "GitHub releases published Reasonix CLI v1.14.0 on June 30; the stable line now includes Mermaid rendering, TUI clear-screen without context loss, configurable cursor-shape handling for CJK input, full custom-provider URL support with OpenAI-default alignment, planner/executor cache telemetry fixes, and safer prompt-edit plus WaitDelay launcher preservation.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
-        date: "2026-06-29",
-        title: "Reasonix Desktop v1.13.1 becomes the current public GUI release line",
-        body: "GitHub releases published desktop-v1.13.1 on June 29 with DMG, .deb, tar.gz, and Windows installer assets; the release line adds session-scoped external folder refs, cumulative input and output token metric cards, configured-only status-bar items, long-history pagination and cancel-context fixes, run_skill subject visibility, edit_file old_string drift tolerance, and softer themed user-message bubbles.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.13.1",
+        date: "2026-06-30",
+        title: "Reasonix Desktop v1.14.0 becomes the current public GUI release line",
+        body: "GitHub releases published desktop-v1.14.0 on June 30 with DMG, .deb, tar.gz, and Windows installer assets; the release line adds Mermaid rendering, session-workspace binding repairs, hydration-storm suppression, final-reply visibility in compact transcripts, multiline-paste capture fixes, project-switch topic-title recovery, custom-provider URL support, and responsive composer polish.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.14.0",
       },
       {
         date: "2026-06-16",
@@ -2122,7 +2122,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.13.0 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.14.0 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub downloads",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "The official repository is",
@@ -2334,9 +2334,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 0.53.2 / next 1.13.1-rc.1",
+        value: "latest 0.53.2 / next 1.14.0-rc.1",
         detail:
-          "按 2026-06-30 查询，npm latest 是 0.53.2，npm next 是 1.13.1-rc.1，npm canary 仍是 1.8.0-canary.9。",
+          "按 2026-07-01 查询，npm latest 是 0.53.2，npm next 是 1.14.0-rc.1，npm canary 仍是 1.8.0-canary.9。",
       },
       {
         label: "官方仓库",
@@ -2374,7 +2374,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.13.1，提供 DMG、.deb、tar.gz 和 Windows installer 资产，并加入会话级外部文件夹引用、Memory v5 任务/聊天分类改进、累计 token 指标卡、状态栏按配置收敛、长历史分页与取消状态修补、run_skill 历史展示，以及 edit_file old_string 漂移容错。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.14.0，提供 DMG、.deb、tar.gz 和 Windows installer 资产，并加入 Mermaid 图表渲染、自定义 provider 完整 URL 支持、planner/executor 缓存指标修补、多行粘贴与原始 prompt 编辑保留，以及桌面端工作区绑定、hydration 风暴、compact transcript 可见性和 topic 标题恢复修补。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2548,10 +2548,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-06-29",
-        title: "Reasonix v1.13.1 把公开 CLI 与 Desktop 发布线推进到 Memory v5 门控和外部文件夹引用修补",
-        body: "GitHub 在 6 月 29 日同时发布 Reasonix CLI v1.13.1 与 desktop-v1.13.1。新的稳定线加入会话级外部文件夹引用、按任务/聊天区分的 Memory v5 门控与引用降噪、计划修订文件引用修补、token 与状态栏指标改进、桌面端 run_skill 历史保留，以及 edit_file 对 old_string 空白漂移的更强容错。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.1",
+        date: "2026-06-30",
+        title: "Reasonix v1.14.0 把公开 CLI 与 Desktop 发布线推进到 Mermaid 渲染、自定义 provider URL 和桌面会话修补",
+        body: "GitHub 在 6 月 30 日同时发布 Reasonix CLI v1.14.0 与 desktop-v1.14.0。新的稳定线加入 Mermaid 图表渲染、自定义 provider 完整请求 URL 与更明确的 OpenAI 默认协议处理、planner/executor 缓存指标修补、多行粘贴与原始 prompt 编辑保留，以及桌面端 hydration 风暴、会话工作区绑定、compact transcript 可见性和切项目后的 topic 标题恢复修补。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
         date: "2026-06-29",
@@ -2560,10 +2560,10 @@ export const contentByLocale = {
         href: "https://wap.eastmoney.com/a/202606293786894351.html",
       },
       {
-        date: "2026-06-28",
-        title: "Reasonix CLI v1.13.0 把 memory 处理、provider key 默认路径和 MCP 执行安全推进到稳定线",
-        body: "GitHub 在 6 月 28 日发布 Reasonix CLI v1.13.0，把稳定命令行发布线推进到这批分支状态：补强 memory 与权限回归处理、统一自定义 provider key 的环境变量推导、修补旧会话缺失 tool-result 名称时的发送失败、把 `forbid_read` 真正落实到 reader tools、恢复桌面 resume 后的 telemetry 统计，并统一 MCP call timeout，同时让带引号的 MCP editor 命令和已完成 todo 的 resume 保留更可靠。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.0",
+        date: "2026-06-30",
+        title: "Reasonix CLI v1.14.0 把 Mermaid、/cls、cursor_shape 和自定义 provider URL 支持推进到稳定线",
+        body: "GitHub 在 6 月 30 日发布 Reasonix CLI v1.14.0，把稳定命令行发布线推进到这批分支状态：整合 Mermaid 图表渲染、兼容官方 MCP header 数组形状、允许按 todo index 完成步骤、为 TUI 增加 `/cls` 与可配置 `cursor_shape`、补全文档中的自定义 provider 完整 URL 支持，并补强原始 prompt 编辑保留、上下文维护与启动环境探测。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
         date: "2026-06-13",
@@ -2572,16 +2572,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-29",
-        title: "Reasonix CLI v1.13.1 成为最新稳定命令行发布",
-        body: "GitHub releases 在 6 月 29 日发布 Reasonix CLI v1.13.1；这条稳定线现在纳入会话级外部文件夹引用、按任务/聊天区分的 Memory v5 门控、tool_result 引用降噪、计划修订文件引用修补、实时 bot 审批模式更新，以及让 run_skill 历史与 edit_file 匹配更稳定的桌面/CLI 联动修补。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.1",
+        date: "2026-06-30",
+        title: "Reasonix CLI v1.14.0 成为最新稳定命令行发布",
+        body: "GitHub releases 在 6 月 30 日发布 Reasonix CLI v1.14.0；这条稳定线现在纳入 Mermaid 渲染、不会丢失上下文的 TUI 清屏、面向 CJK 输入的 `cursor_shape` 配置、自定义 provider 完整 URL 与 OpenAI 默认协议对齐、planner/executor 缓存指标修补，以及更稳的 prompt 编辑保留与 WaitDelay 会话启动器保留。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
-        date: "2026-06-29",
-        title: "Reasonix Desktop v1.13.1 成为当前公开 GUI 发布线",
-        body: "GitHub releases 在 6 月 29 日发布 desktop-v1.13.1，提供 DMG、.deb、tar.gz 和 Windows installer 资产；这条发布线加入会话级外部文件夹引用、累计输入/输出 token 指标卡、状态栏仅显示已配置项、长历史分页与取消上下文修补、run_skill subject 可见性，以及 edit_file old_string 漂移容错和更柔和的用户消息气泡。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.13.1",
+        date: "2026-06-30",
+        title: "Reasonix Desktop v1.14.0 成为当前公开 GUI 发布线",
+        body: "GitHub releases 在 6 月 30 日发布 desktop-v1.14.0，提供 DMG、.deb、tar.gz 和 Windows installer 资产；这条发布线加入 Mermaid 渲染、会话工作区绑定修补、hydration 风暴抑制、compact transcript 最终回复可见性、多行粘贴捕获、切项目后的 topic 标题恢复、自定义 provider URL 支持，以及更顺手的输入栏响应式打磨。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.14.0",
       },
       {
         date: "2026-06-16",
@@ -2611,15 +2611,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有计划模式需求希望在批量任务开始前检测 plan 与 execution 数量不一致，避免静默漏做项目",
+        title: "有桌面端需求希望继续优化滚动条样式，并让用户消息与思考块之间的缩进层次更清晰",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 bug 报告称旧 plan-mode 错误约束会泄漏到后续执行会话，误导工具调用",
+        title: "有 bug 报告称启动失败的 MCP 条目可能卡住，导致用户无法删除异常集成",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 Windows bug 指出 .docx 被 Word 占用时 write_file 可能静默失败，缺少锁检测与重试提示",
+        title: "有 bug 报告称接入模型在编码过程中仍可能误判当前项目路径",
       },
     ],
     sourceLinks: sharedSources,
@@ -2704,7 +2704,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 下载地址：npm next 安装、Homebrew tap 安装，以及 Mac、Windows、Linux 的 desktop-v1.13.0 桌面端打包下载。",
+          "Reasonix GitHub 下载地址：npm next 安装、Homebrew tap 安装，以及 Mac、Windows、Linux 的 desktop-v1.14.0 桌面端打包下载。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载方式：npm、Homebrew 和桌面端打包下载",
         descriptionBeforeLink: "官方仓库地址为",
@@ -2913,9 +2913,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 0.53.2 / next 1.13.1-rc.1",
+        value: "latest 0.53.2 / next 1.14.0-rc.1",
         detail:
-          "按 2026-06-30 查詢，npm latest 是 0.53.2，npm next 是 1.13.1-rc.1，npm canary 仍是 1.8.0-canary.9。",
+          "按 2026-07-01 查詢，npm latest 是 0.53.2，npm next 是 1.14.0-rc.1，npm canary 仍是 1.8.0-canary.9。",
       },
       {
         label: "官方倉庫",
@@ -2953,7 +2953,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.13.1，提供 DMG、.deb、tar.gz 和 Windows installer 資產，並加入會話級外部資料夾引用、Memory v5 任務/聊天分類改進、累計 token 指標卡、狀態列按設定收斂、長歷史分頁與取消狀態修補、run_skill 歷史顯示，以及 edit_file old_string 漂移容錯。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.14.0，提供 DMG、.deb、tar.gz 和 Windows installer 資產，並加入 Mermaid 圖表渲染、自訂 provider 完整 URL 支援、planner/executor 快取指標修補、多行貼上與原始 prompt 編輯保留，以及桌面端工作區綁定、hydration 風暴、compact transcript 可見性和 topic 標題恢復修補。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3127,10 +3127,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-06-29",
-        title: "Reasonix v1.13.1 把公開 CLI 與 Desktop 發布線推進到 Memory v5 門控與外部資料夾引用修補",
-        body: "GitHub 在 6 月 29 日同步發布 Reasonix CLI v1.13.1 與 desktop-v1.13.1。新的穩定線加入會話級外部資料夾引用、依任務/聊天區分的 Memory v5 門控與引用降噪、計畫修訂檔案引用修補、token 與狀態列指標改進、桌面端 run_skill 歷史保留，以及 edit_file 對 old_string 空白漂移的更強容錯。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.1",
+        date: "2026-06-30",
+        title: "Reasonix v1.14.0 把公開 CLI 與 Desktop 發布線推進到 Mermaid 渲染、自訂 provider URL 和桌面會話修補",
+        body: "GitHub 在 6 月 30 日同步發布 Reasonix CLI v1.14.0 與 desktop-v1.14.0。新的穩定線加入 Mermaid 圖表渲染、自訂 provider 完整請求 URL 與更明確的 OpenAI 預設協定處理、planner/executor 快取指標修補、多行貼上與原始 prompt 編輯保留，以及桌面端 hydration 風暴、會話工作區綁定、compact transcript 可見性和切專案後的 topic 標題恢復修補。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
         date: "2026-06-29",
@@ -3139,10 +3139,10 @@ export const contentByLocale = {
         href: "https://wap.eastmoney.com/a/202606293786894351.html",
       },
       {
-        date: "2026-06-28",
-        title: "Reasonix CLI v1.13.0 把 memory 處理、provider key 預設與 MCP 執行安全推進到穩定線",
-        body: "GitHub 在 6 月 28 日發布 Reasonix CLI v1.13.0，把穩定命令列發布線推進到這批分支狀態：補強 memory 與權限回歸處理、統一自訂 provider key 的環境變數推導、修補舊會話缺失 tool-result 名稱時的送出失敗、把 `forbid_read` 真正落實到 reader tools、恢復桌面 resume 後的 telemetry 統計，並統一 MCP call timeout，同時讓帶引號的 MCP editor 指令與已完成 todo 的 resume 保留更可靠。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.0",
+        date: "2026-06-30",
+        title: "Reasonix CLI v1.14.0 把 Mermaid、/cls、cursor_shape 和自訂 provider URL 支援推進到穩定線",
+        body: "GitHub 在 6 月 30 日發布 Reasonix CLI v1.14.0，把穩定命令列發布線推進到這批分支狀態：整合 Mermaid 圖表渲染、相容官方 MCP header 陣列形狀、允許依 todo index 完成步驟、為 TUI 加入 `/cls` 與可設定 `cursor_shape`、補全文檔中的自訂 provider 完整 URL 支援，並補強原始 prompt 編輯保留、上下文維護與啟動環境探測。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
         date: "2026-06-13",
@@ -3151,16 +3151,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-29",
-        title: "Reasonix CLI v1.13.1 成為最新穩定命令列發布",
-        body: "GitHub releases 在 6 月 29 日發布 Reasonix CLI v1.13.1；這條穩定線現在納入會話級外部資料夾引用、依任務/聊天區分的 Memory v5 門控、tool_result 引用降噪、計畫修訂檔案引用修補、即時 bot 審批模式更新，以及讓 run_skill 歷史與 edit_file 比對更穩定的桌面/CLI 聯動修補。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.1",
+        date: "2026-06-30",
+        title: "Reasonix CLI v1.14.0 成為最新穩定命令列發布",
+        body: "GitHub releases 在 6 月 30 日發布 Reasonix CLI v1.14.0；這條穩定線現在納入 Mermaid 渲染、不會遺失上下文的 TUI 清屏、面向 CJK 輸入的 `cursor_shape` 設定、自訂 provider 完整 URL 與 OpenAI 預設協定對齊、planner/executor 快取指標修補，以及更穩的 prompt 編輯保留與 WaitDelay 會話啟動器保留。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
-        date: "2026-06-29",
-        title: "Reasonix Desktop v1.13.1 成為目前公開 GUI 發布線",
-        body: "GitHub releases 在 6 月 29 日發布 desktop-v1.13.1，提供 DMG、.deb、tar.gz 和 Windows installer 資產；這條發布線加入會話級外部資料夾引用、累計輸入/輸出 token 指標卡、狀態列僅顯示已設定項、長歷史分頁與取消上下文修補、run_skill subject 可見性，以及 edit_file old_string 漂移容錯與更柔和的使用者訊息氣泡。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.13.1",
+        date: "2026-06-30",
+        title: "Reasonix Desktop v1.14.0 成為目前公開 GUI 發布線",
+        body: "GitHub releases 在 6 月 30 日發布 desktop-v1.14.0，提供 DMG、.deb、tar.gz 和 Windows installer 資產；這條發布線加入 Mermaid 渲染、會話工作區綁定修補、hydration 風暴抑制、compact transcript 最終回覆可見性、多行貼上捕獲、切專案後的 topic 標題恢復、自訂 provider URL 支援，以及更順手的輸入欄響應式打磨。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.14.0",
       },
       {
         date: "2026-06-16",
@@ -3190,15 +3190,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有計畫模式需求希望在批次任務開始前偵測 plan 與 execution 數量不一致，避免靜默漏做項目",
+        title: "有桌面端需求希望持續優化捲軸樣式，並讓使用者訊息與思考區塊之間的縮排層次更清楚",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 bug 回報指出舊 plan-mode 錯誤約束會洩漏到後續執行會話，誤導工具調用",
+        title: "有 bug 回報指出啟動失敗的 MCP 條目可能卡住，導致使用者無法刪除異常整合",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 Windows bug 指出 .docx 被 Word 佔用時 write_file 可能靜默失敗，缺少鎖定偵測與重試提示",
+        title: "有 bug 回報指出接入模型在編碼過程中仍可能誤判目前專案路徑",
       },
     ],
     sourceLinks: sharedSources,
@@ -3283,7 +3283,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 下載地址：npm next 安裝、Homebrew tap 安裝，以及 Mac、Windows、Linux 的 desktop-v1.13.0 桌面端打包下載。",
+          "Reasonix GitHub 下載地址：npm next 安裝、Homebrew tap 安裝，以及 Mac、Windows、Linux 的 desktop-v1.14.0 桌面端打包下載。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載方式：npm、Homebrew 和桌面端打包下載",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -3492,9 +3492,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 0.53.2 / next 1.13.1-rc.1",
+        value: "latest 0.53.2 / next 1.14.0-rc.1",
         detail:
-          "На 2026-06-30 npm latest равен 0.53.2, npm next равен 1.13.1-rc.1, а npm canary по-прежнему равен 1.8.0-canary.9.",
+          "На 2026-07-01 npm latest равен 0.53.2, npm next равен 1.14.0-rc.1, а npm canary по-прежнему равен 1.8.0-canary.9.",
       },
       {
         label: "Официальный репозиторий",
@@ -3532,7 +3532,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.13.1: доступны DMG, .deb, tar.gz и Windows installer артефакты, а release line добавляет session-scoped external folder refs, улучшенную task-vs-chat классификацию Memory v5, cumulative token metric cards, status bar только для настроенных items, fixes для длинной истории и cancel context, видимость run_skill subject и более устойчивый edit_file old_string matching.",
+          "Последний публичный desktop release - desktop-v1.14.0: доступны DMG, .deb, tar.gz и Windows installer артефакты, а release line добавляет Mermaid rendering, поддержку full custom-provider URLs, fixes для telemetry planner/executor cache, multiline paste и сохранения original prompt, а также desktop repairs для workspace binding, hydration storms, compact transcript visibility и topic-title recovery.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3706,11 +3706,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-06-29",
+        date: "2026-06-30",
         title:
-          "Reasonix v1.13.1 переводит публичные CLI и Desktop release lines на fixes для Memory v5 gating и external-folder refs",
-        body: "GitHub выпустил Reasonix CLI v1.13.1 и desktop-v1.13.1 29 июня. Новая stable line добавляет session-scoped external folder refs, более строгую task-vs-chat классификацию для Memory v5 и suppression citation noise, fixes для file references в plan revisions, улучшения token и status-bar metrics, сохранение run_skill subject в desktop history и более терпимое edit_file old_string matching при дрейфе whitespace.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.1",
+          "Reasonix v1.14.0 переводит публичные CLI и Desktop release lines на Mermaid rendering и fixes для custom providers",
+        body: "GitHub выпустил Reasonix CLI v1.14.0 и desktop-v1.14.0 30 июня. Новая stable line добавляет Mermaid rendering, full custom-provider request URLs с более ясным OpenAI-default поведением, fixes для planner/executor cache telemetry, сохранение multiline paste и original prompt edits, а также desktop repairs для hydration storms, session-workspace binding, compact transcript visibility и topic-title recovery при смене проекта.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
         date: "2026-06-29",
@@ -3720,11 +3720,11 @@ export const contentByLocale = {
         href: "https://wap.eastmoney.com/a/202606293786894351.html",
       },
       {
-        date: "2026-06-28",
+        date: "2026-06-30",
         title:
-          "Reasonix CLI v1.13.0 переносит memory hardening, provider-key defaults и MCP safety в stable line",
-        body: "GitHub выпустил Reasonix CLI v1.13.0 28 июня, переведя стабильную command-line line на состояние ветки, где усилены memory и permission regressions, унифицировано вычисление env names для custom provider keys, исправлена отправка старых sessions без имен tool-result, `forbid_read` реально применяется ко всем reader tools, возвращаются desktop telemetry stats после resume и унифицируются MCP call timeouts, а quoted MCP editor commands и completed todos надежнее переживают resume.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.0",
+          "Reasonix CLI v1.14.0 приносит Mermaid rendering, /cls, cursor_shape control и поддержку custom-provider URLs",
+        body: "GitHub выпустил Reasonix CLI v1.14.0 30 июня, переведя stable line на состояние ветки, где интегрированы Mermaid rendering, поддержка официального MCP header-array shape, `complete_step` по todo index, `/cls` и настраиваемый `cursor_shape` для TUI, documentation для full custom-provider request URLs, сохранение original prompt на edits и более жесткие context-maintenance и startup-environment checks.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
         date: "2026-06-13",
@@ -3733,16 +3733,16 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-06-29",
-        title: "Reasonix CLI v1.13.1 становится актуальным stable command-line release",
-        body: "GitHub releases опубликовали Reasonix CLI v1.13.1 29 июня; stable line теперь включает session-scoped external folder refs, task-vs-chat gating для Memory v5, suppression tool_result citation noise, fixes для file references в plan revisions, live updates режима bot approval и follow-through fixes, которые делают run_skill history и edit_file matching заметно надежнее.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.13.1",
+        date: "2026-06-30",
+        title: "Reasonix CLI v1.14.0 становится актуальным stable command-line release",
+        body: "GitHub releases опубликовали Reasonix CLI v1.14.0 30 июня; stable line теперь включает Mermaid rendering, очистку TUI без потери контекста, настройку `cursor_shape` для CJK input, full custom-provider URLs с OpenAI-default alignment, fixes для planner/executor cache telemetry и более безопасное сохранение prompt edits вместе с WaitDelay session launchers.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.14.0",
       },
       {
-        date: "2026-06-29",
-        title: "Reasonix Desktop v1.13.1 - текущая публичная GUI release line",
-        body: "GitHub releases опубликовали desktop-v1.13.1 29 июня с DMG, .deb, tar.gz и Windows installer артефактами; эта release line добавляет session-scoped external folder refs, cumulative input/output token metric cards, configured-only status bar items, fixes для длинной history и cancel context, видимость run_skill subject, tolerance к drift в edit_file old_string и более мягкие user message bubbles.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.13.1",
+        date: "2026-06-30",
+        title: "Reasonix Desktop v1.14.0 - текущая публичная GUI release line",
+        body: "GitHub releases опубликовали desktop-v1.14.0 30 июня с DMG, .deb, tar.gz и Windows installer артефактами; эта release line добавляет Mermaid rendering, repairs для session-workspace binding, suppression hydration storms, visibility final replies в compact transcript, fixes для multiline paste capture, project-switch topic-title recovery, поддержку custom-provider URLs и более отзывчивый composer.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.14.0",
       },
       {
         date: "2026-06-16",
@@ -3772,15 +3772,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "Открытый feature request просит до batch tasks ловить расхождение между plan и execution counts, чтобы работа не терялась молча",
+        title: "Открытый desktop feature request просит доработать стиль scrollbar и сделать отступы между user messages и thinking blocks понятнее",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Открытый bug report говорит, что stale plan-mode constraints могут утекать в последующие execution sessions и путать tool use",
+        title: "Открытый bug report говорит, что сломанные MCP entries могут застревать и мешать удалить неисправную интеграцию",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Открытый Windows bug report говорит, что write_file может молча падать на заблокированных .docx без lock detection и retry guidance",
+        title: "Открытый bug report говорит, что подключенные модели все еще могут неверно распознавать активный путь проекта во время coding runs",
       },
     ],
     sourceLinks: sharedSources,
@@ -3865,7 +3865,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub загрузки",
         metaDescription:
-          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.13.0 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm next install, Homebrew tap install, and desktop-v1.14.0 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub загрузки",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "Официальный репозиторий:",
