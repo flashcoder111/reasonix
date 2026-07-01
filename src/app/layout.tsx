@@ -8,6 +8,8 @@ import "./globals.css";
 const defaultMetadata = getDefaultRouteMetadata("/");
 const googleAnalyticsMeasurementId =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-TE1DZDDZYC";
+const popunderScriptSrc =
+  "https://pl30148888.effectivecpmnetwork.com/99/0d/1f/990d1fd0e740c456c84e0d553bab1327.js";
 
 export const metadata: Metadata = {
   ...defaultMetadata,
@@ -49,6 +51,11 @@ export default function RootLayout({
       lang="en"
       className="h-full antialiased"
     >
+      <Script
+        id="effectivecpm-popunder"
+        src={popunderScriptSrc}
+        strategy="beforeInteractive"
+      />
       <body className="min-h-full">
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(
