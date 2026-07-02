@@ -33,8 +33,19 @@ import type {
   CommunityQuestionDetailResponse,
   CommunityQuestionListResponse,
 } from "@/lib/community";
-import { getContent, getSeoLandingPage, SITE } from "@/lib/content";
-import { localizePath, normalizePath, type Locale } from "@/lib/i18n";
+import {
+  desktopDownloadAssets,
+  getContent,
+  getSeoLandingPage,
+  reasonixCliVersion,
+  SITE,
+} from "@/lib/content";
+import {
+  localeConfig,
+  localizePath,
+  normalizePath,
+  type Locale,
+} from "@/lib/i18n";
 
 type LocalizedPageProps = {
   locale: Locale;
@@ -138,6 +149,9 @@ function ArticleJsonLd({
         "@type": "Article",
         headline: article.title,
         description: article.description,
+        abstract: article.summary,
+        keywords: article.tags,
+        articleSection: article.sections.map((section) => section.heading),
         datePublished: article.date,
         dateModified: SITE.checkedAt,
         image: [SITE.ogImage],
@@ -158,6 +172,11 @@ function ArticleJsonLd({
             url: SITE.ogImage,
           },
         },
+        citation: article.sources.map((source) => ({
+          "@type": "CreativeWork",
+          name: source.label,
+          url: source.href,
+        })),
       }}
     />
   );
@@ -178,6 +197,75 @@ function FaqJsonLd({ locale }: LocalizedPageProps) {
             "@type": "Answer",
             text: faq.answer,
           },
+        })),
+      }}
+    />
+  );
+}
+
+function SoftwareApplicationJsonLd({ locale }: LocalizedPageProps) {
+  return (
+    <JsonLdScript
+      data={{
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: SITE.name,
+        url: SITE.officialSite,
+        applicationCategory: "DeveloperApplication",
+        operatingSystem: "macOS, Windows, Linux",
+        softwareVersion: reasonixCliVersion,
+        description: SITE.description,
+        downloadUrl: [
+          desktopDownloadAssets.macos,
+          desktopDownloadAssets.windows,
+          desktopDownloadAssets.linux,
+        ],
+        codeRepository: SITE.github,
+        sameAs: [SITE.github, SITE.officialSite, SITE.deepseekGuide, SITE.x],
+        inLanguage: localeConfig[locale].htmlLang,
+      }}
+    />
+  );
+}
+
+function GithubDownloadHowToJsonLd({ locale }: LocalizedPageProps) {
+  const flow = getGithubVerificationFlowCopy(locale);
+
+  return (
+    <JsonLdScript
+      data={{
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: flow.title,
+        description: flow.body,
+        step: flow.steps.map((step, index) => ({
+          "@type": "HowToStep",
+          position: index + 1,
+          name: step.title,
+          text: step.body,
+        })),
+      }}
+    />
+  );
+}
+
+function ErrorsHowToJsonLd({ locale }: LocalizedPageProps) {
+  const content = getContent(locale);
+  const page = content.pages.errors;
+
+  return (
+    <JsonLdScript
+      data={{
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: page.title,
+        description: page.description,
+        step: content.errorCommands.map((item, index) => ({
+          "@type": "HowToStep",
+          position: index + 1,
+          name: item.problem,
+          text: item.hint,
+          url: getAbsoluteLocalizedUrl(locale, "/errors"),
         })),
       }}
     />
@@ -482,6 +570,174 @@ function getDownloadVerificationCopy(locale: Locale) {
       "Before running npx, verify the selected npm tag and Node requirement with npm view reasonix dist-tags and npm view reasonix engines.",
       "For desktop releases, check the release tag, asset names, signature files, and publish time instead of trusting screenshots.",
       "Before building main-v2 from source, review the README, Makefile, Go version, and recent commits to confirm that source-level verification is actually needed.",
+    ],
+  };
+}
+
+function getGithubVerificationFlowCopy(locale: Locale) {
+  if (locale === "zh-cn") {
+    return {
+      title: "怎么选择下载路径",
+      body: "先判断自己需要的是临时体验、长期命令，还是图形界面，再核验来源和版本。这个流程比直接点下载更可靠。",
+      steps: [
+        {
+          title: "先看官方来源",
+          body: "确认仓库、npm 包和 desktop release 都指向 Reasonix 官方来源，避免使用镜像或二次打包链接。",
+        },
+        {
+          title: "再选安装方式",
+          body: "临时体验用 npx；长期命令用 npm 或 Homebrew；需要 GUI 时再下载桌面端安装包。",
+        },
+        {
+          title: "最后核验环境",
+          body: "运行前检查 Node engine、npm dist-tags、release tag、系统平台和 DeepSeek API Key。",
+        },
+      ],
+    };
+  }
+
+  if (locale === "zh-tw") {
+    return {
+      title: "怎麼選擇下載路徑",
+      body: "先判斷自己需要的是臨時體驗、長期命令，還是圖形介面，再核驗來源和版本。這個流程比直接點下載更可靠。",
+      steps: [
+        {
+          title: "先看官方來源",
+          body: "確認倉庫、npm package 和 desktop release 都指向 Reasonix 官方來源，避免使用鏡像或二次打包連結。",
+        },
+        {
+          title: "再選安裝方式",
+          body: "臨時體驗用 npx；長期命令用 npm 或 Homebrew；需要 GUI 時再下載桌面端安裝包。",
+        },
+        {
+          title: "最後核驗環境",
+          body: "執行前檢查 Node engine、npm dist-tags、release tag、系統平台和 DeepSeek API Key。",
+        },
+      ],
+    };
+  }
+
+  if (locale === "ru") {
+    return {
+      title: "How to choose a download path",
+      body: "Decide whether you need a trial run, a reusable terminal command, or a desktop app, then verify source and version before running it.",
+      steps: [
+        {
+          title: "Start with official sources",
+          body: "Confirm that the repository, npm package, and desktop release point to official Reasonix sources, not mirrors or repackaged installers.",
+        },
+        {
+          title: "Choose the install path",
+          body: "Use npx for a trial, npm or Homebrew for a reusable CLI, and desktop packages only when you need the GUI.",
+        },
+        {
+          title: "Verify the environment",
+          body: "Check Node engine, npm dist-tags, release tag, platform, and DeepSeek API key before the first run.",
+        },
+      ],
+    };
+  }
+
+  return {
+    title: "How to choose a download path",
+    body: "Decide whether you need a trial run, a reusable terminal command, or a desktop app, then verify source and version before running it.",
+    steps: [
+      {
+        title: "Start with official sources",
+        body: "Confirm that the repository, npm package, and desktop release point to official Reasonix sources, not mirrors or repackaged installers.",
+      },
+      {
+        title: "Choose the install path",
+        body: "Use npx for a trial, npm or Homebrew for a reusable CLI, and desktop packages only when you need the GUI.",
+      },
+      {
+        title: "Verify the environment",
+        body: "Check Node engine, npm dist-tags, release tag, platform, and DeepSeek API key before the first run.",
+      },
+    ],
+  };
+}
+
+function getErrorTriageCopy(locale: Locale) {
+  if (locale === "zh-cn") {
+    return {
+      title: "排查顺序",
+      body: "先确认命令和版本，再看凭证，最后处理系统环境。这样能减少无效重装，也不会把密钥贴到公开页面。",
+      steps: [
+        {
+          title: "版本与入口",
+          body: "确认 node -v、npm dist-tags、npx 或全局命令是否指向预期版本。",
+        },
+        {
+          title: "凭证与配置",
+          body: "确认 DeepSeek API Key 存在且只保存在本机环境、Reasonix 配置或安全的 secret manager 中。",
+        },
+        {
+          title: "工具链与终端",
+          body: "源码构建再检查 Go/make；交互异常再检查终端、Shell、Windows Terminal 或 Git for Windows。",
+        },
+      ],
+    };
+  }
+
+  if (locale === "zh-tw") {
+    return {
+      title: "排查順序",
+      body: "先確認命令和版本，再看憑證，最後處理系統環境。這樣能減少無效重裝，也不會把密鑰貼到公開頁面。",
+      steps: [
+        {
+          title: "版本與入口",
+          body: "確認 node -v、npm dist-tags、npx 或全域命令是否指向預期版本。",
+        },
+        {
+          title: "憑證與設定",
+          body: "確認 DeepSeek API Key 存在且只保存在本機環境、Reasonix 設定或安全的 secret manager 中。",
+        },
+        {
+          title: "工具鏈與終端機",
+          body: "原始碼建置再檢查 Go/make；互動異常再檢查終端機、Shell、Windows Terminal 或 Git for Windows。",
+        },
+      ],
+    };
+  }
+
+  if (locale === "ru") {
+    return {
+      title: "Triage order",
+      body: "Check command and version first, credentials second, and local tooling last. That avoids unnecessary reinstalls and keeps secrets out of public pages.",
+      steps: [
+        {
+          title: "Version and entry point",
+          body: "Confirm node -v, npm dist-tags, and whether npx or the global command points to the intended package.",
+        },
+        {
+          title: "Credentials and config",
+          body: "Confirm that the DeepSeek API key exists and stays in local environment, Reasonix config, or a safe secret manager.",
+        },
+        {
+          title: "Toolchain and terminal",
+          body: "Check Go/make only for source builds; check terminal, shell, Windows Terminal, or Git for Windows only for interaction bugs.",
+        },
+      ],
+    };
+  }
+
+  return {
+    title: "Triage order",
+    body: "Check command and version first, credentials second, and local tooling last. That avoids unnecessary reinstalls and keeps secrets out of public pages.",
+    steps: [
+      {
+        title: "Version and entry point",
+        body: "Confirm node -v, npm dist-tags, and whether npx or the global command points to the intended package.",
+      },
+      {
+        title: "Credentials and config",
+        body: "Confirm that the DeepSeek API key exists and stays in local environment, Reasonix config, or a safe secret manager.",
+      },
+      {
+        title: "Toolchain and terminal",
+        body: "Check Go/make only for source builds; check terminal, shell, Windows Terminal, or Git for Windows only for interaction bugs.",
+      },
     ],
   };
 }
@@ -1321,8 +1577,12 @@ export function GithubPageContent({ locale }: LocalizedPageProps) {
   const content = getContent(locale);
   const page = content.pages.github;
   const verification = getDownloadVerificationCopy(locale);
+  const flow = getGithubVerificationFlowCopy(locale);
 
   return (
+    <>
+    <SoftwareApplicationJsonLd locale={locale} />
+    <GithubDownloadHowToJsonLd locale={locale} />
     <div className="space-y-8">
       <section>
         <div className="mb-4 inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-900">
@@ -1366,6 +1626,35 @@ export function GithubPageContent({ locale }: LocalizedPageProps) {
         desktopDownload={content.desktopDownload}
       />
 
+      <section>
+        <div className="max-w-3xl">
+          <h2 className="text-2xl font-semibold text-slate-950">
+            {flow.title}
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-slate-600">
+            {flow.body}
+          </p>
+        </div>
+        <div className="mt-5 grid gap-3 md:grid-cols-3">
+          {flow.steps.map((step, index) => (
+            <article
+              key={step.title}
+              className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+            >
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-emerald-950 text-sm font-semibold text-white">
+                {index + 1}
+              </div>
+              <h3 className="mt-4 text-base font-semibold leading-6 text-slate-950">
+                {step.title}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                {step.body}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
         <h2 className="text-xl font-semibold text-slate-950">
           {verification.title}
@@ -1390,14 +1679,18 @@ export function GithubPageContent({ locale }: LocalizedPageProps) {
         </div>
       </section>
     </div>
+    </>
   );
 }
 
 export function ErrorsPageContent({ locale }: LocalizedPageProps) {
   const content = getContent(locale);
   const page = content.pages.errors;
+  const triage = getErrorTriageCopy(locale);
 
   return (
+    <>
+    <ErrorsHowToJsonLd locale={locale} />
     <div className="space-y-8">
       <section>
         <div className="mb-4 inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-900">
@@ -1410,6 +1703,35 @@ export function ErrorsPageContent({ locale }: LocalizedPageProps) {
         <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
           {page.description}
         </p>
+      </section>
+
+      <section>
+        <div className="max-w-3xl">
+          <h2 className="text-2xl font-semibold text-slate-950">
+            {triage.title}
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-slate-600">
+            {triage.body}
+          </p>
+        </div>
+        <div className="mt-5 grid gap-3 md:grid-cols-3">
+          {triage.steps.map((step, index) => (
+            <article
+              key={step.title}
+              className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+            >
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-950 text-sm font-semibold text-white">
+                {index + 1}
+              </div>
+              <h3 className="mt-4 text-base font-semibold leading-6 text-slate-950">
+                {step.title}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                {step.body}
+              </p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
@@ -1461,6 +1783,7 @@ export function ErrorsPageContent({ locale }: LocalizedPageProps) {
         </div>
       </section>
     </div>
+    </>
   );
 }
 

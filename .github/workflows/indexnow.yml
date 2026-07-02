@@ -47,9 +47,9 @@ jobs:
         run: npm run indexnow:submit
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          INDEXNOW_SITE_URL: https://www.deepseekreasonix.com
-          INDEXNOW_SITEMAP_URL: https://www.deepseekreasonix.com/sitemap.xml
-          INDEXNOW_KEY_LOCATION: https://www.deepseekreasonix.com/indexnow-key.txt
+          INDEXNOW_SITE_URL: https://deepseekreasonix.com
+          INDEXNOW_SITEMAP_URL: https://deepseekreasonix.com/sitemap.xml
+          INDEXNOW_KEY_LOCATION: https://deepseekreasonix.com/indexnow-key.txt
           INDEXNOW_SINCE_DAYS: ${{ github.event.inputs.since_days || '2' }}
           INDEXNOW_ALL: ${{ github.event.inputs.all || 'false' }}
           INDEXNOW_DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
