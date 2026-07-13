@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n";
 import {
   getAbsoluteLocalizedUrl,
+  getCommunityQuestionAlternateUrls,
   getIndexablePagePaths,
   getRouteAlternateUrls,
   getRouteChangeFrequency,
@@ -24,21 +25,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const communityQuestions = await getVisibleCommunityQuestionsForSitemap();
-  const communityRoutes = locales.flatMap((locale) =>
-    communityQuestions.map((question) => {
-      const path = `/community/${question.slug}`;
+  const communityRoutes = communityQuestions.map((question) => {
+    const path = `/community/${question.slug}`;
 
-      return {
-        url: getAbsoluteLocalizedUrl(locale, path),
-        lastModified: new Date(question.updatedAt || question.createdAt),
-        changeFrequency: "weekly" as const,
-        priority: 0.65,
-        alternates: {
-          languages: getRouteAlternateUrls(path),
-        },
-      };
-    }),
-  );
+    return {
+      url: getAbsoluteLocalizedUrl(question.locale, path),
+      lastModified: new Date(question.updatedAt || question.createdAt),
+      changeFrequency: "weekly" as const,
+      priority: 0.65,
+      alternates: {
+        languages: getCommunityQuestionAlternateUrls(
+          question.slug,
+          question.locale,
+        ),
+      },
+    };
+  });
 
   return [...staticRoutes, ...communityRoutes];
 }

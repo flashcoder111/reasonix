@@ -10,6 +10,22 @@ const googleAnalyticsMeasurementId =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-TE1DZDDZYC";
 const popunderScriptSrc =
   "https://pl30148888.effectivecpmnetwork.com/99/0d/1f/990d1fd0e740c456c84e0d553bab1327.js";
+const htmlLanguageScript = `
+  (function () {
+    var path = window.location.pathname;
+    var lang = "en";
+
+    if (path === "/zh-cn" || path.indexOf("/zh-cn/") === 0) {
+      lang = "zh-CN";
+    } else if (path === "/zh-tw" || path.indexOf("/zh-tw/") === 0) {
+      lang = "zh-TW";
+    } else if (path === "/ru" || path.indexOf("/ru/") === 0) {
+      lang = "ru";
+    }
+
+    document.documentElement.lang = lang;
+  })();
+`;
 
 export const metadata: Metadata = {
   ...defaultMetadata,
@@ -51,6 +67,11 @@ export default function RootLayout({
       lang="en"
       className="h-full antialiased"
     >
+      <Script
+        id="reasonix-html-lang"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: htmlLanguageScript }}
+      />
       <Script
         id="effectivecpm-popunder"
         src={popunderScriptSrc}

@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-07-08",
+  checkedAt: "2026-07-13",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.17.7";
-export const reasonixDesktopVersion = "v1.17.7";
+export const reasonixCliVersion = "v1.17.11";
+export const reasonixDesktopVersion = "v1.17.11";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -387,11 +387,11 @@ const sharedSources = [
   },
   {
     label: "CLI release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.7",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.11",
   },
   {
     label: "Desktop release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.17.7",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.17.11",
   },
   {
     label: "README quick start",
@@ -408,29 +408,29 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#6000",
-    title: "An open bug report says stale .lock and .lease.lock files can persist after a session ends and block later model switching",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/6000",
+    id: "#6387",
+    title: "An open v1.17.11 bug report says the composer can collapse to a single visible line on macOS",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/6387",
   },
   {
-    id: "#6003",
-    title: "An open bug report says the latest version can keep surfacing a branch-recovery prompt during normal use",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/6003",
+    id: "#6381",
+    title: "An open feature request asks for manual context compaction when unrelated tasks make the current session noisy",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/6381",
   },
   {
-    id: "#6006",
-    title: "An open Windows desktop bug report says model switching has failed since the v1.16 line on some installs",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/6006",
+    id: "#6385",
+    title: "An open feature request asks Reasonix to notify users when background work finishes instead of relying on polling",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/6385",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "26,322", note: "GitHub API, 2026-07-08" },
-  { label: "Forks", value: "1,638", note: "GitHub API, 2026-07-08" },
+  { label: "GitHub stars", value: "26,759", note: "GitHub API, 2026-07-13" },
+  { label: "Forks", value: "1,678", note: "GitHub API, 2026-07-13" },
   {
     label: "Open items",
-    value: "1,048",
-    note: "GitHub API open issues + pull requests, 2026-07-08",
+    value: "1,129",
+    note: "GitHub API open issues + pull requests, 2026-07-13",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1762,9 +1762,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 1.17.7 / next 1.17.6-rc.1",
+        value: "latest 1.17.11 / next 1.17.6-rc.1",
         detail:
-          "As checked on 2026-07-08, npm latest is 1.17.7, npm next is 1.17.6-rc.1, npm canary remains 1.8.0-canary.9, and both latest and next declare Node >=18.",
+          "As checked on 2026-07-13, npm latest is 1.17.11, npm next is 1.17.6-rc.1, npm canary remains 1.8.0-canary.9, and both latest and next declare Node >=18.",
       },
       {
         label: "Official repository",
@@ -1802,7 +1802,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.17.7, packaging DMG, .deb, tar.gz, and Windows installer assets while adding Claude plugin manifest installs, restoring prompt chimes after runtime rebuilds, surfacing background prompts with sound, clarifying CRLF edit diagnostics, folding noisy tool-error details, and quieting recovery-copy notifications.",
+          "The latest public desktop release is desktop-v1.17.11, packaging DMG, .deb, tar.gz, and Windows installer assets while exposing configurable subagent profiles, qualifying plugin slash commands and skill names, carrying MCP image results, opening the workspace panel on launch, and improving review recovery plus readiness UX.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1857,7 +1857,7 @@ export const contentByLocale = {
       {
         question: "What should I check before the first run?",
         answer:
-          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix@next engines, and npm view reasonix dist-tags. As of 2026-07-08, both latest and next declare Node >=18, so prefer live package metadata when older guides disagree.",
+          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix@next engines, and npm view reasonix dist-tags. As of 2026-07-13, both latest and next declare Node >=18, so prefer live package metadata when older guides disagree.",
       },
       {
         question: "Should I use npx, global npm install, or build from source?",
@@ -1867,7 +1867,7 @@ export const contentByLocale = {
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-07-08, npm latest is 1.17.7, npm next is 1.17.6-rc.1, and npm canary is 1.8.0-canary.9. The package keeps a stable default line plus preview channels.",
+          "As of 2026-07-13, npm latest is 1.17.11, npm next is 1.17.6-rc.1, and npm canary is 1.8.0-canary.9. The package keeps a stable default line plus preview channels.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1978,9 +1978,9 @@ export const contentByLocale = {
       {
         date: "2026-07-07",
         title:
-          "Reasonix v1.17.7 is now the current stable CLI and desktop line",
-        body: "GitHub published Reasonix CLI v1.17.7 and desktop-v1.17.7 on July 7, 2026. The current stable line now adds Claude plugin manifest installs, restores prompt chimes after runtime rebuilds, quiets recovery-copy notices and background lifecycle noise, folds tool-error details, and fixes CRLF edit diagnostics and raw `node -e` auto-repair edge cases.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.7",
+          "Reasonix v1.17.11 is now the current stable CLI line",
+        body: "GitHub published Reasonix CLI v1.17.11 on July 12, 2026. The stable line now documents npm and Homebrew install paths, ships configurable subagent profile management, adds qualified plugin slash commands and skill names, and hardens GitHub plugin installs plus sign-in redirect validation.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.11",
       },
       {
         date: "2026-07-05",
@@ -1992,8 +1992,8 @@ export const contentByLocale = {
       {
         date: "2026-07-07",
         title:
-          "npm latest now installs Reasonix 1.17.7 instead of the old 0.x line",
-        body: "The official npm registry now points `latest` to Reasonix 1.17.7, with `next` at 1.17.6-rc.1 and both channels declaring Node >=18. That changes the default install path for users who verify `npm view reasonix dist-tags` before running `npx reasonix code` or `npm i -g reasonix`.",
+          "npm latest now installs Reasonix 1.17.11 instead of the old 0.x line",
+        body: "The official npm registry now points `latest` to Reasonix 1.17.11, with `next` at 1.17.6-rc.1 and both channels declaring Node >=18. That keeps the default install path on the current Go rewrite for users who verify `npm view reasonix dist-tags` before running `npx reasonix code` or `npm i -g reasonix`.",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
@@ -2004,9 +2004,9 @@ export const contentByLocale = {
       },
       {
         date: "2026-07-07",
-        title: "Reasonix Desktop v1.17.7 becomes the current public GUI release line",
-        body: "GitHub released desktop-v1.17.7 on July 7 with DMG, .deb, tar.gz, and Windows installer assets. The public desktop line now supports Claude plugin manifest installs, re-arms prompt chimes after runtime rebuilds, plays attention sounds for background prompts, and removes noisy recovery-copy banners and toast spam during normal work.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.17.7",
+        title: "Reasonix Desktop v1.17.11 becomes the current public GUI release line",
+        body: "GitHub released desktop-v1.17.11 on July 12 with DMG, .deb, tar.gz, and Windows installer assets. The public desktop line now exposes configurable subagent profiles, opens the workspace panel on launch, improves review recovery and readiness UX, and carries MCP image results plus qualified plugin slash commands through the desktop flow.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.17.11",
       },
       {
         date: "2026-06-16",
@@ -2117,7 +2117,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub downloads covering npm package install, Homebrew install, and desktop-v1.17.7 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm package install, Homebrew install, and desktop-v1.17.11 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub downloads",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "The official repository is",
@@ -2329,9 +2329,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 1.17.7 / next 1.17.6-rc.1",
+        value: "latest 1.17.11 / next 1.17.6-rc.1",
         detail:
-          "按 2026-07-08 查询，npm latest 是 1.17.7，npm next 是 1.17.6-rc.1，npm canary 仍是 1.8.0-canary.9，而且 latest 与 next 都声明 Node >=18。",
+          "按 2026-07-13 查询，npm latest 是 1.17.11，npm next 是 1.17.6-rc.1，npm canary 仍是 1.8.0-canary.9，而且 latest 与 next 都声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2369,7 +2369,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.17.7，提供 DMG、.deb、tar.gz 和 Windows installer 资产，并加入 Claude 插件 manifest 安装、runtime rebuild 之后重新响铃、后台提示音、CRLF 编辑诊断修复、工具报错详情折叠，以及 recovery-copy 通知降噪。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.17.11，提供 DMG、.deb、tar.gz 和 Windows installer 资产，并加入可配置子智能体 profile、插件斜杠命令和技能限定名、MCP 图片结果传递、启动即展开工作区，以及审查恢复与就绪体验改进。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2424,7 +2424,7 @@ export const contentByLocale = {
       {
         question: "首次运行前应该检查哪些版本？",
         answer:
-          "先检查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix@next engines 和 npm view reasonix dist-tags。按 2026-07-08 查询，latest 与 next 都声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
+          "先检查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix@next engines 和 npm view reasonix dist-tags。按 2026-07-13 查询，latest 与 next 都声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
       },
       {
         question: "现在应该用 npx、全局 npm 安装还是源码构建？",
@@ -2434,7 +2434,7 @@ export const contentByLocale = {
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-07-08 查询，npm latest 是 1.17.7，npm next 是 1.17.6-rc.1，npm canary 是 1.8.0-canary.9。这个 package 同时保留稳定默认线和预览通道。",
+          "按 2026-07-13 查询，npm latest 是 1.17.11，npm next 是 1.17.6-rc.1，npm canary 是 1.8.0-canary.9。这个 package 同时保留稳定默认线和预览通道。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2544,9 +2544,9 @@ export const contentByLocale = {
     newsItems: [
       {
         date: "2026-07-07",
-        title: "Reasonix v1.17.7 现已成为当前稳定 CLI 与桌面发布线",
-        body: "GitHub 在 2026 年 7 月 7 日同时发布 Reasonix CLI v1.17.7 和 desktop-v1.17.7。当前稳定线加入 Claude 插件 manifest 安装，恢复 runtime rebuild 后的提示音，降低 recovery-copy 与后台生命周期噪音，并修复工具报错详情展示、CRLF 编辑诊断以及原始 `node -e` 自愈边缘情况。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.7",
+        title: "Reasonix v1.17.11 现已成为当前稳定 CLI 发布线",
+        body: "GitHub 在 2026 年 7 月 12 日发布 Reasonix CLI v1.17.11。当前稳定线把 npm 与 Homebrew 安装路径写进官方 README，加入可配置子智能体 profile 管理、插件斜杠命令与技能限定名，并补强 GitHub 插件安装校验和登录跳转安全检查。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.11",
       },
       {
         date: "2026-07-05",
@@ -2556,8 +2556,8 @@ export const contentByLocale = {
       },
       {
         date: "2026-07-07",
-        title: "npm latest 现已默认安装 Reasonix 1.17.7，而不是旧的 0.x 线",
-        body: "官方 npm registry 现在把 `latest` 指向 Reasonix 1.17.7，`next` 指向 1.17.6-rc.1，而且两个通道都声明 Node >=18。这改变了在执行 `npx reasonix code` 或 `npm i -g reasonix` 之前先用 `npm view reasonix dist-tags` 做来源核验时看到的默认安装路径。",
+        title: "npm latest 现已默认安装 Reasonix 1.17.11，而不是旧的 0.x 线",
+        body: "官方 npm registry 现在把 `latest` 指向 Reasonix 1.17.11，`next` 指向 1.17.6-rc.1，而且两个通道都声明 Node >=18。这让在执行 `npx reasonix code` 或 `npm i -g reasonix` 前先用 `npm view reasonix dist-tags` 做来源核验的用户，默认落在当前 Go 重写稳定线。",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
@@ -2568,9 +2568,9 @@ export const contentByLocale = {
       },
       {
         date: "2026-07-07",
-        title: "Reasonix Desktop v1.17.7 成为当前公开 GUI 发布线",
-        body: "GitHub releases 在 7 月 7 日发布 desktop-v1.17.7，提供 DMG、.deb、tar.gz 和 Windows installer 资产；这条发布线支持 Claude 插件 manifest 安装，恢复 runtime rebuild 后的提示音，补上后台 prompt 提示音，并减少 recovery-copy 横幅与 toast 对正常工作的干扰。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.17.7",
+        title: "Reasonix Desktop v1.17.11 成为当前公开 GUI 发布线",
+        body: "GitHub releases 在 7 月 12 日发布 desktop-v1.17.11，提供 DMG、.deb、tar.gz 和 Windows installer 资产；这条发布线加入可配置子智能体 profile、启动即展开工作区、审查恢复与就绪体验优化，并让 MCP 图片结果与插件限定斜杠命令在桌面流程里可见可用。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.17.11",
       },
       {
         date: "2026-06-16",
@@ -2693,7 +2693,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 下载地址：npm 包安装、Homebrew 安装，以及 Mac、Windows、Linux 的 desktop-v1.17.7 桌面端打包下载。",
+          "Reasonix GitHub 下载地址：npm 包安装、Homebrew 安装，以及 Mac、Windows、Linux 的 desktop-v1.17.11 桌面端打包下载。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载方式：npm、Homebrew 和桌面端打包下载",
         descriptionBeforeLink: "官方仓库地址为",
@@ -2902,9 +2902,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 1.17.7 / next 1.17.6-rc.1",
+        value: "latest 1.17.11 / next 1.17.6-rc.1",
         detail:
-          "按 2026-07-08 查詢，npm latest 是 1.17.7，npm next 是 1.17.6-rc.1，npm canary 仍是 1.8.0-canary.9，而且 latest 與 next 都宣告 Node >=18。",
+          "按 2026-07-13 查詢，npm latest 是 1.17.11，npm next 是 1.17.6-rc.1，npm canary 仍是 1.8.0-canary.9，而且 latest 與 next 都宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -2942,7 +2942,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.17.7，提供 DMG、.deb、tar.gz 和 Windows installer 資產，並加入 Claude 插件 manifest 安裝、runtime rebuild 後重新響鈴、背景提示音、CRLF 編輯診斷修復、工具報錯詳情折疊，以及 recovery-copy 通知降噪。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.17.11，提供 DMG、.deb、tar.gz 和 Windows installer 資產，並加入可配置子智能體 profile、插件斜槓命令與技能限定名、MCP 圖片結果傳遞、啟動即展開工作區，以及審查恢復與就緒體驗改善。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2997,7 +2997,7 @@ export const contentByLocale = {
       {
         question: "首次執行前應該檢查哪些版本？",
         answer:
-          "先檢查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix@next engines 和 npm view reasonix dist-tags。按 2026-07-08 查詢，latest 與 next 都宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
+          "先檢查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix@next engines 和 npm view reasonix dist-tags。按 2026-07-13 查詢，latest 與 next 都宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
       },
       {
         question: "現在應該用 npx、全域 npm 安裝還是原始碼建置？",
@@ -3007,7 +3007,7 @@ export const contentByLocale = {
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-07-08 查詢，npm latest 是 1.17.7，npm next 是 1.17.6-rc.1，npm canary 是 1.8.0-canary.9。這個 package 同時保留穩定預設線和預覽通道。",
+          "按 2026-07-13 查詢，npm latest 是 1.17.11，npm next 是 1.17.6-rc.1，npm canary 是 1.8.0-canary.9。這個 package 同時保留穩定預設線和預覽通道。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -3117,9 +3117,9 @@ export const contentByLocale = {
     newsItems: [
       {
         date: "2026-07-07",
-        title: "Reasonix v1.17.7 現已成為目前穩定 CLI 與桌面發布線",
-        body: "GitHub 在 2026 年 7 月 7 日同時發布 Reasonix CLI v1.17.7 與 desktop-v1.17.7。當前穩定線加入 Claude 插件 manifest 安裝，恢復 runtime rebuild 後的提示音，降低 recovery-copy 與背景 lifecycle 噪音，並修復工具報錯詳情、CRLF 編輯診斷與原始 `node -e` 自癒邊緣情況。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.7",
+        title: "Reasonix v1.17.11 現已成為目前穩定 CLI 發布線",
+        body: "GitHub 在 2026 年 7 月 12 日發布 Reasonix CLI v1.17.11。當前穩定線把 npm 與 Homebrew 安裝路徑寫進官方 README，加入可配置子智能體 profile 管理、插件斜槓命令與技能限定名，並補強 GitHub 插件安裝校驗和登入跳轉安全檢查。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.11",
       },
       {
         date: "2026-07-05",
@@ -3129,8 +3129,8 @@ export const contentByLocale = {
       },
       {
         date: "2026-07-07",
-        title: "npm latest 現已預設安裝 Reasonix 1.17.7，而不是舊的 0.x 線",
-        body: "官方 npm registry 現在把 `latest` 指向 Reasonix 1.17.7，`next` 指向 1.17.6-rc.1，而且兩個通道都宣告 Node >=18。這改變了在執行 `npx reasonix code` 或 `npm i -g reasonix` 前先用 `npm view reasonix dist-tags` 做來源核驗時看到的預設安裝路徑。",
+        title: "npm latest 現已預設安裝 Reasonix 1.17.11，而不是舊的 0.x 線",
+        body: "官方 npm registry 現在把 `latest` 指向 Reasonix 1.17.11，`next` 指向 1.17.6-rc.1，而且兩個通道都宣告 Node >=18。這讓在執行 `npx reasonix code` 或 `npm i -g reasonix` 前先用 `npm view reasonix dist-tags` 做來源核驗的使用者，預設落在當前 Go 重寫穩定線。",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
@@ -3141,9 +3141,9 @@ export const contentByLocale = {
       },
       {
         date: "2026-07-07",
-        title: "Reasonix Desktop v1.17.7 成為目前公開 GUI 發布線",
-        body: "GitHub releases 在 7 月 7 日發布 desktop-v1.17.7，提供 DMG、.deb、tar.gz 和 Windows installer 資產；這條發布線支援 Claude 插件 manifest 安裝，恢復 runtime rebuild 後的提示音，補上背景 prompt 提示音，並減少 recovery-copy 橫幅與 toast 對正常工作的干擾。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.17.7",
+        title: "Reasonix Desktop v1.17.11 成為目前公開 GUI 發布線",
+        body: "GitHub releases 在 7 月 12 日發布 desktop-v1.17.11，提供 DMG、.deb、tar.gz 和 Windows installer 資產；這條發布線加入可配置子智能體 profile、啟動即展開工作區、審查恢復與就緒體驗優化，並讓 MCP 圖片結果與插件限定斜槓命令在桌面流程裡可見可用。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.17.11",
       },
       {
         date: "2026-06-16",
@@ -3266,7 +3266,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 下載地址：npm package 安裝、Homebrew 安裝，以及 Mac、Windows、Linux 的 desktop-v1.17.7 桌面端打包下載。",
+          "Reasonix GitHub 下載地址：npm package 安裝、Homebrew 安裝，以及 Mac、Windows、Linux 的 desktop-v1.17.11 桌面端打包下載。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載方式：npm、Homebrew 和桌面端打包下載",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -3475,9 +3475,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 1.17.7 / next 1.17.6-rc.1",
+        value: "latest 1.17.11 / next 1.17.6-rc.1",
         detail:
-          "На 2026-07-08 npm latest равен 1.17.7, npm next равен 1.17.6-rc.1, npm canary по-прежнему равен 1.8.0-canary.9, и оба канала latest и next объявляют Node >=18.",
+          "На 2026-07-13 npm latest равен 1.17.11, npm next равен 1.17.6-rc.1, npm canary по-прежнему равен 1.8.0-canary.9, и оба канала latest и next объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3515,7 +3515,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.17.7: доступны DMG, .deb, tar.gz и Windows installer артефакты, а release line добавляет установку Claude plugin manifest, возвращает prompt chime после runtime rebuild, включает attention sound для background prompts, уточняет CRLF edit diagnostics, сворачивает шумные tool-error details и убирает лишние recovery-copy уведомления.",
+          "Последний публичный desktop release - desktop-v1.17.11: доступны DMG, .deb, tar.gz и Windows installer артефакты, а release line добавляет настраиваемые профили subagent, квалифицированные plugin slash-команды и skill names, передачу MCP image results, автооткрытие workspace panel и улучшения review recovery и readiness UX.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3570,7 +3570,7 @@ export const contentByLocale = {
       {
         question: "Что проверить перед первым запуском?",
         answer:
-          "Проверьте node -v, npm -v, npm view reasonix@latest engines, npm view reasonix@next engines и npm view reasonix dist-tags. На 2026-07-08 и latest, и next объявляют Node >=18; если старые guides расходятся, доверяйте live package metadata.",
+          "Проверьте node -v, npm -v, npm view reasonix@latest engines, npm view reasonix@next engines и npm view reasonix dist-tags. На 2026-07-13 и latest, и next объявляют Node >=18; если старые guides расходятся, доверяйте live package metadata.",
       },
       {
         question: "Выбрать npx, global npm install или source build?",
@@ -3580,7 +3580,7 @@ export const contentByLocale = {
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-07-08 npm latest равен 1.17.7, npm next равен 1.17.6-rc.1, а npm canary равен 1.8.0-canary.9. Package сохраняет stable default line и preview channels.",
+          "На 2026-07-13 npm latest равен 1.17.11, npm next равен 1.17.6-rc.1, а npm canary равен 1.8.0-canary.9. Package сохраняет stable default line и preview channels.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3689,11 +3689,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-07-07",
+        date: "2026-07-12",
         title:
-          "Reasonix v1.17.7 теперь является актуальной stable line для CLI и desktop",
-        body: "GitHub опубликовал Reasonix CLI v1.17.7 и desktop-v1.17.7 7 июля 2026 года. Текущая stable line добавляет установку Claude plugin manifest, возвращает prompt chime после runtime rebuild, снижает шум recovery-copy и background lifecycle notices, а также исправляет показ tool-error details, CRLF edit diagnostics и крайние случаи autorepair для raw `node -e`.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.7",
+          "Reasonix v1.17.11 теперь является актуальной stable line для CLI",
+        body: "GitHub опубликовал Reasonix CLI v1.17.11 12 июля 2026 года. Текущая stable line документирует npm и Homebrew install path, добавляет управление настраиваемыми профилями subagent, квалифицированные plugin slash-команды и skill names, а также усиливает проверку GitHub plugin installs и безопасность sign-in redirect.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.11",
       },
       {
         date: "2026-07-05",
@@ -3703,10 +3703,10 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/36c9a440807c16ecaa7ca439ca6c9ea76047c422",
       },
       {
-        date: "2026-07-07",
+        date: "2026-07-12",
         title:
-          "npm latest теперь устанавливает Reasonix 1.17.7 вместо старой ветки 0.x",
-        body: "Официальный npm registry теперь указывает `latest` на Reasonix 1.17.7, `next` - на 1.17.6-rc.1, и оба канала объявляют Node >=18. Это меняет путь установки по умолчанию для пользователей, которые проверяют `npm view reasonix dist-tags` перед `npx reasonix code` или `npm i -g reasonix`.",
+          "npm latest теперь устанавливает Reasonix 1.17.11 вместо старой ветки 0.x",
+        body: "Официальный npm registry теперь указывает `latest` на Reasonix 1.17.11, `next` - на 1.17.6-rc.1, и оба канала объявляют Node >=18. Это удерживает путь установки по умолчанию на текущей stable Go rewrite line для пользователей, которые проверяют `npm view reasonix dist-tags` перед `npx reasonix code` или `npm i -g reasonix`.",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
@@ -3716,10 +3716,10 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/commit/bd6b414390b0b90131fec8d868e75857f8e7d014",
       },
       {
-        date: "2026-07-07",
-        title: "Reasonix Desktop v1.17.7 - текущая публичная GUI release line",
-        body: "GitHub releases опубликовали desktop-v1.17.7 7 июля с DMG, .deb, tar.gz и Windows installer артефактами; эта release line поддерживает установку Claude plugin manifest, возвращает prompt chime после runtime rebuild, добавляет attention sound для background prompts и уменьшает шум banner/toast уведомлений recovery-copy во время обычной работы.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.17.7",
+        date: "2026-07-12",
+        title: "Reasonix Desktop v1.17.11 - текущая публичная GUI release line",
+        body: "GitHub releases опубликовали desktop-v1.17.11 12 июля с DMG, .deb, tar.gz и Windows installer артефактами; эта release line добавляет настраиваемые профили subagent, автооткрытие workspace panel, улучшает review recovery и readiness UX и проводит MCP image results плюс квалифицированные plugin slash-команды через desktop flow.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.17.11",
       },
       {
         date: "2026-06-16",

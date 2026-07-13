@@ -66,6 +66,7 @@ type CommunityDataResult<T> =
 
 export type CommunitySitemapQuestion = {
   slug: string;
+  locale: Locale;
   updatedAt: string;
   createdAt: string;
 };
@@ -345,7 +346,7 @@ export async function getVisibleCommunityQuestionsForSitemap(): Promise<
   const supabase = getCommunitySupabase();
   const { data, error } = await supabase
     .from("community_questions")
-    .select("slug,created_at,updated_at")
+    .select("slug,locale,body,reply_count,created_at,updated_at")
     .eq("status", "visible")
     .order("updated_at", { ascending: false });
 
@@ -353,11 +354,19 @@ export async function getVisibleCommunityQuestionsForSitemap(): Promise<
     return [];
   }
 
-  return (data || []).map((row) => ({
-    slug: String(row.slug),
-    createdAt: String(row.created_at),
-    updatedAt: String(row.updated_at),
-  }));
+  return (data || [])
+    .filter((row) => {
+      const body = String(row.body || "").replace(/\s+/g, " ").trim();
+      const replyCount = Number(row.reply_count || 0);
+
+      return body.length >= 80 || replyCount > 0;
+    })
+    .map((row) => ({
+      slug: String(row.slug),
+      locale: row.locale as Locale,
+      createdAt: String(row.created_at),
+      updatedAt: String(row.updated_at),
+    }));
 }
 
 export function mapCommunityQuestion(

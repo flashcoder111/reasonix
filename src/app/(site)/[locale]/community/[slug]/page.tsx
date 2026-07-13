@@ -8,6 +8,7 @@ import {
 import {
   getCommunityQuestionRouteMetadata,
   getNoindexRouteMetadata,
+  isCanonicalCommunityQuestionLocale,
 } from "@/lib/routes";
 import {
   communityDataErrorToApiError,
@@ -33,6 +34,10 @@ export async function generateMetadata({
   const result = await getCommunityQuestionDetail(slug);
 
   if (!result.ok) {
+    return getNoindexRouteMetadata();
+  }
+
+  if (!isCanonicalCommunityQuestionLocale(locale, result.data.data.question)) {
     return getNoindexRouteMetadata();
   }
 

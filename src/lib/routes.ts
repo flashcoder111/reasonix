@@ -13,6 +13,7 @@ import {
 } from "@/lib/content";
 import {
   DEFAULT_LOCALE,
+  isLocale,
   getAlternatePaths,
   localeConfig,
   localizePath,
@@ -169,11 +170,70 @@ export function getRouteAlternateUrls(path: string): Record<string, string> {
   ]);
 }
 
+export function isCanonicalCommunityQuestionLocale(
+  locale: Locale,
+  question: CommunityQuestion,
+): boolean {
+  return locale === question.locale;
+}
+
+export function getCommunityQuestionAlternateUrls(
+  slug: string,
+  locale: Locale,
+): Record<string, string> {
+  const normalizedLocale = isLocale(locale) ? locale : DEFAULT_LOCALE;
+  const path = `/community/${slug}`;
+  const canonicalUrl = getAbsoluteLocalizedUrl(normalizedLocale, path);
+
+  return {
+    [getAlternateLanguageKey(normalizedLocale)]: canonicalUrl,
+    "x-default": canonicalUrl,
+  };
+}
+
 type RouteCopy = {
   title: string;
   description: string;
   keywords?: readonly string[];
 };
+
+const metadataContextByLocale = {
+  en: {
+    title: "DeepSeek Reasonix Guide",
+    description:
+      "Use the current Reasonix guide to verify official GitHub and npm sources, compare setup paths, and keep provider keys in local configuration.",
+  },
+  "zh-cn": {
+    title: "DeepSeek Reasonix 完整使用指南",
+    description:
+      "本页同时提供 Reasonix 官方 GitHub、npm 与 DeepSeek 文档的核验入口，帮助你比较安装方式、确认当前版本，并把模型服务商 API Key 留在本地配置中。",
+  },
+  "zh-tw": {
+    title: "DeepSeek Reasonix 完整使用指南",
+    description:
+      "本頁同時提供 Reasonix 官方 GitHub、npm 與 DeepSeek 文件的核驗入口，幫助你比較安裝方式、確認目前版本，並把模型服務商 API Key 留在本機設定中。",
+  },
+  ru: {
+    title: "DeepSeek Reasonix Guide",
+    description:
+      "Use this Reasonix guide to verify official GitHub, npm, and DeepSeek sources, compare setup paths, and keep provider keys in local configuration.",
+  },
+} satisfies Record<Locale, { title: string; description: string }>;
+
+function getSearchMetadataCopy(locale: Locale, copy: RouteCopy): RouteCopy {
+  const context = metadataContextByLocale[locale];
+  const title = copy.title.trim();
+  const description = copy.description.replace(/\s+/g, " ").trim();
+
+  return {
+    ...copy,
+    title: title.length < 30 ? `${title} | ${context.title}` : title,
+    description:
+      description.length < 120
+        ? `${description} ${context.description}`.slice(0, 160).trim()
+        : description,
+  };
+}
 
 type TrustRoutePage = "about" | "contact" | "terms";
 
@@ -368,17 +428,22 @@ export function getRouteMetadata(locale: Locale, path: string): Metadata {
       return {};
     }
 
-    return {
-      metadataBase: new URL(SITE.url),
+    const copy = getSearchMetadataCopy(locale, {
       title: article.title,
       description: article.description,
+    });
+
+    return {
+      metadataBase: new URL(SITE.url),
+      title: copy.title,
+      description: copy.description,
       alternates: {
         canonical: canonicalUrl,
         languages: alternateUrls,
       },
       openGraph: {
-        title: article.title,
-        description: article.description,
+        title: copy.title,
+        description: copy.description,
         type: "article",
         locale: localeConfig[locale].ogLocale,
         url: canonicalUrl,
@@ -396,19 +461,21 @@ export function getRouteMetadata(locale: Locale, path: string): Metadata {
         card: "summary_large_image",
         site: SITE.xHandle,
         creator: SITE.xHandle,
-        title: article.title,
-        description: article.description,
+        title: copy.title,
+        description: copy.description,
         images: [SITE.ogImage],
       },
       robots: getRouteRobots(normalizedPath),
     };
   }
 
-  const copy = getStaticRouteCopy(locale, normalizedPath);
+  const routeCopy = getStaticRouteCopy(locale, normalizedPath);
 
-  if (!copy) {
+  if (!routeCopy) {
     return {};
   }
+
+  const copy = getSearchMetadataCopy(locale, routeCopy);
 
   return {
     metadataBase: new URL(SITE.url),
@@ -464,20 +531,26 @@ export function getCommunityQuestionRouteMetadata(
   const path = `/community/${question.slug}`;
   const canonical = localizePath(locale, path);
   const canonicalUrl = getAbsoluteUrl(canonical);
-  const alternateUrls = getRouteAlternateUrls(path);
-  const description = getCommunityDescription(question.body);
+  const alternateUrls = getCommunityQuestionAlternateUrls(
+    question.slug,
+    question.locale,
+  );
+  const copy = getSearchMetadataCopy(locale, {
+    title: question.title,
+    description: getCommunityDescription(question.body),
+  });
 
   return {
     metadataBase: new URL(SITE.url),
-    title: question.title,
-    description,
+    title: copy.title,
+    description: copy.description,
     alternates: {
       canonical: canonicalUrl,
       languages: alternateUrls,
     },
     openGraph: {
-      title: question.title,
-      description,
+      title: copy.title,
+      description: copy.description,
       type: "article",
       locale: localeConfig[locale].ogLocale,
       url: canonicalUrl,
@@ -496,11 +569,13 @@ export function getCommunityQuestionRouteMetadata(
       card: "summary_large_image",
       site: SITE.xHandle,
       creator: SITE.xHandle,
-      title: question.title,
-      description,
+      title: copy.title,
+      description: copy.description,
       images: [SITE.ogImage],
     },
-    robots: indexableRobots,
+    robots: isCanonicalCommunityQuestionLocale(locale, question)
+      ? indexableRobots
+      : noindexRobots,
   };
 }
 
@@ -569,20 +644,20 @@ export function getRouteLastModified(path: string): Date {
 
   const dates: Record<string, string> = {
     "/": SITE.checkedAt,
-    "/articles": SITE.checkedAt,
+    "/articles": "2026-06-15",
     "/about": "2026-06-05",
     "/contact": "2026-06-05",
-    "/faq": SITE.checkedAt,
+    "/faq": "2026-06-18",
     "/github": SITE.checkedAt,
-    "/errors": SITE.checkedAt,
-    "/deepseek": SITE.checkedAt,
+    "/errors": "2026-07-01",
+    "/deepseek": "2026-06-18",
     "/news": SITE.checkedAt,
     "/terms": "2026-06-05",
     "/privacy": "2026-06-05",
     "/privacy-protection": "2026-06-05",
   };
 
-  return new Date(dates[normalized] ?? SITE.checkedAt);
+  return new Date(dates[normalized] ?? "2026-06-18");
 }
 
 export function getDefaultRouteMetadata(path: string): Metadata {
