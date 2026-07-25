@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-07-24",
+  checkedAt: "2026-07-25",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,7 +52,7 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.17.20";
+export const reasonixCliVersion = "v1.17.21";
 export const reasonixDesktopVersion = "v1.17.20";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
@@ -387,7 +387,7 @@ const sharedSources = [
   },
   {
     label: "CLI release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.20",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.21",
   },
   {
     label: "Desktop release",
@@ -425,12 +425,12 @@ const sharedIssueWatch = [
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "27,719", note: "GitHub API, 2026-07-24" },
-  { label: "Forks", value: "1,778", note: "GitHub API, 2026-07-24" },
+  { label: "GitHub stars", value: "27,773", note: "GitHub API, 2026-07-25" },
+  { label: "Forks", value: "1,784", note: "GitHub API, 2026-07-25" },
   {
     label: "Open items",
-    value: "1,281",
-    note: "GitHub API open issues + pull requests, 2026-07-24",
+    value: "1,287",
+    note: "GitHub API open issues + pull requests, 2026-07-25",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1762,9 +1762,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 1.17.20 / next 1.17.6-rc.1",
+        value: "latest 1.17.21 / next 1.17.6-rc.1",
         detail:
-          "As checked on 2026-07-24, npm latest is 1.17.20, npm next is 1.17.6-rc.1, npm canary remains 1.8.0-canary.9, and both latest and next declare Node >=18.",
+          "As checked on 2026-07-25, npm latest is 1.17.21, npm next is 1.17.6-rc.1, npm canary remains 1.8.0-canary.9, and both latest and next declare Node >=18.",
       },
       {
         label: "Official repository",
@@ -1857,7 +1857,7 @@ export const contentByLocale = {
       {
         question: "What should I check before the first run?",
         answer:
-          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix@next engines, and npm view reasonix dist-tags. As of 2026-07-24, both latest and next declare Node >=18, so prefer live package metadata when older guides disagree.",
+          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix@next engines, and npm view reasonix dist-tags. As of 2026-07-25, both latest and next declare Node >=18, so prefer live package metadata when older guides disagree.",
       },
       {
         question: "Should I use npx, global npm install, or build from source?",
@@ -1867,7 +1867,7 @@ export const contentByLocale = {
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-07-24, npm latest is 1.17.20, npm next is 1.17.6-rc.1, and npm canary is 1.8.0-canary.9. The package keeps a stable default line plus preview channels.",
+          "As of 2026-07-25, npm latest is 1.17.21, npm next is 1.17.6-rc.1, and npm canary is 1.8.0-canary.9. The package keeps a stable default line plus preview channels.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1976,11 +1976,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-07-24",
+        date: "2026-07-25",
         title:
-          "Reasonix v1.17.20 is now the current stable CLI line",
-        body: "GitHub published Reasonix CLI v1.17.20 on July 24, 2026. The new stable line adds a privacy-preserving machine interface for CLI automation, lets Planner and subagents reuse trusted MCP capabilities through a stable schema, and ships verified in-app Debian updates alongside more reliable desktop model switching and code previews.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.20",
+          "Reasonix v1.17.21 is now the current stable CLI line",
+        body: "GitHub published Reasonix CLI v1.17.21 on July 25, 2026. The new stable line adds deterministic planning routes, inline regex search in code previews, native crash diagnostics, cancelable provider retries, safer plugin hook execution, Windows Authenticode signing, and log credential redaction.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.21",
       },
       {
         date: "2026-07-20",
@@ -1990,10 +1990,10 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/blob/43993f5a10cd4afa46febf53ed9f7ab2a1ceab5b/docs/PLUGIN_PACKAGES.md",
       },
       {
-        date: "2026-07-24",
+        date: "2026-07-25",
         title:
-          "npm latest now installs Reasonix 1.17.20 on the stable Go rewrite line",
-        body: "The official npm registry now points `latest` to Reasonix 1.17.20, with `next` still at 1.17.6-rc.1 and both channels declaring Node >=18. That keeps the default install path on the current Go rewrite for users who verify `npm view reasonix dist-tags` before running `npx reasonix code` or `npm i -g reasonix`.",
+          "npm latest now installs Reasonix 1.17.21 on the stable Go rewrite line",
+        body: "The official npm registry now points `latest` to Reasonix 1.17.21, with `next` still at 1.17.6-rc.1 and both channels declaring Node >=18. That keeps the default install path on the current stable CLI release while desktop downloads remain on desktop-v1.17.20 until the next GUI tag lands.",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
@@ -2336,9 +2336,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 1.17.20 / next 1.17.6-rc.1",
+        value: "latest 1.17.21 / next 1.17.6-rc.1",
         detail:
-          "按 2026-07-24 查询，npm latest 是 1.17.20，npm next 是 1.17.6-rc.1，npm canary 仍是 1.8.0-canary.9，而且 latest 与 next 都声明 Node >=18。",
+          "按 2026-07-25 查询，npm latest 是 1.17.21，npm next 是 1.17.6-rc.1，npm canary 仍是 1.8.0-canary.9，而且 latest 与 next 都声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2431,7 +2431,7 @@ export const contentByLocale = {
       {
         question: "首次运行前应该检查哪些版本？",
         answer:
-          "先检查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix@next engines 和 npm view reasonix dist-tags。按 2026-07-24 查询，latest 与 next 都声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
+          "先检查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix@next engines 和 npm view reasonix dist-tags。按 2026-07-25 查询，latest 与 next 都声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
       },
       {
         question: "现在应该用 npx、全局 npm 安装还是源码构建？",
@@ -2441,7 +2441,7 @@ export const contentByLocale = {
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-07-24 查询，npm latest 是 1.17.20，npm next 是 1.17.6-rc.1，npm canary 是 1.8.0-canary.9。这个 package 同时保留稳定默认线和预览通道。",
+          "按 2026-07-25 查询，npm latest 是 1.17.21，npm next 是 1.17.6-rc.1，npm canary 是 1.8.0-canary.9。这个 package 同时保留稳定默认线和预览通道。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2550,10 +2550,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-07-24",
-        title: "Reasonix v1.17.20 现已成为当前稳定 CLI 发布线",
-        body: "GitHub 在 2026 年 7 月 24 日发布 Reasonix CLI v1.17.20。新的稳定线加入保护隐私的 CLI 自动化机器接口，让 Planner 与 subagent 可通过稳定 schema 复用可信 MCP 能力，并带来经过验证的 Debian 应用内更新、更可靠的模型切换与代码预览。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.20",
+        date: "2026-07-25",
+        title: "Reasonix v1.17.21 现已成为当前稳定 CLI 发布线",
+        body: "GitHub 在 2026 年 7 月 25 日发布 Reasonix CLI v1.17.21。这条稳定线加入确定性规划路由、代码预览内联正则搜索、原生崩溃诊断、可取消的 provider 重试、更安全的插件 Hook 执行、Windows Authenticode 签名，以及日志凭据脱敏。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.21",
       },
       {
         date: "2026-07-20",
@@ -2562,9 +2562,9 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/blob/43993f5a10cd4afa46febf53ed9f7ab2a1ceab5b/docs/PLUGIN_PACKAGES.zh-CN.md",
       },
       {
-        date: "2026-07-24",
-        title: "npm latest 现已默认安装 Reasonix 1.17.20 这条稳定 Go 重写线",
-        body: "官方 npm registry 现在把 `latest` 指向 Reasonix 1.17.20，`next` 仍指向 1.17.6-rc.1，而且两个通道都声明 Node >=18。这让在执行 `npx reasonix code` 或 `npm i -g reasonix` 前先用 `npm view reasonix dist-tags` 做来源核验的用户，默认落在当前 Go 重写稳定线。",
+        date: "2026-07-25",
+        title: "npm latest 现已默认安装 Reasonix 1.17.21 这条稳定 Go 重写线",
+        body: "官方 npm registry 现在把 `latest` 指向 Reasonix 1.17.21，`next` 仍指向 1.17.6-rc.1，而且两个通道都声明 Node >=18。这让在执行 `npx reasonix code` 或 `npm i -g reasonix` 前先用 `npm view reasonix dist-tags` 做来源核验的用户，默认落在当前稳定 CLI 发布线；桌面下载则仍停留在 desktop-v1.17.20。",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
@@ -2915,9 +2915,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 1.17.20 / next 1.17.6-rc.1",
+        value: "latest 1.17.21 / next 1.17.6-rc.1",
         detail:
-          "按 2026-07-24 查詢，npm latest 是 1.17.20，npm next 是 1.17.6-rc.1，npm canary 仍是 1.8.0-canary.9，而且 latest 與 next 都宣告 Node >=18。",
+          "按 2026-07-25 查詢，npm latest 是 1.17.21，npm next 是 1.17.6-rc.1，npm canary 仍是 1.8.0-canary.9，而且 latest 與 next 都宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -3010,7 +3010,7 @@ export const contentByLocale = {
       {
         question: "首次執行前應該檢查哪些版本？",
         answer:
-          "先檢查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix@next engines 和 npm view reasonix dist-tags。按 2026-07-24 查詢，latest 與 next 都宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
+          "先檢查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix@next engines 和 npm view reasonix dist-tags。按 2026-07-25 查詢，latest 與 next 都宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
       },
       {
         question: "現在應該用 npx、全域 npm 安裝還是原始碼建置？",
@@ -3020,7 +3020,7 @@ export const contentByLocale = {
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-07-24 查詢，npm latest 是 1.17.20，npm next 是 1.17.6-rc.1，npm canary 是 1.8.0-canary.9。這個 package 同時保留穩定預設線和預覽通道。",
+          "按 2026-07-25 查詢，npm latest 是 1.17.21，npm next 是 1.17.6-rc.1，npm canary 是 1.8.0-canary.9。這個 package 同時保留穩定預設線和預覽通道。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -3129,10 +3129,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-07-24",
-        title: "Reasonix v1.17.20 現已成為目前穩定 CLI 發布線",
-        body: "GitHub 在 2026 年 7 月 24 日發布 Reasonix CLI v1.17.20。新的穩定線加入保護隱私的 CLI 自動化機器介面，讓 Planner 與 subagent 可透過穩定 schema 重用可信 MCP 能力，並帶來經過驗證的 Debian 應用內更新、更可靠的模型切換與程式碼預覽。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.20",
+        date: "2026-07-25",
+        title: "Reasonix v1.17.21 現已成為目前穩定 CLI 發布線",
+        body: "GitHub 在 2026 年 7 月 25 日發布 Reasonix CLI v1.17.21。這條穩定線加入確定性規劃路由、程式碼預覽內聯正則搜尋、原生崩潰診斷、可取消的 provider 重試、更安全的外掛 Hook 執行、Windows Authenticode 簽章，以及日誌憑據脫敏。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.21",
       },
       {
         date: "2026-07-20",
@@ -3141,9 +3141,9 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/blob/43993f5a10cd4afa46febf53ed9f7ab2a1ceab5b/docs/PLUGIN_PACKAGES.zh-CN.md",
       },
       {
-        date: "2026-07-24",
-        title: "npm latest 現已預設安裝 Reasonix 1.17.20 這條穩定 Go 重寫線",
-        body: "官方 npm registry 現在把 `latest` 指向 Reasonix 1.17.20，`next` 仍指向 1.17.6-rc.1，而且兩個通道都宣告 Node >=18。這讓在執行 `npx reasonix code` 或 `npm i -g reasonix` 前先用 `npm view reasonix dist-tags` 做來源核驗的使用者，預設落在當前 Go 重寫穩定線。",
+        date: "2026-07-25",
+        title: "npm latest 現已預設安裝 Reasonix 1.17.21 這條穩定 Go 重寫線",
+        body: "官方 npm registry 現在把 `latest` 指向 Reasonix 1.17.21，`next` 仍指向 1.17.6-rc.1，而且兩個通道都宣告 Node >=18。這讓在執行 `npx reasonix code` 或 `npm i -g reasonix` 前先用 `npm view reasonix dist-tags` 做來源核驗的使用者，預設落在目前穩定 CLI 發布線；桌面下載則仍停留在 desktop-v1.17.20。",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
@@ -3494,9 +3494,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 1.17.20 / next 1.17.6-rc.1",
+        value: "latest 1.17.21 / next 1.17.6-rc.1",
         detail:
-          "На 2026-07-24 npm latest равен 1.17.20, npm next равен 1.17.6-rc.1, npm canary по-прежнему равен 1.8.0-canary.9, и оба канала latest и next объявляют Node >=18.",
+          "На 2026-07-25 npm latest равен 1.17.21, npm next равен 1.17.6-rc.1, npm canary по-прежнему равен 1.8.0-canary.9, и оба канала latest и next объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3589,7 +3589,7 @@ export const contentByLocale = {
       {
         question: "Что проверить перед первым запуском?",
         answer:
-          "Проверьте node -v, npm -v, npm view reasonix@latest engines, npm view reasonix@next engines и npm view reasonix dist-tags. На 2026-07-24 и latest, и next объявляют Node >=18; если старые guides расходятся, доверяйте live package metadata.",
+          "Проверьте node -v, npm -v, npm view reasonix@latest engines, npm view reasonix@next engines и npm view reasonix dist-tags. На 2026-07-25 и latest, и next объявляют Node >=18; если старые guides расходятся, доверяйте live package metadata.",
       },
       {
         question: "Выбрать npx, global npm install или source build?",
@@ -3599,7 +3599,7 @@ export const contentByLocale = {
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-07-24 npm latest равен 1.17.20, npm next равен 1.17.6-rc.1, а npm canary равен 1.8.0-canary.9. Package сохраняет stable default line и preview channels.",
+          "На 2026-07-25 npm latest равен 1.17.21, npm next равен 1.17.6-rc.1, а npm canary равен 1.8.0-canary.9. Package сохраняет stable default line и preview channels.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3708,11 +3708,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-07-24",
+        date: "2026-07-25",
         title:
-          "Reasonix v1.17.20 теперь является актуальной stable line для CLI",
-        body: "GitHub опубликовал Reasonix CLI v1.17.20 24 июля 2026 года. Новая stable line добавляет privacy-preserving machine interface для CLI automation, позволяет Planner и subagents переиспользовать trusted MCP capabilities через stable schema и приносит verified in-app Debian updates вместе с более надежными model switching и code previews.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.20",
+          "Reasonix v1.17.21 теперь является актуальной stable line для CLI",
+        body: "GitHub опубликовал Reasonix CLI v1.17.21 25 июля 2026 года. Новая stable line добавляет детерминированные planning routes, встроенный regex search в code previews, native crash diagnostics, отменяемые provider retries, более безопасное выполнение plugin hooks, Windows Authenticode signing и редактирование логов с удалением credentials.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.17.21",
       },
       {
         date: "2026-07-20",
@@ -3722,10 +3722,10 @@ export const contentByLocale = {
         href: "https://github.com/esengine/DeepSeek-Reasonix/blob/43993f5a10cd4afa46febf53ed9f7ab2a1ceab5b/docs/PLUGIN_PACKAGES.md",
       },
       {
-        date: "2026-07-24",
+        date: "2026-07-25",
         title:
-          "npm latest теперь устанавливает Reasonix 1.17.20 на stable Go rewrite line",
-        body: "Официальный npm registry теперь указывает `latest` на Reasonix 1.17.20, `next` по-прежнему на 1.17.6-rc.1, и оба канала объявляют Node >=18. Это удерживает путь установки по умолчанию на текущей stable Go rewrite line для пользователей, которые проверяют `npm view reasonix dist-tags` перед `npx reasonix code` или `npm i -g reasonix`.",
+          "npm latest теперь устанавливает Reasonix 1.17.21 на stable Go rewrite line",
+        body: "Официальный npm registry теперь указывает `latest` на Reasonix 1.17.21, `next` по-прежнему на 1.17.6-rc.1, и оба канала объявляют Node >=18. Это удерживает путь установки по умолчанию на текущей stable CLI release line для пользователей, которые проверяют `npm view reasonix dist-tags` перед `npx reasonix code` или `npm i -g reasonix`, пока desktop downloads остаются на desktop-v1.17.20.",
         href: "https://www.npmjs.com/package/reasonix",
       },
       {
