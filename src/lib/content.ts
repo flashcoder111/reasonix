@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-07-26",
+  checkedAt: "2026-07-28",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -396,6 +396,10 @@ const sharedSources = [
   {
     label: "README quick start",
     href: "https://github.com/esengine/DeepSeek-Reasonix/blob/main-v2/README.md",
+  },
+  {
+    label: "Context Engine v2 doc",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/blob/main-v2/docs/SESSION_MEMORY_RETRIEVAL.md",
   },
   {
     label: "Config paths doc",
@@ -1713,7 +1717,10 @@ export const contentByLocale = {
         { command: "/help", label: "Open the inline command reference." },
         { command: "/skills", label: "List installed skills and open the picker." },
         { command: "/skill new <name>", label: "Scaffold a project skill." },
-        { command: "/memory list", label: "Review pinned project memory." },
+        {
+          command: "/memory recall",
+          label: "Inspect automatic memory recall, freshness, and scoring.",
+        },
         { command: "/mcp", label: "Open the MCP hub." },
         { command: "/status", label: "Check model, context, and session state." },
         { command: "/plan on", label: "Use read-only planning before edits." },
@@ -1975,6 +1982,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
+      {
+        date: "2026-07-28",
+        title:
+          "Reasonix main-v2 now documents Context Engine v2 and richer `/memory` diagnostics",
+        body: "The official `main-v2` sources on July 28, 2026 document Context Engine v2 as a split between standing instructions and background memory, plus new `/memory recall`, `/memory instructions`, revision-restore, and archive-recovery flows. This is a source-and-docs update on the default branch, not a new npm stable release: npm `latest` remains 1.17.21.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/blob/main-v2/docs/SESSION_MEMORY_RETRIEVAL.md",
+      },
       {
         date: "2026-07-25",
         title:
@@ -2287,7 +2301,10 @@ export const contentByLocale = {
         { command: "/help", label: "查看 TUI 内完整命令说明。" },
         { command: "/skills", label: "列出已安装 skills 并打开选择器。" },
         { command: "/skill new <name>", label: "为当前项目创建 skill 模板。" },
-        { command: "/memory list", label: "查看固定的项目记忆。" },
+        {
+          command: "/memory recall",
+          label: "查看自动记忆召回、时效性与命中原因。",
+        },
         { command: "/mcp", label: "打开 MCP hub。" },
         { command: "/status", label: "检查模型、上下文和会话状态。" },
         { command: "/plan on", label: "编辑前进入只读规划模式。" },
@@ -2549,6 +2566,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
+      {
+        date: "2026-07-28",
+        title: "Reasonix main-v2 现已把 Context Engine v2 与更完整的 `/memory` 诊断写入官方文档",
+        body: "官方 `main-v2` 来源在 2026 年 7 月 28 日把 Context Engine v2 写入文档，明确区分 standing instructions 与 background memory，并公开 `/memory recall`、`/memory instructions`、旧版本恢复与归档恢复流程。这是默认分支上的源码与文档更新，不等于新的 npm 稳定版发布；npm `latest` 仍是 1.17.21。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/blob/main-v2/docs/SESSION_MEMORY_RETRIEVAL.md",
+      },
       {
         date: "2026-07-25",
         title: "Reasonix v1.17.21 现已成为当前稳定 CLI 发布线",
@@ -2866,7 +2889,10 @@ export const contentByLocale = {
         { command: "/help", label: "查看 TUI 內完整命令說明。" },
         { command: "/skills", label: "列出已安裝 skills 並開啟選擇器。" },
         { command: "/skill new <name>", label: "為目前專案建立 skill 模板。" },
-        { command: "/memory list", label: "查看固定的專案記憶。" },
+        {
+          command: "/memory recall",
+          label: "查看自動記憶召回、時效性與命中原因。",
+        },
         { command: "/mcp", label: "開啟 MCP hub。" },
         { command: "/status", label: "檢查模型、上下文和會話狀態。" },
         { command: "/plan on", label: "編輯前進入唯讀規劃模式。" },
@@ -3128,6 +3154,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
+      {
+        date: "2026-07-28",
+        title: "Reasonix main-v2 現已把 Context Engine v2 與更完整的 `/memory` 診斷寫入官方文件",
+        body: "官方 `main-v2` 來源在 2026 年 7 月 28 日把 Context Engine v2 寫入文件，明確區分 standing instructions 與 background memory，並公開 `/memory recall`、`/memory instructions`、舊版本還原與封存恢復流程。這是預設分支上的原始碼與文件更新，不等於新的 npm 穩定版發布；npm `latest` 仍是 1.17.21。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/blob/main-v2/docs/SESSION_MEMORY_RETRIEVAL.md",
+      },
       {
         date: "2026-07-25",
         title: "Reasonix v1.17.21 現已成為目前穩定 CLI 發布線",
@@ -3445,7 +3477,10 @@ export const contentByLocale = {
         { command: "/help", label: "Открыть встроенную справку команд." },
         { command: "/skills", label: "Показать installed skills и picker." },
         { command: "/skill new <name>", label: "Создать шаблон project skill." },
-        { command: "/memory list", label: "Просмотреть pinned project memory." },
+        {
+          command: "/memory recall",
+          label: "Проверить автоподбор памяти, свежесть и причины совпадений.",
+        },
         { command: "/mcp", label: "Открыть MCP hub." },
         { command: "/status", label: "Проверить model, context и session state." },
         { command: "/plan on", label: "Включить read-only plan перед edits." },
@@ -3707,6 +3742,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-07-28",
+        title:
+          "Reasonix main-v2 документирует Context Engine v2 и расширенные `/memory` diagnostics",
+        body: "Официальные источники `main-v2` от 28 июля 2026 года документируют Context Engine v2 как разделение standing instructions и background memory, а также новые сценарии `/memory recall`, `/memory instructions`, восстановления ревизий и recovery архива. Это обновление исходников и документации в default branch, а не новый npm stable release: npm `latest` по-прежнему 1.17.21.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/blob/main-v2/docs/SESSION_MEMORY_RETRIEVAL.md",
+      },
       {
         date: "2026-07-25",
         title:
