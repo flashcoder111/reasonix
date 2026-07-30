@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-07-29",
+  checkedAt: "2026-07-30",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -1983,6 +1983,13 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-07-30",
+        title:
+          "Reasonix main-v2 fixes true-colour detection and smooths `/theme` switches",
+        body: "Merged PR #7053 fixes 24-bit colour detection in Windows Terminal, kitty, Alacritty, Ghostty, foot, Rio, st, and Contour, while correctly downgrading tmux and screen. It also routes mode indicators through the active theme so `NO_COLOR` works consistently, makes terminal-background probing opt-in, and adds an approximately 290 ms left-to-right palette transition for `/theme`. This is merged source on `main-v2` after the v1.18.0 tag, not a newer stable release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/7053",
+      },
+      {
         date: "2026-07-29",
         title:
           "Reasonix v1.18.0 is now the stable CLI and desktop release line",
@@ -2573,6 +2580,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
+      {
+        date: "2026-07-30",
+        title: "Reasonix main-v2 修复真彩色识别，并让 `/theme` 切换更平滑",
+        body: "已合并的 PR #7053 修复了 Windows Terminal、kitty、Alacritty、Ghostty、foot、Rio、st 与 Contour 的 24 位真彩色识别，同时会为 tmux 和 screen 正确降级。它还让模式标签统一使用当前主题，使 `NO_COLOR` 行为一致，把终端背景探测改为按需启用，并为 `/theme` 增加约 290 毫秒的从左到右调色板过渡。这是 v1.18.0 标签之后合并到 `main-v2` 的源码更新，并非新的稳定版发布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/7053",
+      },
       {
         date: "2026-07-29",
         title: "Reasonix v1.18.0 现已成为当前稳定 CLI 与桌面发布线",
@@ -3168,6 +3181,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-07-30",
+        title: "Reasonix main-v2 修復真彩色辨識，並讓 `/theme` 切換更平滑",
+        body: "已合併的 PR #7053 修復了 Windows Terminal、kitty、Alacritty、Ghostty、foot、Rio、st 與 Contour 的 24 位元真彩色辨識，同時會為 tmux 和 screen 正確降級。它也讓模式標籤統一使用目前主題，使 `NO_COLOR` 行為一致，把終端背景探測改為按需啟用，並為 `/theme` 增加約 290 毫秒的由左至右調色盤過渡。這是 v1.18.0 標籤之後合併到 `main-v2` 的原始碼更新，並非新的穩定版發布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/7053",
+      },
+      {
         date: "2026-07-29",
         title: "Reasonix v1.18.0 現已成為目前穩定 CLI 與桌面發布線",
         body: "GitHub 在 2026-07-29T18:12:07Z 發布 CLI `v1.18.0`，又在 2026-07-29T18:16:09Z 發布 Desktop `desktop-v1.18.0`，npm 同日也把 `latest` 切到 1.18.0。這條穩定線把 Context Engine v2、桌面內建終端會話、公開 Stable/Preview 雙通道、Kimi K3、區域化計價、更完整在地化、大型會話效能優化，以及 guard/隱私/發布鏈路加固一起帶到公開安裝路徑。",
@@ -3761,6 +3780,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-07-30",
+        title:
+          "Reasonix main-v2 исправляет true-color detection и делает переключение `/theme` плавнее",
+        body: "Слитый PR #7053 исправляет определение 24-битного цвета в Windows Terminal, kitty, Alacritty, Ghostty, foot, Rio, st и Contour, а для tmux и screen корректно выбирает пониженный цветовой профиль. Индикаторы режима теперь следуют активной теме и учитывают `NO_COLOR`, проверка фона терминала включается только явно, а `/theme` получил переход палитры слева направо примерно за 290 мс. Это изменение исходного кода в `main-v2`, слитое после тега v1.18.0, а не новый stable release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/7053",
+      },
       {
         date: "2026-07-29",
         title:
