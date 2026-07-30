@@ -1985,6 +1985,13 @@ export const contentByLocale = {
       {
         date: "2026-07-30",
         title:
+          "Reasonix main-v2 now keeps pasted text and file-ref cards intact across Desktop session switches",
+        body: "Merged PR #7064 fixes Desktop history replay so pasted-text blocks and file-reference inline cards stay compact after switching sessions or restarting the app, while the full user-authored input still remains available for capability routing, memory recall, planning, edit replay, and older Desktop clients. This is merged source on `main-v2` after the stable v1.18.0 tags, not a newer stable release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/7064",
+      },
+      {
+        date: "2026-07-30",
+        title:
           "Reasonix main-v2 fixes true-colour detection and smooths `/theme` switches",
         body: "Merged PR #7053 fixes 24-bit colour detection in Windows Terminal, kitty, Alacritty, Ghostty, foot, Rio, st, and Contour, while correctly downgrading tmux and screen. It also routes mode indicators through the active theme so `NO_COLOR` works consistently, makes terminal-background probing opt-in, and adds an approximately 290 ms left-to-right palette transition for `/theme`. This is merged source on `main-v2` after the v1.18.0 tag, not a newer stable release.",
         href: "https://github.com/esengine/DeepSeek-Reasonix/pull/7053",
@@ -2580,6 +2587,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
+      {
+        date: "2026-07-30",
+        title:
+          "Reasonix main-v2 现已让 Desktop 切换会话后继续保留粘贴文本与文件引用卡片",
+        body: "已合并的 PR #7064 修复了 Desktop 历史重放：切换会话或重启应用后，粘贴文本块和文件引用内联卡片会继续保持紧凑展示；同时仍保留完整的用户原始输入，用于能力路由、记忆召回、规划、编辑重放以及旧版 Desktop 兼容恢复。这是稳定版 v1.18.0 标签之后合并到 `main-v2` 的源码更新，并非新的稳定版发布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/7064",
+      },
       {
         date: "2026-07-30",
         title: "Reasonix main-v2 修复真彩色识别，并让 `/theme` 切换更平滑",
@@ -3182,6 +3196,13 @@ export const contentByLocale = {
     newsItems: [
       {
         date: "2026-07-30",
+        title:
+          "Reasonix main-v2 現已讓 Desktop 切換會話後繼續保留貼上文字與檔案引用卡片",
+        body: "已合併的 PR #7064 修復了 Desktop 歷史重放：切換會話或重啟應用後，貼上文字區塊和檔案引用內聯卡片會繼續保持緊湊展示；同時仍保留完整的使用者原始輸入，用於能力路由、記憶召回、規劃、編輯重放以及舊版 Desktop 相容恢復。這是穩定版 v1.18.0 標籤之後合併到 `main-v2` 的原始碼更新，並非新的穩定版發布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/7064",
+      },
+      {
+        date: "2026-07-30",
         title: "Reasonix main-v2 修復真彩色辨識，並讓 `/theme` 切換更平滑",
         body: "已合併的 PR #7053 修復了 Windows Terminal、kitty、Alacritty、Ghostty、foot、Rio、st 與 Contour 的 24 位元真彩色辨識，同時會為 tmux 和 screen 正確降級。它也讓模式標籤統一使用目前主題，使 `NO_COLOR` 行為一致，把終端背景探測改為按需啟用，並為 `/theme` 增加約 290 毫秒的由左至右調色盤過渡。這是 v1.18.0 標籤之後合併到 `main-v2` 的原始碼更新，並非新的穩定版發布。",
         href: "https://github.com/esengine/DeepSeek-Reasonix/pull/7053",
@@ -3780,6 +3801,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-07-30",
+        title:
+          "Reasonix main-v2 сохраняет карточки вставленного текста и file-ref после переключения Desktop-сессий",
+        body: "Слитый PR #7064 исправляет replay истории в Desktop: после переключения сессий или перезапуска приложения блоки вставленного текста и inline-карточки ссылок на файлы снова остаются компактными, а полный пользовательский ввод сохраняется для capability routing, memory recall, planning, edit replay и совместимости со старыми версиями Desktop. Это изменение исходного кода в `main-v2`, слитое после stable-тегов v1.18.0, а не новый stable release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/7064",
+      },
       {
         date: "2026-07-30",
         title:
