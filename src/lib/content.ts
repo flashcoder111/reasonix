@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-07-30",
+  checkedAt: "2026-07-31",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -1983,6 +1983,13 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-07-31",
+        title:
+          "Reasonix main-v2 adds DeepSeek reply recovery and post-v1.18 hardening",
+        body: "Official `main-v2` merges on July 31, 2026 added one bounded continuation when official DeepSeek replies stop at `finish_reason=length`, exposed `low` reasoning effort for `deepseek-v4-flash`, reworked the Desktop terminal into an independent bottom drawer with resize and accordion behavior, and hardened post-v1.18 session, permission, routing, and Desktop regressions. These are merged source updates after stable `v1.18.0`, not a newer stable release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
+      {
         date: "2026-07-30",
         title:
           "Reasonix main-v2 now keeps pasted text and file-ref cards intact across Desktop session switches",
@@ -2587,6 +2594,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
+      {
+        date: "2026-07-31",
+        title:
+          "Reasonix main-v2 新增 DeepSeek 截断回复续写，并继续加固 v1.18 之后的关键回归",
+        body: "官方 `main-v2` 在 2026 年 7 月 31 日合并的更新中，新增了当官方 DeepSeek 回复因 `finish_reason=length` 截断时的一次有界自动续写，开放 `deepseek-v4-flash` 的 `low` 推理档位，把 Desktop 终端改成可独立展开、可拖拽调高的底部抽屉，并继续修复 v1.18 之后的会话、权限、路由和多个 Desktop 回归。这些都是稳定版 `v1.18.0` 之后合并到 `main-v2` 的源码更新，并非新的稳定版发布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
       {
         date: "2026-07-30",
         title:
@@ -3195,6 +3209,13 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-07-31",
+        title:
+          "Reasonix main-v2 新增 DeepSeek 截斷回覆續寫，並持續補強 v1.18 之後的關鍵回歸",
+        body: "官方 `main-v2` 在 2026 年 7 月 31 日合併的更新中，新增了當官方 DeepSeek 回覆因 `finish_reason=length` 截斷時的一次有界自動續寫，開放 `deepseek-v4-flash` 的 `low` 推理檔位，把 Desktop 終端改成可獨立展開、可拖曳調高的底部抽屜，並持續修復 v1.18 之後的會話、權限、路由和多個 Desktop 回歸。這些都是穩定版 `v1.18.0` 之後合併到 `main-v2` 的原始碼更新，並非新的穩定版發布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
+      {
         date: "2026-07-30",
         title:
           "Reasonix main-v2 現已讓 Desktop 切換會話後繼續保留貼上文字與檔案引用卡片",
@@ -3801,6 +3822,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-07-31",
+        title:
+          "Reasonix main-v2 добавляет recovery для обрезанных ответов DeepSeek и усиливает post-v1.18 hardening",
+        body: "Официальные merge в `main-v2` от 31 июля 2026 года добавили одно ограниченное продолжение ответа, когда официальный DeepSeek завершает его с `finish_reason=length`, открыли уровень reasoning `low` для `deepseek-v4-flash`, перевели Desktop terminal в независимый нижний drawer с resize и accordion-поведением и продолжили исправлять регрессии после v1.18 в сессиях, permissions, routing и нескольких Desktop surface. Это изменение исходного кода в `main-v2`, слитое после stable `v1.18.0`, а не новый stable release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
       {
         date: "2026-07-30",
         title:
