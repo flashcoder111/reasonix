@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-07-31",
+  checkedAt: "2026-08-02",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.18.0";
-export const reasonixDesktopVersion = "v1.18.0";
+export const reasonixCliVersion = "v1.19.1";
+export const reasonixDesktopVersion = "v1.19.1";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -387,11 +387,11 @@ const sharedSources = [
   },
   {
     label: "CLI release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.18.0",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.1",
   },
   {
     label: "Desktop release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.18.0",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.19.1",
   },
   {
     label: "README quick start",
@@ -429,12 +429,12 @@ const sharedIssueWatch = [
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "28,006", note: "GitHub API, 2026-07-29" },
-  { label: "Forks", value: "1,800", note: "GitHub API, 2026-07-29" },
+  { label: "GitHub stars", value: "28,557", note: "GitHub API, 2026-08-02" },
+  { label: "Forks", value: "1,832", note: "GitHub API, 2026-08-02" },
   {
     label: "Open items",
-    value: "1,328",
-    note: "GitHub API open issues + pull requests, 2026-07-29",
+    value: "1,341",
+    note: "GitHub API open issues + pull requests, 2026-08-02",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1769,9 +1769,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 1.18.0 / next 1.17.6-rc.1",
+        value: "latest 1.19.1 / next 1.19.0-rc.3",
         detail:
-          "As checked on 2026-07-29, npm latest is 1.18.0, npm next is 1.17.6-rc.1, npm canary is 1.18.0-canary.42, and both latest and next declare Node >=18.",
+          "As checked on 2026-08-02, npm latest is 1.19.1, npm next is 1.19.0-rc.3, npm canary is 1.19.0-canary.3, and the live package metadata checked for the latest channels still declares Node >=18.",
       },
       {
         label: "Official repository",
@@ -1809,7 +1809,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.18.0, packaging DMG, .deb, tar.gz, and Windows installers while adding Context Engine v2, built-in terminal sessions, public Stable and Preview channels, Kimi K3 support, regional pricing, broader localization, and large-session performance fixes.",
+          "The latest public desktop release is desktop-v1.19.1. It keeps the v1.19 stable line on public DMG, .deb, and Windows installer assets while adding DeepSeek Anthropic and Responses support in v1.19.0, then following with wallet-currency alignment, macOS icon safe-area fixes, menu clipping fixes, and stuck-update recovery in v1.19.1.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1864,7 +1864,7 @@ export const contentByLocale = {
       {
         question: "What should I check before the first run?",
         answer:
-          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix@next engines, and npm view reasonix dist-tags. As of 2026-07-29, both latest and next declare Node >=18, so prefer live package metadata when older guides disagree.",
+          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and, when needed, the preview tags you plan to use. As of 2026-08-02, the live package metadata checked for the latest channels still declares Node >=18, so prefer current npm output when older guides disagree.",
       },
       {
         question: "Should I use npx, global npm install, or build from source?",
@@ -1874,7 +1874,7 @@ export const contentByLocale = {
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-07-29, npm latest is 1.18.0, npm next is 1.17.6-rc.1, and npm canary is 1.18.0-canary.42. The package keeps a stable default line plus preview channels.",
+          "As of 2026-08-02, npm latest is 1.19.1, npm next is 1.19.0-rc.3, and npm canary is 1.19.0-canary.3. The package keeps a stable default line plus preview channels.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1982,6 +1982,20 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
+      {
+        date: "2026-08-01",
+        title:
+          "Reasonix v1.19.1 is now the stable CLI and desktop release line",
+        body: "GitHub published CLI `v1.19.1` at 2026-08-02T00:41:04Z, Desktop `desktop-v1.19.1` at 2026-08-02T00:45:54Z, and npm now points `latest` to 1.19.1. This stable follow-up fixes wallet currency display, restores the macOS icon safe area, keeps anchored popovers visible during layout, recovers stuck update transactions, and stops slash-command or mention menus from clipping above the composer.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.1",
+      },
+      {
+        date: "2026-08-01",
+        title:
+          "Reasonix v1.19.0 added DeepSeek Anthropic and Responses support to the stable line",
+        body: "GitHub published CLI `v1.19.0` at 2026-08-01T17:22:15Z and Desktop `desktop-v1.19.0` at 2026-08-01T16:33:42Z before the follow-up v1.19.1 fix release. The v1.19.0 stable line added a DeepSeek Anthropic-compatible endpoint preset, a new Responses API provider path with stateless DeepSeek support, faster cached model polling, session and permission hardening, and the public `low` reasoning setting for `deepseek-v4-flash`.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.0",
+      },
       {
         date: "2026-07-31",
         title:
@@ -2166,7 +2180,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub downloads covering npm package install, Homebrew install, and desktop-v1.18.0 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm package install, Homebrew install, and desktop-v1.19.1 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub downloads",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "The official repository is",
@@ -2381,9 +2395,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 1.18.0 / next 1.17.6-rc.1",
+        value: "latest 1.19.1 / next 1.19.0-rc.3",
         detail:
-          "按 2026-07-29 查询，npm latest 是 1.18.0，npm next 是 1.17.6-rc.1，npm canary 是 1.18.0-canary.42，而且 latest 与 next 都声明 Node >=18。",
+          "按 2026-08-02 查询，npm latest 是 1.19.1，npm next 是 1.19.0-rc.3，npm canary 是 1.19.0-canary.3，本次核查到的最新稳定通道包元数据仍声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2421,7 +2435,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.18.0，提供 DMG、.deb、tar.gz 和 Windows installer 资产，并加入 Context Engine v2、桌面内置终端会话、公开 Stable/Preview 双通道、Kimi K3、区域化计价、更完整本地化，以及大会话性能修复。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.19.1。它沿用 v1.19 稳定线的 DMG、.deb 和 Windows installer 公开下载，同时先在 v1.19.0 加入 DeepSeek Anthropic 与 Responses 支持，再在 v1.19.1 修复钱包币种显示、macOS 图标安全区、菜单裁剪和卡住更新恢复。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2476,7 +2490,7 @@ export const contentByLocale = {
       {
         question: "首次运行前应该检查哪些版本？",
         answer:
-          "先检查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix@next engines 和 npm view reasonix dist-tags。按 2026-07-29 查询，latest 与 next 都声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
+          "先检查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你准备安装预览通道，再额外核对对应 tag。按 2026-08-02 的实时查询，本次核查到的最新稳定通道包元数据仍声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
       },
       {
         question: "现在应该用 npx、全局 npm 安装还是源码构建？",
@@ -2486,7 +2500,7 @@ export const contentByLocale = {
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-07-29 查询，npm latest 是 1.18.0，npm next 是 1.17.6-rc.1，npm canary 是 1.18.0-canary.42。这个 package 同时保留稳定默认线和预览通道。",
+          "按 2026-08-02 查询，npm latest 是 1.19.1，npm next 是 1.19.0-rc.3，npm canary 是 1.19.0-canary.3。这个 package 同时保留稳定默认线和预览通道。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2594,6 +2608,18 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
+      {
+        date: "2026-08-01",
+        title: "Reasonix v1.19.1 现已成为当前稳定 CLI 与桌面发布线",
+        body: "GitHub 在 2026-08-02T00:41:04Z 发布 CLI `v1.19.1`，又在 2026-08-02T00:45:54Z 发布 Desktop `desktop-v1.19.1`，npm `latest` 也已切到 1.19.1。这次稳定跟进修复了钱包余额币种显示、macOS 图标安全区、锚定浮层首开即消失、卡住的更新事务恢复，以及输入框上方斜杠命令和提及菜单被裁剪的问题。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.1",
+      },
+      {
+        date: "2026-08-01",
+        title: "Reasonix v1.19.0 已把 DeepSeek Anthropic 与 Responses 支持带入稳定线",
+        body: "GitHub 在 2026-08-01T17:22:15Z 发布 CLI `v1.19.0`，并在 2026-08-01T16:33:42Z 发布 Desktop `desktop-v1.19.0`，随后再跟进 v1.19.1 修复版。v1.19.0 这条稳定线新增了 DeepSeek Anthropic 兼容端点预设、支持 DeepSeek 无状态模式的 Responses API provider、批量缓存模型轮询、会话与权限加固，以及 `deepseek-v4-flash` 的公开 `low` 推理档位。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.0",
+      },
       {
         date: "2026-07-31",
         title:
@@ -2783,7 +2809,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 下载地址：npm 包安装、Homebrew 安装，以及 Mac、Windows、Linux 的 desktop-v1.18.0 桌面端打包下载。",
+          "Reasonix GitHub 下载地址：npm 包安装、Homebrew 安装，以及 Mac、Windows、Linux 的 desktop-v1.19.1 桌面端打包下载。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载方式：npm、Homebrew 和桌面端打包下载",
         descriptionBeforeLink: "官方仓库地址为",
@@ -2995,9 +3021,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 1.18.0 / next 1.17.6-rc.1",
+        value: "latest 1.19.1 / next 1.19.0-rc.3",
         detail:
-          "按 2026-07-29 查詢，npm latest 是 1.18.0，npm next 是 1.17.6-rc.1，npm canary 是 1.18.0-canary.42，而且 latest 與 next 都宣告 Node >=18。",
+          "按 2026-08-02 查詢，npm latest 是 1.19.1，npm next 是 1.19.0-rc.3，npm canary 是 1.19.0-canary.3，本次核查到的最新穩定通道 package metadata 仍宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -3035,7 +3061,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.18.0，提供 DMG、.deb、tar.gz 和 Windows installer 資產，並加入 Context Engine v2、桌面內建終端會話、公開 Stable/Preview 雙通道、Kimi K3、區域化計價、更完整在地化，以及大型會話效能修復。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.19.1。它沿用 v1.19 穩定線的 DMG、.deb 和 Windows installer 公開下載，同時先在 v1.19.0 加入 DeepSeek Anthropic 與 Responses 支援，再在 v1.19.1 修復錢包幣種顯示、macOS 圖示安全區、選單裁切和卡住更新恢復。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3090,7 +3116,7 @@ export const contentByLocale = {
       {
         question: "首次執行前應該檢查哪些版本？",
         answer:
-          "先檢查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix@next engines 和 npm view reasonix dist-tags。按 2026-07-29 查詢，latest 與 next 都宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
+          "先檢查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你準備安裝預覽通道，再額外核對對應 tag。按 2026-08-02 的即時查詢，本次核查到的最新穩定通道 package metadata 仍宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
       },
       {
         question: "現在應該用 npx、全域 npm 安裝還是原始碼建置？",
@@ -3100,7 +3126,7 @@ export const contentByLocale = {
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-07-29 查詢，npm latest 是 1.18.0，npm next 是 1.17.6-rc.1，npm canary 是 1.18.0-canary.42。這個 package 同時保留穩定預設線和預覽通道。",
+          "按 2026-08-02 查詢，npm latest 是 1.19.1，npm next 是 1.19.0-rc.3，npm canary 是 1.19.0-canary.3。這個 package 同時保留穩定預設線和預覽通道。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -3208,6 +3234,18 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
+      {
+        date: "2026-08-01",
+        title: "Reasonix v1.19.1 現已成為目前穩定 CLI 與桌面發布線",
+        body: "GitHub 在 2026-08-02T00:41:04Z 發布 CLI `v1.19.1`，又在 2026-08-02T00:45:54Z 發布 Desktop `desktop-v1.19.1`，npm `latest` 也已切到 1.19.1。這次穩定跟進修復了錢包餘額幣種顯示、macOS 圖示安全區、錨定浮層首開即消失、卡住的更新交易恢復，以及輸入框上方斜線命令和提及選單被裁切的問題。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.1",
+      },
+      {
+        date: "2026-08-01",
+        title: "Reasonix v1.19.0 已把 DeepSeek Anthropic 與 Responses 支援帶入穩定線",
+        body: "GitHub 在 2026-08-01T17:22:15Z 發布 CLI `v1.19.0`，並在 2026-08-01T16:33:42Z 發布 Desktop `desktop-v1.19.0`，隨後再跟進 v1.19.1 修復版。v1.19.0 這條穩定線新增了 DeepSeek Anthropic 相容端點預設、支援 DeepSeek 無狀態模式的 Responses API provider、批次快取模型輪詢、會話與權限加固，以及 `deepseek-v4-flash` 的公開 `low` 推理檔位。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.0",
+      },
       {
         date: "2026-07-31",
         title:
@@ -3397,7 +3435,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 下載地址：npm package 安裝、Homebrew 安裝，以及 Mac、Windows、Linux 的 desktop-v1.18.0 桌面端打包下載。",
+          "Reasonix GitHub 下載地址：npm package 安裝、Homebrew 安裝，以及 Mac、Windows、Linux 的 desktop-v1.19.1 桌面端打包下載。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載方式：npm、Homebrew 和桌面端打包下載",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -3609,9 +3647,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 1.18.0 / next 1.17.6-rc.1",
+        value: "latest 1.19.1 / next 1.19.0-rc.3",
         detail:
-          "На 2026-07-29 npm latest равен 1.18.0, npm next равен 1.17.6-rc.1, npm canary равен 1.18.0-canary.42, и оба канала latest и next объявляют Node >=18.",
+          "На 2026-08-02 npm latest равен 1.19.1, npm next равен 1.19.0-rc.3, npm canary равен 1.19.0-canary.3, а проверенные live package metadata для актуальных stable channels по-прежнему объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3649,7 +3687,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.18.0: доступны DMG, .deb, tar.gz и Windows installer артефакты, а stable line добавляет Context Engine v2, встроенные terminal sessions в Desktop, публичные Stable/Preview channels, поддержку Kimi K3, региональные цены, более полную локализацию и улучшения производительности больших сессий.",
+          "Последний публичный desktop release - desktop-v1.19.1. Он сохраняет публичные DMG, .deb и Windows installer assets для stable line v1.19, сначала добавляя в v1.19.0 поддержку DeepSeek Anthropic и Responses, а затем в v1.19.1 исправляя отображение валюты кошелька, safe area иконки macOS, clipping меню и recovery зависших обновлений.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3704,7 +3742,7 @@ export const contentByLocale = {
       {
         question: "Что проверить перед первым запуском?",
         answer:
-          "Проверьте node -v, npm -v, npm view reasonix@latest engines, npm view reasonix@next engines и npm view reasonix dist-tags. На 2026-07-29 и latest, и next объявляют Node >=18; если старые guides расходятся, доверяйте live package metadata.",
+          "Проверьте node -v, npm -v, npm view reasonix@latest engines и npm view reasonix dist-tags; если нужен preview channel, дополнительно проверьте конкретный tag. На 2026-08-02 проверенные live package metadata для актуальных stable channels по-прежнему объявляют Node >=18, поэтому при расхождениях со старыми guides доверяйте текущему npm output.",
       },
       {
         question: "Выбрать npx, global npm install или source build?",
@@ -3714,7 +3752,7 @@ export const contentByLocale = {
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-07-29 npm latest равен 1.18.0, npm next равен 1.17.6-rc.1, а npm canary равен 1.18.0-canary.42. Package сохраняет stable default line и preview channels.",
+          "На 2026-08-02 npm latest равен 1.19.1, npm next равен 1.19.0-rc.3, а npm canary равен 1.19.0-canary.3. Package сохраняет stable default line и preview channels.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3822,6 +3860,20 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-08-01",
+        title:
+          "Reasonix v1.19.1 теперь является актуальной stable line для CLI и Desktop",
+        body: "GitHub опубликовал CLI `v1.19.1` в 2026-08-02T00:41:04Z, Desktop `desktop-v1.19.1` в 2026-08-02T00:45:54Z, а npm уже перевел `latest` на 1.19.1. Это stable follow-up исправляет отображение валюты кошелька, восстанавливает safe area иконки macOS, удерживает anchored popovers видимыми во время layout, восстанавливает зависшие update transactions и убирает clipping меню slash-команд и mentions над composer.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.1",
+      },
+      {
+        date: "2026-08-01",
+        title:
+          "Reasonix v1.19.0 добавил поддержку DeepSeek Anthropic и Responses в stable line",
+        body: "GitHub опубликовал CLI `v1.19.0` в 2026-08-01T17:22:15Z и Desktop `desktop-v1.19.0` в 2026-08-01T16:33:42Z до следующего fix-релиза v1.19.1. Stable line v1.19.0 добавила preset для DeepSeek Anthropic-compatible endpoint, новый путь Responses API provider со stateless DeepSeek support, более быстрый cached model polling, hardening для sessions и permissions и публичный уровень reasoning `low` для `deepseek-v4-flash`.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.0",
+      },
       {
         date: "2026-07-31",
         title:
