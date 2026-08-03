@@ -103,6 +103,18 @@ export const articleSources = {
     label: "GitHub Copilot cloud agent",
     href: "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent",
   },
+  deepSeekV4FlashReleaseArticle: {
+    label: "DeepSeek V4 Hub release coverage",
+    href: "https://deepseekv4pro.com/news/deepseek-v4-flash-official-release-codex-agent-benchmarks",
+  },
+  deepSeekApiUpdates: {
+    label: "DeepSeek API change log",
+    href: "https://api-docs.deepseek.com/updates/",
+  },
+  deepSeekCodexGuide: {
+    label: "DeepSeek Codex integration guide",
+    href: "https://api-docs.deepseek.com/quick_start/agent_integrations/codex/",
+  },
   wechatReasonixDeepDive: {
     label: "WeChat reference: Reasonix deep dive",
     href: "https://mp.weixin.qq.com/s/-sJx62sDD5uLSQJvfpJuAg",
@@ -913,6 +925,70 @@ const enArticles: Article[] = [
       articleSources.githubCopilotCloudAgent,
     ],
   },
+  {
+    slug: "deepseek-v4-flash-official-release-codex-agent-benchmarks",
+    title:
+      "DeepSeek V4 Flash Is Official: Major Agent Gains and Native Codex Support",
+    description:
+      "DeepSeek-V4-Flash-0731 beats V4-Pro-Preview across nine vendor-reported agent benchmarks, adds native Responses API support for Codex, and keeps the same model architecture.",
+    eyebrow: "Official release",
+    date: "2026-07-31",
+    readTime: "5 min",
+    tags: ["DeepSeek V4 Flash", "Codex", "Responses API", "Benchmarks"],
+    summary:
+      "DeepSeek released the official DeepSeek-V4-Flash API into public beta on July 31, 2026. The call pattern stays the same: developers select `deepseek-v4-flash` and receive the updated 0731 model.",
+    takeaways: [
+      "DeepSeek-V4-Flash-0731 beats V4-Pro-Preview across all nine vendor-reported agent and coding-agent benchmarks.",
+      "V4 Flash now supports the Responses API natively and has been adapted specifically for Codex.",
+      "The architecture and model size are unchanged; DeepSeek repeated the post-training process.",
+      "Only the Flash API changed. V4 Pro and the models in DeepSeek App and Web remain unchanged.",
+    ],
+    sections: [
+      {
+        heading: "The official Flash API enters public beta",
+        body: [
+          "DeepSeek released the official DeepSeek-V4-Flash API into public beta on July 31, 2026. The call pattern stays the same: developers select `deepseek-v4-flash` and receive the updated 0731 model.",
+          "DeepSeek now presents Flash as an agent and coding model for serious tool-driven work. Speed and low cost remain part of the offer, but they are no longer the whole story.",
+        ],
+      },
+      {
+        heading: "Agent scores move beyond V4-Pro-Preview",
+        body: [
+          "According to DeepSeek's published results, the official Flash build beats V4-Pro-Preview on all nine listed agent and coding agent benchmarks. It scores 82.7 on Terminal Bench 2.1, compared with 72.1 for V4-Pro-Preview and 61.8 for Flash Preview. On DeepSWE, the new score is 54.4, up from 7.3 for Flash Preview. DSBench-FullStack rises from 37.0 to 68.7.",
+          "The same table puts V4 Flash above GLM-5.2 on every row where both models have a score. Several results sit close to Opus-4.8, including Terminal Bench 2.1 at 82.7 versus 85.0 and Agents' Last Exam at 25.2 versus 25.7.",
+          "These are DeepSeek's numbers, not independent results. For public Code Agent tasks, DeepSeek used the upcoming DeepSeek Harness in minimal mode with max effort, `top_p=0.95`, and `temperature=1.0`. DSBench-FullStack and DSBench-Hard are internal test sets. Different harnesses and run settings make the cross-provider comparisons useful as a direction, not a controlled ranking.",
+        ],
+      },
+      {
+        heading: "Native Responses API support brings Flash to Codex",
+        body: [
+          "For developers, protocol support is the clearest practical change. V4 Flash now supports the Responses API natively and has been adapted specifically for Codex.",
+          "DeepSeek's setup guide says one configuration can expose the model across Codex CLI, the ChatGPT desktop app, and the Codex extension for VS Code. At release, Flash is the only DeepSeek model with documented Codex support.",
+          "That integration gives developers a first-party route for using DeepSeek inside a coding agent that can work with files, terminal commands, tools, and longer task loops. It also removes the need to force Codex through a Chat Completions compatibility layer.",
+        ],
+      },
+      {
+        heading: "The model size did not change",
+        body: [
+          "DeepSeek-V4-Flash-0731 uses the same architecture and model size as DeepSeek-V4-Flash-Preview. DeepSeek says it only repeated the post-training process.",
+          "The release therefore attributes the large agent gains to post-training and agent adaptation, not a larger checkpoint. That detail matters for teams evaluating whether Flash can deliver stronger coding performance while keeping its existing efficiency profile.",
+        ],
+      },
+      {
+        heading: "What changed, and what did not",
+        body: [
+          "This is an API-only update. DeepSeek-V4-Pro API and the models used in DeepSeek's App and Web experience have not changed. DeepSeek says the official V4 Pro release will follow soon.",
+          "The narrow release boundary is important. The July 31 announcement does not make every V4 surface a new production build, and it does not replace the separate Pro roadmap.",
+          "Flash now has a clearer job in the V4 family. It is DeepSeek's first production V4 model with native Codex support and a benchmark package aimed directly at coding agents.",
+        ],
+      },
+    ],
+    sources: [
+      articleSources.deepSeekV4FlashReleaseArticle,
+      articleSources.deepSeekApiUpdates,
+      articleSources.deepSeekCodexGuide,
+    ],
+  },
 ];
 
 const zhCnArticles: Article[] = [
@@ -1505,6 +1581,63 @@ const zhCnArticles: Article[] = [
       },
     ],
   },
+  {
+    ...enArticles[11],
+    title: "DeepSeek V4 Flash 正式版发布：Agent 能力大幅提升，原生支持 Codex",
+    description:
+      "DeepSeek-V4-Flash-0731 在官方公布的九项 Agent 基准中全面超过 V4-Pro-Preview，同时原生支持 Codex 所需的 Responses API，模型架构保持不变。",
+    eyebrow: "正式发布",
+    readTime: "5 分钟",
+    tags: ["DeepSeek V4 Flash", "Codex", "Responses API", "基准测试"],
+    summary:
+      "DeepSeek 于 2026 年 7 月 31 日将 DeepSeek-V4-Flash 正式 API 推入 public beta。调用方式不变：开发者继续选择 `deepseek-v4-flash`，即可获得更新后的 0731 模型。",
+    takeaways: [
+      "DeepSeek-V4-Flash-0731 在官方公布的九项 Agent 与 coding-agent 基准中全部超过 V4-Pro-Preview。",
+      "V4 Flash 现已原生支持 Responses API，并针对 Codex 做了专门适配。",
+      "模型架构和尺寸没有变化；DeepSeek 只重新执行了后训练。",
+      "本次只更新 Flash API，V4 Pro 以及 DeepSeek App 和 Web 中使用的模型均未变化。",
+    ],
+    sections: [
+      {
+        heading: "Flash 正式 API 进入 public beta",
+        body: [
+          "DeepSeek 于 2026 年 7 月 31 日将 DeepSeek-V4-Flash 正式 API 推入 public beta。调用方式不变：开发者继续选择 `deepseek-v4-flash`，即可获得更新后的 0731 模型。",
+          "DeepSeek 现在把 Flash 定位为面向严肃工具驱动任务的 Agent 与编程模型。速度和低成本仍是卖点，但已经不再是全部。",
+        ],
+      },
+      {
+        heading: "Agent 得分全面超过 V4-Pro-Preview",
+        body: [
+          "根据 DeepSeek 公布的结果，Flash 正式版在列出的九项 Agent 与 coding-agent 基准中全部超过 V4-Pro-Preview。Terminal Bench 2.1 得分 82.7，V4-Pro-Preview 为 72.1，Flash Preview 为 61.8。DeepSWE 从 Flash Preview 的 7.3 升至 54.4，DSBench-FullStack 则从 37.0 升至 68.7。",
+          "同一张表中，凡是 V4 Flash 与 GLM-5.2 都有成绩的项目，V4 Flash 都更高。部分结果已接近 Opus-4.8，包括 Terminal Bench 2.1 的 82.7 对 85.0，以及 Agents' Last Exam 的 25.2 对 25.7。",
+          "这些是 DeepSeek 官方数据，并非独立测试。公开 Code Agent 任务使用即将发布的 DeepSeek Harness minimal mode，设置为 max effort、`top_p=0.95`、`temperature=1.0`。DSBench-FullStack 和 DSBench-Hard 是内部测试集。不同 harness 与运行参数之间的跨供应商比较适合看趋势，不应当成严格受控排名。",
+        ],
+      },
+      {
+        heading: "原生 Responses API 把 Flash 带入 Codex",
+        body: [
+          "对开发者来说，协议支持是最清晰的实用变化。V4 Flash 现在原生支持 Responses API，并针对 Codex 做了专门适配。",
+          "DeepSeek 配置指南显示，一份配置即可让模型同时出现在 Codex CLI、ChatGPT 桌面应用和 VS Code 的 Codex 扩展中。发布时，Flash 是唯一有官方 Codex 支持文档的 DeepSeek 模型。",
+          "这项集成为开发者提供了一条第一方路径，可在能处理文件、终端命令、工具和长任务循环的 coding agent 中使用 DeepSeek，也不再需要通过 Chat Completions 兼容层强行接入 Codex。",
+        ],
+      },
+      {
+        heading: "模型尺寸没有变化",
+        body: [
+          "DeepSeek-V4-Flash-0731 与 DeepSeek-V4-Flash-Preview 使用相同的模型架构和尺寸。DeepSeek 表示只重新进行了后训练。",
+          "因此，这次发布把显著的 Agent 能力提升归因于后训练和 Agent 适配，而不是更大的 checkpoint。对于评估 Flash 能否在保留既有效率特征的同时提高编程能力的团队，这一点很重要。",
+        ],
+      },
+      {
+        heading: "哪些变了，哪些没变",
+        body: [
+          "这是一次仅限 API 的更新。DeepSeek-V4-Pro API 以及 DeepSeek App 和 Web 体验中使用的模型均未变化。DeepSeek 表示 V4 Pro 正式版将很快发布。",
+          "这个狭窄的发布边界很重要。7 月 31 日的公告并不意味着所有 V4 入口都切换到新的生产版本，也没有取代独立的 Pro 路线图。",
+          "Flash 在 V4 家族中的职责现在更清楚：它是 DeepSeek 首个原生支持 Codex 的生产级 V4 模型，并带来一套直接面向 coding agent 的基准结果。",
+        ],
+      },
+    ],
+  },
 ];
 
 const zhTwArticles: Article[] = [
@@ -1576,6 +1709,17 @@ const zhTwArticles: Article[] = [
       "Reasonix vs GitHub Copilot：DeepSeek 終端循環還是 Copilot coding agent？",
     description:
       "面向 `reasonix vs github copilot` 的聚焦對比：覆蓋 DeepSeek-native 本機會話、IDE 輔助、Copilot cloud agent、GitHub PR 流程、MCP 和團隊治理。",
+  },
+  {
+    ...zhCnArticles[11],
+    title: "DeepSeek V4 Flash 正式版發布：Agent 能力大幅提升，原生支援 Codex",
+    description:
+      "DeepSeek-V4-Flash-0731 在官方公布的九項 Agent 基準中全面超過 V4-Pro-Preview，同時原生支援 Codex 所需的 Responses API，模型架構保持不變。",
+    eyebrow: "正式發布",
+    readTime: "5 分鐘",
+    tags: ["DeepSeek V4 Flash", "Codex", "Responses API", "基準測試"],
+    summary:
+      "DeepSeek 於 2026 年 7 月 31 日將 DeepSeek-V4-Flash 正式 API 推入 public beta。呼叫方式不變：開發者繼續選擇 `deepseek-v4-flash`，即可取得更新後的 0731 模型。",
   },
 ];
 
@@ -1673,6 +1817,24 @@ const ruArticles: Article[] = [
       "Reasonix vs GitHub Copilot: DeepSeek terminal loop или Copilot coding agent?",
     description:
       "Сравнение Reasonix и GitHub Copilot: DeepSeek-native local sessions, IDE assistance, Copilot cloud agent, GitHub pull-request workflows, MCP и team governance.",
+  },
+  {
+    ...enArticles[11],
+    title:
+      "DeepSeek V4 Flash официально выпущен: рост Agent-возможностей и native Codex support",
+    description:
+      "DeepSeek-V4-Flash-0731 превосходит V4-Pro-Preview во всех девяти опубликованных DeepSeek Agent-бенчмарках, нативно поддерживает Responses API для Codex и сохраняет прежнюю архитектуру модели.",
+    eyebrow: "Официальный релиз",
+    readTime: "5 мин",
+    tags: ["DeepSeek V4 Flash", "Codex", "Responses API", "Benchmarks"],
+    summary:
+      "31 июля 2026 года DeepSeek перевел официальный DeepSeek-V4-Flash API в public beta. Способ вызова не изменился: разработчики выбирают `deepseek-v4-flash` и получают обновленную модель 0731.",
+    takeaways: [
+      "DeepSeek-V4-Flash-0731 превосходит V4-Pro-Preview во всех девяти опубликованных DeepSeek Agent и coding-agent бенчмарках.",
+      "V4 Flash теперь нативно поддерживает Responses API и специально адаптирован для Codex.",
+      "Архитектура и размер модели не изменились; DeepSeek повторил только post-training.",
+      "Обновлен только Flash API. V4 Pro и модели в DeepSeek App и Web не изменились.",
+    ],
   },
 ];
 

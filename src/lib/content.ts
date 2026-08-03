@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-08-02",
+  checkedAt: "2026-08-03",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -234,7 +234,13 @@ type LocalizedContent = {
   deepseekOfficialSteps: readonly string[];
   featureBlocks: readonly { title: string; body: string }[];
   seoLandingPages: readonly SeoLandingPage[];
-  newsItems: readonly { date: string; title: string; body: string; href: string }[];
+  newsItems: readonly {
+    date: string;
+    title: string;
+    body: string;
+    href: string;
+    articleHref?: string;
+  }[];
   issueWatch: readonly { id: string; title: string; href: string }[];
   sourceLinks: readonly { label: string; href: string }[];
   pages: {
@@ -1983,6 +1989,15 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-08-03",
+        title:
+          "DeepSeek V4 Flash is official with major agent gains and native Codex support",
+        body: "DeepSeek released the official DeepSeek-V4-Flash API into public beta on July 31, 2026. Developers keep using `deepseek-v4-flash` and receive the updated 0731 model. DeepSeek reports that it beats V4-Pro-Preview across nine agent and coding-agent benchmarks, while native Responses API support provides a first-party Codex integration path.",
+        href: "https://deepseekv4pro.com/news/deepseek-v4-flash-official-release-codex-agent-benchmarks",
+        articleHref:
+          "/articles/deepseek-v4-flash-official-release-codex-agent-benchmarks",
+      },
+      {
         date: "2026-08-01",
         title:
           "Reasonix v1.19.1 is now the stable CLI and desktop release line",
@@ -2608,6 +2623,14 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
+      {
+        date: "2026-08-03",
+        title: "DeepSeek V4 Flash 正式版发布：Agent 能力大幅提升，原生支持 Codex",
+        body: "DeepSeek 于 2026 年 7 月 31 日将 DeepSeek-V4-Flash 正式 API 推入 public beta。开发者继续使用 `deepseek-v4-flash`，即可获得更新后的 0731 模型。DeepSeek 公布的结果显示，它在九项 Agent 与 coding-agent 基准中全面超过 V4-Pro-Preview，并通过原生 Responses API 提供第一方 Codex 集成路径。",
+        href: "https://deepseekv4pro.com/news/deepseek-v4-flash-official-release-codex-agent-benchmarks",
+        articleHref:
+          "/articles/deepseek-v4-flash-official-release-codex-agent-benchmarks",
+      },
       {
         date: "2026-08-01",
         title: "Reasonix v1.19.1 现已成为当前稳定 CLI 与桌面发布线",
@@ -3235,6 +3258,14 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-08-03",
+        title: "DeepSeek V4 Flash 正式版發布：Agent 能力大幅提升，原生支援 Codex",
+        body: "DeepSeek 於 2026 年 7 月 31 日將 DeepSeek-V4-Flash 正式 API 推入 public beta。開發者繼續使用 `deepseek-v4-flash`，即可取得更新後的 0731 模型。DeepSeek 公布的結果顯示，它在九項 Agent 與 coding-agent 基準中全面超過 V4-Pro-Preview，並透過原生 Responses API 提供第一方 Codex 整合路徑。",
+        href: "https://deepseekv4pro.com/news/deepseek-v4-flash-official-release-codex-agent-benchmarks",
+        articleHref:
+          "/articles/deepseek-v4-flash-official-release-codex-agent-benchmarks",
+      },
+      {
         date: "2026-08-01",
         title: "Reasonix v1.19.1 現已成為目前穩定 CLI 與桌面發布線",
         body: "GitHub 在 2026-08-02T00:41:04Z 發布 CLI `v1.19.1`，又在 2026-08-02T00:45:54Z 發布 Desktop `desktop-v1.19.1`，npm `latest` 也已切到 1.19.1。這次穩定跟進修復了錢包餘額幣種顯示、macOS 圖示安全區、錨定浮層首開即消失、卡住的更新交易恢復，以及輸入框上方斜線命令和提及選單被裁切的問題。",
@@ -3860,6 +3891,15 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-08-03",
+        title:
+          "DeepSeek V4 Flash официально выпущен с ростом Agent-возможностей и native Codex support",
+        body: "31 июля 2026 года DeepSeek перевел официальный DeepSeek-V4-Flash API в public beta. Разработчики продолжают использовать `deepseek-v4-flash` и получают обновленную модель 0731. По данным DeepSeek, она превосходит V4-Pro-Preview во всех девяти Agent и coding-agent бенчмарках, а native Responses API открывает first-party путь интеграции с Codex.",
+        href: "https://deepseekv4pro.com/news/deepseek-v4-flash-official-release-codex-agent-benchmarks",
+        articleHref:
+          "/articles/deepseek-v4-flash-official-release-codex-agent-benchmarks",
+      },
       {
         date: "2026-08-01",
         title:

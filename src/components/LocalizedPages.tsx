@@ -322,6 +322,7 @@ function getNewsEditorialCopy(locale: Locale) {
       sourceLabel: "来源",
       impactLabel: "为什么重要",
       actionLabel: "建议动作",
+      readArticleLabel: "阅读完整报道",
       action:
         "打开原始来源，重新核验日期、版本、tag 和命令，再决定是否安装或更新。",
     };
@@ -332,6 +333,7 @@ function getNewsEditorialCopy(locale: Locale) {
       sourceLabel: "來源",
       impactLabel: "為什麼重要",
       actionLabel: "建議動作",
+      readArticleLabel: "閱讀完整報導",
       action:
         "打開原始來源，重新核驗日期、版本、tag 和命令，再決定是否安裝或更新。",
     };
@@ -342,6 +344,7 @@ function getNewsEditorialCopy(locale: Locale) {
       sourceLabel: "Source",
       impactLabel: "Why it matters",
       actionLabel: "Suggested action",
+      readArticleLabel: "Read the full coverage",
       action:
         "Open the original source, re-check dates, versions, tags, and commands, then decide whether to install or update.",
     };
@@ -351,6 +354,7 @@ function getNewsEditorialCopy(locale: Locale) {
     sourceLabel: "Source",
     impactLabel: "Why it matters",
     actionLabel: "Suggested action",
+    readArticleLabel: "Read the full coverage",
     action:
       "Open the original source, re-check dates, versions, tags, and commands, then decide whether to install or update.",
   };
@@ -2116,6 +2120,15 @@ export function NewsPageContent({ locale }: LocalizedPageProps) {
             <p className="mt-3 text-sm leading-7 text-slate-600">
               {item.body}
             </p>
+            {item.articleHref ? (
+              <Link
+                href={localizePath(locale, item.articleHref)}
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-900 hover:text-emerald-700"
+              >
+                {newsCopy.readArticleLabel}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            ) : null}
             <div className="mt-5 grid gap-3 md:grid-cols-3">
               <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
                 <p className="text-xs font-semibold uppercase tracking-normal text-slate-500">
