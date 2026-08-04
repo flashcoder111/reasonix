@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-08-03",
+  checkedAt: "2026-08-04",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.19.4";
-export const reasonixDesktopVersion = "v1.19.4";
+export const reasonixCliVersion = "v1.19.6";
+export const reasonixDesktopVersion = "v1.19.6";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -393,11 +393,11 @@ const sharedSources = [
   },
   {
     label: "CLI release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.4",
+    href: `https://github.com/esengine/DeepSeek-Reasonix/releases/tag/${reasonixCliVersion}`,
   },
   {
     label: "Desktop release",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.19.4",
+    href: `https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-${reasonixDesktopVersion}`,
   },
   {
     label: "README quick start",
@@ -1775,9 +1775,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 1.19.4 / next 1.19.4",
+        value: "latest 1.19.6 / next 1.19.6",
         detail:
-          "As checked on 2026-08-03, npm latest, next, and canary all point to 1.19.4, while latest-staging points to 1.19.5. The live package metadata checked for the current stable channels still declares Node >=18.",
+          "As checked on 2026-08-04, npm latest, next, canary, and latest-staging all point to 1.19.6. The live package metadata checked for the current stable channels still declares Node >=18.",
       },
       {
         label: "Official repository",
@@ -1815,7 +1815,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.19.4. It keeps the v1.19 stable line on public DMG, .deb, and Windows installer assets while adding model-aware reasoning for DeepSeek and GLM, stronger reasoning and tool-call recovery, the restored CLI `-c` continue shortcut, automatic native shortcut icon repair after updates, Windows Scoop startup fixes, and Desktop fixes for React hook order crashes and overflowing decision details.",
+          "The latest public desktop release is desktop-v1.19.6. It keeps the public DMG, .deb, and Windows installer assets on the stable line while adding embedded version-matched `/docs`, transactional rewind and single-file revert, safer subagent cleanup and startup, updater and recovery fixes, and a broad round of Desktop and CLI quality improvements.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1870,7 +1870,7 @@ export const contentByLocale = {
       {
         question: "What should I check before the first run?",
         answer:
-          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and, when needed, the preview tags you plan to use. As of 2026-08-03, the live package metadata checked for the current stable channels still declares Node >=18, so prefer current npm output when older guides disagree.",
+          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and, when needed, the preview tags you plan to use. As of 2026-08-04, the live package metadata checked for the current stable channels still declares Node >=18, so prefer current npm output when older guides disagree.",
       },
       {
         question: "Should I use npx, global npm install, or build from source?",
@@ -1880,7 +1880,7 @@ export const contentByLocale = {
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-08-03, npm latest, next, and canary all point to 1.19.4, while latest-staging points to 1.19.5. These channels can align during a stable rollout and diverge again when the project stages the next release.",
+          "As of 2026-08-04, npm latest, next, canary, and latest-staging all point to 1.19.6. These channels can align during a stable rollout and diverge again when the project stages the next release.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1998,11 +1998,11 @@ export const contentByLocale = {
           "/articles/deepseek-v4-flash-official-release-codex-agent-benchmarks",
       },
       {
-        date: "2026-08-03",
+        date: "2026-08-04",
         title:
-          "Reasonix v1.19.4 is now the stable CLI and desktop release line",
-        body: "GitHub published CLI `v1.19.4` at 2026-08-03T11:36:06Z, Desktop `desktop-v1.19.4` at 2026-08-03T11:41:36Z, and npm now points `latest`, `next`, and `canary` to 1.19.4. This stable line adds model-aware reasoning for DeepSeek and GLM, strengthens reasoning and tool-call recovery, restores the CLI `-c` continue shortcut, repairs native shortcut icons after updates, fixes the Windows Scoop startup path, prevents remote profile resync loops, and keeps long decision details from breaking the Desktop window.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.4",
+          "Reasonix v1.19.6 is now the stable CLI and desktop release line",
+        body: "GitHub published CLI `v1.19.6` at 2026-08-04T12:55:21Z, Desktop `desktop-v1.19.6` at 2026-08-04T13:00:38Z, and npm now points `latest`, `next`, `canary`, and `latest-staging` to 1.19.6. This stable line adds embedded version-matched `/docs`, transactional rewind and single-file revert, safer subagent cleanup and startup, updater and recovery fixes, and a broad round of Desktop and CLI quality improvements.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.6",
       },
       {
         date: "2026-08-01",
@@ -2195,7 +2195,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub downloads covering npm package install, Homebrew install, and desktop-v1.19.4 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm package install, Homebrew install, and desktop-v1.19.6 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub downloads",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "The official repository is",
@@ -2410,9 +2410,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 1.19.4 / next 1.19.4",
+        value: "latest 1.19.6 / next 1.19.6",
         detail:
-          "按 2026-08-03 查询，npm latest、next、canary 都已指向 1.19.4，`latest-staging` 则指向 1.19.5，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
+          "按 2026-08-04 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.19.6，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2450,7 +2450,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.19.4。它沿用 v1.19 稳定线的 DMG、.deb 和 Windows installer 公开下载，并新增面向 DeepSeek 与 GLM 的模型感知推理、加强推理与 tool-call 恢复、恢复 CLI `-c` 续聊快捷参数、自动修复更新后的原生快捷方式图标、修复 Windows Scoop 启动链路，以及避免 Desktop 决策详情撑出窗口和条件式 React Hook 崩溃。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.19.6。它继续提供稳定线的 DMG、.deb 和 Windows installer 公开下载，并新增内置版本匹配 `/docs`、事务性回滚与单文件还原、更安全的子代理清理与启动、更新器与恢复修复，以及一轮桌面端与 CLI 体验改进。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2505,7 +2505,7 @@ export const contentByLocale = {
       {
         question: "首次运行前应该检查哪些版本？",
         answer:
-          "先检查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你准备安装预览通道，再额外核对对应 tag。按 2026-08-03 的实时查询，本次核查到的当前稳定通道包元数据仍声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
+          "先检查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你准备安装预览通道，再额外核对对应 tag。按 2026-08-04 的实时查询，本次核查到的当前稳定通道包元数据仍声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
       },
       {
         question: "现在应该用 npx、全局 npm 安装还是源码构建？",
@@ -2515,7 +2515,7 @@ export const contentByLocale = {
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-08-03 查询，npm latest、next、canary 都已指向 1.19.4，而 `latest-staging` 指向 1.19.5。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
+          "按 2026-08-04 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.19.6。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2632,10 +2632,10 @@ export const contentByLocale = {
           "/articles/deepseek-v4-flash-official-release-codex-agent-benchmarks",
       },
       {
-        date: "2026-08-03",
-        title: "Reasonix v1.19.4 现已成为当前稳定 CLI 与桌面发布线",
-        body: "GitHub 在 2026-08-03T11:36:06Z 发布 CLI `v1.19.4`，又在 2026-08-03T11:41:36Z 发布 Desktop `desktop-v1.19.4`，npm `latest`、`next` 与 `canary` 也已对齐到 1.19.4。这条稳定线新增了面向 DeepSeek 与 GLM 的模型感知推理、加强推理与 tool-call 恢复、恢复 CLI `-c` 续聊快捷参数、修复更新后的原生快捷方式图标与 Windows Scoop 启动链路，并避免 Desktop 决策详情撑出窗口。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.4",
+        date: "2026-08-04",
+        title: "Reasonix v1.19.6 现已成为当前稳定 CLI 与桌面发布线",
+        body: "GitHub 在 2026-08-04T12:55:21Z 发布 CLI `v1.19.6`，又在 2026-08-04T13:00:38Z 发布 Desktop `desktop-v1.19.6`，npm `latest`、`next`、`canary` 与 `latest-staging` 也已对齐到 1.19.6。这条稳定线新增了内置版本匹配 `/docs`、事务性回滚与单文件还原、更安全的子代理清理与启动、更新器与恢复修复，以及一轮桌面端与 CLI 体验改进。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.6",
       },
       {
         date: "2026-08-01",
@@ -2832,7 +2832,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 下载地址：npm 包安装、Homebrew 安装，以及 Mac、Windows、Linux 的 desktop-v1.19.4 桌面端打包下载。",
+          "Reasonix GitHub 下载地址：npm 包安装、Homebrew 安装，以及 Mac、Windows、Linux 的 desktop-v1.19.6 桌面端打包下载。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载方式：npm、Homebrew 和桌面端打包下载",
         descriptionBeforeLink: "官方仓库地址为",
@@ -3044,9 +3044,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 1.19.4 / next 1.19.4",
+        value: "latest 1.19.6 / next 1.19.6",
         detail:
-          "按 2026-08-03 查詢，npm latest、next、canary 都已指向 1.19.4，`latest-staging` 則指向 1.19.5，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
+          "按 2026-08-04 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.19.6，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -3084,7 +3084,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.19.4。它沿用 v1.19 穩定線的 DMG、.deb 和 Windows installer 公開下載，並新增面向 DeepSeek 與 GLM 的模型感知推理、加強推理與 tool-call 恢復、恢復 CLI `-c` 續聊快捷參數、自動修復更新後的原生快捷方式圖示、修復 Windows Scoop 啟動鏈路，以及避免 Desktop 決策詳情撐出視窗和條件式 React Hook 崩潰。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.19.6。它繼續提供穩定線的 DMG、.deb 和 Windows installer 公開下載，並新增內建版本匹配 `/docs`、事務性回滾與單檔還原、更安全的子代理清理與啟動、更新器與恢復修復，以及一輪桌面端與 CLI 體驗改進。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3139,7 +3139,7 @@ export const contentByLocale = {
       {
         question: "首次執行前應該檢查哪些版本？",
         answer:
-          "先檢查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你準備安裝預覽通道，再額外核對對應 tag。按 2026-08-03 的即時查詢，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
+          "先檢查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你準備安裝預覽通道，再額外核對對應 tag。按 2026-08-04 的即時查詢，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
       },
       {
         question: "現在應該用 npx、全域 npm 安裝還是原始碼建置？",
@@ -3149,7 +3149,7 @@ export const contentByLocale = {
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-08-03 查詢，npm latest、next、canary 都已指向 1.19.4，而 `latest-staging` 指向 1.19.5。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
+          "按 2026-08-04 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.19.6。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -3266,10 +3266,10 @@ export const contentByLocale = {
           "/articles/deepseek-v4-flash-official-release-codex-agent-benchmarks",
       },
       {
-        date: "2026-08-03",
-        title: "Reasonix v1.19.4 現已成為目前穩定 CLI 與桌面發布線",
-        body: "GitHub 在 2026-08-03T11:36:06Z 發布 CLI `v1.19.4`，又在 2026-08-03T11:41:36Z 發布 Desktop `desktop-v1.19.4`，npm `latest`、`next` 與 `canary` 也已對齊到 1.19.4。這條穩定線新增了面向 DeepSeek 與 GLM 的模型感知推理、加強推理與 tool-call 恢復、恢復 CLI `-c` 續聊快捷參數、修復更新後的原生快捷方式圖示與 Windows Scoop 啟動鏈路，並避免 Desktop 決策詳情撐出視窗。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.4",
+        date: "2026-08-04",
+        title: "Reasonix v1.19.6 現已成為目前穩定 CLI 與桌面發布線",
+        body: "GitHub 在 2026-08-04T12:55:21Z 發布 CLI `v1.19.6`，又在 2026-08-04T13:00:38Z 發布 Desktop `desktop-v1.19.6`，npm `latest`、`next`、`canary` 與 `latest-staging` 也已對齊到 1.19.6。這條穩定線新增了內建版本匹配 `/docs`、事務性回滾與單檔還原、更安全的子代理清理與啟動、更新器與恢復修復，以及一輪桌面端與 CLI 體驗改進。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.6",
       },
       {
         date: "2026-08-01",
@@ -3466,7 +3466,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 下載地址：npm package 安裝、Homebrew 安裝，以及 Mac、Windows、Linux 的 desktop-v1.19.4 桌面端打包下載。",
+          "Reasonix GitHub 下載地址：npm package 安裝、Homebrew 安裝，以及 Mac、Windows、Linux 的 desktop-v1.19.6 桌面端打包下載。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載方式：npm、Homebrew 和桌面端打包下載",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -3678,9 +3678,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 1.19.4 / next 1.19.4",
+        value: "latest 1.19.6 / next 1.19.6",
         detail:
-          "На 2026-08-03 npm latest, next и canary уже указывают на 1.19.4, а `latest-staging` указывает на 1.19.5. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
+          "На 2026-08-04 npm latest, next, canary и `latest-staging` уже указывают на 1.19.6. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3718,7 +3718,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.19.4. Он сохраняет публичные DMG, .deb и Windows installer assets для stable line v1.19 и добавляет model-aware reasoning для DeepSeek и GLM, более надежный recovery reasoning и tool calls, возвращает CLI shortcut `-c`, автоматически чинит native shortcut icons после обновлений, исправляет Windows Scoop startup path и не дает длинным decision details ломать окно Desktop.",
+          "Последний публичный desktop release - desktop-v1.19.6. Он сохраняет публичные DMG, .deb и Windows installer assets на stable line и добавляет встроенные version-matched `/docs`, transactional rewind и single-file revert, более безопасную очистку и запуск subagents, updater и recovery fixes, а также широкий раунд улучшений Desktop и CLI.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3773,7 +3773,7 @@ export const contentByLocale = {
       {
         question: "Что проверить перед первым запуском?",
         answer:
-          "Проверьте node -v, npm -v, npm view reasonix@latest engines и npm view reasonix dist-tags; если нужен preview channel, дополнительно проверьте конкретный tag. На 2026-08-03 проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18, поэтому при расхождениях со старыми guides доверяйте текущему npm output.",
+          "Проверьте node -v, npm -v, npm view reasonix@latest engines и npm view reasonix dist-tags; если нужен preview channel, дополнительно проверьте конкретный tag. На 2026-08-04 проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18, поэтому при расхождениях со старыми guides доверяйте текущему npm output.",
       },
       {
         question: "Выбрать npx, global npm install или source build?",
@@ -3783,7 +3783,7 @@ export const contentByLocale = {
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-08-03 npm latest, next и canary уже указывают на 1.19.4, а `latest-staging` указывает на 1.19.5. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
+          "На 2026-08-04 npm latest, next, canary и `latest-staging` уже указывают на 1.19.6. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3901,11 +3901,11 @@ export const contentByLocale = {
           "/articles/deepseek-v4-flash-official-release-codex-agent-benchmarks",
       },
       {
-        date: "2026-08-03",
+        date: "2026-08-04",
         title:
-          "Reasonix v1.19.4 теперь является актуальной stable line для CLI и Desktop",
-        body: "GitHub опубликовал CLI `v1.19.4` в 2026-08-03T11:36:06Z, Desktop `desktop-v1.19.4` в 2026-08-03T11:41:36Z, а npm уже перевел `latest`, `next` и `canary` на 1.19.4. Эта stable line добавляет model-aware reasoning для DeepSeek и GLM, усиливает recovery reasoning и tool calls, возвращает CLI shortcut `-c`, чинит native shortcut icons после обновлений, исправляет Windows Scoop startup path и не дает длинным decision details ломать окно Desktop.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.4",
+          "Reasonix v1.19.6 теперь является актуальной stable line для CLI и Desktop",
+        body: "GitHub опубликовал CLI `v1.19.6` в 2026-08-04T12:55:21Z, Desktop `desktop-v1.19.6` в 2026-08-04T13:00:38Z, а npm уже перевел `latest`, `next`, `canary` и `latest-staging` на 1.19.6. Эта stable line добавляет встроенные version-matched `/docs`, transactional rewind и single-file revert, более безопасную очистку и запуск subagents, updater и recovery fixes, а также широкий раунд улучшений Desktop и CLI.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.19.6",
       },
       {
         date: "2026-08-01",
