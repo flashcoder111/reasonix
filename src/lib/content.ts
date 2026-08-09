@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-08-08",
+  checkedAt: "2026-08-09",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.21.3";
-export const reasonixDesktopVersion = "v1.21.3";
+export const reasonixCliVersion = "v1.21.5";
+export const reasonixDesktopVersion = "v1.21.5";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -418,29 +418,32 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#7640",
-    title: "An open bug report says Web UI @filename autocomplete does not work",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/7640",
+    id: "#8070",
+    title:
+      "An open bug report says the model selector shows an unexpected PLUGIN entry",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/8070",
   },
   {
-    id: "#7639",
-    title: "An open bug report says the conversation view is flooded with repeated Fork conversation, Summary, and Rewind toolbars",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/7639",
+    id: "#8068",
+    title:
+      "An open bug report says Mermaid svg-pan-zoom can still crash Desktop during scroll or wheel events",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/8068",
   },
   {
-    id: "#7636",
-    title: "An open bug report says MCP clients ignore notifications/tools/list_changed so dynamically loaded tools stay unknown",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/7636",
+    id: "#8100",
+    title:
+      "An open feature request asks for hide, summary, and auto reasoning display modes",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/8100",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "33,110", note: "GitHub API, 2026-08-08" },
-  { label: "Forks", value: "2,139", note: "GitHub API, 2026-08-08" },
+  { label: "GitHub stars", value: "33,407", note: "GitHub API, 2026-08-09" },
+  { label: "Forks", value: "2,159", note: "GitHub API, 2026-08-09" },
   {
     label: "Open items",
-    value: "980",
-    note: "GitHub API open issues + pull requests, 2026-08-08",
+    value: "984",
+    note: "GitHub API open issues + pull requests, 2026-08-09",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1775,9 +1778,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 1.21.3 / next 1.21.3",
+        value: "latest 1.21.5 / next 1.21.5",
         detail:
-          "As checked on 2026-08-08, npm latest, next, canary, and latest-staging all point to 1.21.3. The live package metadata checked for the current stable channels still declares Node >=18.",
+          "As checked on 2026-08-09, npm latest, next, canary, and latest-staging all point to 1.21.5. The live package metadata checked for the current stable channels still declares Node >=18.",
       },
       {
         label: "Official repository",
@@ -1815,7 +1818,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.21.3. It keeps the public DMG, .deb, and Windows installer assets on the stable line while adding Markdown rendering for reasoning, explicit Kimi K3 reasoning support in custom gateways, visible storage paths, an adaptive no-progress guard, and fixes for Windows install location, taskbar grouping, retry compaction, and stream merging.",
+          "The latest public desktop release is desktop-v1.21.5. It keeps the public DMG, .deb, and Windows installer assets on the stable line while adding faster session switching, stable WebView2 approval and entrance animations, and a TurnDone receipt that surfaces changed paths, validation commands, and remaining gaps.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1870,7 +1873,7 @@ export const contentByLocale = {
       {
         question: "What should I check before the first run?",
         answer:
-          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and, when needed, the preview tags you plan to use. As of 2026-08-08, the live package metadata checked for the current stable channels still declares Node >=18, so prefer current npm output when older guides disagree.",
+          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and, when needed, the preview tags you plan to use. As of 2026-08-09, the live package metadata checked for the current stable channels still declares Node >=18, so prefer current npm output when older guides disagree.",
       },
       {
         question: "Should I use npx, global npm install, or build from source?",
@@ -1880,7 +1883,7 @@ export const contentByLocale = {
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-08-08, npm latest, next, canary, and latest-staging all point to 1.21.3. These channels can align during a stable rollout and diverge again when the project stages the next release.",
+          "As of 2026-08-09, npm latest, next, canary, and latest-staging all point to 1.21.5. These channels can align during a stable rollout and diverge again when the project stages the next release.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1989,11 +1992,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-08-08",
+        date: "2026-08-09",
         title:
-          "Reasonix v1.21.3 is now the stable CLI and desktop release line",
-        body: "GitHub published CLI `v1.21.3` at 2026-08-08T10:37:35Z, Desktop `desktop-v1.21.3` at 2026-08-08T10:43:27Z, and npm now points `latest`, `next`, `canary`, and `latest-staging` to 1.21.3. This stable line adds Markdown rendering for reasoning, explicit Kimi K3 reasoning support in custom gateways, visible storage paths, an adaptive no-progress guard, and fixes for Windows install location, taskbar grouping, retry compaction, and stream merging.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.21.3",
+          "Reasonix v1.21.5 is now the stable CLI and desktop release line",
+        body: "GitHub published CLI `v1.21.5` at 2026-08-09T17:28:31Z, Desktop `desktop-v1.21.5` at 2026-08-09T17:35:07Z, and npm now points `latest`, `next`, `canary`, and `latest-staging` to 1.21.5. This stable line improves session-switch performance, fixes WebView2 animation crashes through graceful fallback behavior, and adds TurnDone receipts that surface changed paths, validation commands, and remaining gaps.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.21.5",
       },
       {
         date: "2026-08-03",
@@ -2195,7 +2198,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub downloads",
         metaDescription:
-          "Reasonix GitHub downloads covering npm package install, Homebrew install, and desktop-v1.21.3 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm package install, Homebrew install, and desktop-v1.21.5 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub downloads",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "The official repository is",
@@ -2410,9 +2413,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 1.21.3 / next 1.21.3",
+        value: "latest 1.21.5 / next 1.21.5",
         detail:
-          "按 2026-08-08 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.21.3，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
+          "按 2026-08-09 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.21.5，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2450,7 +2453,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.21.3。它继续提供稳定线的 DMG、.deb 和 Windows installer 公开下载，并新增思考过程 Markdown 渲染、自定义网关显式 Kimi K3 推理、可见存储路径、自适应无进展防护，以及 Windows 安装位置、任务栏分组、重试压缩和流合并修复。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.21.5。它继续提供稳定线的 DMG、.deb 和 Windows installer 公开下载，并带来更快的会话切换、带优雅降级的 WebView2 动画修复，以及可显示变更路径、验证命令和剩余差距的 TurnDone 完成回执。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2505,7 +2508,7 @@ export const contentByLocale = {
       {
         question: "首次运行前应该检查哪些版本？",
         answer:
-          "先检查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你准备安装预览通道，再额外核对对应 tag。按 2026-08-08 的实时查询，本次核查到的当前稳定通道包元数据仍声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
+          "先检查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你准备安装预览通道，再额外核对对应 tag。按 2026-08-09 的实时查询，本次核查到的当前稳定通道包元数据仍声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
       },
       {
         question: "现在应该用 npx、全局 npm 安装还是源码构建？",
@@ -2515,7 +2518,7 @@ export const contentByLocale = {
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-08-08 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.21.3。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
+          "按 2026-08-09 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.21.5。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2624,10 +2627,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-08-08",
-        title: "Reasonix v1.21.3 现已成为当前稳定 CLI 与桌面发布线",
-        body: "GitHub 在 2026-08-08T10:37:35Z 发布 CLI `v1.21.3`，又在 2026-08-08T10:43:27Z 发布 Desktop `desktop-v1.21.3`，npm `latest`、`next`、`canary` 与 `latest-staging` 也已对齐到 1.21.3。这条稳定线新增了思考过程 Markdown 渲染、自定义网关显式 Kimi K3 推理、可见存储路径、自适应无进展防护，以及 Windows 安装位置、任务栏分组、重试压缩和流合并修复。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.21.3",
+        date: "2026-08-09",
+        title: "Reasonix v1.21.5 现已成为当前稳定 CLI 与桌面发布线",
+        body: "GitHub 在 2026-08-09T17:28:31Z 发布 CLI `v1.21.5`，又在 2026-08-09T17:35:07Z 发布 Desktop `desktop-v1.21.5`，npm `latest`、`next`、`canary` 与 `latest-staging` 也已对齐到 1.21.5。这条稳定线把会话切换性能优化、带优雅降级的 WebView2 动画崩溃修复，以及可显示变更路径、验证命令和剩余差距的 TurnDone 完成回执一起带到公开安装路径。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.21.5",
       },
       {
         date: "2026-08-03",
@@ -2739,15 +2742,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有 bug 报告称任务列表或提问卡片弹出时，滚动位置仍可能出现错乱",
+        title: "有 bug 报告称模型选择器里会出现未配置的 PLUGIN 项",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 Windows 桌面端 bug 报告称切换会话后，待确认卡片可能不显示",
+        title: "有桌面端 bug 报告称 Mermaid svg-pan-zoom 在滚轮滚动时仍可能触发崩溃",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 Windows 10 bug 报告称消息发送延迟最高可达 5 秒",
+        title: "有功能请求希望思考过程支持隐藏、摘要和自动展开三种显示模式",
       },
     ],
     sourceLinks: sharedSources,
@@ -2832,7 +2835,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下载地址",
         metaDescription:
-          "Reasonix GitHub 下载地址：npm 包安装、Homebrew 安装，以及 Mac、Windows、Linux 的 desktop-v1.21.3 桌面端打包下载。",
+          "Reasonix GitHub 下载地址：npm 包安装、Homebrew 安装，以及 Mac、Windows、Linux 的 desktop-v1.21.5 桌面端打包下载。",
         eyebrow: "GitHub 下载地址",
         title: "Reasonix 下载方式：npm、Homebrew 和桌面端打包下载",
         descriptionBeforeLink: "官方仓库地址为",
@@ -3044,9 +3047,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 1.21.3 / next 1.21.3",
+        value: "latest 1.21.5 / next 1.21.5",
         detail:
-          "按 2026-08-08 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.21.3，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
+          "按 2026-08-09 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.21.5，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -3084,7 +3087,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.21.3。它繼續提供穩定線的 DMG、.deb 和 Windows installer 公開下載，並新增思考過程 Markdown 渲染、自訂網關顯式 Kimi K3 推理、可見儲存路徑、自適應無進展防護，以及 Windows 安裝位置、工作列分組、重試壓縮和串流合併修復。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.21.5。它繼續提供穩定線的 DMG、.deb 和 Windows installer 公開下載，並帶來更快的會話切換、帶優雅降級的 WebView2 動畫修復，以及可顯示變更路徑、驗證命令和剩餘差距的 TurnDone 完成回執。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3139,7 +3142,7 @@ export const contentByLocale = {
       {
         question: "首次執行前應該檢查哪些版本？",
         answer:
-          "先檢查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你準備安裝預覽通道，再額外核對對應 tag。按 2026-08-08 的即時查詢，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
+          "先檢查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你準備安裝預覽通道，再額外核對對應 tag。按 2026-08-09 的即時查詢，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
       },
       {
         question: "現在應該用 npx、全域 npm 安裝還是原始碼建置？",
@@ -3149,7 +3152,7 @@ export const contentByLocale = {
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-08-08 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.21.3。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
+          "按 2026-08-09 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.21.5。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -3258,10 +3261,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-08-08",
-        title: "Reasonix v1.21.3 現已成為目前穩定 CLI 與桌面發布線",
-        body: "GitHub 在 2026-08-08T10:37:35Z 發布 CLI `v1.21.3`，又在 2026-08-08T10:43:27Z 發布 Desktop `desktop-v1.21.3`，npm `latest`、`next`、`canary` 與 `latest-staging` 也已對齊到 1.21.3。這條穩定線新增了思考過程 Markdown 渲染、自訂網關顯式 Kimi K3 推理、可見儲存路徑、自適應無進展防護，以及 Windows 安裝位置、工作列分組、重試壓縮和串流合併修復。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.21.3",
+        date: "2026-08-09",
+        title: "Reasonix v1.21.5 現已成為目前穩定 CLI 與桌面發布線",
+        body: "GitHub 在 2026-08-09T17:28:31Z 發布 CLI `v1.21.5`，又在 2026-08-09T17:35:07Z 發布 Desktop `desktop-v1.21.5`，npm `latest`、`next`、`canary` 與 `latest-staging` 也已對齊到 1.21.5。這條穩定線把會話切換效能優化、帶優雅降級的 WebView2 動畫崩潰修復，以及可顯示變更路徑、驗證命令和剩餘差距的 TurnDone 完成回執一起帶到公開安裝路徑。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.21.5",
       },
       {
         date: "2026-08-03",
@@ -3373,15 +3376,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有 bug 回報指出任務列表或提問卡片彈出時，捲動位置仍可能錯亂",
+        title: "有 bug 回報指出模型選擇器裡會出現未設定的 PLUGIN 項",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有 Windows 桌面端 bug 回報指出切換會話後，待確認卡片可能不顯示",
+        title: "有桌面端 bug 回報指出 Mermaid svg-pan-zoom 在滾輪捲動時仍可能觸發崩潰",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有 Windows 10 bug 回報指出訊息送出延遲最高可達 5 秒",
+        title: "有功能請求希望思考過程支援隱藏、摘要和自動展開三種顯示模式",
       },
     ],
     sourceLinks: sharedSources,
@@ -3466,7 +3469,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub 下載地址",
         metaDescription:
-          "Reasonix GitHub 下載地址：npm package 安裝、Homebrew 安裝，以及 Mac、Windows、Linux 的 desktop-v1.21.3 桌面端打包下載。",
+          "Reasonix GitHub 下載地址：npm package 安裝、Homebrew 安裝，以及 Mac、Windows、Linux 的 desktop-v1.21.5 桌面端打包下載。",
         eyebrow: "GitHub 下載地址",
         title: "Reasonix 下載方式：npm、Homebrew 和桌面端打包下載",
         descriptionBeforeLink: "官方倉庫地址為",
@@ -3678,9 +3681,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 1.21.3 / next 1.21.3",
+        value: "latest 1.21.5 / next 1.21.5",
         detail:
-          "На 2026-08-08 npm latest, next, canary и `latest-staging` уже указывают на 1.21.3. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
+          "На 2026-08-09 npm latest, next, canary и `latest-staging` уже указывают на 1.21.5. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3718,7 +3721,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.21.3. Он сохраняет публичные DMG, .deb и Windows installer assets на stable line и добавляет Markdown-рендеринг reasoning, явную Kimi K3 reasoning-поддержку для custom gateways, видимые storage paths, adaptive no-progress guard и исправления для Windows install location, taskbar grouping, retry compaction и stream merging.",
+          "Последний публичный desktop release - desktop-v1.21.5. Он сохраняет публичные DMG, .deb и Windows installer assets на stable line и добавляет более быстрое переключение сессий, graceful-fallback исправление WebView2 animation crashes и TurnDone receipt с changed paths, validation commands и remaining gaps.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3773,7 +3776,7 @@ export const contentByLocale = {
       {
         question: "Что проверить перед первым запуском?",
         answer:
-          "Проверьте node -v, npm -v, npm view reasonix@latest engines и npm view reasonix dist-tags; если нужен preview channel, дополнительно проверьте конкретный tag. На 2026-08-08 проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18, поэтому при расхождениях со старыми guides доверяйте текущему npm output.",
+          "Проверьте node -v, npm -v, npm view reasonix@latest engines и npm view reasonix dist-tags; если нужен preview channel, дополнительно проверьте конкретный tag. На 2026-08-09 проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18, поэтому при расхождениях со старыми guides доверяйте текущему npm output.",
       },
       {
         question: "Выбрать npx, global npm install или source build?",
@@ -3783,7 +3786,7 @@ export const contentByLocale = {
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-08-08 npm latest, next, canary и `latest-staging` уже указывают на 1.21.3. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
+          "На 2026-08-09 npm latest, next, canary и `latest-staging` уже указывают на 1.21.5. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3892,11 +3895,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-08-08",
+        date: "2026-08-09",
         title:
-          "Reasonix v1.21.3 теперь является актуальной stable line для CLI и Desktop",
-        body: "GitHub опубликовал CLI `v1.21.3` в 2026-08-08T10:37:35Z, Desktop `desktop-v1.21.3` в 2026-08-08T10:43:27Z, а npm уже перевел `latest`, `next`, `canary` и `latest-staging` на 1.21.3. Эта stable line добавляет Markdown-рендеринг reasoning, явную Kimi K3 reasoning-поддержку для custom gateways, видимые storage paths, adaptive no-progress guard и исправления для Windows install location, taskbar grouping, retry compaction и stream merging.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.21.3",
+          "Reasonix v1.21.5 теперь является актуальной stable line для CLI и Desktop",
+        body: "GitHub опубликовал CLI `v1.21.5` в 2026-08-09T17:28:31Z, Desktop `desktop-v1.21.5` в 2026-08-09T17:35:07Z, а npm уже перевел `latest`, `next`, `canary` и `latest-staging` на 1.21.5. Эта stable line ускоряет переключение сессий, исправляет WebView2 animation crashes через graceful fallback и добавляет TurnDone receipts с changed paths, validation commands и remaining gaps.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.21.5",
       },
       {
         date: "2026-08-03",
@@ -4017,15 +4020,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "Открытый bug report говорит, что при появлении task list или question card может ломаться прокрутка",
+        title: "Открытый bug report говорит, что в model selector появляется неожиданный пункт PLUGIN",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Открытый Windows desktop bug report говорит, что при переключении сессий может исчезать pending approval",
+        title: "Открытый desktop bug report говорит, что Mermaid svg-pan-zoom все еще может вызывать crash при scroll или wheel",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Открытый Windows 10 bug report говорит, что задержка отправки сообщения может достигать 5 секунд",
+        title: "Открытый feature request просит режимы hide, summary и auto для отображения reasoning",
       },
     ],
     sourceLinks: sharedSources,
@@ -4110,7 +4113,7 @@ export const contentByLocale = {
       github: {
         metaTitle: "Reasonix GitHub загрузки",
         metaDescription:
-          "Reasonix GitHub downloads covering npm package install, Homebrew install, and desktop-v1.21.3 packages for Mac, Windows, and Linux.",
+          "Reasonix GitHub downloads covering npm package install, Homebrew install, and desktop-v1.21.5 packages for Mac, Windows, and Linux.",
         eyebrow: "GitHub загрузки",
         title: "Reasonix downloads: npm, Homebrew, and desktop packages",
         descriptionBeforeLink: "Официальный репозиторий:",
