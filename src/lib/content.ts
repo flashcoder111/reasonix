@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-08-10",
+  checkedAt: "2026-08-11",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.22.0";
-export const reasonixDesktopVersion = "v1.22.0";
+export const reasonixCliVersion = "v1.24.1";
+export const reasonixDesktopVersion = "v1.24.1";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -418,32 +418,32 @@ const sharedSources = [
 
 const sharedIssueWatch = [
   {
-    id: "#8070",
+    id: "#8428",
     title:
-      "An open bug report says the model selector shows an unexpected PLUGIN entry",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/8070",
+      "An open bug report says Desktop v1.24.0 can break workspace sessions on Windows",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/8428",
   },
   {
-    id: "#8068",
+    id: "#8427",
     title:
-      "An open bug report says Mermaid svg-pan-zoom can still crash Desktop during scroll or wheel events",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/8068",
+      "An open bug report says the v1.24 upgrade can split one session into many topic files and overwrite custom names",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/8427",
   },
   {
-    id: "#8100",
+    id: "#8423",
     title:
-      "An open feature request asks for hide, summary, and auto reasoning display modes",
-    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/8100",
+      "An open bug report says Desktop v1.24.0 can show every recovery branch as a separate session after upgrade",
+    href: "https://github.com/esengine/DeepSeek-Reasonix/issues/8423",
   },
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "33,684", note: "GitHub API, 2026-08-10" },
-  { label: "Forks", value: "2,191", note: "GitHub API, 2026-08-10" },
+  { label: "GitHub stars", value: "33,942", note: "GitHub API, 2026-08-11" },
+  { label: "Forks", value: "2,213", note: "GitHub API, 2026-08-11" },
   {
     label: "Open items",
-    value: "1,055",
-    note: "GitHub API open issues + pull requests, 2026-08-10",
+    value: "1,158",
+    note: "GitHub API open issues + pull requests, 2026-08-11",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1778,9 +1778,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 1.22.0 / next 1.22.0",
+        value: "latest 1.24.1 / next 1.24.1",
         detail:
-          "As checked on 2026-08-10, npm latest, next, canary, and latest-staging all point to 1.22.0. The live package metadata checked for the current stable channels still declares Node >=18.",
+          "As checked on 2026-08-11, npm latest, next, canary, and latest-staging all point to 1.24.1. The live package metadata for the current stable channels still declares Node >=18.",
       },
       {
         label: "Official repository",
@@ -1818,7 +1818,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.22.0. It keeps the public DMG, .deb, and Windows installer assets on the stable line while adding durable desktop sidecar persistence, non-blocking archive progress, CLI Web handoff via `reasonix web` and `/web`, and a fix that trims DeepSeek output budgets before context-window overflows trigger HTTP 400 errors.",
+          "The latest public desktop release is desktop-v1.24.1. It keeps the public DMG, .deb, and Windows installer assets on the stable line while fixing Windows startup console flashes, classifying recovery copies correctly in the session catalog, and preserving user constraints verbatim during compaction within budget.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1873,7 +1873,7 @@ export const contentByLocale = {
       {
         question: "What should I check before the first run?",
         answer:
-          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and, when needed, the preview tags you plan to use. As of 2026-08-10, the live package metadata checked for the current stable channels still declares Node >=18, so prefer current npm output when older guides disagree.",
+          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and, when needed, the preview tags you plan to use. As of 2026-08-11, the live package metadata for the current stable channels still declares Node >=18, so prefer current npm output when older guides disagree.",
       },
       {
         question: "Should I use npx, global npm install, or build from source?",
@@ -1883,7 +1883,7 @@ export const contentByLocale = {
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-08-10, npm latest, next, canary, and latest-staging all point to 1.22.0. These channels can align during a stable rollout and diverge again when the project stages the next release.",
+          "As of 2026-08-11, npm latest, next, canary, and latest-staging all point to 1.24.1. These channels can align during a stable rollout and diverge again when the project stages the next release.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1992,11 +1992,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-08-10",
+        date: "2026-08-11",
         title:
-          "Reasonix v1.22.0 is now the stable CLI and desktop release line",
-        body: "GitHub published CLI `v1.22.0` at 2026-08-10T02:19:56Z, Desktop `desktop-v1.22.0` at 2026-08-10T02:25:38Z, and npm now points `latest`, `next`, `canary`, and `latest-staging` to 1.22.0. This stable line adds desktop sidecar persistence, non-blocking archive progress, CLI Web handoff via `reasonix web` and `/web`, a DeepSeek output-budget overflow fix that avoids HTTP 400 failures near the context window, and explicit resource declarations for native v2 plugin packages.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.22.0",
+          "Reasonix v1.24.1 is now the stable CLI and desktop release line",
+        body: "GitHub published CLI `v1.24.1` at 2026-08-11T18:41:35Z, Desktop `desktop-v1.24.1` at 2026-08-11T18:48:42Z, and npm now points `latest`, `next`, `canary`, and `latest-staging` to 1.24.1. This stable line fixes Windows startup console flashes, correctly classifies recovery copies in the session catalog so upgraded Desktop installs stop duplicating sessions, and preserves user constraints verbatim during compaction within budget while reporting when user turns are dropped.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.24.1",
       },
       {
         date: "2026-08-03",
@@ -2413,9 +2413,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 1.22.0 / next 1.22.0",
+        value: "latest 1.24.1 / next 1.24.1",
         detail:
-          "按 2026-08-10 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.22.0，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
+          "按 2026-08-11 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.24.1，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2453,7 +2453,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.22.0。它继续提供稳定线的 DMG、.deb 和 Windows installer 公开下载，并带来桌面 sidecar 持久化、不会卡死的归档进度、通过 `reasonix web` 和 `/web` 进行 CLI Web 交接，以及在接近上下文窗口时自动裁剪 DeepSeek 输出预算以避免 HTTP 400。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.24.1。它继续提供稳定线的 DMG、.deb 和 Windows installer 公开下载，并修复 Windows 启动时闪现 `git.exe` 控制台、把恢复副本正确归类到会话目录里，以及在压缩阶段按预算逐字保留用户约束。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2508,7 +2508,7 @@ export const contentByLocale = {
       {
         question: "首次运行前应该检查哪些版本？",
         answer:
-          "先检查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你准备安装预览通道，再额外核对对应 tag。按 2026-08-10 的实时查询，本次核查到的当前稳定通道包元数据仍声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
+          "先检查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你准备安装预览通道，再额外核对对应 tag。按 2026-08-11 的实时查询，本次核查到的当前稳定通道包元数据仍声明 Node >=18；如果旧教程不一致，优先看实时包信息。",
       },
       {
         question: "现在应该用 npx、全局 npm 安装还是源码构建？",
@@ -2518,7 +2518,7 @@ export const contentByLocale = {
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-08-10 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.22.0。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
+          "按 2026-08-11 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.24.1。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2627,10 +2627,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-08-10",
-        title: "Reasonix v1.22.0 现已成为当前稳定 CLI 与桌面发布线",
-        body: "GitHub 在 2026-08-10T02:19:56Z 发布 CLI `v1.22.0`，又在 2026-08-10T02:25:38Z 发布 Desktop `desktop-v1.22.0`，npm `latest`、`next`、`canary` 与 `latest-staging` 也已对齐到 1.22.0。这条稳定线把桌面 sidecar 持久化、不会卡死的归档进度、通过 `reasonix web` 与 `/web` 进行 CLI Web 交接、接近上下文窗口时自动裁剪 DeepSeek 输出预算以避免 HTTP 400，以及原生 v2 插件资源显式声明一起带到公开安装路径。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.22.0",
+        date: "2026-08-11",
+        title: "Reasonix v1.24.1 现已成为当前稳定 CLI 与桌面发布线",
+        body: "GitHub 在 2026-08-11T18:41:35Z 发布 CLI `v1.24.1`，又在 2026-08-11T18:48:42Z 发布 Desktop `desktop-v1.24.1`，npm `latest`、`next`、`canary` 与 `latest-staging` 也已对齐到 1.24.1。这条稳定线修复了 Windows 启动时闪现 `git.exe` 控制台的问题，把恢复副本正确归类到会话目录里以减少升级后的重复会话，并在压缩预算内逐字保留用户约束，同时在必须丢弃用户轮次时给出报告。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.24.1",
       },
       {
         date: "2026-08-03",
@@ -2742,15 +2742,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有 bug 报告称模型选择器里会出现未配置的 PLUGIN 项",
+        title: "有 bug 报告称 Desktop v1.24.0 在 Windows 上可能破坏工作区内会话",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有桌面端 bug 报告称 Mermaid svg-pan-zoom 在滚轮滚动时仍可能触发崩溃",
+        title: "有 bug 报告称 v1.24 升级后会把单个会话拆成大量 topic 文件并覆盖自定义名称",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有功能请求希望思考过程支持隐藏、摘要和自动展开三种显示模式",
+        title: "有 bug 报告称 Desktop v1.24.0 升级后会把每个 recovery 分支都显示成独立会话",
       },
     ],
     sourceLinks: sharedSources,
@@ -3047,9 +3047,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 1.22.0 / next 1.22.0",
+        value: "latest 1.24.1 / next 1.24.1",
         detail:
-          "按 2026-08-10 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.22.0，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
+          "按 2026-08-11 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.24.1，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -3087,7 +3087,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.22.0。它繼續提供穩定線的 DMG、.deb 和 Windows installer 公開下載，並帶來桌面 sidecar 持久化、不會卡死的封存進度、透過 `reasonix web` 與 `/web` 進行 CLI Web 交接，以及在接近上下文視窗時自動裁剪 DeepSeek 輸出預算以避免 HTTP 400。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.24.1。它繼續提供穩定線的 DMG、.deb 和 Windows installer 公開下載，並修復 Windows 啟動時閃現 `git.exe` 控制台、把恢復副本正確歸類到會話目錄裡，以及在壓縮階段按預算逐字保留使用者約束。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3142,7 +3142,7 @@ export const contentByLocale = {
       {
         question: "首次執行前應該檢查哪些版本？",
         answer:
-          "先檢查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你準備安裝預覽通道，再額外核對對應 tag。按 2026-08-10 的即時查詢，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
+          "先檢查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你準備安裝預覽通道，再額外核對對應 tag。按 2026-08-11 的即時查詢，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18；如果舊教學不一致，優先看即時 package 資訊。",
       },
       {
         question: "現在應該用 npx、全域 npm 安裝還是原始碼建置？",
@@ -3152,7 +3152,7 @@ export const contentByLocale = {
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-08-10 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.22.0。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
+          "按 2026-08-11 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.24.1。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -3261,10 +3261,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-08-10",
-        title: "Reasonix v1.22.0 現已成為目前穩定 CLI 與桌面發布線",
-        body: "GitHub 在 2026-08-10T02:19:56Z 發布 CLI `v1.22.0`，又在 2026-08-10T02:25:38Z 發布 Desktop `desktop-v1.22.0`，npm `latest`、`next`、`canary` 與 `latest-staging` 也已對齊到 1.22.0。這條穩定線把桌面 sidecar 持久化、不會卡死的封存進度、透過 `reasonix web` 與 `/web` 進行 CLI Web 交接、接近上下文視窗時自動裁剪 DeepSeek 輸出預算以避免 HTTP 400，以及原生 v2 外掛資源顯式宣告一起帶到公開安裝路徑。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.22.0",
+        date: "2026-08-11",
+        title: "Reasonix v1.24.1 現已成為目前穩定 CLI 與桌面發布線",
+        body: "GitHub 在 2026-08-11T18:41:35Z 發布 CLI `v1.24.1`，又在 2026-08-11T18:48:42Z 發布 Desktop `desktop-v1.24.1`，npm `latest`、`next`、`canary` 與 `latest-staging` 也已對齊到 1.24.1。這條穩定線修復了 Windows 啟動時閃現 `git.exe` 控制台的問題，把恢復副本正確歸類到會話目錄裡以減少升級後的重複會話，並在壓縮預算內逐字保留使用者約束，同時在必須丟棄使用者輪次時給出報告。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.24.1",
       },
       {
         date: "2026-08-03",
@@ -3376,15 +3376,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "有 bug 回報指出模型選擇器裡會出現未設定的 PLUGIN 項",
+        title: "有 bug 回報指出 Desktop v1.24.0 在 Windows 上可能破壞工作區內會話",
       },
       {
         ...sharedIssueWatch[1],
-        title: "有桌面端 bug 回報指出 Mermaid svg-pan-zoom 在滾輪捲動時仍可能觸發崩潰",
+        title: "有 bug 回報指出 v1.24 升級後會把單個會話拆成大量 topic 檔並覆蓋自訂名稱",
       },
       {
         ...sharedIssueWatch[2],
-        title: "有功能請求希望思考過程支援隱藏、摘要和自動展開三種顯示模式",
+        title: "有 bug 回報指出 Desktop v1.24.0 升級後會把每個 recovery 分支都顯示成獨立會話",
       },
     ],
     sourceLinks: sharedSources,
@@ -3681,9 +3681,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 1.22.0 / next 1.22.0",
+        value: "latest 1.24.1 / next 1.24.1",
         detail:
-          "На 2026-08-10 npm latest, next, canary и `latest-staging` уже указывают на 1.22.0. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
+          "На 2026-08-11 npm latest, next, canary и `latest-staging` уже указывают на 1.24.1. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3721,7 +3721,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.22.0. Он сохраняет публичные DMG, .deb и Windows installer assets на stable line и добавляет durable sidecar persistence в Desktop, неблокирующий прогресс архивации, CLI Web handoff через `reasonix web` и `/web`, а также обрезку DeepSeek output budget перед переполнением context window и HTTP 400.",
+          "Последний публичный desktop release - desktop-v1.24.1. Он сохраняет публичные DMG, .deb и Windows installer assets на stable line, исправляет всплывающее окно `git.exe` при запуске Windows, правильно классифицирует recovery copies в каталоге сессий и сохраняет пользовательские ограничения дословно во время compaction в пределах бюджета.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3776,7 +3776,7 @@ export const contentByLocale = {
       {
         question: "Что проверить перед первым запуском?",
         answer:
-          "Проверьте node -v, npm -v, npm view reasonix@latest engines и npm view reasonix dist-tags; если нужен preview channel, дополнительно проверьте конкретный tag. На 2026-08-10 проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18, поэтому при расхождениях со старыми guides доверяйте текущему npm output.",
+          "Проверьте node -v, npm -v, npm view reasonix@latest engines и npm view reasonix dist-tags; если нужен preview channel, дополнительно проверьте конкретный tag. На 2026-08-11 проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18, поэтому при расхождениях со старыми guides доверяйте текущему npm output.",
       },
       {
         question: "Выбрать npx, global npm install или source build?",
@@ -3786,7 +3786,7 @@ export const contentByLocale = {
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-08-10 npm latest, next, canary и `latest-staging` уже указывают на 1.22.0. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
+          "На 2026-08-11 npm latest, next, canary и `latest-staging` уже указывают на 1.24.1. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3895,11 +3895,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-08-10",
+        date: "2026-08-11",
         title:
-          "Reasonix v1.22.0 теперь является актуальной stable line для CLI и Desktop",
-        body: "GitHub опубликовал CLI `v1.22.0` в 2026-08-10T02:19:56Z, Desktop `desktop-v1.22.0` в 2026-08-10T02:25:38Z, а npm уже перевел `latest`, `next`, `canary` и `latest-staging` на 1.22.0. Эта stable line добавляет persistence для Desktop sidecar, неблокирующий прогресс архивации, CLI Web handoff через `reasonix web` и `/web`, обрезку DeepSeek output budget перед ошибками HTTP 400 у границы context window и явное объявление resources для native v2 plugin packages.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.22.0",
+          "Reasonix v1.24.1 теперь является актуальной stable line для CLI и Desktop",
+        body: "GitHub опубликовал CLI `v1.24.1` в 2026-08-11T18:41:35Z, Desktop `desktop-v1.24.1` в 2026-08-11T18:48:42Z, а npm уже перевел `latest`, `next`, `canary` и `latest-staging` на 1.24.1. Эта stable line убирает всплывающее окно `git.exe` при запуске Windows, правильно классифицирует recovery copies в каталоге сессий, чтобы после обновления не дублировались сессии, и сохраняет пользовательские ограничения дословно во время compaction с отчетом, если пользовательские turns пришлось отбросить.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.24.1",
       },
       {
         date: "2026-08-03",
@@ -4020,15 +4020,15 @@ export const contentByLocale = {
     issueWatch: [
       {
         ...sharedIssueWatch[0],
-        title: "Открытый bug report говорит, что в model selector появляется неожиданный пункт PLUGIN",
+        title: "Открытый bug report говорит, что Desktop v1.24.0 может ломать workspace sessions на Windows",
       },
       {
         ...sharedIssueWatch[1],
-        title: "Открытый desktop bug report говорит, что Mermaid svg-pan-zoom все еще может вызывать crash при scroll или wheel",
+        title: "Открытый bug report говорит, что после обновления до v1.24 одна сессия может распасться на множество topic files и потерять пользовательские имена",
       },
       {
         ...sharedIssueWatch[2],
-        title: "Открытый feature request просит режимы hide, summary и auto для отображения reasoning",
+        title: "Открытый bug report говорит, что Desktop v1.24.0 может показывать каждую recovery branch как отдельную сессию после обновления",
       },
     ],
     sourceLinks: sharedSources,
