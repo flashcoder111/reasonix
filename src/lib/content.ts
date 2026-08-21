@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.31.0";
-export const reasonixDesktopVersion = "v1.31.0";
+export const reasonixCliVersion = "v1.31.2";
+export const reasonixDesktopVersion = "v1.31.2";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1778,9 +1778,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 1.31.0 / next 1.31.0",
+        value: "latest 1.31.2 / next 1.31.2",
         detail:
-          "As checked on 2026-08-21, npm latest, next, canary, and latest-staging all point to 1.31.0. The live package metadata for the current stable channels still declares Node >=18.",
+          "As checked on 2026-08-21, npm latest, next, canary, and latest-staging all point to 1.31.2. The live package metadata for the current stable channels still declares Node >=18.",
       },
       {
         label: "Official repository",
@@ -1818,7 +1818,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.31.0. It adds a dedicated automation workspace with interval, calendar, cron, and time-window scheduling plus run history, improves workspace panel sizing and per-project width memory, fixes incomplete sidebar session indexes, and removes the one-frame \"back to bottom\" flash when the composer wraps.",
+          "The latest public desktop release is desktop-v1.31.2. It fixes Windows session scrolling during long transcripts, adds sanitized frontend diagnostics for test builds and Settings -> Diagnostics, and simplifies OpenCode Go setup with a shared DeepSeek provider path plus route-aware output budgets.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1883,7 +1883,7 @@ export const contentByLocale = {
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-08-21, npm latest, next, canary, and latest-staging all point to 1.31.0. These channels can align during a stable rollout and diverge again when the project stages the next release.",
+          "As of 2026-08-21, npm latest, next, canary, and latest-staging all point to 1.31.2. These channels can align during a stable rollout and diverge again when the project stages the next release.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1992,11 +1992,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-08-20",
+        date: "2026-08-21",
         title:
-          "Reasonix v1.31.0 is now the stable CLI and desktop release line",
-        body: "GitHub published CLI `v1.31.0` at 2026-08-20T13:22:13Z, Desktop `desktop-v1.31.0` at 2026-08-20T14:02:22Z, and npm now points `latest`, `next`, `canary`, and `latest-staging` to 1.31.0. This stable line adds a dedicated automation workspace with interval/calendar/cron scheduling and run history, improves workspace panel sizing and per-project width memory, fixes incomplete sidebar session indexing, and removes the transient \"back to bottom\" flash when the composer wraps.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.0",
+          "Reasonix v1.31.2 is now the stable CLI and desktop release line",
+        body: "GitHub published CLI `v1.31.2` at 2026-08-21T17:41:17Z, Desktop `desktop-v1.31.2` at 2026-08-21T17:46:28Z, and npm now points `latest`, `next`, `canary`, and `latest-staging` to 1.31.2. This stable line fixes Windows session scrolling in long transcripts, adds sanitized frontend diagnostics for test builds and Settings -> Diagnostics, and simplifies OpenCode Go setup with a shared DeepSeek provider path plus route-aware output budgets.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.2",
       },
       {
         date: "2026-08-12",
@@ -2420,9 +2420,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 1.31.0 / next 1.31.0",
+        value: "latest 1.31.2 / next 1.31.2",
         detail:
-          "按 2026-08-21 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.31.0，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
+          "按 2026-08-21 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.31.2，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2460,7 +2460,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.31.0。它新增独立自动化工作区，支持 interval、calendar、cron 与时间窗口调度和运行历史，改进工作区面板尺寸与按项目记忆宽度，修复侧边栏会话索引不完整，并消除输入框折行时一闪而过的“回到底部”提示。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.31.2。它修复 Windows 长会话中的滚动闪回，新增供测试构建和“设置 -> 诊断”使用的脱敏前端诊断，并把 OpenCode Go 配置简化为共享 DeepSeek provider 路径加按路由感知的输出预算。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2525,7 +2525,7 @@ export const contentByLocale = {
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-08-21 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.31.0。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
+          "按 2026-08-21 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.31.2。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2634,10 +2634,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-08-20",
-        title: "Reasonix v1.31.0 现已成为当前稳定 CLI 与桌面发布线",
-        body: "GitHub 在 2026-08-20T13:22:13Z 发布 CLI `v1.31.0`，又在 2026-08-20T14:02:22Z 发布 Desktop `desktop-v1.31.0`，npm `latest`、`next`、`canary` 与 `latest-staging` 也已对齐到 1.31.0。这条稳定线新增独立自动化工作区，支持 interval/calendar/cron 调度与运行历史，改进工作区面板尺寸和按项目记忆宽度，修复侧边栏会话索引不完整，并消除输入框折行时一闪而过的“回到底部”提示。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.0",
+        date: "2026-08-21",
+        title: "Reasonix v1.31.2 现已成为当前稳定 CLI 与桌面发布线",
+        body: "GitHub 在 2026-08-21T17:41:17Z 发布 CLI `v1.31.2`，又在 2026-08-21T17:46:28Z 发布 Desktop `desktop-v1.31.2`，npm `latest`、`next`、`canary` 与 `latest-staging` 也已对齐到 1.31.2。这条稳定线修复了 Windows 长会话中的滚动闪回，新增供测试构建和“设置 -> 诊断”使用的脱敏前端诊断，并把 OpenCode Go 配置简化为共享 DeepSeek provider 路径加按路由感知的输出预算。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.2",
       },
       {
         date: "2026-08-12",
@@ -3060,9 +3060,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 1.31.0 / next 1.31.0",
+        value: "latest 1.31.2 / next 1.31.2",
         detail:
-          "按 2026-08-21 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.31.0，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
+          "按 2026-08-21 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.31.2，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -3100,7 +3100,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.31.0。它新增獨立自動化工作區，支援 interval、calendar、cron 與時間視窗排程和執行歷史，改進工作區面板尺寸與按專案記憶寬度，修復側邊欄會話索引不完整，並消除輸入框換行時一閃而過的「回到底部」提示。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.31.2。它修復 Windows 長會話中的捲動閃回，新增供測試建置和「設定 -> 診斷」使用的脫敏前端診斷，並把 OpenCode Go 設定簡化為共享 DeepSeek provider 路徑加依路由感知的輸出預算。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3165,7 +3165,7 @@ export const contentByLocale = {
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-08-21 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.31.0。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
+          "按 2026-08-21 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.31.2。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -3274,10 +3274,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-08-20",
-        title: "Reasonix v1.31.0 現已成為目前穩定 CLI 與桌面發布線",
-        body: "GitHub 在 2026-08-20T13:22:13Z 發布 CLI `v1.31.0`，又在 2026-08-20T14:02:22Z 發布 Desktop `desktop-v1.31.0`，npm `latest`、`next`、`canary` 與 `latest-staging` 也已對齊到 1.31.0。這條穩定線新增獨立自動化工作區，支援 interval/calendar/cron 排程與執行歷史，改進工作區面板尺寸和按專案記憶寬度，修復側邊欄會話索引不完整，並消除輸入框換行時一閃而過的「回到底部」提示。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.0",
+        date: "2026-08-21",
+        title: "Reasonix v1.31.2 現已成為目前穩定 CLI 與桌面發布線",
+        body: "GitHub 在 2026-08-21T17:41:17Z 發布 CLI `v1.31.2`，又在 2026-08-21T17:46:28Z 發布 Desktop `desktop-v1.31.2`，npm `latest`、`next`、`canary` 與 `latest-staging` 也已對齊到 1.31.2。這條穩定線修復了 Windows 長會話中的捲動閃回，新增供測試建置和「設定 -> 診斷」使用的脫敏前端診斷，並把 OpenCode Go 設定簡化為共享 DeepSeek provider 路徑加依路由感知的輸出預算。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.2",
       },
       {
         date: "2026-08-12",
@@ -3700,9 +3700,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 1.31.0 / next 1.31.0",
+        value: "latest 1.31.2 / next 1.31.2",
         detail:
-          "На 2026-08-21 npm latest, next, canary и `latest-staging` уже указывают на 1.31.0. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
+          "На 2026-08-21 npm latest, next, canary и `latest-staging` уже указывают на 1.31.2. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3740,7 +3740,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.31.0. Он добавляет отдельное automation workspace с interval, calendar, cron и time-window scheduling плюс history запусков, улучшает размеры workspace panels и запоминание ширины по проекту, исправляет неполную индексацию сессий в сайдбаре и убирает однофреймовую вспышку кнопки \"back to bottom\" при переносе строки в composer.",
+          "Последний публичный desktop release - desktop-v1.31.2. Он исправляет прокрутку длинных сессий в Windows, добавляет обезличенную frontend-диагностику для test builds и Settings -> Diagnostics и упрощает настройку OpenCode Go через общий путь DeepSeek provider и route-aware output budgets.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3805,7 +3805,7 @@ export const contentByLocale = {
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-08-21 npm latest, next, canary и `latest-staging` уже указывают на 1.31.0. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
+          "На 2026-08-21 npm latest, next, canary и `latest-staging` уже указывают на 1.31.2. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3914,11 +3914,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-08-20",
+        date: "2026-08-21",
         title:
-          "Reasonix v1.31.0 теперь является актуальной stable line для CLI и Desktop",
-        body: "GitHub опубликовал CLI `v1.31.0` в 2026-08-20T13:22:13Z, Desktop `desktop-v1.31.0` в 2026-08-20T14:02:22Z, а npm уже перевел `latest`, `next`, `canary` и `latest-staging` на 1.31.0. Эта stable line добавляет отдельное automation workspace с interval/calendar/cron scheduling и history запусков, улучшает размеры workspace panels и запоминание ширины по проекту, исправляет неполную индексацию сессий в сайдбаре и убирает краткую вспышку кнопки \"back to bottom\" при переносе строки в composer.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.0",
+          "Reasonix v1.31.2 теперь является актуальной stable line для CLI и Desktop",
+        body: "GitHub опубликовал CLI `v1.31.2` в 2026-08-21T17:41:17Z, Desktop `desktop-v1.31.2` в 2026-08-21T17:46:28Z, а npm уже перевел `latest`, `next`, `canary` и `latest-staging` на 1.31.2. Эта stable line исправляет прокрутку длинных сессий в Windows, добавляет обезличенную frontend-диагностику для test builds и Settings -> Diagnostics и упрощает настройку OpenCode Go через общий путь DeepSeek provider и route-aware output budgets.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.2",
       },
       {
         date: "2026-08-12",
