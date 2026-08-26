@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-08-24",
+  checkedAt: "2026-08-26",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.31.3";
-export const reasonixDesktopVersion = "v1.31.3";
+export const reasonixCliVersion = "v1.31.4";
+export const reasonixDesktopVersion = "v1.31.4";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -438,12 +438,12 @@ const sharedIssueWatch = [
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "34,173", note: "GitHub API, 2026-08-12" },
-  { label: "Forks", value: "2,245", note: "GitHub API, 2026-08-12" },
+  { label: "GitHub stars", value: "35,180", note: "GitHub API, 2026-08-26" },
+  { label: "Forks", value: "2,344", note: "GitHub API, 2026-08-26" },
   {
     label: "Open items",
-    value: "1,348",
-    note: "GitHub API open issues + pull requests, 2026-08-12",
+    value: "1,600",
+    note: "GitHub API open issues + pull requests, 2026-08-26",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1778,9 +1778,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 1.31.3 / next 1.31.3",
+        value: "latest 1.31.4 / next 1.31.4",
         detail:
-          "As checked on 2026-08-24, npm latest, next, canary, and latest-staging all point to 1.31.3. The live package metadata for the current stable channels still declares Node >=18.",
+          "As checked on 2026-08-26, npm latest, next, canary, and latest-staging all point to 1.31.4. The live package metadata for the current stable channels still declares Node >=18.",
       },
       {
         label: "Official repository",
@@ -1818,7 +1818,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.31.3. It adds official DeepSeek vision image input support, replaces raw search URL dumps with a cleaner normalized Sources panel, and stops transcript flicker while switching desktop sessions.",
+          "The latest public desktop release is desktop-v1.31.4. It fixes damaged session metadata recovery, background task notices, custom model-service deletion, long-session scrolling, and removes an expensive metrics rollup to improve performance.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1992,11 +1992,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-08-22",
+        date: "2026-08-25",
         title:
-          "Reasonix v1.31.3 is now the stable CLI and desktop release line",
-        body: "GitHub published CLI `v1.31.3` on 2026-08-22T10:47:34Z, Desktop `desktop-v1.31.3` on 2026-08-22T11:26:37Z, and npm now points `latest`, `next`, `canary`, and `latest-staging` to 1.31.3. This stable line adds official DeepSeek vision image input support, replaces raw search URL dumps with a cleaner normalized Sources panel, and stops transcript flicker while switching desktop sessions.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.3",
+          "Reasonix v1.31.4 is now the stable CLI and desktop release line",
+        body: "GitHub published CLI `v1.31.4` on 2026-08-25T03:05:39Z, Desktop `desktop-v1.31.4` on 2026-08-25T03:14:04Z, and npm now points `latest`, `next`, `canary`, and `latest-staging` to 1.31.4. This stable line fixes damaged session metadata recovery, background task notices, custom model-service deletion, long-session scrolling, and removes an expensive metrics rollup to improve desktop performance while also improving CLI and desktop math rendering.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.4",
       },
       {
         date: "2026-08-12",
@@ -2420,9 +2420,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 1.31.3 / next 1.31.3",
+        value: "latest 1.31.4 / next 1.31.4",
         detail:
-          "按 2026-08-24 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.31.3，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
+          "按 2026-08-26 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.31.4，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2460,7 +2460,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.31.3。它加入官方 DeepSeek 视觉模型图片输入支持，把原始搜索 URL 列表收敛成更干净的规范化 Sources 面板，并修复桌面会话切换时的 transcript 闪烁。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.31.4。它修复损坏会话元数据恢复、后台任务通知、自定义模型服务删除与长会话滚动问题，并通过移除高成本指标汇总提升性能。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2634,10 +2634,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-08-22",
-        title: "Reasonix v1.31.3 现已成为当前稳定 CLI 与桌面发布线",
-        body: "GitHub 于 2026-08-22T10:47:34Z 发布 CLI `v1.31.3`，又于 2026-08-22T11:26:37Z 发布 Desktop `desktop-v1.31.3`，npm `latest`、`next`、`canary` 与 `latest-staging` 也已对齐到 1.31.3。这条稳定线加入官方 DeepSeek 视觉模型图片输入支持，把原始搜索 URL 列表收敛成更干净的规范化 Sources 面板，并修复桌面会话切换时的 transcript 闪烁。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.3",
+        date: "2026-08-25",
+        title: "Reasonix v1.31.4 现已成为当前稳定 CLI 与桌面发布线",
+        body: "GitHub 于 2026-08-25T03:05:39Z 发布 CLI `v1.31.4`，又于 2026-08-25T03:14:04Z 发布 Desktop `desktop-v1.31.4`，npm `latest`、`next`、`canary` 与 `latest-staging` 也已对齐到 1.31.4。这条稳定线修复损坏会话元数据恢复、后台任务通知、自定义模型服务删除与长会话滚动问题，通过移除高成本指标汇总提升桌面性能，并同步改进 CLI 与桌面端数学渲染。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.4",
       },
       {
         date: "2026-08-12",
@@ -3060,9 +3060,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 1.31.3 / next 1.31.3",
+        value: "latest 1.31.4 / next 1.31.4",
         detail:
-          "按 2026-08-24 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.31.3，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
+          "按 2026-08-26 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.31.4，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -3100,7 +3100,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.31.3。它加入官方 DeepSeek 視覺模型圖片輸入支援，把原始搜尋 URL 列表收斂成更乾淨的規範化 Sources 面板，並修復桌面會話切換時的 transcript 閃爍。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.31.4。它修復損壞會話 metadata 恢復、背景任務通知、自訂模型服務刪除與長會話捲動問題，並透過移除高成本 metrics rollup 提升效能。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3274,10 +3274,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-08-22",
-        title: "Reasonix v1.31.3 現已成為目前穩定 CLI 與桌面發布線",
-        body: "GitHub 於 2026-08-22T10:47:34Z 發布 CLI `v1.31.3`，又於 2026-08-22T11:26:37Z 發布 Desktop `desktop-v1.31.3`，npm `latest`、`next`、`canary` 與 `latest-staging` 也已對齊到 1.31.3。這條穩定線加入官方 DeepSeek 視覺模型圖片輸入支援，把原始搜尋 URL 列表收斂成更乾淨的規範化 Sources 面板，並修復桌面會話切換時的 transcript 閃爍。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.3",
+        date: "2026-08-25",
+        title: "Reasonix v1.31.4 現已成為目前穩定 CLI 與桌面發布線",
+        body: "GitHub 於 2026-08-25T03:05:39Z 發布 CLI `v1.31.4`，又於 2026-08-25T03:14:04Z 發布 Desktop `desktop-v1.31.4`，npm `latest`、`next`、`canary` 與 `latest-staging` 也已對齊到 1.31.4。這條穩定線修復損壞會話 metadata 恢復、背景任務通知、自訂模型服務刪除與長會話捲動問題，透過移除高成本 metrics rollup 提升桌面效能，並同步改進 CLI 與桌面端數學渲染。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.4",
       },
       {
         date: "2026-08-12",
@@ -3700,9 +3700,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 1.31.3 / next 1.31.3",
+        value: "latest 1.31.4 / next 1.31.4",
         detail:
-          "На 2026-08-24 npm latest, next, canary и `latest-staging` уже указывают на 1.31.3. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
+          "На 2026-08-26 npm latest, next, canary и `latest-staging` уже указывают на 1.31.4. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3740,7 +3740,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.31.3. Он добавляет официальную поддержку ввода изображений для DeepSeek vision, заменяет сырой список search URL на более чистую нормализованную панель Sources и убирает flicker transcript при переключении desktop sessions.",
+          "Последний публичный desktop release - desktop-v1.31.4. Он исправляет восстановление поврежденных metadata сессий, уведомления фоновых задач, удаление кастомных model services и прокрутку длинных сессий, а также убирает дорогой metrics rollup для лучшей производительности.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3914,11 +3914,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-08-22",
+        date: "2026-08-25",
         title:
-          "Reasonix v1.31.3 теперь является актуальной stable line для CLI и Desktop",
-        body: "GitHub опубликовал CLI `v1.31.3` 2026-08-22T10:47:34Z, Desktop `desktop-v1.31.3` 2026-08-22T11:26:37Z, а npm уже перевел `latest`, `next`, `canary` и `latest-staging` на 1.31.3. Эта stable line добавляет официальную поддержку ввода изображений для DeepSeek vision, заменяет сырой список search URL на более чистую нормализованную панель Sources и убирает flicker transcript при переключении desktop sessions.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.3",
+          "Reasonix v1.31.4 теперь является актуальной stable line для CLI и Desktop",
+        body: "GitHub опубликовал CLI `v1.31.4` 2026-08-25T03:05:39Z, Desktop `desktop-v1.31.4` 2026-08-25T03:14:04Z, а npm уже перевел `latest`, `next`, `canary` и `latest-staging` на 1.31.4. Эта stable line исправляет восстановление поврежденных metadata сессий, уведомления фоновых задач, удаление кастомных model services и прокрутку длинных сессий, убирает дорогой metrics rollup для лучшей desktop-производительности и одновременно улучшает math rendering в CLI и Desktop.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.31.4",
       },
       {
         date: "2026-08-12",
