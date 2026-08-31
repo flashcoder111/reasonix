@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-08-30",
+  checkedAt: "2026-08-31",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.33.0";
-export const reasonixDesktopVersion = "v1.33.0";
+export const reasonixCliVersion = "v1.34.0";
+export const reasonixDesktopVersion = "v1.34.0";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -438,12 +438,12 @@ const sharedIssueWatch = [
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "35,237", note: "GitHub API, 2026-08-29" },
-  { label: "Forks", value: "2,355", note: "GitHub API, 2026-08-29" },
+  { label: "GitHub stars", value: "35,269", note: "GitHub API, 2026-08-31" },
+  { label: "Forks", value: "2,358", note: "GitHub API, 2026-08-31" },
   {
     label: "Open items",
-    value: "1,650",
-    note: "GitHub API open issues + pull requests, 2026-08-29",
+    value: "1,647",
+    note: "GitHub API open issues + pull requests, 2026-08-31",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1778,9 +1778,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 1.32.1 / next 1.32.1",
+        value: "latest 1.34.0 / next 1.34.0",
         detail:
-          "As checked on 2026-08-29, npm latest, next, canary, and latest-staging all point to 1.32.1. The live package metadata for the current stable channels still declares Node >=18.",
+          "As checked on 2026-08-31, npm latest, next, canary, and latest-staging all point to 1.34.0. The live package metadata for the current stable channels still declares Node >=18.",
       },
       {
         label: "Official repository",
@@ -1790,35 +1790,35 @@ export const contentByLocale = {
       },
       {
         label: "Reasonix entry",
-        value: "npx reasonix code",
+        value: "npm i -g reasonix -> reasonix",
         detail:
-          "Reasonix starts from the target project directory with a DeepSeek API key. Check the current npm package engines before first run.",
+          "The current GitHub README leads with npm or Homebrew install, then bare `reasonix`; DeepSeek's integration guide still uses `npx reasonix code`, so check which official path you want to follow.",
       },
     ],
     downloadOptions: [
       {
-        title: "Start from the DeepSeek guide",
-        tag: "New users",
-        command: "cd /path/to/my-project\nnpx reasonix code",
+        title: "Install the stable CLI path",
+        tag: "README stable path",
+        command:
+          "npm i -g reasonix\nreasonix setup\ncd /path/to/my-project\nreasonix",
         description:
-          "No global install is required. The first run opens the local setup flow, which is the shortest path for trying the DeepSeek-V4-Flash default mode.",
-        href: SITE.deepseekGuide,
+          "The current GitHub README now leads with npm global install or Homebrew, then bare `reasonix` for an interactive session and `reasonix run` for one-shot tasks.",
+        href: SITE.github,
       },
       {
-        title: "Clone main-v2 from GitHub",
-        tag: "Source build",
-        command:
-          "git clone https://github.com/esengine/DeepSeek-Reasonix.git\ncd DeepSeek-Reasonix\ngit switch main-v2\nmake build",
+        title: "Start from the DeepSeek guide",
+        tag: "DeepSeek path",
+        command: "cd /path/to/my-project\nnpx reasonix code",
         description:
-          "main-v2 is the default Go 1.0 development branch. Use a source build when you need to inspect, patch, or verify the newest commits.",
-        href: SITE.github,
+          "DeepSeek's official integration page still documents the npx flow from the target project directory, which remains useful for first-time DeepSeek setup.",
+        href: SITE.deepseekGuide,
       },
       {
         title: "Desktop release assets",
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.33.0. This stable line improves cross-platform shell setup, hardens remote credential routing so revoked tokens fail cleanly, stabilizes in-flight task switching, and adds adjustable notification volume.",
+          "The latest public desktop release is desktop-v1.34.0. This stable line adds MCP 2026 multi-turn Apps support, cache-stable capability controls, serve and git hardening, and several desktop stability fixes.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1830,8 +1830,9 @@ export const contentByLocale = {
       },
       {
         title: "Start Reasonix inside your project",
-        body: "DeepSeek recommends running npx from the target project directory so Reasonix can read the workspace and build local project memory.",
-        command: "cd /path/to/my-project\nnpx reasonix code",
+        body: "The current stable README path is npm or Homebrew install, then `reasonix setup` and bare `reasonix` inside the target project. DeepSeek's guide still keeps `npx reasonix code` as the simpler integration path.",
+        command:
+          "npm i -g reasonix\nreasonix setup\ncd /path/to/my-project\nreasonix",
       },
       {
         title: "Switch to Pro in the TUI",
@@ -1873,17 +1874,17 @@ export const contentByLocale = {
       {
         question: "What should I check before the first run?",
         answer:
-          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and, when needed, the preview tags you plan to use. As of 2026-08-30, the official sources disagree: the GitHub README says Node >=22, the DeepSeek integration guide still says Node 20.10+, and the live npm metadata for 1.33.0 still declares Node >=18, so verify your install path against the current source you plan to follow.",
+          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and the exact official source you plan to follow. As of 2026-08-31, the sources still disagree: the GitHub README says Node >=22, the DeepSeek integration guide still says Node 20.10+, and the live npm metadata for 1.34.0 still declares Node >=18.",
       },
       {
         question: "Should I use npx, global npm install, or build from source?",
         answer:
-          "Use npx reasonix code for first-time testing, npm i -g reasonix when you want a reusable local command, and a main-v2 source build only when you need to inspect, patch, or verify current commits.",
+          "Use the GitHub README path when you want the current stable CLI flow: npm i -g reasonix or Homebrew, then bare `reasonix`. Use `npx reasonix code` when you want to follow DeepSeek's integration guide. Build from main-v2 only when you need to inspect, patch, or verify current commits.",
       },
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-08-30, npm latest, next, canary, and latest-staging all point to 1.33.0. These channels can align during a stable rollout and diverge again when the project stages the next release.",
+          "As of 2026-08-31, npm latest, next, canary, and latest-staging all point to 1.34.0. These channels can align during a stable rollout and diverge again when the project stages the next release.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1992,11 +1993,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-08-29",
+        date: "2026-08-30",
         title:
-          "Reasonix v1.33.0 is now the stable CLI and desktop release line",
-        body: "GitHub published CLI `v1.33.0` at 2026-08-29T00:01:07Z, Desktop `desktop-v1.33.0` at 2026-08-29T00:06:27Z, and npm moved `latest`, `next`, `canary`, and `latest-staging` to 1.33.0 at 2026-08-29T00:03:22.225Z. This stable line improves cross-platform shell setup, hardens remote credential routing so revoked tokens return HTTP 401, stabilizes in-flight task switching, and adds a 0-100% notification-volume control in Desktop.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.33.0",
+          "Reasonix v1.34.0 is now the stable CLI and desktop release line",
+        body: "GitHub published CLI `v1.34.0` at 2026-08-30T06:53:45Z, Desktop `desktop-v1.34.0` at 2026-08-30T06:54:13Z, and npm moved `latest`, `next`, `canary`, and `latest-staging` to 1.34.0 at 2026-08-30T06:52:08.394Z. This stable line adds MCP 2026 multi-turn Apps support, cache-stable capability controls, serve and git hardening, and desktop fixes for scrolling, multi-sample thinking timelines, remote project rows, `/resume` to `/new`, and custom-provider streaming.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.34.0",
       },
       {
         date: "2026-08-12",
@@ -2420,9 +2421,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 1.32.1 / next 1.32.1",
+        value: "latest 1.34.0 / next 1.34.0",
         detail:
-          "按 2026-08-29 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.32.1，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
+          "按 2026-08-31 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.34.0，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2432,35 +2433,35 @@ export const contentByLocale = {
       },
       {
         label: "Reasonix 启动入口",
-        value: "npx reasonix code",
+        value: "npm i -g reasonix -> reasonix",
         detail:
-          "Reasonix 应在目标项目目录内启动，并使用 DeepSeek API Key。首次运行前先查看当前 npm 包声明的 Node 要求。",
+          "当前 GitHub README 主推 npm 或 Homebrew 安装后直接运行裸 `reasonix`；DeepSeek 官方集成页仍使用 `npx reasonix code`，所以要先确认你跟随的是哪条官方路径。",
       },
     ],
     downloadOptions: [
       {
-        title: "按 DeepSeek 官方推荐启动",
-        tag: "推荐给新用户",
-        command: "cd /path/to/my-project\nnpx reasonix code",
+        title: "按稳定版 CLI 路径安装",
+        tag: "README 稳定路径",
+        command:
+          "npm i -g reasonix\nreasonix setup\ncd /path/to/my-project\nreasonix",
         description:
-          "不需要全局安装，首次运行会进入配置向导。适合想先体验 DeepSeek-V4-Flash 默认模式的开发者。",
-        href: SITE.deepseekGuide,
+          "当前 GitHub README 已改为 npm 全局安装或 Homebrew，再用裸 `reasonix` 打开交互会话；一次性任务则用 `reasonix run`。",
+        href: SITE.github,
       },
       {
-        title: "从 GitHub 克隆 main-v2",
-        tag: "源码构建",
-        command:
-          "git clone https://github.com/esengine/DeepSeek-Reasonix.git\ncd DeepSeek-Reasonix\ngit switch main-v2\nmake build",
+        title: "按 DeepSeek 官方推荐启动",
+        tag: "DeepSeek 路径",
+        command: "cd /path/to/my-project\nnpx reasonix code",
         description:
-          "main-v2 是 Go 1.0 默认开发分支；当你需要审计、修改或验证最新提交时，再走源码构建。",
-        href: SITE.github,
+          "DeepSeek 官方集成页仍保留项目目录内运行 npx 的路径，适合首次验证 DeepSeek 接入。",
+        href: SITE.deepseekGuide,
       },
       {
         title: "桌面版 release 资产",
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.33.0。这条稳定线改进了跨平台 Shell 配置，收紧了远程凭据代理路由以便撤销令牌后返回 HTTP 401，稳定了执行中任务切换，并新增 0-100% 通知音量控制。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.34.0。这条稳定线新增 MCP 2026 多轮交互与 Apps、缓存稳定的能力控制、serve 与 git 安全加固，以及多项桌面稳定性修复。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2472,8 +2473,9 @@ export const contentByLocale = {
       },
       {
         title: "在项目目录启动 Reasonix",
-        body: "DeepSeek 官方推荐在目标项目目录内运行 npx，这样 Reasonix 可以读取当前工作区并生成项目记忆。",
-        command: "cd /path/to/my-project\nnpx reasonix code",
+        body: "当前稳定版 README 路径是先用 npm 或 Homebrew 安装，再在目标项目目录里执行 `reasonix setup` 和裸 `reasonix`。DeepSeek 官方集成页仍保留 `npx reasonix code` 作为更短的接入路径。",
+        command:
+          "npm i -g reasonix\nreasonix setup\ncd /path/to/my-project\nreasonix",
       },
       {
         title: "在 TUI 内切换 Pro",
@@ -2515,17 +2517,17 @@ export const contentByLocale = {
       {
         question: "首次运行前应该检查哪些版本？",
         answer:
-          "先检查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你准备安装预览通道，再额外核对对应 tag。按 2026-08-30 的实时核查，官方来源目前并不一致：GitHub README 写的是 Node >=22，DeepSeek 官方集成页仍写 20.10+，而 1.33.0 的 npm 包元数据仍声明 Node >=18，所以要按你实际采用的安装来源再做一次确认。",
+          "先检查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix dist-tags，以及你准备遵循的那条官方安装文档。按 2026-08-31 的实时核查，官方来源仍不一致：GitHub README 写 Node >=22，DeepSeek 官方集成页仍写 20.10+，而 1.34.0 的 npm 包元数据仍声明 Node >=18。",
       },
       {
         question: "现在应该用 npx、全局 npm 安装还是源码构建？",
         answer:
-          "入门体验用 npx reasonix code；需要长期复用命令时再用 npm i -g reasonix；只有在需要审计、修改或验证最新提交时，才从 main-v2 源码构建。",
+          "如果你要走当前 GitHub README 的稳定路径，就用 npm i -g reasonix 或 Homebrew，然后直接运行裸 `reasonix`。如果你要跟随 DeepSeek 官方集成页，就用 `npx reasonix code`。只有在需要审计、修改或验证最新提交时，才从 main-v2 源码构建。",
       },
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-08-30 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.33.0。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
+          "按 2026-08-31 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.34.0。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2634,10 +2636,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-08-29",
-        title: "Reasonix v1.33.0 现已成为当前稳定 CLI 与桌面发布线",
-        body: "GitHub 于 2026-08-29T00:01:07Z 发布 CLI `v1.33.0`，于 2026-08-29T00:06:27Z 发布 Desktop `desktop-v1.33.0`，npm 也在 2026-08-29T00:03:22.225Z 将 `latest`、`next`、`canary` 与 `latest-staging` 全部切到 1.33.0。这条稳定线改进了跨平台 Shell 配置，收紧了远程凭据代理路由以便撤销令牌后返回 HTTP 401，稳定了执行中任务切换，并新增 0-100% 通知音量控制。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.33.0",
+        date: "2026-08-30",
+        title: "Reasonix v1.34.0 现已成为当前稳定 CLI 与桌面发布线",
+        body: "GitHub 于 2026-08-30T06:53:45Z 发布 CLI `v1.34.0`，于 2026-08-30T06:54:13Z 发布 Desktop `desktop-v1.34.0`，npm 也在 2026-08-30T06:52:08.394Z 将 `latest`、`next`、`canary` 与 `latest-staging` 全部切到 1.34.0。这条稳定线新增 MCP 2026 多轮交互与 Apps、缓存稳定的能力控制、serve 与 git 安全加固，并修复滚动、多次采样时间线、远端项目列、`/resume` 后 `/new` 以及自定义供应商流式响应等桌面问题。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.34.0",
       },
       {
         date: "2026-08-12",
@@ -3060,9 +3062,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 1.32.1 / next 1.32.1",
+        value: "latest 1.34.0 / next 1.34.0",
         detail:
-          "按 2026-08-29 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.32.1，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
+          "按 2026-08-31 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.34.0，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -3072,35 +3074,35 @@ export const contentByLocale = {
       },
       {
         label: "Reasonix 啟動入口",
-        value: "npx reasonix code",
+        value: "npm i -g reasonix -> reasonix",
         detail:
-          "Reasonix 應在目標專案目錄內啟動，並使用 DeepSeek API Key。首次執行前先查看目前 npm package 宣告的 Node 要求。",
+          "目前 GitHub README 主推 npm 或 Homebrew 安裝後直接執行裸 `reasonix`；DeepSeek 官方整合頁仍使用 `npx reasonix code`，所以要先確認你跟隨的是哪條官方路徑。",
       },
     ],
     downloadOptions: [
       {
-        title: "依 DeepSeek 官方推薦啟動",
-        tag: "推薦給新使用者",
-        command: "cd /path/to/my-project\nnpx reasonix code",
+        title: "依穩定版 CLI 路徑安裝",
+        tag: "README 穩定路徑",
+        command:
+          "npm i -g reasonix\nreasonix setup\ncd /path/to/my-project\nreasonix",
         description:
-          "不需要全域安裝，首次執行會進入設定流程。適合先體驗 DeepSeek-V4-Flash 預設模式。",
-        href: SITE.deepseekGuide,
+          "目前 GitHub README 已改為 npm 全域安裝或 Homebrew，再用裸 `reasonix` 打開互動會話；單次任務則可用 `reasonix run`。",
+        href: SITE.github,
       },
       {
-        title: "從 GitHub clone main-v2",
-        tag: "原始碼建置",
-        command:
-          "git clone https://github.com/esengine/DeepSeek-Reasonix.git\ncd DeepSeek-Reasonix\ngit switch main-v2\nmake build",
+        title: "依 DeepSeek 官方推薦啟動",
+        tag: "DeepSeek 路徑",
+        command: "cd /path/to/my-project\nnpx reasonix code",
         description:
-          "main-v2 是 Go 1.0 預設開發分支；當你需要審計、修改或驗證最新提交時，再走原始碼建置。",
-        href: SITE.github,
+          "DeepSeek 官方整合頁仍保留在專案目錄中執行 npx 的路徑，適合首次驗證 DeepSeek 接入。",
+        href: SITE.deepseekGuide,
       },
       {
         title: "桌面版 release 資產",
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.33.0。這條穩定線改進了跨平台 Shell 設定，收緊遠端憑證代理路由以便撤銷權杖後回傳 HTTP 401，穩定執行中任務切換，並新增 0-100% 通知音量控制。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.34.0。這條穩定線新增 MCP 2026 多輪互動與 Apps、快取穩定的能力控制、serve 與 git 安全加固，以及多項桌面穩定性修復。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3112,8 +3114,9 @@ export const contentByLocale = {
       },
       {
         title: "在專案目錄啟動 Reasonix",
-        body: "DeepSeek 官方推薦在目標專案目錄內執行 npx，讓 Reasonix 讀取目前工作區並生成專案記憶。",
-        command: "cd /path/to/my-project\nnpx reasonix code",
+        body: "目前穩定版 README 路徑是先用 npm 或 Homebrew 安裝，再在目標專案目錄執行 `reasonix setup` 和裸 `reasonix`。DeepSeek 官方整合頁仍保留 `npx reasonix code` 作為較短的接入路徑。",
+        command:
+          "npm i -g reasonix\nreasonix setup\ncd /path/to/my-project\nreasonix",
       },
       {
         title: "在 TUI 內切換 Pro",
@@ -3155,17 +3158,17 @@ export const contentByLocale = {
       {
         question: "首次執行前應該檢查哪些版本？",
         answer:
-          "先檢查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags；如果你準備安裝預覽通道，再額外核對對應 tag。按 2026-08-30 的即時核查，官方來源目前並不一致：GitHub README 寫 Node >=22，DeepSeek 官方整合頁仍寫 20.10+，而 1.33.0 的 npm package metadata 仍宣告 Node >=18，所以要按你實際採用的安裝來源再確認一次。",
+          "先檢查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix dist-tags，以及你準備遵循的那條官方安裝文件。按 2026-08-31 的即時核查，官方來源仍不一致：GitHub README 寫 Node >=22，DeepSeek 官方整合頁仍寫 20.10+，而 1.34.0 的 npm package metadata 仍宣告 Node >=18。",
       },
       {
         question: "現在應該用 npx、全域 npm 安裝還是原始碼建置？",
         answer:
-          "入門體驗用 npx reasonix code；需要長期重複使用命令時再用 npm i -g reasonix；只有需要審計、修改或驗證最新提交時，才從 main-v2 原始碼建置。",
+          "如果你要走目前 GitHub README 的穩定路徑，就用 npm i -g reasonix 或 Homebrew，然後直接執行裸 `reasonix`。如果你要跟隨 DeepSeek 官方整合頁，就用 `npx reasonix code`。只有在需要審計、修改或驗證最新提交時，才從 main-v2 原始碼建置。",
       },
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-08-30 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.33.0。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
+          "按 2026-08-31 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.34.0。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -3274,10 +3277,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-08-29",
-        title: "Reasonix v1.33.0 現已成為目前穩定 CLI 與桌面發布線",
-        body: "GitHub 於 2026-08-29T00:01:07Z 發布 CLI `v1.33.0`，於 2026-08-29T00:06:27Z 發布 Desktop `desktop-v1.33.0`，npm 也在 2026-08-29T00:03:22.225Z 將 `latest`、`next`、`canary` 與 `latest-staging` 全部切到 1.33.0。這條穩定線改進了跨平台 Shell 設定，收緊遠端憑證代理路由以便撤銷權杖後回傳 HTTP 401，穩定執行中任務切換，並新增 0-100% 通知音量控制。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.33.0",
+        date: "2026-08-30",
+        title: "Reasonix v1.34.0 現已成為目前穩定 CLI 與桌面發布線",
+        body: "GitHub 於 2026-08-30T06:53:45Z 發布 CLI `v1.34.0`，於 2026-08-30T06:54:13Z 發布 Desktop `desktop-v1.34.0`，npm 也在 2026-08-30T06:52:08.394Z 將 `latest`、`next`、`canary` 與 `latest-staging` 全部切到 1.34.0。這條穩定線新增 MCP 2026 多輪互動與 Apps、快取穩定的能力控制、serve 與 git 安全加固，並修復捲動、多次取樣時間線、遠端專案列、`/resume` 後 `/new` 以及自訂供應商串流回應等桌面問題。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.34.0",
       },
       {
         date: "2026-08-12",
@@ -3700,9 +3703,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 1.32.1 / next 1.32.1",
+        value: "latest 1.34.0 / next 1.34.0",
         detail:
-          "На 2026-08-29 npm latest, next, canary и `latest-staging` уже указывают на 1.32.1. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
+          "На 2026-08-31 npm latest, next, canary и `latest-staging` уже указывают на 1.34.0. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3712,35 +3715,35 @@ export const contentByLocale = {
       },
       {
         label: "Запуск Reasonix",
-        value: "npx reasonix code",
+        value: "npm i -g reasonix -> reasonix",
         detail:
-          "Запускайте Reasonix внутри целевого каталога проекта с API-ключом DeepSeek. Перед первым запуском проверьте текущие engines npm package.",
+          "Текущий GitHub README ведет через npm или Homebrew install, затем bare `reasonix`; DeepSeek guide по интеграции по-прежнему использует `npx reasonix code`, поэтому сначала выберите официальный путь, которому следуете.",
       },
     ],
     downloadOptions: [
       {
-        title: "Запуск по гайду DeepSeek",
-        tag: "Для новых пользователей",
-        command: "cd /path/to/my-project\nnpx reasonix code",
+        title: "Установить по stable CLI path",
+        tag: "README stable path",
+        command:
+          "npm i -g reasonix\nreasonix setup\ncd /path/to/my-project\nreasonix",
         description:
-          "Глобальная установка не нужна. Первый запуск открывает локальную настройку и подходит для быстрого теста режима DeepSeek-V4-Flash.",
-        href: SITE.deepseekGuide,
+          "Текущий GitHub README теперь ведет через global npm install или Homebrew, затем bare `reasonix` для интерактивной сессии и `reasonix run` для одноразовых задач.",
+        href: SITE.github,
       },
       {
-        title: "Клонировать main-v2 с GitHub",
-        tag: "Source build",
-        command:
-          "git clone https://github.com/esengine/DeepSeek-Reasonix.git\ncd DeepSeek-Reasonix\ngit switch main-v2\nmake build",
+        title: "Запуск по гайду DeepSeek",
+        tag: "DeepSeek path",
+        command: "cd /path/to/my-project\nnpx reasonix code",
         description:
-          "main-v2 является веткой разработки Go 1.0. Source build нужен, когда вы хотите проверить, изменить или верифицировать самые свежие коммиты.",
-        href: SITE.github,
+          "Официальная страница интеграции DeepSeek все еще документирует npx path внутри каталога проекта, и он остается удобным первым DeepSeek setup.",
+        href: SITE.deepseekGuide,
       },
       {
         title: "Desktop release assets",
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.33.0. Эта stable line улучшает кроссплатформенную настройку shell, усиливает маршрутизацию удаленных credentials так, чтобы отозванные токены возвращали HTTP 401, стабилизирует переключение задач на ходу и добавляет регулировку громкости уведомлений 0-100%.",
+          "Последний публичный desktop release - desktop-v1.34.0. Эта stable line добавляет поддержку MCP 2026 multi-turn Apps, cache-stable capability controls, hardening для serve и git и несколько desktop stability fixes.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3752,8 +3755,9 @@ export const contentByLocale = {
       },
       {
         title: "Запустите Reasonix в каталоге проекта",
-        body: "DeepSeek рекомендует запускать npx внутри целевого проекта, чтобы Reasonix мог прочитать workspace и создать локальную память проекта.",
-        command: "cd /path/to/my-project\nnpx reasonix code",
+        body: "Текущий stable README path - сначала npm или Homebrew install, затем `reasonix setup` и bare `reasonix` внутри целевого проекта. Гайд DeepSeek все еще оставляет `npx reasonix code` как более короткий integration path.",
+        command:
+          "npm i -g reasonix\nreasonix setup\ncd /path/to/my-project\nreasonix",
       },
       {
         title: "Переключите Pro в TUI",
@@ -3795,17 +3799,17 @@ export const contentByLocale = {
       {
         question: "Что проверить перед первым запуском?",
         answer:
-          "Проверьте node -v, npm -v, npm view reasonix@latest engines и npm view reasonix dist-tags; если нужен preview channel, дополнительно проверьте конкретный tag. На 2026-08-30 официальные источники расходятся: GitHub README указывает Node >=22, гайд DeepSeek по интеграции все еще указывает 20.10+, а live npm metadata для 1.33.0 по-прежнему объявляют Node >=18, поэтому сверяйте установку с тем официальным источником, которому следуете.",
+          "Проверьте node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags и ту официальную install-документацию, которой собираетесь следовать. На 2026-08-31 источники все еще расходятся: GitHub README указывает Node >=22, гайд DeepSeek по интеграции по-прежнему указывает 20.10+, а live npm metadata для 1.34.0 все еще объявляют Node >=18.",
       },
       {
         question: "Выбрать npx, global npm install или source build?",
         answer:
-          "Для первого теста используйте npx reasonix code. Для повторного локального command можно поставить npm i -g reasonix. Source build из main-v2 нужен только для аудита, патча или проверки свежих коммитов.",
+          "Если нужен текущий stable path из GitHub README, используйте npm i -g reasonix или Homebrew, затем bare `reasonix`. Если хотите идти строго по гайду DeepSeek, используйте `npx reasonix code`. Source build из main-v2 нужен только для аудита, патча или проверки свежих коммитов.",
       },
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-08-30 npm latest, next, canary и `latest-staging` уже указывают на 1.33.0. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
+          "На 2026-08-31 npm latest, next, canary и `latest-staging` уже указывают на 1.34.0. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3914,11 +3918,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-08-29",
+        date: "2026-08-30",
         title:
-          "Reasonix v1.33.0 теперь является актуальной stable line для CLI и Desktop",
-        body: "GitHub опубликовал CLI `v1.33.0` в 2026-08-29T00:01:07Z, Desktop `desktop-v1.33.0` в 2026-08-29T00:06:27Z, а npm перевел `latest`, `next`, `canary` и `latest-staging` на 1.33.0 в 2026-08-29T00:03:22.225Z. Эта stable line улучшает кроссплатформенную настройку shell, усиливает маршрутизацию удаленных credentials так, чтобы отозванные токены возвращали HTTP 401, стабилизирует переключение задач на ходу и добавляет регулировку громкости уведомлений 0-100% в Desktop.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.33.0",
+          "Reasonix v1.34.0 теперь является актуальной stable line для CLI и Desktop",
+        body: "GitHub опубликовал CLI `v1.34.0` в 2026-08-30T06:53:45Z, Desktop `desktop-v1.34.0` в 2026-08-30T06:54:13Z, а npm перевел `latest`, `next`, `canary` и `latest-staging` на 1.34.0 в 2026-08-30T06:52:08.394Z. Эта stable line добавляет MCP 2026 multi-turn Apps, cache-stable capability controls, hardening для serve и git и исправления Desktop для scrolling, multi-sample thinking timeline, remote project rows, перехода `/resume` -> `/new` и streaming у custom providers.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.34.0",
       },
       {
         date: "2026-08-12",
