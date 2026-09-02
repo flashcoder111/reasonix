@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-01",
+  checkedAt: "2026-09-03",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.35.0";
-export const reasonixDesktopVersion = "v1.35.0";
+export const reasonixCliVersion = "v1.36.0";
+export const reasonixDesktopVersion = "v1.36.0";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -438,12 +438,12 @@ const sharedIssueWatch = [
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "35,293", note: "GitHub API, 2026-09-01" },
-  { label: "Forks", value: "2,359", note: "GitHub API, 2026-09-01" },
+  { label: "GitHub stars", value: "35,354", note: "GitHub API, 2026-09-03" },
+  { label: "Forks", value: "2,362", note: "GitHub API, 2026-09-03" },
   {
     label: "Open items",
-    value: "1,662",
-    note: "GitHub API open issues + pull requests, 2026-09-01",
+    value: "1,689",
+    note: "GitHub API open issues + pull requests, 2026-09-03",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1778,9 +1778,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 1.35.0 / next 1.35.0",
+        value: "latest 1.36.0 / next 1.36.0",
         detail:
-          "As checked on 2026-09-01, npm latest, next, canary, and latest-staging all point to 1.35.0. The live package metadata for the current stable channels still declares Node >=18.",
+          "As checked on 2026-09-03, npm latest, next, canary, and latest-staging all point to 1.36.0. The live package metadata for the current stable channels still declares Node >=18.",
       },
       {
         label: "Official repository",
@@ -1818,7 +1818,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest public desktop release is desktop-v1.35.0. This stable line adds isolated Git Worktree forks, chunked summary recovery for extra-long sessions, a simpler restore-version dialog, and broader transcript, compaction, and session-catalog stability fixes.",
+          "The latest public desktop release is desktop-v1.36.0. This stable line adds pinned context files that survive compaction, collaborative session handoff between Desktop and CLI, enforced completion of long file reads, and a one-click path to inspect and merge isolated worktree changes back to the main branch.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1874,7 +1874,7 @@ export const contentByLocale = {
       {
         question: "What should I check before the first run?",
         answer:
-          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and the exact official source you plan to follow. As of 2026-09-01, the sources still disagree: the GitHub README says Node >=22, the DeepSeek integration guide still says Node 20.10+, and the live npm metadata for 1.35.0 still declares Node >=18.",
+          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and the exact official source you plan to follow. As of 2026-09-03, the sources still disagree: the GitHub README says Node >=22, the DeepSeek integration guide still says Node 20.10+, and the live npm metadata for 1.36.0 still declares Node >=18.",
       },
       {
         question: "Should I use npx, global npm install, or build from source?",
@@ -1884,7 +1884,7 @@ export const contentByLocale = {
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-09-01, npm latest, next, canary, and latest-staging all point to 1.35.0. These channels can align during a stable rollout and diverge again when the project stages the next release.",
+          "As of 2026-09-03, npm latest, next, canary, and latest-staging all point to 1.36.0. These channels can align during a stable rollout and diverge again when the project stages the next release.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1993,11 +1993,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
-        date: "2026-08-31",
+        date: "2026-09-02",
         title:
-          "Reasonix v1.35.0 is now the stable CLI and desktop release line",
-        body: "GitHub published CLI `v1.35.0` at 2026-08-31T17:36:31Z, Desktop `desktop-v1.35.0` at 2026-08-31T17:42:06Z, and npm now points `latest`, `next`, `canary`, and `latest-staging` to 1.35.0. This stable line adds isolated Git Worktree forks, automatic chunked-summary recovery when `/compact` hits output limits, a simpler restore-version dialog, and broader transcript, compaction, and session-catalog stability fixes.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.35.0",
+          "Reasonix v1.36.0 is now the stable CLI and desktop release line",
+        body: "GitHub published CLI `v1.36.0` at 2026-09-02T17:08:51Z, Desktop `desktop-v1.36.0` at 2026-09-02T17:15:37Z, and npm now points `latest`, `next`, `canary`, and `latest-staging` to 1.36.0. This stable line adds pinned context files that survive compaction, collaborative session handoff between Desktop and CLI, enforced completion of long file reads before edits or final answers, and a safer path to inspect and merge isolated worktree changes back to the main branch.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.36.0",
       },
       {
         date: "2026-08-12",
@@ -2421,9 +2421,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 1.35.0 / next 1.35.0",
+        value: "latest 1.36.0 / next 1.36.0",
         detail:
-          "按 2026-09-01 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.35.0，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
+          "按 2026-09-03 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.36.0，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2461,7 +2461,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公开桌面 release 为 desktop-v1.35.0。这条稳定线新增隔离 Git Worktree 分叉、超长会话的分块摘要恢复、更简化的恢复版本对话框，以及转录、压缩和会话目录相关的稳定性修复。",
+          "GitHub 最新公开桌面 release 为 desktop-v1.36.0。这条稳定线新增可跨压缩保留的粘性上下文文件固定、Desktop 与 CLI 间的协作式会话接管、长文件读取未完成前阻止修改或交付答案，以及更安全的隔离 worktree 对比与合并回主分支路径。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2517,7 +2517,7 @@ export const contentByLocale = {
       {
         question: "首次运行前应该检查哪些版本？",
         answer:
-          "先检查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix dist-tags，以及你准备遵循的那条官方安装文档。按 2026-09-01 的实时核查，官方来源仍不一致：GitHub README 写 Node >=22，DeepSeek 官方集成页仍写 20.10+，而 1.35.0 的 npm 包元数据仍声明 Node >=18。",
+          "先检查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix dist-tags，以及你准备遵循的那条官方安装文档。按 2026-09-03 的实时核查，官方来源仍不一致：GitHub README 写 Node >=22，DeepSeek 官方集成页仍写 20.10+，而 1.36.0 的 npm 包元数据仍声明 Node >=18。",
       },
       {
         question: "现在应该用 npx、全局 npm 安装还是源码构建？",
@@ -2527,7 +2527,7 @@ export const contentByLocale = {
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-09-01 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.35.0。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
+          "按 2026-09-03 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.36.0。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2636,10 +2636,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
-        date: "2026-08-31",
-        title: "Reasonix v1.35.0 现已成为当前稳定 CLI 与桌面发布线",
-        body: "GitHub 于 2026-08-31T17:36:31Z 发布 CLI `v1.35.0`，于 2026-08-31T17:42:06Z 发布 Desktop `desktop-v1.35.0`，npm 也已将 `latest`、`next`、`canary` 与 `latest-staging` 全部切到 1.35.0。这条稳定线新增隔离 Git Worktree 分叉、在 `/compact` 遇到输出截断时自动回退到分块摘要恢复、更简化的恢复版本对话框，并修复转录、压缩和会话目录相关的一批稳定性问题。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.35.0",
+        date: "2026-09-02",
+        title: "Reasonix v1.36.0 现已成为当前稳定 CLI 与桌面发布线",
+        body: "GitHub 于 2026-09-02T17:08:51Z 发布 CLI `v1.36.0`，于 2026-09-02T17:15:37Z 发布 Desktop `desktop-v1.36.0`，npm 也已将 `latest`、`next`、`canary` 与 `latest-staging` 全部切到 1.36.0。这条稳定线新增可跨压缩保留的粘性上下文文件固定、Desktop 与 CLI 间的协作式会话接管、在长文件未完整读完前阻止修改或交付答案，并补上更安全的隔离 worktree 对比与合并回主分支路径。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.36.0",
       },
       {
         date: "2026-08-12",
@@ -3062,9 +3062,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 1.35.0 / next 1.35.0",
+        value: "latest 1.36.0 / next 1.36.0",
         detail:
-          "按 2026-09-01 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.35.0，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
+          "按 2026-09-03 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.36.0，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -3102,7 +3102,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "GitHub 最新公開桌面 release 為 desktop-v1.35.0。這條穩定線新增隔離 Git Worktree 分叉、超長會話的分塊摘要恢復、更簡化的恢復版本對話框，以及轉錄、壓縮和會話目錄相關的穩定性修復。",
+          "GitHub 最新公開桌面 release 為 desktop-v1.36.0。這條穩定線新增可跨壓縮保留的黏性上下文檔案固定、Desktop 與 CLI 間的協作式會話接管、長檔案未完整讀完前阻止修改或交付答案，以及更安全的隔離 worktree 對比與合併回主分支路徑。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3158,7 +3158,7 @@ export const contentByLocale = {
       {
         question: "首次執行前應該檢查哪些版本？",
         answer:
-          "先檢查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix dist-tags，以及你準備遵循的那條官方安裝文件。按 2026-09-01 的即時核查，官方來源仍不一致：GitHub README 寫 Node >=22，DeepSeek 官方整合頁仍寫 20.10+，而 1.35.0 的 npm package metadata 仍宣告 Node >=18。",
+          "先檢查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix dist-tags，以及你準備遵循的那條官方安裝文件。按 2026-09-03 的即時核查，官方來源仍不一致：GitHub README 寫 Node >=22，DeepSeek 官方整合頁仍寫 20.10+，而 1.36.0 的 npm package metadata 仍宣告 Node >=18。",
       },
       {
         question: "現在應該用 npx、全域 npm 安裝還是原始碼建置？",
@@ -3168,7 +3168,7 @@ export const contentByLocale = {
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-09-01 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.35.0。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
+          "按 2026-09-03 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.36.0。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -3277,10 +3277,10 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
-        date: "2026-08-31",
-        title: "Reasonix v1.35.0 現已成為目前穩定 CLI 與桌面發布線",
-        body: "GitHub 於 2026-08-31T17:36:31Z 發布 CLI `v1.35.0`，於 2026-08-31T17:42:06Z 發布 Desktop `desktop-v1.35.0`，npm 也已將 `latest`、`next`、`canary` 與 `latest-staging` 全部切到 1.35.0。這條穩定線新增隔離 Git Worktree 分叉、在 `/compact` 遇到輸出截斷時自動回退到分塊摘要恢復、更簡化的恢復版本對話框，並修復轉錄、壓縮和會話目錄相關的一批穩定性問題。",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.35.0",
+        date: "2026-09-02",
+        title: "Reasonix v1.36.0 現已成為目前穩定 CLI 與桌面發布線",
+        body: "GitHub 於 2026-09-02T17:08:51Z 發布 CLI `v1.36.0`，於 2026-09-02T17:15:37Z 發布 Desktop `desktop-v1.36.0`，npm 也已將 `latest`、`next`、`canary` 與 `latest-staging` 全部切到 1.36.0。這條穩定線新增可跨壓縮保留的黏性上下文檔案固定、Desktop 與 CLI 間的協作式會話接管、在長檔案未完整讀完前阻止修改或交付答案，並補上更安全的隔離 worktree 對比與合併回主分支路徑。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.36.0",
       },
       {
         date: "2026-08-12",
@@ -3703,9 +3703,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 1.35.0 / next 1.35.0",
+        value: "latest 1.36.0 / next 1.36.0",
         detail:
-          "На 2026-09-01 npm latest, next, canary и `latest-staging` уже указывают на 1.35.0. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
+          "На 2026-09-03 npm latest, next, canary и `latest-staging` уже указывают на 1.36.0. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3743,7 +3743,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последний публичный desktop release - desktop-v1.35.0. Эта stable line добавляет изолированные Git Worktree fork-сессии, восстановление через chunked summaries для очень длинных сессий, более простой restore-version dialog и более широкие fixes для transcript, compaction и session catalog.",
+          "Последний публичный desktop release - desktop-v1.36.0. Эта stable line добавляет pinned context files, которые переживают compaction, collaborative handoff сессий между Desktop и CLI, обязательное завершение длинных чтений файлов перед edits или final answer и более безопасный путь сравнить и влить isolated worktree обратно в main branch.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3799,7 +3799,7 @@ export const contentByLocale = {
       {
         question: "Что проверить перед первым запуском?",
         answer:
-          "Проверьте node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags и ту официальную install-документацию, которой собираетесь следовать. На 2026-09-01 источники все еще расходятся: GitHub README указывает Node >=22, гайд DeepSeek по интеграции по-прежнему указывает 20.10+, а live npm metadata для 1.35.0 все еще объявляют Node >=18.",
+          "Проверьте node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags и ту официальную install-документацию, которой собираетесь следовать. На 2026-09-03 источники все еще расходятся: GitHub README указывает Node >=22, гайд DeepSeek по интеграции по-прежнему указывает 20.10+, а live npm metadata для 1.36.0 все еще объявляют Node >=18.",
       },
       {
         question: "Выбрать npx, global npm install или source build?",
@@ -3809,7 +3809,7 @@ export const contentByLocale = {
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-09-01 npm latest, next, canary и `latest-staging` уже указывают на 1.35.0. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
+          "На 2026-09-03 npm latest, next, canary и `latest-staging` уже указывают на 1.36.0. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3918,11 +3918,11 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
       {
-        date: "2026-08-31",
+        date: "2026-09-02",
         title:
-          "Reasonix v1.35.0 теперь является актуальной stable line для CLI и Desktop",
-        body: "GitHub опубликовал CLI `v1.35.0` 2026-08-31T17:36:31Z, Desktop `desktop-v1.35.0` 2026-08-31T17:42:06Z, а npm уже перевел `latest`, `next`, `canary` и `latest-staging` на 1.35.0. Эта stable line добавляет изолированные Git Worktree fork-сессии, автоматический откат `/compact` к chunked summaries при усечении вывода, более простой restore-version dialog и более широкий набор fixes для transcript, compaction и session catalog.",
-        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.35.0",
+          "Reasonix v1.36.0 теперь является актуальной stable line для CLI и Desktop",
+        body: "GitHub опубликовал CLI `v1.36.0` 2026-09-02T17:08:51Z, Desktop `desktop-v1.36.0` 2026-09-02T17:15:37Z, а npm уже перевел `latest`, `next`, `canary` и `latest-staging` на 1.36.0. Эта stable line добавляет pinned context files, которые переживают compaction, collaborative handoff сессий между Desktop и CLI, обязательное завершение длинных чтений файлов перед edits или final answer и более безопасный путь сравнить и влить isolated worktree обратно в main branch.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.36.0",
       },
       {
         date: "2026-08-12",
