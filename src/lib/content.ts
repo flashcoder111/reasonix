@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-03",
+  checkedAt: "2026-09-04",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -438,12 +438,12 @@ const sharedIssueWatch = [
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "35,354", note: "GitHub API, 2026-09-03" },
-  { label: "Forks", value: "2,362", note: "GitHub API, 2026-09-03" },
+  { label: "GitHub stars", value: "35,383", note: "GitHub API, 2026-09-04" },
+  { label: "Forks", value: "2,360", note: "GitHub API, 2026-09-04" },
   {
     label: "Open items",
-    value: "1,689",
-    note: "GitHub API open issues + pull requests, 2026-09-03",
+    value: "1,699",
+    note: "GitHub API open issues + pull requests, 2026-09-04",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1780,7 +1780,7 @@ export const contentByLocale = {
         label: "Current npm tags",
         value: "latest 1.36.0 / next 1.36.0",
         detail:
-          "As checked on 2026-09-03, npm latest, next, canary, and latest-staging all point to 1.36.0. The live package metadata for the current stable channels still declares Node >=18.",
+          "As checked on 2026-09-04, npm latest, next, canary, and latest-staging all point to 1.36.0. The live package metadata for the current stable channels still declares Node >=18.",
       },
       {
         label: "Official repository",
@@ -1992,6 +1992,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
+      {
+        date: "2026-09-03",
+        title:
+          "Reasonix main-v2 hardens transcript scrolling after the v1.36.0 stable release",
+        body: "Official `main-v2` merges on 2026-09-03 fixed a long-answer transcript jump that could snap the viewport thousands of pixels while scrolling upward, rebased custom and native scrollbar ownership when geometry changes mid-drag, and removed empty fenced Markdown blocks that rendered as blank cards. The evidence is in merged PRs #9760, #9759, and #9757. These are user-visible source fixes after stable `v1.36.0`, not a newer stable release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
       {
         date: "2026-09-02",
         title:
@@ -2636,6 +2643,13 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-03",
+        title:
+          "Reasonix main-v2 在 v1.36.0 稳定版之后继续加固长回答转录滚动体验",
+        body: "官方 `main-v2` 在 2026-09-03 合并的更新修复了长回答转录在向上滚动时可能瞬间跳动数千像素的问题，也补上了拖动过程中几何变化时对自定义和原生滚动条事务的重新对齐，并移除了会渲染成空白卡片的空代码围栏。证据来自已合并的 PR #9760、#9759 和 #9757。这些是稳定版 `v1.36.0` 之后的用户可感知源码修复，并非新的稳定版发布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
+      {
         date: "2026-09-02",
         title: "Reasonix v1.36.0 现已成为当前稳定 CLI 与桌面发布线",
         body: "GitHub 于 2026-09-02T17:08:51Z 发布 CLI `v1.36.0`，于 2026-09-02T17:15:37Z 发布 Desktop `desktop-v1.36.0`，npm 也已将 `latest`、`next`、`canary` 与 `latest-staging` 全部切到 1.36.0。这条稳定线新增可跨压缩保留的粘性上下文文件固定、Desktop 与 CLI 间的协作式会话接管、在长文件未完整读完前阻止修改或交付答案，并补上更安全的隔离 worktree 对比与合并回主分支路径。",
@@ -3277,6 +3291,13 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-03",
+        title:
+          "Reasonix main-v2 在 v1.36.0 穩定版之後持續補強長回覆轉錄捲動體驗",
+        body: "官方 `main-v2` 在 2026-09-03 合併的更新修復了長回覆轉錄向上捲動時可能瞬間跳動數千像素的問題，也補上拖曳過程中幾何變化時對自訂與原生捲動條交易的重新對齊，並移除了會渲染成空白卡片的空程式碼圍欄。證據來自已合併的 PR #9760、#9759 與 #9757。這些是穩定版 `v1.36.0` 之後使用者可感知的原始碼修復，並非新的穩定版發布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
+      {
         date: "2026-09-02",
         title: "Reasonix v1.36.0 現已成為目前穩定 CLI 與桌面發布線",
         body: "GitHub 於 2026-09-02T17:08:51Z 發布 CLI `v1.36.0`，於 2026-09-02T17:15:37Z 發布 Desktop `desktop-v1.36.0`，npm 也已將 `latest`、`next`、`canary` 與 `latest-staging` 全部切到 1.36.0。這條穩定線新增可跨壓縮保留的黏性上下文檔案固定、Desktop 與 CLI 間的協作式會話接管、在長檔案未完整讀完前阻止修改或交付答案，並補上更安全的隔離 worktree 對比與合併回主分支路徑。",
@@ -3917,6 +3938,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-03",
+        title:
+          "Reasonix main-v2 усиливает прокрутку transcript после stable-релиза v1.36.0",
+        body: "Официальные merge в `main-v2` от 2026-09-03 исправили скачок transcript при прокрутке вверх через длинный ответ, когда viewport мог перескакивать на тысячи пикселей, перебазировали custom и native scrollbar ownership при изменении геометрии во время drag и убрали пустые fenced Markdown blocks, которые рендерились как пустые карточки. Доказательство есть в слитых PR #9760, #9759 и #9757. Это заметные пользователю source fixes после stable `v1.36.0`, а не новый stable release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
       {
         date: "2026-09-02",
         title:
