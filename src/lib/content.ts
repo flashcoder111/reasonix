@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-04",
+  checkedAt: "2026-09-05",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -438,12 +438,12 @@ const sharedIssueWatch = [
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "35,383", note: "GitHub API, 2026-09-04" },
-  { label: "Forks", value: "2,360", note: "GitHub API, 2026-09-04" },
+  { label: "GitHub stars", value: "35,397", note: "GitHub API, 2026-09-05" },
+  { label: "Forks", value: "2,364", note: "GitHub API, 2026-09-05" },
   {
     label: "Open items",
-    value: "1,699",
-    note: "GitHub API open issues + pull requests, 2026-09-04",
+    value: "1,708",
+    note: "GitHub API open issues + pull requests, 2026-09-05",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1780,7 +1780,7 @@ export const contentByLocale = {
         label: "Current npm tags",
         value: "latest 1.36.0 / next 1.36.0",
         detail:
-          "As checked on 2026-09-04, npm latest, next, canary, and latest-staging all point to 1.36.0. The live package metadata for the current stable channels still declares Node >=18.",
+          "As checked on 2026-09-05, npm latest, next, canary, and latest-staging all point to 1.36.0. The live package metadata for the current stable channels still declares Node >=18.",
       },
       {
         label: "Official repository",
@@ -1874,7 +1874,7 @@ export const contentByLocale = {
       {
         question: "What should I check before the first run?",
         answer:
-          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and the exact official source you plan to follow. As of 2026-09-03, the sources still disagree: the GitHub README says Node >=22, the DeepSeek integration guide still says Node 20.10+, and the live npm metadata for 1.36.0 still declares Node >=18.",
+          "Check node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags, and the exact official source you plan to follow. As of 2026-09-05, the sources still disagree: the GitHub README says Node >=22, the DeepSeek integration guide still says Node 20.10+, and the live npm metadata for 1.36.0 still declares Node >=18.",
       },
       {
         question: "Should I use npx, global npm install, or build from source?",
@@ -1884,7 +1884,7 @@ export const contentByLocale = {
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-09-03, npm latest, next, canary, and latest-staging all point to 1.36.0. These channels can align during a stable rollout and diverge again when the project stages the next release.",
+          "As of 2026-09-05, npm latest, next, canary, and latest-staging all point to 1.36.0. These channels can align during a stable rollout and diverge again when the project stages the next release.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1992,6 +1992,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
+      {
+        date: "2026-09-04",
+        title:
+          "Reasonix main-v2 makes planner fallback explicit and removes the Classic desktop style",
+        body: "Official `main-v2` merges on 2026-09-04 turned planner, continuation, compaction, and model fallback paths into explicit opt-in behavior, moved vision handling to model-level capability metadata instead of manual lists, and retired the Classic desktop layout by migrating existing users to Workbench. The evidence is in merged PRs #9794, #9787, and #9796. These are user-visible source changes after stable `v1.36.0`, not a newer stable release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
       {
         date: "2026-09-03",
         title:
@@ -2430,7 +2437,7 @@ export const contentByLocale = {
         label: "当前 npm tags",
         value: "latest 1.36.0 / next 1.36.0",
         detail:
-          "按 2026-09-03 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.36.0，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
+          "按 2026-09-05 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.36.0，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2524,7 +2531,7 @@ export const contentByLocale = {
       {
         question: "首次运行前应该检查哪些版本？",
         answer:
-          "先检查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix dist-tags，以及你准备遵循的那条官方安装文档。按 2026-09-03 的实时核查，官方来源仍不一致：GitHub README 写 Node >=22，DeepSeek 官方集成页仍写 20.10+，而 1.36.0 的 npm 包元数据仍声明 Node >=18。",
+          "先检查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix dist-tags，以及你准备遵循的那条官方安装文档。按 2026-09-05 的实时核查，官方来源仍不一致：GitHub README 写 Node >=22，DeepSeek 官方集成页仍写 20.10+，而 1.36.0 的 npm 包元数据仍声明 Node >=18。",
       },
       {
         question: "现在应该用 npx、全局 npm 安装还是源码构建？",
@@ -2534,7 +2541,7 @@ export const contentByLocale = {
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-09-03 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.36.0。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
+          "按 2026-09-05 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.36.0。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2642,6 +2649,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
+      {
+        date: "2026-09-04",
+        title:
+          "Reasonix main-v2 在 v1.36.0 之后把 planner fallback 改成显式启用，并下架 Classic 桌面样式",
+        body: "官方 `main-v2` 在 2026-09-04 合并的更新把 planner、续写、压缩和模型 fallback 改成显式 opt-in 路径，把 vision 处理切到模型级 capability metadata，而不是继续依赖手工维护列表，并将 Classic 桌面布局迁移到 Workbench。证据来自已合并的 PR #9794、#9787 和 #9796。这些是稳定版 `v1.36.0` 之后的用户可感知源码变化，并非新的稳定版发布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
       {
         date: "2026-09-03",
         title:
@@ -3078,7 +3092,7 @@ export const contentByLocale = {
         label: "目前 npm tags",
         value: "latest 1.36.0 / next 1.36.0",
         detail:
-          "按 2026-09-03 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.36.0，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
+          "按 2026-09-05 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.36.0，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -3172,7 +3186,7 @@ export const contentByLocale = {
       {
         question: "首次執行前應該檢查哪些版本？",
         answer:
-          "先檢查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix dist-tags，以及你準備遵循的那條官方安裝文件。按 2026-09-03 的即時核查，官方來源仍不一致：GitHub README 寫 Node >=22，DeepSeek 官方整合頁仍寫 20.10+，而 1.36.0 的 npm package metadata 仍宣告 Node >=18。",
+          "先檢查 node -v、npm -v、npm view reasonix@latest engines、npm view reasonix dist-tags，以及你準備遵循的那條官方安裝文件。按 2026-09-05 的即時核查，官方來源仍不一致：GitHub README 寫 Node >=22，DeepSeek 官方整合頁仍寫 20.10+，而 1.36.0 的 npm package metadata 仍宣告 Node >=18。",
       },
       {
         question: "現在應該用 npx、全域 npm 安裝還是原始碼建置？",
@@ -3182,7 +3196,7 @@ export const contentByLocale = {
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-09-03 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.36.0。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
+          "按 2026-09-05 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.36.0。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -3290,6 +3304,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
+      {
+        date: "2026-09-04",
+        title:
+          "Reasonix main-v2 在 v1.36.0 之後把 planner fallback 改成顯式啟用，並下架 Classic 桌面樣式",
+        body: "官方 `main-v2` 在 2026-09-04 合併的更新把 planner、續寫、壓縮和模型 fallback 改成顯式 opt-in 路徑，把 vision 處理切到模型級 capability metadata，而不是繼續依賴手動維護清單，並將 Classic 桌面版面遷移到 Workbench。證據來自已合併的 PR #9794、#9787 與 #9796。這些是穩定版 `v1.36.0` 之後使用者可感知的原始碼變化，並非新的穩定版發布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
       {
         date: "2026-09-03",
         title:
@@ -3726,7 +3747,7 @@ export const contentByLocale = {
         label: "Текущие npm tags",
         value: "latest 1.36.0 / next 1.36.0",
         detail:
-          "На 2026-09-03 npm latest, next, canary и `latest-staging` уже указывают на 1.36.0. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
+          "На 2026-09-05 npm latest, next, canary и `latest-staging` уже указывают на 1.36.0. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3820,7 +3841,7 @@ export const contentByLocale = {
       {
         question: "Что проверить перед первым запуском?",
         answer:
-          "Проверьте node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags и ту официальную install-документацию, которой собираетесь следовать. На 2026-09-03 источники все еще расходятся: GitHub README указывает Node >=22, гайд DeepSeek по интеграции по-прежнему указывает 20.10+, а live npm metadata для 1.36.0 все еще объявляют Node >=18.",
+          "Проверьте node -v, npm -v, npm view reasonix@latest engines, npm view reasonix dist-tags и ту официальную install-документацию, которой собираетесь следовать. На 2026-09-05 источники все еще расходятся: GitHub README указывает Node >=22, гайд DeepSeek по интеграции по-прежнему указывает 20.10+, а live npm metadata для 1.36.0 все еще объявляют Node >=18.",
       },
       {
         question: "Выбрать npx, global npm install или source build?",
@@ -3830,7 +3851,7 @@ export const contentByLocale = {
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-09-03 npm latest, next, canary и `latest-staging` уже указывают на 1.36.0. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
+          "На 2026-09-05 npm latest, next, canary и `latest-staging` уже указывают на 1.36.0. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3938,6 +3959,13 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-04",
+        title:
+          "Reasonix main-v2 делает planner fallback явным и убирает Classic layout после v1.36.0",
+        body: "Официальные merge в `main-v2` от 2026-09-04 перевели planner, continuation, compaction и model fallback в явные opt-in пути, перенесли vision-обработку на model-level capability metadata вместо ручных списков и убрали Classic desktop layout, мигрируя существующих пользователей на Workbench. Доказательство есть в слитых PR #9794, #9787 и #9796. Это заметные пользователю source changes после stable `v1.36.0`, а не новый stable release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/commits/main-v2",
+      },
       {
         date: "2026-09-03",
         title:
