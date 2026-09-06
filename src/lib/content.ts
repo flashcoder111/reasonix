@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-06",
+  checkedAt: "2026-09-07",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.38.0";
-export const reasonixDesktopVersion = "v1.37.0";
+export const reasonixCliVersion = "v1.38.1";
+export const reasonixDesktopVersion = "v1.38.1";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -438,12 +438,12 @@ const sharedIssueWatch = [
 ] as const;
 
 const sharedProjectStats = [
-  { label: "GitHub stars", value: "35,409", note: "GitHub API, 2026-09-06" },
-  { label: "Forks", value: "2,368", note: "GitHub API, 2026-09-06" },
+  { label: "GitHub stars", value: "35,425", note: "GitHub API, 2026-09-07" },
+  { label: "Forks", value: "2,371", note: "GitHub API, 2026-09-07" },
   {
     label: "Open items",
-    value: "1,708",
-    note: "GitHub API open issues + pull requests, 2026-09-06",
+    value: "1,730",
+    note: "GitHub API open issues + pull requests, 2026-09-07",
   },
   { label: "Default branch", value: "main-v2", note: "Go 1.0 branch" },
 ] as const;
@@ -1778,9 +1778,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Current npm tags",
-        value: "latest 1.37.0 / next 1.37.0",
+        value: "latest 1.38.0 / next 1.38.0",
         detail:
-          "As checked on 2026-09-06, npm latest, next, canary, and latest-staging all point to 1.37.0. The live package metadata for the current stable channels still declares Node >=18.",
+          "As checked on 2026-09-07, npm latest, next and canary point to 1.38.0; latest-staging points to 1.38.1. The live package metadata for the current stable channels still declares Node >=18.",
       },
       {
         label: "Official repository",
@@ -1818,7 +1818,7 @@ export const contentByLocale = {
         tag: "Desktop package",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "The latest published desktop assets are desktop-v1.37.0, with deterministic agent completion, model-level vision capabilities, a ModelScope preset and scrolling fixes. GitHub CLI v1.38.0 is newer; its release notes do not establish availability of desktop-v1.38.0 installers.",
+          "The published desktop-v1.38.1 installers fix Ask answer submission and draft recovery, isolate stale session events, and improve recoverable tool-argument errors. macOS, Windows and Linux assets are available on the official release page.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -1874,7 +1874,7 @@ export const contentByLocale = {
       {
         question: "What should I check before the first run?",
         answer:
-          "Check node -v, npm -v, npm view reasonix@latest engines and npm view reasonix dist-tags. As of 2026-09-06, the README separates native CLI installation from source builds: CLI source requires Go 1.26+, while desktop source additionally requires Node 24+ and pnpm 10. DeepSeek still documents Node 20.10+ for its npx path; npm 1.37.0 declares Node >=18.",
+          "Check node -v, npm -v, npm view reasonix@latest engines and npm view reasonix dist-tags. As of 2026-09-07, the README separates native CLI installation from source builds: CLI source requires Go 1.26+, while desktop source additionally requires Node 24+ and pnpm 10. DeepSeek still documents Node 20.10+ for its npx path; npm 1.38.0 declares Node >=18.",
       },
       {
         question: "Should I use npx, global npm install, or build from source?",
@@ -1884,7 +1884,7 @@ export const contentByLocale = {
       {
         question: "Why are npm latest and npm next different?",
         answer:
-          "As of 2026-09-06, npm latest, next, canary, and latest-staging all point to 1.37.0. These channels can align during a stable rollout and diverge again when the project stages the next release.",
+          "As of 2026-09-07, npm latest, next and canary point to 1.38.0; latest-staging points to 1.38.1. These channels can align during a stable rollout and diverge again when the project stages the next release.",
       },
       {
         question: "Does the login page store my API key?",
@@ -1992,6 +1992,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
+      {
+        date: "2026-09-06",
+        title: "Reasonix v1.38.1 fixes Ask recovery and stale desktop sessions",
+        body: "Stable GitHub CLI and Desktop v1.38.1 fix Ask answer submission and draft recovery, reject stale session events, and report malformed tool arguments as actionable errors without executing them or masking authorization failures. Desktop installers are available for macOS, Windows and Linux. At the September 7 check, npm latest, next and canary remain 1.38.0; latest-staging is 1.38.1.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.1",
+      },
       {
         date: "2026-09-05",
         title: "Reasonix CLI v1.38.0 separates web search and adds protocol recovery",
@@ -2441,9 +2447,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "当前 npm tags",
-        value: "latest 1.37.0 / next 1.37.0",
+        value: "latest 1.38.0 / next 1.38.0",
         detail:
-          "按 2026-09-06 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.37.0，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
+          "按 2026-09-07 查询，npm latest、next、canary 指向 1.38.0，`latest-staging` 指向 1.38.1，本次核查到的当前稳定通道包元数据仍声明 Node >=18。",
       },
       {
         label: "官方仓库",
@@ -2481,7 +2487,7 @@ export const contentByLocale = {
         tag: "桌面安装包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "当前已发布的桌面安装包为 desktop-v1.37.0，包含确定性 Agent 完成流程、模型级视觉能力、ModelScope 预设和滚动修复。GitHub CLI 已到 v1.38.0，但其更新说明不等于 desktop-v1.38.0 安装包已经可用。",
+          "已发布 desktop-v1.38.1 安装包，修复 Ask 回答提交与草稿恢复、隔离过期会话事件，并改善可恢复的工具参数错误处理。官方发布页提供 macOS、Windows 和 Linux 安装包。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -2537,7 +2543,7 @@ export const contentByLocale = {
       {
         question: "首次运行前应该检查哪些版本？",
         answer:
-          "先检查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags。按 2026-09-06 核查，README 已区分原生 CLI 安装与源码构建：CLI 源码需要 Go 1.26+，桌面源码额外需要 Node 24+ 和 pnpm 10。DeepSeek 的 npx 路径仍写 Node 20.10+；npm 1.37.0 声明 Node >=18。",
+          "先检查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags。按 2026-09-07 核查，README 已区分原生 CLI 安装与源码构建：CLI 源码需要 Go 1.26+，桌面源码额外需要 Node 24+ 和 pnpm 10。DeepSeek 的 npx 路径仍写 Node 20.10+；npm 1.38.0 声明 Node >=18。",
       },
       {
         question: "现在应该用 npx、全局 npm 安装还是源码构建？",
@@ -2547,7 +2553,7 @@ export const contentByLocale = {
       {
         question: "为什么 npm latest 和 npm next 不一样？",
         answer:
-          "按 2026-09-06 查询，npm latest、next、canary 与 `latest-staging` 都已指向 1.37.0。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
+          "按 2026-09-07 查询，npm latest、next、canary 指向 1.38.0，`latest-staging` 指向 1.38.1。它们会在稳定发布对齐时暂时相同，也会在项目为下一版预热时再次分叉。",
       },
       {
         question: "登录页会保存你的 API Key 吗？",
@@ -2655,6 +2661,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
+      {
+        date: "2026-09-06",
+        title: "Reasonix v1.38.1 修复 Ask 恢复与过期桌面会话状态",
+        body: "GitHub 稳定 CLI 与 Desktop v1.38.1 修复 Ask 回答提交和草稿恢复、拒绝过期会话事件，并将格式错误的工具参数报告为可处理的未执行错误，不掩盖授权失败。macOS、Windows 和 Linux 桌面安装包已提供。9 月 7 日核查时，npm latest、next、canary 仍为 1.38.0，latest-staging 为 1.38.1。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.1",
+      },
       {
         date: "2026-09-05",
         title: "Reasonix CLI v1.38.0 发布：独立网络搜索与协议恢复",
@@ -3102,9 +3114,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "目前 npm tags",
-        value: "latest 1.37.0 / next 1.37.0",
+        value: "latest 1.38.0 / next 1.38.0",
         detail:
-          "按 2026-09-06 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.37.0，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
+          "按 2026-09-07 查詢，npm latest、next、canary 指向 1.38.0，`latest-staging` 指向 1.38.1，本次核查到的目前穩定通道 package metadata 仍宣告 Node >=18。",
       },
       {
         label: "官方倉庫",
@@ -3142,7 +3154,7 @@ export const contentByLocale = {
         tag: "桌面安裝包",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "目前已發布的桌面安裝包為 desktop-v1.37.0，包含確定性 Agent 完成流程、模型級視覺能力、ModelScope 預設和捲動修復。GitHub CLI 已到 v1.38.0，但其更新說明不等於 desktop-v1.38.0 安裝包已經可用。",
+          "已發布 desktop-v1.38.1 安裝包，修復 Ask 回答提交與草稿復原、隔離過期工作階段事件，並改善可復原的工具參數錯誤處理。官方發布頁提供 macOS、Windows 和 Linux 安裝包。",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3198,7 +3210,7 @@ export const contentByLocale = {
       {
         question: "首次執行前應該檢查哪些版本？",
         answer:
-          "先檢查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags。按 2026-09-06 核查，README 已區分原生 CLI 安裝與原始碼建置：CLI 原始碼需要 Go 1.26+，桌面原始碼額外需要 Node 24+ 和 pnpm 10。DeepSeek 的 npx 路徑仍寫 Node 20.10+；npm 1.37.0 宣告 Node >=18。",
+          "先檢查 node -v、npm -v、npm view reasonix@latest engines 和 npm view reasonix dist-tags。按 2026-09-07 核查，README 已區分原生 CLI 安裝與原始碼建置：CLI 原始碼需要 Go 1.26+，桌面原始碼額外需要 Node 24+ 和 pnpm 10。DeepSeek 的 npx 路徑仍寫 Node 20.10+；npm 1.38.0 宣告 Node >=18。",
       },
       {
         question: "現在應該用 npx、全域 npm 安裝還是原始碼建置？",
@@ -3208,7 +3220,7 @@ export const contentByLocale = {
       {
         question: "為什麼 npm latest 和 npm next 不一樣？",
         answer:
-          "按 2026-09-06 查詢，npm latest、next、canary 與 `latest-staging` 都已指向 1.37.0。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
+          "按 2026-09-07 查詢，npm latest、next、canary 指向 1.38.0，`latest-staging` 指向 1.38.1。它們會在穩定發布對齊時暫時相同，也會在專案為下一版預熱時再次分叉。",
       },
       {
         question: "登入頁會保存你的 API Key 嗎？",
@@ -3316,6 +3328,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
+      {
+        date: "2026-09-06",
+        title: "Reasonix v1.38.1 修復 Ask 復原與過期桌面工作階段狀態",
+        body: "GitHub 穩定 CLI 與 Desktop v1.38.1 修復 Ask 回答提交和草稿復原、拒絕過期工作階段事件，並將格式錯誤的工具參數回報為可處理的未執行錯誤，不掩蓋授權失敗。macOS、Windows 和 Linux 桌面安裝包已提供。9 月 7 日核查時，npm latest、next、canary 仍為 1.38.0，latest-staging 為 1.38.1。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.1",
+      },
       {
         date: "2026-09-05",
         title: "Reasonix CLI v1.38.0 發布：獨立網路搜尋與協定復原",
@@ -3763,9 +3781,9 @@ export const contentByLocale = {
     quickFacts: [
       {
         label: "Текущие npm tags",
-        value: "latest 1.37.0 / next 1.37.0",
+        value: "latest 1.38.0 / next 1.38.0",
         detail:
-          "На 2026-09-06 npm latest, next, canary и `latest-staging` уже указывают на 1.37.0. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
+          "На 2026-09-07 npm latest, next и canary указывают на 1.38.0, а `latest-staging` — на 1.38.1. Проверенные live package metadata для текущих stable channels по-прежнему объявляют Node >=18.",
       },
       {
         label: "Официальный репозиторий",
@@ -3803,7 +3821,7 @@ export const contentByLocale = {
         tag: "Desktop пакет",
         command: `open ${desktopDownloadAssets.release}`,
         description:
-          "Последние опубликованные установщики Desktop — desktop-v1.37.0: детерминированное завершение агента, возможности зрения на уровне модели, пресет ModelScope и исправления прокрутки. GitHub CLI уже обновлён до v1.38.0; его журнал изменений не подтверждает наличие установщиков desktop-v1.38.0.",
+          "Опубликованы установщики desktop-v1.38.1 для macOS, Windows и Linux. Исправлены отправка ответов Ask и восстановление черновиков, изоляция устаревших событий сеанса и обработка исправимых ошибок аргументов инструментов.",
         href: desktopDownloadAssets.release,
       },
     ],
@@ -3859,7 +3877,7 @@ export const contentByLocale = {
       {
         question: "Что проверить перед первым запуском?",
         answer:
-          "Проверьте node -v, npm -v, npm view reasonix@latest engines и npm view reasonix dist-tags. На 2026-09-06 README разделяет установку нативного CLI и сборку из исходников: CLI требует Go 1.26+, а сборка Desktop дополнительно требует Node 24+ и pnpm 10. Гайд DeepSeek указывает Node 20.10+ для npx; пакет npm 1.37.0 объявляет Node >=18.",
+          "Проверьте node -v, npm -v, npm view reasonix@latest engines и npm view reasonix dist-tags. На 2026-09-07 README разделяет установку нативного CLI и сборку из исходников: CLI требует Go 1.26+, а сборка Desktop дополнительно требует Node 24+ и pnpm 10. Гайд DeepSeek указывает Node 20.10+ для npx; пакет npm 1.38.0 объявляет Node >=18.",
       },
       {
         question: "Выбрать npx, global npm install или source build?",
@@ -3869,7 +3887,7 @@ export const contentByLocale = {
       {
         question: "Почему npm latest и npm next отличаются?",
         answer:
-          "На 2026-09-06 npm latest, next, canary и `latest-staging` уже указывают на 1.37.0. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
+          "На 2026-09-07 npm latest, next и canary указывают на 1.38.0, а `latest-staging` — на 1.38.1. Эти каналы могут совпадать во время stable rollout и снова расходиться, когда проект готовит следующий релиз.",
       },
       {
         question: "Страница входа сохраняет мой API-ключ?",
@@ -3977,6 +3995,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-06",
+        title: "Reasonix v1.38.1 исправляет восстановление Ask и состояние сеансов",
+        body: "Стабильные CLI и Desktop v1.38.1 исправляют отправку ответов Ask и восстановление черновиков, отклоняют устаревшие события сеанса и сообщают об исправимых ошибках аргументов без выполнения инструмента и без сокрытия отказов авторизации. Доступны установщики для macOS, Windows и Linux. На 7 сентября npm latest, next и canary остаются на 1.38.0; latest-staging — 1.38.1.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.1",
+      },
       {
         date: "2026-09-05",
         title: "Reasonix CLI v1.38.0: отдельный веб-поиск и восстановление протокола",
