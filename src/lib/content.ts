@@ -1993,6 +1993,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-07",
+        title: "Reasonix main-v2 bounds recovery waits and tool cancellation",
+        body: "Merged main-v2 PRs #9899, #9901 and #9900 on September 7 add a 10-minute provider recovery waiting budget with a countdown and Stop control, bound the wait for parallel tools after cancellation to a 15-second grace period, and show running-tool elapsed time plus a warning after 10 minutes of silence. Abandoned tools may still have unknown effects; the silence warning does not terminate them. Recovery-dialog backend failures become actionable notifications instead of a full-window crash overlay. These changes are merged source work, not confirmed features of stable v1.38.1.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/9899",
+      },
+      {
         date: "2026-09-06",
         title: "Reasonix v1.38.1 fixes Ask recovery and stale desktop sessions",
         body: "Stable GitHub CLI and Desktop v1.38.1 fix Ask answer submission and draft recovery, reject stale session events, and report malformed tool arguments as actionable errors without executing them or masking authorization failures. Desktop installers are available for macOS, Windows and Linux. At the September 7 check, npm latest, next and canary remain 1.38.0; latest-staging is 1.38.1.",
@@ -2662,6 +2668,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-07",
+        title: "Reasonix main-v2 为恢复等待与工具取消增加上限",
+        body: "9 月 7 日合并的 main-v2 PR #9899、#9901 和 #9900 为供应商恢复等待设置 10 分钟预算，并显示倒计时和停止按钮；并行工具收到取消后，最多再等待 15 秒宽限期。运行中的工具显示耗时，回合静默超过 10 分钟会出现警告。被放弃等待的工具仍可能产生未知影响，静默警告不会终止工具。恢复对话框的后端调用失败改为可处理的提示，不再覆盖整个窗口。这些是已合并的源码变更，尚未确认包含于稳定版 v1.38.1。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/9899",
+      },
+      {
         date: "2026-09-06",
         title: "Reasonix v1.38.1 修复 Ask 恢复与过期桌面会话状态",
         body: "GitHub 稳定 CLI 与 Desktop v1.38.1 修复 Ask 回答提交和草稿恢复、拒绝过期会话事件，并将格式错误的工具参数报告为可处理的未执行错误，不掩盖授权失败。macOS、Windows 和 Linux 桌面安装包已提供。9 月 7 日核查时，npm latest、next、canary 仍为 1.38.0，latest-staging 为 1.38.1。",
@@ -3329,6 +3341,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-07",
+        title: "Reasonix main-v2 為復原等待與工具取消增加上限",
+        body: "9 月 7 日合併的 main-v2 PR #9899、#9901 和 #9900 為供應商復原等待設定 10 分鐘預算，並顯示倒數計時和停止按鈕；並行工具收到取消後，最多再等待 15 秒寬限期。執行中的工具顯示耗時，回合靜默超過 10 分鐘會出現警告。被放棄等待的工具仍可能產生未知影響，靜默警告不會終止工具。復原對話框的後端呼叫失敗改為可處理的提示，不再覆蓋整個視窗。這些是已合併的原始碼變更，尚未確認包含於穩定版 v1.38.1。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/9899",
+      },
+      {
         date: "2026-09-06",
         title: "Reasonix v1.38.1 修復 Ask 復原與過期桌面工作階段狀態",
         body: "GitHub 穩定 CLI 與 Desktop v1.38.1 修復 Ask 回答提交和草稿復原、拒絕過期工作階段事件，並將格式錯誤的工具參數回報為可處理的未執行錯誤，不掩蓋授權失敗。macOS、Windows 和 Linux 桌面安裝包已提供。9 月 7 日核查時，npm latest、next、canary 仍為 1.38.0，latest-staging 為 1.38.1。",
@@ -3995,6 +4013,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-07",
+        title: "Reasonix main-v2 ограничивает ожидание восстановления и отмены инструментов",
+        body: "PR #9899, #9901 и #9900, включённые в main-v2 7 сентября, вводят бюджет ожидания восстановления провайдера в 10 минут с обратным отсчётом и кнопкой остановки. После отмены параллельных инструментов ожидание ограничено 15 секундами. Карточки показывают время выполнения; после 10 минут тишины появляется предупреждение. Последствия инструментов, ожидание которых прекращено, могут оставаться неизвестными; предупреждение само их не останавливает. Ошибки вызовов бэкенда в диалоге восстановления показываются уведомлениями вместо ошибки на весь экран. Это изменения в исходниках; их наличие в стабильной v1.38.1 не подтверждено.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/9899",
+      },
       {
         date: "2026-09-06",
         title: "Reasonix v1.38.1 исправляет восстановление Ask и состояние сеансов",
