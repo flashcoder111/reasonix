@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-07",
+  checkedAt: "2026-09-09",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.38.1";
-export const reasonixDesktopVersion = "v1.38.1";
+export const reasonixCliVersion = "v1.38.2";
+export const reasonixDesktopVersion = "v1.38.2";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1993,6 +1993,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-08",
+        title: "Reasonix v1.38.2 improves session history and image understanding",
+        body: "Stable GitHub CLI and Desktop v1.38.2 introduce an append-only session log: forks, rollback and version selection stay in one log. The release adds view_image(path) and shared image summaries for attachments and successful tool image results, including MCP. Desktop can assign a dedicated web-search model; Auto remains the default. Verified desktop packages cover macOS, Windows and Linux. At the September 9 check, npm latest, next, canary and latest-staging still point to 1.38.1; use the official GitHub assets for 1.38.2.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.2",
+      },
+      {
         date: "2026-09-07",
         title: "Reasonix main-v2 bounds recovery waits and tool cancellation",
         body: "Merged main-v2 PRs #9899, #9901 and #9900 on September 7 add a 10-minute provider recovery waiting budget with a countdown and Stop control, bound the wait for parallel tools after cancellation to a 15-second grace period, and show running-tool elapsed time plus a warning after 10 minutes of silence. Abandoned tools may still have unknown effects; the silence warning does not terminate them. Recovery-dialog backend failures become actionable notifications instead of a full-window crash overlay. These changes are merged source work, not confirmed features of stable v1.38.1.",
@@ -2668,6 +2674,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-08",
+        title: "Reasonix v1.38.2 改善会话历史与图片理解",
+        body: "GitHub 稳定 CLI 与 Desktop v1.38.2 引入仅追加的会话日志，分叉、回退和版本选择在同一日志内完成。新增 view_image(path)，并为附件及成功的工具图片结果共享图片摘要能力，覆盖 MCP 图片。桌面端可以指定独立网页搜索模型，默认仍为自动选择。已核实 macOS、Windows 和 Linux 桌面安装包。9 月 9 日检查时，npm latest、next、canary 和 latest-staging 仍指向 1.38.1；获取 1.38.2 请使用官方 GitHub 发布附件。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.2",
+      },
+      {
         date: "2026-09-07",
         title: "Reasonix main-v2 为恢复等待与工具取消增加上限",
         body: "9 月 7 日合并的 main-v2 PR #9899、#9901 和 #9900 为供应商恢复等待设置 10 分钟预算，并显示倒计时和停止按钮；并行工具收到取消后，最多再等待 15 秒宽限期。运行中的工具显示耗时，回合静默超过 10 分钟会出现警告。被放弃等待的工具仍可能产生未知影响，静默警告不会终止工具。恢复对话框的后端调用失败改为可处理的提示，不再覆盖整个窗口。这些是已合并的源码变更，尚未确认包含于稳定版 v1.38.1。",
@@ -3341,6 +3353,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-08",
+        title: "Reasonix v1.38.2 改善工作階段歷史與圖片理解",
+        body: "GitHub 穩定 CLI 與 Desktop v1.38.2 引入僅附加的工作階段日誌，分叉、回退和版本選擇在同一日誌內完成。新增 view_image(path)，並為附件及成功的工具圖片結果共用圖片摘要能力，涵蓋 MCP 圖片。桌面端可以指定獨立網頁搜尋模型，預設仍為自動選擇。已核實 macOS、Windows 和 Linux 桌面安裝包。9 月 9 日檢查時，npm latest、next、canary 和 latest-staging 仍指向 1.38.1；取得 1.38.2 請使用官方 GitHub 發布附件。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.2",
+      },
+      {
         date: "2026-09-07",
         title: "Reasonix main-v2 為復原等待與工具取消增加上限",
         body: "9 月 7 日合併的 main-v2 PR #9899、#9901 和 #9900 為供應商復原等待設定 10 分鐘預算，並顯示倒數計時和停止按鈕；並行工具收到取消後，最多再等待 15 秒寬限期。執行中的工具顯示耗時，回合靜默超過 10 分鐘會出現警告。被放棄等待的工具仍可能產生未知影響，靜默警告不會終止工具。復原對話框的後端呼叫失敗改為可處理的提示，不再覆蓋整個視窗。這些是已合併的原始碼變更，尚未確認包含於穩定版 v1.38.1。",
@@ -4013,6 +4031,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-08",
+        title: "Reasonix v1.38.2 улучшает историю сеансов и работу с изображениями",
+        body: "Стабильные GitHub CLI и Desktop v1.38.2 вводят журнал сеанса только с добавлением записей: ветвление, откат и выбор версии выполняются в одном журнале. Добавлены view_image(path) и общие сводки изображений для вложений и успешных результатов инструментов, включая MCP. В Desktop можно назначить отдельную модель веб-поиска; по умолчанию остаётся Auto. Проверены пакеты для macOS, Windows и Linux. На 9 сентября npm latest, next, canary и latest-staging ещё указывают на 1.38.1; версия 1.38.2 доступна в официальных файлах релиза GitHub.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.2",
+      },
       {
         date: "2026-09-07",
         title: "Reasonix main-v2 ограничивает ожидание восстановления и отмены инструментов",
