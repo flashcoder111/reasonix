@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-09",
+  checkedAt: "2026-09-10",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.38.2";
-export const reasonixDesktopVersion = "v1.38.2";
+export const reasonixCliVersion = "v1.38.3";
+export const reasonixDesktopVersion = "v1.38.3";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1993,6 +1993,18 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-09",
+        title: "Reasonix v1.38.3 saves model settings and fixes stuck task status",
+        body: "Stable CLI and Desktop v1.38.3 are available on GitHub; npm latest, next, canary and latest-staging also point to 1.38.3 at the September 10 check. Desktop can save model preferences and provider connections before a session starts; active work keeps its original connection until the next run. Local and remote sessions now synchronize completion state to fix lingering spinners. Per-turn results show confirmed file changes and executed checks with exit codes and logs; missing evidence is labelled rather than treated as a pass. Older Desktop-managed Serve instances without settings snapshot support need an upgrade or safe reconnect after active work finishes. Verified installers cover macOS, Windows and Linux.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.3",
+      },
+      {
+        date: "2026-09-09",
+        title: "Reasonix main-v2 documents the Electron desktop shell",
+        body: "After v1.38.3, merged main-v2 documentation PR #10018 replaces retired Wails host descriptions with the Electron shell. The current README says source builds need Go 1.26+, Node 24+ and pnpm 10; Chromium is bundled, so platform webview dependencies are no longer needed. This describes current source builds, not a claim that the verified v1.38.3 installers use Electron.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10018",
+      },
+      {
         date: "2026-09-08",
         title: "Reasonix v1.38.2 improves session history and image understanding",
         body: "Stable GitHub CLI and Desktop v1.38.2 introduce an append-only session log: forks, rollback and version selection stay in one log. The release adds view_image(path) and shared image summaries for attachments and successful tool image results, including MCP. Desktop can assign a dedicated web-search model; Auto remains the default. Verified desktop packages cover macOS, Windows and Linux. At the September 9 check, npm latest, next, canary and latest-staging still point to 1.38.1; use the official GitHub assets for 1.38.2.",
@@ -2674,6 +2686,18 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-09",
+        title: "Reasonix v1.38.3 改进模型设置保存并修复任务状态卡住",
+        body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.3；9 月 10 日核查时，npm latest、next、canary 和 latest-staging 也均为 1.38.3。桌面端可在启动会话前保存模型偏好和供应商连接，正在执行的任务继续使用原连接，新设置在下一次运行前生效。本地与远程会话统一结束状态，修复任务完成后仍转圈的问题。每轮结果展示确认的文件改动、实际执行的检查、退出码和日志；证据缺失会明确标注，不会被算作通过。由 Desktop 管理且不支持设置快照的旧版 Serve，需要在当前任务完成后升级或安全重连。已核验 macOS、Windows 和 Linux 安装包。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.3",
+      },
+      {
+        date: "2026-09-09",
+        title: "Reasonix main-v2 文档切换到 Electron 桌面壳",
+        body: "v1.38.3 发布后，main-v2 已合并文档 PR #10018，以 Electron 桌面壳替换已退役的 Wails 主机说明。当前 README 的源码构建要求为 Go 1.26+、Node 24+ 和 pnpm 10；桌面壳自带 Chromium，不再需要平台 WebView 依赖。这些说明对应当前源码构建，不表示已核验的 v1.38.3 安装包采用 Electron。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10018",
+      },
+      {
         date: "2026-09-08",
         title: "Reasonix v1.38.2 改善会话历史与图片理解",
         body: "GitHub 稳定 CLI 与 Desktop v1.38.2 引入仅追加的会话日志，分叉、回退和版本选择在同一日志内完成。新增 view_image(path)，并为附件及成功的工具图片结果共享图片摘要能力，覆盖 MCP 图片。桌面端可以指定独立网页搜索模型，默认仍为自动选择。已核实 macOS、Windows 和 Linux 桌面安装包。9 月 9 日检查时，npm latest、next、canary 和 latest-staging 仍指向 1.38.1；获取 1.38.2 请使用官方 GitHub 发布附件。",
@@ -3353,6 +3377,18 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-09",
+        title: "Reasonix v1.38.3 改善模型設定儲存並修復任務狀態卡住",
+        body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.3；9 月 10 日核查時，npm latest、next、canary 和 latest-staging 也均為 1.38.3。桌面端可在啟動工作階段前儲存模型偏好和供應商連線，執行中的任務繼續使用原連線，新設定在下一次執行前生效。本機與遠端工作階段統一結束狀態，修復任務完成後仍轉圈的問題。每輪結果展示確認的檔案變更、實際執行的檢查、結束代碼和日誌；缺失的證據會明確標示，不會被算作通過。由 Desktop 管理且不支援設定快照的舊版 Serve，需要在目前任務完成後升級或安全重新連線。已核驗 macOS、Windows 和 Linux 安裝包。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.3",
+      },
+      {
+        date: "2026-09-09",
+        title: "Reasonix main-v2 文件改述 Electron 桌面殼",
+        body: "v1.38.3 發布後，main-v2 已合併文件 PR #10018，以 Electron 桌面殼取代已退役的 Wails 主機說明。目前 README 的原始碼建置要求為 Go 1.26+、Node 24+ 和 pnpm 10；桌面殼自帶 Chromium，不再需要平台 WebView 相依套件。這些說明對應目前原始碼建置，不表示已核驗的 v1.38.3 安裝包採用 Electron。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10018",
+      },
+      {
         date: "2026-09-08",
         title: "Reasonix v1.38.2 改善工作階段歷史與圖片理解",
         body: "GitHub 穩定 CLI 與 Desktop v1.38.2 引入僅附加的工作階段日誌，分叉、回退和版本選擇在同一日誌內完成。新增 view_image(path)，並為附件及成功的工具圖片結果共用圖片摘要能力，涵蓋 MCP 圖片。桌面端可以指定獨立網頁搜尋模型，預設仍為自動選擇。已核實 macOS、Windows 和 Linux 桌面安裝包。9 月 9 日檢查時，npm latest、next、canary 和 latest-staging 仍指向 1.38.1；取得 1.38.2 請使用官方 GitHub 發布附件。",
@@ -4031,6 +4067,18 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-09",
+        title: "Reasonix v1.38.3 сохраняет настройки моделей и исправляет зависший статус задач",
+        body: "Стабильные CLI и Desktop v1.38.3 доступны на GitHub; на 10 сентября теги npm latest, next, canary и latest-staging также указывают на 1.38.3. Desktop сохраняет настройки моделей и подключения до запуска сессии; текущая задача использует прежнее подключение до следующего запуска. Локальные и удалённые сессии синхронизируют завершение, устраняя бесконечный индикатор работы. Итоги хода показывают подтверждённые изменения файлов и выполненные проверки с кодами выхода и журналами; отсутствие доказательств не считается успехом. Старые экземпляры Serve под управлением Desktop без поддержки снимков настроек требуют обновления или безопасного переподключения после завершения текущей задачи. Проверены установщики для macOS, Windows и Linux.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.3",
+      },
+      {
+        date: "2026-09-09",
+        title: "Документация main-v2 описывает оболочку Electron",
+        body: "После v1.38.3 в main-v2 принят PR #10018: описания прежнего хоста Wails заменены оболочкой Electron. Текущий README требует Go 1.26+, Node 24+ и pnpm 10 для сборки Desktop из исходников; Chromium входит в оболочку, системные зависимости WebView больше не нужны. Это сведения о текущих исходниках, а не утверждение, что проверенные установщики v1.38.3 используют Electron.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10018",
+      },
       {
         date: "2026-09-08",
         title: "Reasonix v1.38.2 улучшает историю сеансов и работу с изображениями",
