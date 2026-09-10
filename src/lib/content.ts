@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-10",
+  checkedAt: "2026-09-11",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.38.3";
-export const reasonixDesktopVersion = "v1.38.3";
+export const reasonixCliVersion = "v1.38.5";
+export const reasonixDesktopVersion = "v1.38.5";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1993,6 +1993,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-11",
+        title: "Reasonix v1.38.5 ships Electron Desktop and interrupted-tool recovery",
+        body: "Stable CLI and Desktop v1.38.5 are available on GitHub, and all four npm tags point to 1.38.5 at the September 11 check; v1.38.4 was not publicly released. Desktop now uses Electron, with macOS signing fixes and verified macOS, Windows and Linux package listings. The release adds DeepSeek V4.1 Flash image input and evidence-backed interrupted-tool recovery. Review and confirm pending tool outcomes before downgrading: older runtimes do not enforce the new recovery guards, and safe retry is off by default. OpenCode Go is a new provider preset, but its DeepSeek Responses native search remains unverified; the release recommends its tested Anthropic path for web search.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.5",
+      },
+      {
         date: "2026-09-09",
         title: "Reasonix v1.38.3 saves model settings and fixes stuck task status",
         body: "Stable CLI and Desktop v1.38.3 are available on GitHub; npm latest, next, canary and latest-staging also point to 1.38.3 at the September 10 check. Desktop can save model preferences and provider connections before a session starts; active work keeps its original connection until the next run. Local and remote sessions now synchronize completion state to fix lingering spinners. Per-turn results show confirmed file changes and executed checks with exit codes and logs; missing evidence is labelled rather than treated as a pass. Older Desktop-managed Serve instances without settings snapshot support need an upgrade or safe reconnect after active work finishes. Verified installers cover macOS, Windows and Linux.",
@@ -2686,6 +2692,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-11",
+        title: "Reasonix v1.38.5 发布 Electron 桌面端与中断工具恢复",
+        body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.5；9 月 11 日核查时，npm 四个标签也均为 1.38.5，v1.38.4 未公开发布。桌面端现采用 Electron，包含 macOS 签名修复，已核验 macOS、Windows 和 Linux 安装包列表。本版新增 DeepSeek V4.1 Flash 图片输入，以及基于执行证据的中断工具恢复。降级前应先检查并确认未决工具结果：旧运行时不会执行新增恢复保护，安全重试默认关闭。新增 OpenCode Go 提供商预设，但其 DeepSeek Responses 原生搜索仍未验证；发布说明建议联网搜索使用已测试的 Anthropic 路径。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.5",
+      },
+      {
         date: "2026-09-09",
         title: "Reasonix v1.38.3 改进模型设置保存并修复任务状态卡住",
         body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.3；9 月 10 日核查时，npm latest、next、canary 和 latest-staging 也均为 1.38.3。桌面端可在启动会话前保存模型偏好和供应商连接，正在执行的任务继续使用原连接，新设置在下一次运行前生效。本地与远程会话统一结束状态，修复任务完成后仍转圈的问题。每轮结果展示确认的文件改动、实际执行的检查、退出码和日志；证据缺失会明确标注，不会被算作通过。由 Desktop 管理且不支持设置快照的旧版 Serve，需要在当前任务完成后升级或安全重连。已核验 macOS、Windows 和 Linux 安装包。",
@@ -3377,6 +3389,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-11",
+        title: "Reasonix v1.38.5 發布 Electron 桌面端與中斷工具恢復",
+        body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.5；9 月 11 日核查時，npm 四個標籤也均為 1.38.5，v1.38.4 未公開發布。桌面端現採用 Electron，包含 macOS 簽署修復，已核驗 macOS、Windows 和 Linux 安裝套件清單。本版新增 DeepSeek V4.1 Flash 圖片輸入，以及基於執行證據的中斷工具恢復。降級前應先檢查並確認未決工具結果：舊執行階段不會執行新增恢復保護，安全重試預設關閉。新增 OpenCode Go 供應商預設，但其 DeepSeek Responses 原生搜尋仍未驗證；發布說明建議網路搜尋使用已測試的 Anthropic 路徑。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.5",
+      },
+      {
         date: "2026-09-09",
         title: "Reasonix v1.38.3 改善模型設定儲存並修復任務狀態卡住",
         body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.3；9 月 10 日核查時，npm latest、next、canary 和 latest-staging 也均為 1.38.3。桌面端可在啟動工作階段前儲存模型偏好和供應商連線，執行中的任務繼續使用原連線，新設定在下一次執行前生效。本機與遠端工作階段統一結束狀態，修復任務完成後仍轉圈的問題。每輪結果展示確認的檔案變更、實際執行的檢查、結束代碼和日誌；缺失的證據會明確標示，不會被算作通過。由 Desktop 管理且不支援設定快照的舊版 Serve，需要在目前任務完成後升級或安全重新連線。已核驗 macOS、Windows 和 Linux 安裝包。",
@@ -4067,6 +4085,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-11",
+        title: "Reasonix v1.38.5: Electron Desktop и восстановление прерванных инструментов",
+        body: "Стабильные CLI и Desktop v1.38.5 доступны на GitHub; на 11 сентября все четыре тега npm указывают на 1.38.5. Версия v1.38.4 публично не выпускалась. Desktop перешёл на Electron с исправлениями подписи macOS; проверены списки пакетов macOS, Windows и Linux. Добавлены ввод изображений DeepSeek V4.1 Flash и восстановление прерванных инструментов на основе свидетельств выполнения. Перед откатом проверьте и подтвердите незавершённые результаты: старые среды не применяют новые защитные проверки, безопасный повтор по умолчанию выключен. Добавлен профиль OpenCode Go, но нативный поиск через DeepSeek Responses остаётся непроверенным; для веб-поиска примечания к выпуску рекомендуют проверенный путь Anthropic.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.5",
+      },
       {
         date: "2026-09-09",
         title: "Reasonix v1.38.3 сохраняет настройки моделей и исправляет зависший статус задач",
