@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-11",
+  checkedAt: "2026-09-12",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.38.5";
-export const reasonixDesktopVersion = "v1.38.5";
+export const reasonixCliVersion = "v1.38.7";
+export const reasonixDesktopVersion = "v1.38.7";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1993,6 +1993,18 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-12",
+        title: "Reasonix v1.38.7 adds browser controls and Windows reliability fixes",
+        body: "Stable CLI and Desktop v1.38.7 are available on GitHub with native CLI archives and macOS, Windows and Linux Desktop packages. At the September 12 check, all four npm tags still point to 1.38.6. Desktop adds browser settings for Chrome login-state import and browser-data clearing, fixes Windows startup recovery and taskbar grouping, and keeps long transcripts within the chat panel. CLI fixes UTF-8 clipboard copying in WSL; both clients preserve per-model max_output_tokens overrides and add configurable checkpoint retention.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.7",
+      },
+      {
+        date: "2026-09-12",
+        title: "Reasonix v1.38.6 fixes v1.38.5 Desktop build_mismatch startup failures",
+        body: "The official v1.38.6 release fixes mismatched version information between the Desktop shell and bundled service. If v1.38.5 cannot open, the release instructs users to install the complete v1.38.6 package without deleting configuration or sessions. The first upgrade from v1.38.3 or earlier Wails builds to Electron also requires a full manual installation because the old updater cannot install the new layout. This startup fix does not resolve the previously reported OpenCode Go Responses native-search limitation.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.6",
+      },
+      {
         date: "2026-09-11",
         title: "Reasonix v1.38.5 ships Electron Desktop and interrupted-tool recovery",
         body: "Stable CLI and Desktop v1.38.5 are available on GitHub, and all four npm tags point to 1.38.5 at the September 11 check; v1.38.4 was not publicly released. Desktop now uses Electron, with macOS signing fixes and verified macOS, Windows and Linux package listings. The release adds DeepSeek V4.1 Flash image input and evidence-backed interrupted-tool recovery. Review and confirm pending tool outcomes before downgrading: older runtimes do not enforce the new recovery guards, and safe retry is off by default. OpenCode Go is a new provider preset, but its DeepSeek Responses native search remains unverified; the release recommends its tested Anthropic path for web search.",
@@ -2692,6 +2704,18 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-12",
+        title: "Reasonix v1.38.7 新增浏览器控制并修复 Windows 可靠性问题",
+        body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.7，提供原生 CLI 压缩包及 macOS、Windows、Linux 桌面安装包。9 月 12 日核查时，npm 四个标签仍为 1.38.6。桌面端新增 Chrome 登录状态导入与浏览器数据清理设置，修复 Windows 启动恢复和任务栏归组，并避免长聊天内容溢出面板。CLI 修复 WSL 复制 UTF-8 内容乱码；两端均修复逐模型 max_output_tokens 覆盖值丢失，并新增可配置的检查点保留策略。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.7",
+      },
+      {
+        date: "2026-09-12",
+        title: "Reasonix v1.38.6 修复 v1.38.5 桌面端 build_mismatch 启动失败",
+        body: "官方 v1.38.6 修复了桌面壳与内置服务版本信息不一致的问题。如果 v1.38.5 无法打开，发布说明要求安装 v1.38.6 完整包，无需删除配置或会话。从 v1.38.3 或更早 Wails 版本首次升级到 Electron，也需要手动安装完整包，因为旧更新器无法安装新的目录结构。此次启动修复未解决此前报告的 OpenCode Go Responses 原生搜索限制。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.6",
+      },
+      {
         date: "2026-09-11",
         title: "Reasonix v1.38.5 发布 Electron 桌面端与中断工具恢复",
         body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.5；9 月 11 日核查时，npm 四个标签也均为 1.38.5，v1.38.4 未公开发布。桌面端现采用 Electron，包含 macOS 签名修复，已核验 macOS、Windows 和 Linux 安装包列表。本版新增 DeepSeek V4.1 Flash 图片输入，以及基于执行证据的中断工具恢复。降级前应先检查并确认未决工具结果：旧运行时不会执行新增恢复保护，安全重试默认关闭。新增 OpenCode Go 提供商预设，但其 DeepSeek Responses 原生搜索仍未验证；发布说明建议联网搜索使用已测试的 Anthropic 路径。",
@@ -3389,6 +3413,18 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-12",
+        title: "Reasonix v1.38.7 新增瀏覽器控制並修復 Windows 可靠性問題",
+        body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.7，提供原生 CLI 壓縮檔及 macOS、Windows、Linux 桌面安裝套件。9 月 12 日核查時，npm 四個標籤仍為 1.38.6。桌面端新增 Chrome 登入狀態匯入與瀏覽器資料清除設定，修復 Windows 啟動恢復和工作列分組，並避免長聊天內容溢出面板。CLI 修復 WSL 複製 UTF-8 內容亂碼；兩端均修復逐模型 max_output_tokens 覆寫值遺失，並新增可設定的檢查點保留策略。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.7",
+      },
+      {
+        date: "2026-09-12",
+        title: "Reasonix v1.38.6 修復 v1.38.5 桌面端 build_mismatch 啟動失敗",
+        body: "官方 v1.38.6 修復了桌面殼與內建服務版本資訊不一致的問題。如果 v1.38.5 無法開啟，發布說明要求安裝 v1.38.6 完整套件，無需刪除設定或工作階段。從 v1.38.3 或更早 Wails 版本首次升級到 Electron，也需要手動安裝完整套件，因為舊更新器無法安裝新的目錄結構。此次啟動修復未解決先前報告的 OpenCode Go Responses 原生搜尋限制。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.6",
+      },
+      {
         date: "2026-09-11",
         title: "Reasonix v1.38.5 發布 Electron 桌面端與中斷工具恢復",
         body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.5；9 月 11 日核查時，npm 四個標籤也均為 1.38.5，v1.38.4 未公開發布。桌面端現採用 Electron，包含 macOS 簽署修復，已核驗 macOS、Windows 和 Linux 安裝套件清單。本版新增 DeepSeek V4.1 Flash 圖片輸入，以及基於執行證據的中斷工具恢復。降級前應先檢查並確認未決工具結果：舊執行階段不會執行新增恢復保護，安全重試預設關閉。新增 OpenCode Go 供應商預設，但其 DeepSeek Responses 原生搜尋仍未驗證；發布說明建議網路搜尋使用已測試的 Anthropic 路徑。",
@@ -4085,6 +4121,18 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-12",
+        title: "Reasonix v1.38.7: управление браузером и исправления Windows",
+        body: "Стабильные CLI и Desktop v1.38.7 доступны на GitHub: проверены архивы CLI и пакеты Desktop для macOS, Windows и Linux. На 12 сентября все четыре тега npm ещё указывают на 1.38.6. Desktop добавляет импорт состояния входа из Chrome и очистку данных браузера, исправляет восстановление запуска Windows, группировку панели задач и переполнение чата длинным текстом. CLI исправляет копирование UTF-8 в WSL; оба клиента сохраняют переопределения max_output_tokens для модели и позволяют настроить хранение контрольных точек.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.7",
+      },
+      {
+        date: "2026-09-12",
+        title: "Reasonix v1.38.6 исправляет ошибку запуска Desktop build_mismatch в v1.38.5",
+        body: "Официальный выпуск v1.38.6 согласует сведения о версии оболочки Desktop и встроенного сервиса. Если v1.38.5 не запускается, примечания рекомендуют установить полный пакет v1.38.6 без удаления настроек и сессий. Первый переход с Wails v1.38.3 или более ранней версии на Electron также требует полной ручной установки: старый механизм обновления не поддерживает новую структуру каталогов. Исправление запуска не устраняет ранее описанное ограничение нативного поиска OpenCode Go Responses.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.6",
+      },
       {
         date: "2026-09-11",
         title: "Reasonix v1.38.5: Electron Desktop и восстановление прерванных инструментов",
