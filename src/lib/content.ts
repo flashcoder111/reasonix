@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-12",
+  checkedAt: "2026-09-13",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -1993,6 +1993,18 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-13",
+        title: "Merged macOS updater repair: v1.38.7 needs a manual full-DMG upgrade",
+        body: "Official PR #10194 fixes the updater failing to recognize the v1.38.7 service inside the macOS app bundle. Users on 1.38.7 need one manual full-DMG replacement when the repaired build is released, because the old updater fails before installing it. Merged main-v2 packaging adds native Apple Silicon and Intel packages and retains a manual Universal DMG. Signed update testing and native platform qualification remain required; this is a source change, not a new stable installer. GitHub CLI/Desktop and all four npm tags are 1.38.7 at this check.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10194",
+      },
+      {
+        date: "2026-09-13",
+        title: "Merged execution change retires Delivery mode and automatic quality gates",
+        body: "Official PR #10198 changes main-v2 so ordinary turns end when the model finishes, without host-added validation rounds for changed-file risk or unfinished todos. Delivery mode and the separate Goal evaluator are retired; the model reports Goal completion or blocking. Plan preapproval, explicit constraints, permissions, sandboxing and budgets remain enforced. Restored or forked Goals require an explicit start or resume. Old services retain their actual behavior, and downgrading may restore old Delivery semantics. These changes are merged source, not capabilities verified in stable v1.38.7.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10198",
+      },
+      {
         date: "2026-09-12",
         title: "Reasonix v1.38.7 adds browser controls and Windows reliability fixes",
         body: "Stable CLI and Desktop v1.38.7 are available on GitHub with native CLI archives and macOS, Windows and Linux Desktop packages. At the September 12 check, all four npm tags still point to 1.38.6. Desktop adds browser settings for Chrome login-state import and browser-data clearing, fixes Windows startup recovery and taskbar grouping, and keeps long transcripts within the chat panel. CLI fixes UTF-8 clipboard copying in WSL; both clients preserve per-model max_output_tokens overrides and add configurable checkpoint retention.",
@@ -2704,6 +2716,18 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-13",
+        title: "macOS 更新器修复已合并：v1.38.7 需手动安装完整 DMG",
+        body: "官方 PR #10194 修复了更新器无法识别 v1.38.7 macOS 应用包内服务路径的问题。修复版发布后，1.38.7 用户需要手动替换一次完整 DMG，因为旧更新器会在安装修复版之前失败。main-v2 已合并 Apple Silicon 和 Intel 原生安装包调整，并保留手动 Universal DMG。签名更新测试及各平台原生验证仍待完成；这属于源码变更，并非新稳定安装包。本次核查 GitHub CLI/Desktop 与 npm 四个标签均为 1.38.7。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10194",
+      },
+      {
+        date: "2026-09-13",
+        title: "执行逻辑调整已合并：退役 Delivery 模式与自动质量关卡",
+        body: "官方 PR #10198 调整 main-v2：普通回合在模型正常结束时结束，不再因改动文件风险或未完成待办自动追加验证回合。Delivery 模式及独立 Goal 评估器退役，由模型报告 Goal 完成或阻塞。Plan 预先批准、明确约束、权限、沙箱和预算仍受执行层约束。恢复或派生的 Goal 需要明确启动或继续。旧服务保留其实际行为，降级可能重新启用旧 Delivery 语义。这些是已合并源码变化，不代表稳定版 v1.38.7 已具备这些行为。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10198",
+      },
+      {
         date: "2026-09-12",
         title: "Reasonix v1.38.7 新增浏览器控制并修复 Windows 可靠性问题",
         body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.7，提供原生 CLI 压缩包及 macOS、Windows、Linux 桌面安装包。9 月 12 日核查时，npm 四个标签仍为 1.38.6。桌面端新增 Chrome 登录状态导入与浏览器数据清理设置，修复 Windows 启动恢复和任务栏归组，并避免长聊天内容溢出面板。CLI 修复 WSL 复制 UTF-8 内容乱码；两端均修复逐模型 max_output_tokens 覆盖值丢失，并新增可配置的检查点保留策略。",
@@ -3413,6 +3437,18 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-13",
+        title: "macOS 更新器修復已合併：v1.38.7 需手動安裝完整 DMG",
+        body: "官方 PR #10194 修復了更新器無法識別 v1.38.7 macOS 應用程式套件內服務路徑的問題。修復版發布後，1.38.7 使用者需要手動替換一次完整 DMG，因為舊更新器會在安裝修復版之前失敗。main-v2 已合併 Apple Silicon 和 Intel 原生安裝包調整，並保留手動 Universal DMG。簽章更新測試及各平台原生驗證仍待完成；這屬於原始碼變更，並非新穩定安裝包。本次核查 GitHub CLI/Desktop 與 npm 四個標籤均為 1.38.7。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10194",
+      },
+      {
+        date: "2026-09-13",
+        title: "執行邏輯調整已合併：退役 Delivery 模式與自動品質關卡",
+        body: "官方 PR #10198 調整 main-v2：一般回合在模型正常結束時結束，不再因變更檔案風險或未完成待辦自動追加驗證回合。Delivery 模式及獨立 Goal 評估器退役，由模型報告 Goal 完成或阻塞。Plan 預先批准、明確約束、權限、沙箱和預算仍受執行層約束。恢復或衍生的 Goal 需要明確啟動或繼續。舊服務保留其實際行為，降級可能重新啟用舊 Delivery 語義。這些是已合併原始碼變化，不代表穩定版 v1.38.7 已具備這些行為。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10198",
+      },
+      {
         date: "2026-09-12",
         title: "Reasonix v1.38.7 新增瀏覽器控制並修復 Windows 可靠性問題",
         body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.7，提供原生 CLI 壓縮檔及 macOS、Windows、Linux 桌面安裝套件。9 月 12 日核查時，npm 四個標籤仍為 1.38.6。桌面端新增 Chrome 登入狀態匯入與瀏覽器資料清除設定，修復 Windows 啟動恢復和工作列分組，並避免長聊天內容溢出面板。CLI 修復 WSL 複製 UTF-8 內容亂碼；兩端均修復逐模型 max_output_tokens 覆寫值遺失，並新增可設定的檢查點保留策略。",
@@ -4121,6 +4157,18 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-13",
+        title: "Исправление обновления macOS в main-v2: для v1.38.7 нужен полный DMG",
+        body: "Официальный PR #10194 исправляет распознавание пути службы внутри приложения macOS: обновление v1.38.7 завершается ошибкой до установки. После выхода исправленной сборки пользователям 1.38.7 потребуется один раз вручную заменить приложение полным DMG. В main-v2 добавлены нативные пакеты Apple Silicon и Intel; Universal DMG сохранён для ручной установки. Проверка подписанного обновления и нативная квалификация платформ ещё обязательны. Это изменение исходников, а не новый стабильный установщик. При проверке GitHub CLI/Desktop и все четыре тега npm указывают на 1.38.7.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10194",
+      },
+      {
+        date: "2026-09-13",
+        title: "В main-v2 удалены Delivery и автоматические проверки завершения",
+        body: "Официальный PR #10198 завершает обычный ход при нормальном завершении модели, без дополнительных проверок из-за риска изменённых файлов или незаконченных задач. Режим Delivery и отдельный оценщик Goal удалены; модель сообщает о завершении или блокировке Goal. Предварительное одобрение Plan, явные ограничения, разрешения, песочница и бюджеты сохраняются. Восстановленный или ответвлённый Goal требует явного запуска либо продолжения. Старые службы сохраняют своё поведение; откат может вернуть прежнюю семантику Delivery. Изменения объединены в исходниках и не заявлены как поведение стабильной v1.38.7.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10198",
+      },
       {
         date: "2026-09-12",
         title: "Reasonix v1.38.7: управление браузером и исправления Windows",
