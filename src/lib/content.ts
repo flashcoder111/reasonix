@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-13",
+  checkedAt: "2026-09-14",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -1993,6 +1993,24 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-14",
+        title: "Merged permission presets clarify full access and Windows limits",
+        body: "Official PR #10209 replaces Ask/Auto/Yolo with read-only, workspace-write and danger-full-access; new sessions default to workspace-write. Full access runs as the current OS account without the Reasonix filesystem or network sandbox; explicit host denies apply before launch only. Legacy Ask migrates to read-only and Auto/Yolo to workspace-write. Windows restricted-token enforcement is reported as partial; older remote services need the new execution contract. These are merged main-v2 changes, not verified stable v1.38.7 behavior.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10209",
+      },
+      {
+        date: "2026-09-14",
+        title: "Merged file-observation changes retire recovery confirmation gates",
+        body: "Official PR #10223 checks observed file versions at mutation time and removes full-read debt, Auto Guard and proof-driven completion gates. A bounded read observes a version without claiming full-file review. Unknown external effects remain recorded facts but no longer block later tools or require recovery confirmation; the host no longer guarantees exactly-once handling. Old recovery records become read-only and cannot replay operations. Permissions, sandboxing, Plan approval and checkpoints remain. This is merged source, not a new stable release.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10223",
+      },
+      {
+        date: "2026-09-14",
+        title: "Merged Linux and Windows packaging fixes await released installers",
+        body: "Official main-v2 merges fix Linux .deb app-directory permissions (#10213), portable first-launch CLI lookup (#10214), direct Windows/Linux shell service discovery (#10215), and Windows scanner-lock activation failures with bounded retries and a Retry/Cancel dialog (#10219). Documentation also tells Desktop v1.38.3 and earlier users seeing unsupported install_layout to install the full package (#10218). GitHub CLI/Desktop and all four npm tags remain 1.38.7; repaired installer availability is not verified.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/compare/036c7c5...193e070c8234a64cf2e6be29dcf03d729a8db9cd",
+      },
+      {
         date: "2026-09-13",
         title: "Merged macOS updater repair: v1.38.7 needs a manual full-DMG upgrade",
         body: "Official PR #10194 fixes the updater failing to recognize the v1.38.7 service inside the macOS app bundle. Users on 1.38.7 need one manual full-DMG replacement when the repaired build is released, because the old updater fails before installing it. Merged main-v2 packaging adds native Apple Silicon and Intel packages and retains a manual Universal DMG. Signed update testing and native platform qualification remain required; this is a source change, not a new stable installer. GitHub CLI/Desktop and all four npm tags are 1.38.7 at this check.",
@@ -2716,6 +2734,24 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-14",
+        title: "已合并权限预设变更：明确完整访问与 Windows 限制",
+        body: "官方 PR #10209 将 Ask/Auto/Yolo 替换为 read-only、workspace-write 和 danger-full-access，新会话默认 workspace-write。完整访问使用当前系统账户执行，不受 Reasonix 文件系统或网络沙箱约束；明确的主机拒绝规则只在启动前检查。旧 Ask 迁移为只读，Auto/Yolo 迁移为工作区写入。Windows 受限令牌沙箱标记为部分执行；旧远程服务需支持新的执行契约。这是 main-v2 已合并源码变化，不代表稳定版 v1.38.7 已具备这些行为。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10209",
+      },
+      {
+        date: "2026-09-14",
+        title: "已合并文件观察机制：取消恢复确认与证明门禁",
+        body: "官方 PR #10223 在实际修改时检查已观察的文件版本，移除完整读取债务、Auto Guard 和基于证明的完成门禁。局部读取只观察文件版本，不代表完整审阅。结果未知的外部操作保留为事实记录，但不再阻塞后续工具或要求恢复确认；宿主不再提供恰好执行一次的保证。旧恢复记录变为只读，不能重放操作。权限、沙箱、Plan 批准与检查点保留。这是已合并源码变化，并非新稳定版。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10223",
+      },
+      {
+        date: "2026-09-14",
+        title: "Linux 与 Windows 安装修复已合并，等待安装包发布",
+        body: "官方 main-v2 已修复 Linux .deb 的 app 目录权限（#10213）、便携包首启 CLI 查找（#10214）、直接启动 Windows/Linux 桌面壳时的服务定位（#10215），并为 Windows 扫描器锁定文件导致的激活失败加入有限重试与重试/取消对话框（#10219）。文档也提示 v1.38.3 及更早桌面版遇到 unsupported install_layout 时安装完整包（#10218）。GitHub CLI/Desktop 与四个 npm 标签仍为 1.38.7；尚未验证修复后的安装包已发布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/compare/036c7c5...193e070c8234a64cf2e6be29dcf03d729a8db9cd",
+      },
+      {
         date: "2026-09-13",
         title: "macOS 更新器修复已合并：v1.38.7 需手动安装完整 DMG",
         body: "官方 PR #10194 修复了更新器无法识别 v1.38.7 macOS 应用包内服务路径的问题。修复版发布后，1.38.7 用户需要手动替换一次完整 DMG，因为旧更新器会在安装修复版之前失败。main-v2 已合并 Apple Silicon 和 Intel 原生安装包调整，并保留手动 Universal DMG。签名更新测试及各平台原生验证仍待完成；这属于源码变更，并非新稳定安装包。本次核查 GitHub CLI/Desktop 与 npm 四个标签均为 1.38.7。",
@@ -3437,6 +3473,24 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-14",
+        title: "已合併權限預設變更：明確完整存取與 Windows 限制",
+        body: "官方 PR #10209 將 Ask/Auto/Yolo 替換為 read-only、workspace-write 和 danger-full-access，新工作階段預設 workspace-write。完整存取使用目前系統帳戶執行，不受 Reasonix 檔案系統或網路沙箱約束；明確的主機拒絕規則只在啟動前檢查。舊 Ask 遷移為唯讀，Auto/Yolo 遷移為工作區寫入。Windows 受限權杖沙箱標記為部分執行；舊遠端服務需支援新的執行契約。這是 main-v2 已合併原始碼變更，不代表穩定版 v1.38.7 已具備這些行為。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10209",
+      },
+      {
+        date: "2026-09-14",
+        title: "已合併檔案觀察機制：取消復原確認與證明門檻",
+        body: "官方 PR #10223 在實際修改時檢查已觀察的檔案版本，移除完整讀取債務、Auto Guard 和基於證明的完成門檻。局部讀取只觀察檔案版本，不代表完整審閱。結果未知的外部操作保留為事實記錄，但不再阻塞後續工具或要求復原確認；宿主不再提供恰好執行一次的保證。舊復原記錄變為唯讀，不能重播操作。權限、沙箱、Plan 批准與檢查點保留。這是已合併原始碼變更，並非新穩定版。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10223",
+      },
+      {
+        date: "2026-09-14",
+        title: "Linux 與 Windows 安裝修復已合併，等待安裝包發布",
+        body: "官方 main-v2 已修復 Linux .deb 的 app 目錄權限（#10213）、可攜包首次啟動 CLI 查找（#10214）、直接啟動 Windows/Linux 桌面殼時的服務定位（#10215），並為 Windows 掃描器鎖定檔案造成的啟用失敗加入有限重試與重試/取消對話框（#10219）。文件也提示 v1.38.3 及更早桌面版遇到 unsupported install_layout 時安裝完整包（#10218）。GitHub CLI/Desktop 與四個 npm 標籤仍為 1.38.7；尚未驗證修復後的安裝包已發布。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/compare/036c7c5...193e070c8234a64cf2e6be29dcf03d729a8db9cd",
+      },
+      {
         date: "2026-09-13",
         title: "macOS 更新器修復已合併：v1.38.7 需手動安裝完整 DMG",
         body: "官方 PR #10194 修復了更新器無法識別 v1.38.7 macOS 應用程式套件內服務路徑的問題。修復版發布後，1.38.7 使用者需要手動替換一次完整 DMG，因為舊更新器會在安裝修復版之前失敗。main-v2 已合併 Apple Silicon 和 Intel 原生安裝包調整，並保留手動 Universal DMG。簽章更新測試及各平台原生驗證仍待完成；這屬於原始碼變更，並非新穩定安裝包。本次核查 GitHub CLI/Desktop 與 npm 四個標籤均為 1.38.7。",
@@ -4157,6 +4211,24 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-14",
+        title: "Новые разрешения в исходниках: полный доступ и ограничения Windows",
+        body: "Официальный PR #10209 заменяет Ask/Auto/Yolo на read-only, workspace-write и danger-full-access; новые сеансы используют workspace-write. Полный доступ запускает команды от текущей учётной записи ОС без файловой и сетевой песочницы Reasonix; явные запреты хоста проверяются только до запуска. Ask переносится в read-only, Auto/Yolo — в workspace-write. Изоляция Windows с ограниченным токеном обозначена как частичная; старым удалённым службам нужен новый контракт выполнения. Это изменения main-v2, а не подтверждённое поведение стабильной v1.38.7.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10209",
+      },
+      {
+        date: "2026-09-14",
+        title: "Наблюдения файлов заменяют проверки доказательств и подтверждение восстановления",
+        body: "Официальный PR #10223 проверяет наблюдавшуюся версию файла при изменении и удаляет требование полного чтения, Auto Guard и проверки доказательств завершения. Частичное чтение фиксирует версию, но не означает полный обзор файла. Неизвестные результаты внешних операций остаются фактами, не блокируют следующие инструменты и не требуют подтверждения восстановления; хост больше не гарантирует выполнение ровно один раз. Старые записи восстановления доступны только для чтения, без повторного запуска. Разрешения, песочница, одобрение Plan и контрольные точки сохранены. Это объединённые исходники, не новый стабильный выпуск.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10223",
+      },
+      {
+        date: "2026-09-14",
+        title: "Исправления установки Linux и Windows объединены; пакеты ещё не подтверждены",
+        body: "В main-v2 исправлены права каталога app в Linux .deb (#10213), поиск CLI при первом запуске переносимого пакета (#10214), поиск службы при прямом запуске оболочки Windows/Linux (#10215) и сбои активации из-за блокировки файлов сканером Windows: добавлены ограниченные повторы и диалог повтора/отмены (#10219). Документация предписывает пользователям Desktop v1.38.3 и старше при unsupported install_layout установить полный пакет (#10218). GitHub CLI/Desktop и все четыре тега npm остаются на 1.38.7; выпуск исправленных установщиков не подтверждён.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/compare/036c7c5...193e070c8234a64cf2e6be29dcf03d729a8db9cd",
+      },
       {
         date: "2026-09-13",
         title: "Исправление обновления macOS в main-v2: для v1.38.7 нужен полный DMG",
