@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-14",
+  checkedAt: "2026-09-15",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.38.7";
-export const reasonixDesktopVersion = "v1.38.7";
+export const reasonixCliVersion = "v1.38.8";
+export const reasonixDesktopVersion = "v1.38.8";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1994,6 +1994,18 @@ export const contentByLocale = {
     newsItems: [
       {
         date: "2026-09-14",
+        title: "Desktop v1.38.8 requires manual installation on every platform",
+        body: "The official Desktop release is manual-download only; automatic-update channels remain on v1.38.7. Windows packages lack Reasonix Authenticode signatures because SignPath is unavailable and may show an unknown-publisher warning. Detached minisign signatures and SHA-256 checksums remain available. CLI and npm publication are unaffected.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.8",
+      },
+      {
+        date: "2026-09-14",
+        title: "Reasonix v1.38.8 ships session storage v4 and desktop installer repairs",
+        body: "Stable CLI/Desktop v1.38.8 and all four npm tags are available. Session storage v4 removes the former 128 MiB replay limit; continuing old sessions migrates them into a separate v4 directory while preserving originals. Older clients cannot read new v4 history, so update Desktop and CLI together. Browsing or migration does not resume Goals or restore execution approvals. The release repairs Goal restoration, macOS app-bundle updater lookup, Windows installer file-lock retries and Linux package permissions. Desktop v1.38.3 and earlier require a manual full-package install. These release notes supersede earlier merged-source availability caveats for the included fixes.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.8",
+      },
+      {
+        date: "2026-09-14",
         title: "Merged permission presets clarify full access and Windows limits",
         body: "Official PR #10209 replaces Ask/Auto/Yolo with read-only, workspace-write and danger-full-access; new sessions default to workspace-write. Full access runs as the current OS account without the Reasonix filesystem or network sandbox; explicit host denies apply before launch only. Legacy Ask migrates to read-only and Auto/Yolo to workspace-write. Windows restricted-token enforcement is reported as partial; older remote services need the new execution contract. These are merged main-v2 changes, not verified stable v1.38.7 behavior.",
         href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10209",
@@ -2735,6 +2747,18 @@ export const contentByLocale = {
     newsItems: [
       {
         date: "2026-09-14",
+        title: "Desktop v1.38.8 全平台需手动安装，Windows 签名存在例外",
+        body: "官方桌面发布说明明确：v1.38.8 所有平台仅提供手动下载安装，自动更新通道仍为 v1.38.7。因 SignPath 暂不可用，Windows 包缺少 Reasonix Authenticode 签名，可能出现未知发布者提示；仍提供独立 minisign 签名和 SHA-256 校验。CLI 与 npm 发布不受影响。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.8",
+      },
+      {
+        date: "2026-09-14",
+        title: "Reasonix v1.38.8 发布会话存储 v4 与桌面安装器修复",
+        body: "稳定版 CLI/Desktop v1.38.8 已发布，npm 四个标签均已同步。会话存储 v4 移除旧有 128 MiB 重放限制；继续旧会话时迁移到独立 v4 目录并保留原文件。旧客户端无法读取新增的 v4 历史，应同步更新 Desktop 与 CLI。浏览或迁移不会自动续跑 Goal，也不会恢复执行批准。本版修复 Goal 恢复、macOS 更新器应用包定位、Windows 安装器文件锁重试及 Linux 包目录权限。Desktop v1.38.3 及更早版本必须手动安装完整包。对于本版已包含的修复，本发布说明取代此前“仅已合并、安装包尚待发布”的可用性说明。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.8",
+      },
+      {
+        date: "2026-09-14",
         title: "已合并权限预设变更：明确完整访问与 Windows 限制",
         body: "官方 PR #10209 将 Ask/Auto/Yolo 替换为 read-only、workspace-write 和 danger-full-access，新会话默认 workspace-write。完整访问使用当前系统账户执行，不受 Reasonix 文件系统或网络沙箱约束；明确的主机拒绝规则只在启动前检查。旧 Ask 迁移为只读，Auto/Yolo 迁移为工作区写入。Windows 受限令牌沙箱标记为部分执行；旧远程服务需支持新的执行契约。这是 main-v2 已合并源码变化，不代表稳定版 v1.38.7 已具备这些行为。",
         href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10209",
@@ -3474,6 +3498,18 @@ export const contentByLocale = {
     newsItems: [
       {
         date: "2026-09-14",
+        title: "Desktop v1.38.8 全平台需手動安裝，Windows 簽章存在例外",
+        body: "官方桌面發布說明明確：v1.38.8 所有平台僅提供手動下載安裝，自動更新通道仍為 v1.38.7。因 SignPath 暫不可用，Windows 套件缺少 Reasonix Authenticode 簽章，可能出現未知發行者提示；仍提供獨立 minisign 簽章與 SHA-256 校驗。CLI 與 npm 發布不受影響。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.8",
+      },
+      {
+        date: "2026-09-14",
+        title: "Reasonix v1.38.8 發布工作階段儲存 v4 與桌面安裝程式修復",
+        body: "穩定版 CLI/Desktop v1.38.8 已發布，npm 四個標籤均已同步。工作階段儲存 v4 移除舊有 128 MiB 重放限制；繼續舊工作階段時遷移到獨立 v4 目錄並保留原檔案。舊客戶端無法讀取新增的 v4 歷史，應同步更新 Desktop 與 CLI。瀏覽或遷移不會自動續跑 Goal，也不會恢復執行批准。本版修復 Goal 恢復、macOS 更新程式應用包定位、Windows 安裝程式檔案鎖重試及 Linux 套件目錄權限。Desktop v1.38.3 及更早版本必須手動安裝完整套件。對於本版已包含的修復，本發布說明取代先前「僅已合併、安裝包尚待發布」的可用性說明。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.8",
+      },
+      {
+        date: "2026-09-14",
         title: "已合併權限預設變更：明確完整存取與 Windows 限制",
         body: "官方 PR #10209 將 Ask/Auto/Yolo 替換為 read-only、workspace-write 和 danger-full-access，新工作階段預設 workspace-write。完整存取使用目前系統帳戶執行，不受 Reasonix 檔案系統或網路沙箱約束；明確的主機拒絕規則只在啟動前檢查。舊 Ask 遷移為唯讀，Auto/Yolo 遷移為工作區寫入。Windows 受限權杖沙箱標記為部分執行；舊遠端服務需支援新的執行契約。這是 main-v2 已合併原始碼變更，不代表穩定版 v1.38.7 已具備這些行為。",
         href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10209",
@@ -4211,6 +4247,18 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-14",
+        title: "Desktop v1.38.8 требует ручной установки на всех платформах",
+        body: "Официальный Desktop v1.38.8 доступен только для ручной установки; каналы автоматического обновления остаются на v1.38.7. Из-за недоступности SignPath пакеты Windows не имеют подписи Reasonix Authenticode, поэтому возможно предупреждение о неизвестном издателе. Отдельные подписи minisign и контрольные суммы SHA-256 доступны. Публикация CLI и npm не затронута.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.8",
+      },
+      {
+        date: "2026-09-14",
+        title: "Reasonix v1.38.8: хранилище сессий v4 и исправления установщиков",
+        body: "Опубликованы стабильные CLI/Desktop v1.38.8; все четыре тега npm обновлены. Хранилище v4 снимает прежний лимит воспроизведения в 128 MiB. При продолжении старой сессии данные переносятся в отдельный каталог v4, а исходные файлы сохраняются. Старые клиенты не читают новую историю v4: обновляйте Desktop и CLI вместе. Просмотр и миграция не возобновляют Goals и не восстанавливают разрешения на выполнение. Исправлены восстановление Goals, поиск пакета приложения обновлятором macOS, повторные попытки при блокировке файлов установщика Windows и права каталогов пакета Linux. Desktop v1.38.3 и старше требуют ручной установки полного пакета. Для включённых исправлений эти примечания заменяют прежние сообщения о доступности только в исходном коде.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/v1.38.8",
+      },
       {
         date: "2026-09-14",
         title: "Новые разрешения в исходниках: полный доступ и ограничения Windows",
