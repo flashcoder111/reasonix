@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-15",
+  checkedAt: "2026-09-16",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -53,7 +53,7 @@ export const SITE = {
 } as const;
 
 export const reasonixCliVersion = "v1.38.8";
-export const reasonixDesktopVersion = "v1.38.8";
+export const reasonixDesktopVersion = "v1.38.3";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1993,6 +1993,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-15",
+        title: "Desktop downloads temporarily pinned to v1.38.3; CLI channels remain separate",
+        body: "Official PR #10375 temporarily pins website Desktop downloads to v1.38.3. At this check, the Desktop v1.38.8 release page returns 404; the links here now use verified v1.38.3 assets. This website-only change does not change CLI, npm, Homebrew or in-app updater channels and is not an instruction to downgrade an existing installation: older clients cannot read newer v4 session history. GitHub CLI remains v1.38.8, while all four npm tags point to 1.38.9 and the GitHub v1.38.9 release page is not yet available. Earlier Desktop v1.38.8 news below describes the September 14 snapshot, not current download availability.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10375",
+      },
+      {
         date: "2026-09-14",
         title: "Desktop v1.38.8 requires manual installation on every platform",
         body: "The official Desktop release is manual-download only; automatic-update channels remain on v1.38.7. Windows packages lack Reasonix Authenticode signatures because SignPath is unavailable and may show an unknown-publisher warning. Detached minisign signatures and SHA-256 checksums remain available. CLI and npm publication are unaffected.",
@@ -2746,6 +2752,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-15",
+        title: "Desktop 官网下载暂时固定为 v1.38.3，CLI 渠道独立",
+        body: "官方 PR #10375 将官网 Desktop 下载暂时固定为 v1.38.3。本次检查时 Desktop v1.38.8 发布页返回 404，本站下载链接已改用确认存在的 v1.38.3 资源。这仅改变网站下载入口，不改变 CLI、npm、Homebrew 或应用内更新通道，也不是要求现有用户降级：旧客户端无法读取较新的 v4 会话历史。GitHub CLI 仍为 v1.38.8，npm 四个标签均为 1.38.9，但 GitHub v1.38.9 发布页尚不可用。下方 Desktop v1.38.8 旧闻描述的是 9 月 14 日快照，不代表当前下载可用性。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10375",
+      },
+      {
         date: "2026-09-14",
         title: "Desktop v1.38.8 全平台需手动安装，Windows 签名存在例外",
         body: "官方桌面发布说明明确：v1.38.8 所有平台仅提供手动下载安装，自动更新通道仍为 v1.38.7。因 SignPath 暂不可用，Windows 包缺少 Reasonix Authenticode 签名，可能出现未知发布者提示；仍提供独立 minisign 签名和 SHA-256 校验。CLI 与 npm 发布不受影响。",
@@ -3497,6 +3509,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-15",
+        title: "Desktop 官網下載暫時固定為 v1.38.3，CLI 渠道獨立",
+        body: "官方 PR #10375 將官網 Desktop 下載暫時固定為 v1.38.3。本次檢查時 Desktop v1.38.8 發布頁回傳 404，本站下載連結已改用確認存在的 v1.38.3 資源。這僅改變網站下載入口，不改變 CLI、npm、Homebrew 或應用程式內更新通道，也不是要求現有使用者降級：舊客戶端無法讀取較新的 v4 工作階段歷史。GitHub CLI 仍為 v1.38.8，npm 四個標籤均為 1.38.9，但 GitHub v1.38.9 發布頁尚不可用。下方 Desktop v1.38.8 舊聞描述的是 9 月 14 日快照，不代表目前下載可用性。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10375",
+      },
+      {
         date: "2026-09-14",
         title: "Desktop v1.38.8 全平台需手動安裝，Windows 簽章存在例外",
         body: "官方桌面發布說明明確：v1.38.8 所有平台僅提供手動下載安裝，自動更新通道仍為 v1.38.7。因 SignPath 暫不可用，Windows 套件缺少 Reasonix Authenticode 簽章，可能出現未知發行者提示；仍提供獨立 minisign 簽章與 SHA-256 校驗。CLI 與 npm 發布不受影響。",
@@ -4247,6 +4265,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-15",
+        title: "Загрузки Desktop временно закреплены на v1.38.3; каналы CLI независимы",
+        body: "Официальный PR #10375 временно закрепляет загрузки Desktop на сайте на v1.38.3. При проверке страница Desktop v1.38.8 возвращает 404; ссылки здесь теперь ведут к проверенным файлам v1.38.3. Это изменение только сайта: каналы CLI, npm, Homebrew и обновления приложения не меняются. Это не рекомендация понижать установленную версию: старые клиенты не читают новую историю сессий v4. На GitHub CLI остаётся v1.38.8; все четыре тега npm указывают на 1.38.9, но страница релиза GitHub v1.38.9 пока недоступна. Новости Desktop v1.38.8 ниже отражают состояние на 14 сентября, а не текущую доступность загрузки.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/pull/10375",
+      },
       {
         date: "2026-09-14",
         title: "Desktop v1.38.8 требует ручной установки на всех платформах",
