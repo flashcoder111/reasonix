@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-16",
+  checkedAt: "2026-09-20",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.38.8";
-export const reasonixDesktopVersion = "v1.38.3";
+export const reasonixCliVersion = "v1.38.10";
+export const reasonixDesktopVersion = "v1.38.10";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1993,6 +1993,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-18",
+        title: "Reasonix v1.38.10 restores Desktop downloads and improves session reliability",
+        body: "GitHub stable CLI and Desktop v1.38.10 are available; all four npm tags point to 1.38.10. The links here now use verified macOS, Windows and Linux v1.38.10 assets; the older download advisories below are historical snapshots. Desktop preserves compacted context across restarts and improves session recovery and credential handling. Windows fixes cover file URIs, upgrades and the PowerShell startup handshake. First launch migrates the session registry to v3, which older clients cannot edit. Downgrading requires the new reader or a complete pre-upgrade backup. Non-stable builds disable the updater; stable download and installation require user action.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.10",
+      },
+      {
         date: "2026-09-15",
         title: "Desktop downloads temporarily pinned to v1.38.3; CLI channels remain separate",
         body: "Official PR #10375 temporarily pins website Desktop downloads to v1.38.3. At this check, the Desktop v1.38.8 release page returns 404; the links here now use verified v1.38.3 assets. This website-only change does not change CLI, npm, Homebrew or in-app updater channels and is not an instruction to downgrade an existing installation: older clients cannot read newer v4 session history. GitHub CLI remains v1.38.8, while all four npm tags point to 1.38.9 and the GitHub v1.38.9 release page is not yet available. Earlier Desktop v1.38.8 news below describes the September 14 snapshot, not current download availability.",
@@ -2752,6 +2758,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-18",
+        title: "Reasonix v1.38.10 恢复 Desktop 下载并改进会话可靠性",
+        body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.10，npm 四个标签均为 1.38.10。本站链接已改用核验可用的 macOS、Windows 和 Linux v1.38.10 资源；下方旧版下载提醒为历史快照。桌面端可在重启后保留压缩上下文，并改进会话恢复与凭据处理。Windows 修复涵盖文件 URI、升级及 PowerShell 启动握手。首次启动会将会话注册表迁移到 v3，旧客户端无法编辑；降级需要保留新读取器或恢复完整的升级前备份。非稳定构建禁用更新器，稳定版下载和安装仍需用户主动操作。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.10",
+      },
+      {
         date: "2026-09-15",
         title: "Desktop 官网下载暂时固定为 v1.38.3，CLI 渠道独立",
         body: "官方 PR #10375 将官网 Desktop 下载暂时固定为 v1.38.3。本次检查时 Desktop v1.38.8 发布页返回 404，本站下载链接已改用确认存在的 v1.38.3 资源。这仅改变网站下载入口，不改变 CLI、npm、Homebrew 或应用内更新通道，也不是要求现有用户降级：旧客户端无法读取较新的 v4 会话历史。GitHub CLI 仍为 v1.38.8，npm 四个标签均为 1.38.9，但 GitHub v1.38.9 发布页尚不可用。下方 Desktop v1.38.8 旧闻描述的是 9 月 14 日快照，不代表当前下载可用性。",
@@ -3509,6 +3521,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-18",
+        title: "Reasonix v1.38.10 恢復 Desktop 下載並改進工作階段可靠性",
+        body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.10，npm 四個標籤均為 1.38.10。本站連結已改用核驗可用的 macOS、Windows 和 Linux v1.38.10 資源；下方舊版下載提醒為歷史快照。桌面端可在重新啟動後保留壓縮上下文，並改進工作階段恢復與憑證處理。Windows 修復涵蓋檔案 URI、升級及 PowerShell 啟動交握。首次啟動會將工作階段登錄表遷移至 v3，舊客戶端無法編輯；降級需要保留新讀取器或還原完整的升級前備份。非穩定構建停用更新器，穩定版下載和安裝仍需使用者主動操作。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.10",
+      },
+      {
         date: "2026-09-15",
         title: "Desktop 官網下載暫時固定為 v1.38.3，CLI 渠道獨立",
         body: "官方 PR #10375 將官網 Desktop 下載暫時固定為 v1.38.3。本次檢查時 Desktop v1.38.8 發布頁回傳 404，本站下載連結已改用確認存在的 v1.38.3 資源。這僅改變網站下載入口，不改變 CLI、npm、Homebrew 或應用程式內更新通道，也不是要求現有使用者降級：舊客戶端無法讀取較新的 v4 工作階段歷史。GitHub CLI 仍為 v1.38.8，npm 四個標籤均為 1.38.9，但 GitHub v1.38.9 發布頁尚不可用。下方 Desktop v1.38.8 舊聞描述的是 9 月 14 日快照，不代表目前下載可用性。",
@@ -4265,6 +4283,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-18",
+        title: "Reasonix v1.38.10: загрузки Desktop и надёжность сессий",
+        body: "Стабильные CLI и Desktop v1.38.10 доступны на GitHub; все четыре тега npm указывают на 1.38.10. Ссылки здесь ведут к проверенным файлам v1.38.10 для macOS, Windows и Linux; прежние сообщения о загрузках ниже отражают прошлое состояние. Desktop сохраняет сжатый контекст после перезапуска и улучшает восстановление сессий и обработку учётных данных. В Windows исправлены файловые URI, обновление и запуск PowerShell. При первом запуске реестр сессий переходит на v3, который старые клиенты не могут редактировать. Для отката нужен новый модуль чтения или полная резервная копия до обновления. В нестабильных сборках обновлятор отключён; загрузка и установка стабильных обновлений требуют действия пользователя.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.10",
+      },
       {
         date: "2026-09-15",
         title: "Загрузки Desktop временно закреплены на v1.38.3; каналы CLI независимы",
