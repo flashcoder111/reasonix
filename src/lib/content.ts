@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-20",
+  checkedAt: "2026-09-21",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.38.10";
-export const reasonixDesktopVersion = "v1.38.10";
+export const reasonixCliVersion = "v1.38.11";
+export const reasonixDesktopVersion = "v1.38.11";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1993,6 +1993,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-20",
+        title: "Reasonix v1.38.11 improves session handoff, exports and Windows credentials",
+        body: "Stable CLI and Desktop v1.38.11 are available on GitHub, and all four npm tags point to 1.38.11. Current download links target this release; older availability notices below are historical. Desktop migrates historical sessions when opened, supports workspace drafts and image attachments in history and exports, and exports full conversations from a fixed snapshot. Desktop/CLI handoff and reclaim are improved. Windows credential saving no longer depends on ACL repair. Important boundary: the Windows OS-level sandbox has been retired; shell commands run as the current user, with tool-layer boundaries retained.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.11",
+      },
+      {
         date: "2026-09-18",
         title: "Reasonix v1.38.10 restores Desktop downloads and improves session reliability",
         body: "GitHub stable CLI and Desktop v1.38.10 are available; all four npm tags point to 1.38.10. The links here now use verified macOS, Windows and Linux v1.38.10 assets; the older download advisories below are historical snapshots. Desktop preserves compacted context across restarts and improves session recovery and credential handling. Windows fixes cover file URIs, upgrades and the PowerShell startup handshake. First launch migrates the session registry to v3, which older clients cannot edit. Downgrading requires the new reader or a complete pre-upgrade backup. Non-stable builds disable the updater; stable download and installation require user action.",
@@ -2758,6 +2764,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-20",
+        title: "Reasonix v1.38.11 改进会话接管、导出与 Windows 凭据",
+        body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.11，npm 四个标签均为 1.38.11。当前下载链接指向此版本，下方旧版可用性提醒为历史记录。桌面端在打开历史会话时按需迁移，支持工作区草稿，以及历史记录和导出中的图片附件，并通过固定快照导出完整对话。Desktop 与 CLI 之间的交接和回收得到改进，Windows 凭据保存不再依赖 ACL 修复。重要边界：Windows 操作系统级沙箱已退役，Shell 命令以当前用户身份运行，工具层边界仍然保留。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.11",
+      },
+      {
         date: "2026-09-18",
         title: "Reasonix v1.38.10 恢复 Desktop 下载并改进会话可靠性",
         body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.10，npm 四个标签均为 1.38.10。本站链接已改用核验可用的 macOS、Windows 和 Linux v1.38.10 资源；下方旧版下载提醒为历史快照。桌面端可在重启后保留压缩上下文，并改进会话恢复与凭据处理。Windows 修复涵盖文件 URI、升级及 PowerShell 启动握手。首次启动会将会话注册表迁移到 v3，旧客户端无法编辑；降级需要保留新读取器或恢复完整的升级前备份。非稳定构建禁用更新器，稳定版下载和安装仍需用户主动操作。",
@@ -3521,6 +3533,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-20",
+        title: "Reasonix v1.38.11 改進工作階段接管、匯出與 Windows 憑證",
+        body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.11，npm 四個標籤均為 1.38.11。目前下載連結指向此版本，下方舊版可用性提醒為歷史記錄。桌面端在開啟歷史工作階段時按需遷移，支援工作區草稿，以及歷史記錄和匯出中的圖片附件，並透過固定快照匯出完整對話。Desktop 與 CLI 之間的交接和收回得到改進，Windows 憑證儲存不再依賴 ACL 修復。重要邊界：Windows 作業系統層級沙箱已退役，Shell 命令以目前使用者身分執行，工具層邊界仍然保留。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.11",
+      },
+      {
         date: "2026-09-18",
         title: "Reasonix v1.38.10 恢復 Desktop 下載並改進工作階段可靠性",
         body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.10，npm 四個標籤均為 1.38.10。本站連結已改用核驗可用的 macOS、Windows 和 Linux v1.38.10 資源；下方舊版下載提醒為歷史快照。桌面端可在重新啟動後保留壓縮上下文，並改進工作階段恢復與憑證處理。Windows 修復涵蓋檔案 URI、升級及 PowerShell 啟動交握。首次啟動會將工作階段登錄表遷移至 v3，舊客戶端無法編輯；降級需要保留新讀取器或還原完整的升級前備份。非穩定構建停用更新器，穩定版下載和安裝仍需使用者主動操作。",
@@ -4283,6 +4301,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-20",
+        title: "Reasonix v1.38.11: передача сессий, экспорт и учётные данные Windows",
+        body: "Стабильные CLI и Desktop v1.38.11 доступны на GitHub; все четыре тега npm указывают на 1.38.11. Текущие ссылки загрузки ведут к этому выпуску; прежние уведомления ниже отражают прошлое состояние. Desktop переносит старые сессии при открытии, поддерживает черновики рабочих пространств и изображения в истории и экспорте, а полные диалоги экспортирует из фиксированного снимка. Улучшены передача и возврат сессий между Desktop и CLI. Сохранение учётных данных Windows больше не зависит от восстановления ACL. Важная граница: песочница уровня ОС Windows выведена из эксплуатации; команды оболочки выполняются от имени текущего пользователя, а ограничения на уровне инструментов сохраняются.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.11",
+      },
       {
         date: "2026-09-18",
         title: "Reasonix v1.38.10: загрузки Desktop и надёжность сессий",
