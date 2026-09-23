@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-21",
+  checkedAt: "2026-09-24",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.38.11";
-export const reasonixDesktopVersion = "v1.38.11";
+export const reasonixCliVersion = "v1.38.12";
+export const reasonixDesktopVersion = "v1.38.12";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1993,6 +1993,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-24",
+        title: "Reasonix v1.38.12 repairs session recovery, sidebar navigation and Windows paths",
+        body: "Stable CLI and Desktop v1.38.12 are available on GitHub; all four npm tags point to 1.38.12. Current download links target this release; earlier availability and draft-workflow notices below are historical. Desktop fixes missing or duplicate sidebar conversations, opening old-format history, session creation recovery and lifecycle hangs, while deferring history loading to improve startup. Saving model settings preserves background gateways instead of blocking later messages. Windows restores Git Bash and Shell settings and handles Junction paths consistently. Upgrade boundaries: the legacy workspace-draft workflow is removed, but existing formal history and unsent input remain. Explicit /compact can replace a cached session prefix even with automatic compaction disabled; automatic thresholds are unchanged.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.12",
+      },
+      {
         date: "2026-09-20",
         title: "Reasonix v1.38.11 improves session handoff, exports and Windows credentials",
         body: "Stable CLI and Desktop v1.38.11 are available on GitHub, and all four npm tags point to 1.38.11. Current download links target this release; older availability notices below are historical. Desktop migrates historical sessions when opened, supports workspace drafts and image attachments in history and exports, and exports full conversations from a fixed snapshot. Desktop/CLI handoff and reclaim are improved. Windows credential saving no longer depends on ACL repair. Important boundary: the Windows OS-level sandbox has been retired; shell commands run as the current user, with tool-layer boundaries retained.",
@@ -2764,6 +2770,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-24",
+        title: "Reasonix v1.38.12 修复会话恢复、侧栏导航与 Windows 路径",
+        body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.12，npm 四个标签均为 1.38.12。当前下载链接指向此版本，下方旧版可用性和草稿流程说明为历史记录。桌面端修复侧栏会话缺失或重复、旧格式历史打开、会话创建恢复及生命周期卡死，并通过延迟历史加载改善启动。保存模型设置时保留后台网关，避免后续消息被阻塞。Windows 恢复 Git Bash 与 Shell 设置，并统一 Junction 路径处理。升级边界：旧工作区草稿流程已移除，现有正式历史和未发送输入保留；即使关闭自动压缩，主动执行 /compact 仍可能替换已缓存的会话前缀，自动压缩阈值不变。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.12",
+      },
+      {
         date: "2026-09-20",
         title: "Reasonix v1.38.11 改进会话接管、导出与 Windows 凭据",
         body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.11，npm 四个标签均为 1.38.11。当前下载链接指向此版本，下方旧版可用性提醒为历史记录。桌面端在打开历史会话时按需迁移，支持工作区草稿，以及历史记录和导出中的图片附件，并通过固定快照导出完整对话。Desktop 与 CLI 之间的交接和回收得到改进，Windows 凭据保存不再依赖 ACL 修复。重要边界：Windows 操作系统级沙箱已退役，Shell 命令以当前用户身份运行，工具层边界仍然保留。",
@@ -3533,6 +3545,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-24",
+        title: "Reasonix v1.38.12 修復工作階段復原、側欄導覽與 Windows 路徑",
+        body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.12，npm 四個標籤均為 1.38.12。目前下載連結指向此版本，下方舊版可用性和草稿流程說明為歷史記錄。桌面端修復側欄工作階段遺失或重複、舊格式歷史開啟、工作階段建立復原及生命週期卡住，並透過延遲歷史載入改善啟動。儲存模型設定時保留背景閘道，避免後續訊息受阻。Windows 恢復 Git Bash 與 Shell 設定，並統一 Junction 路徑處理。升級邊界：舊工作區草稿流程已移除，現有正式歷史和未傳送輸入保留；即使關閉自動壓縮，主動執行 /compact 仍可能替換已快取的工作階段前綴，自動壓縮閾值不變。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.12",
+      },
+      {
         date: "2026-09-20",
         title: "Reasonix v1.38.11 改進工作階段接管、匯出與 Windows 憑證",
         body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.11，npm 四個標籤均為 1.38.11。目前下載連結指向此版本，下方舊版可用性提醒為歷史記錄。桌面端在開啟歷史工作階段時按需遷移，支援工作區草稿，以及歷史記錄和匯出中的圖片附件，並透過固定快照匯出完整對話。Desktop 與 CLI 之間的交接和收回得到改進，Windows 憑證儲存不再依賴 ACL 修復。重要邊界：Windows 作業系統層級沙箱已退役，Shell 命令以目前使用者身分執行，工具層邊界仍然保留。",
@@ -4301,6 +4319,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-24",
+        title: "Reasonix v1.38.12: восстановление сессий, боковая панель и пути Windows",
+        body: "Стабильные CLI и Desktop v1.38.12 доступны на GitHub; все четыре тега npm указывают на 1.38.12. Текущие ссылки загрузки ведут к этому выпуску; прежние сообщения о доступности и черновиках ниже отражают прошлое состояние. Desktop исправляет исчезающие и дублирующиеся сессии в боковой панели, открытие старой истории, восстановление создания сессий и зависания; отложенная загрузка истории ускоряет запуск. Сохранение настроек моделей сохраняет фоновые шлюзы и не блокирует последующие сообщения. В Windows восстановлены Git Bash и настройки оболочки, унифицирована обработка путей Junction. При обновлении прежний процесс работы с черновиками пространства удалён, но существующая история и неотправленный ввод сохранены. Явный /compact может заменить кэшированный префикс сессии даже при отключённом автоматическом сжатии; автоматические пороги не меняются.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.38.12",
+      },
       {
         date: "2026-09-20",
         title: "Reasonix v1.38.11: передача сессий, экспорт и учётные данные Windows",
