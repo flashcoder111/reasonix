@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-24",
+  checkedAt: "2026-09-25",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.38.12";
-export const reasonixDesktopVersion = "v1.38.12";
+export const reasonixCliVersion = "v1.39.0";
+export const reasonixDesktopVersion = "v1.39.0";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1993,6 +1993,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-09-25",
+        title: "Reasonix v1.39.0 makes Desktop session recovery and provider errors clearer",
+        body: "Stable CLI and Desktop v1.39.0 are available on GitHub, and all four npm tags point to 1.39.0. Current Desktop download links target this release; earlier notices below are historical. Desktop can recover a blocked conversation when old tool arguments are invalid or a historical image is missing, without re-running those historical tools, and gives localized next steps when user action is still required. Provider HTTP, network, rate-limit and interrupted-stream failures now return directly with localized summaries instead of a long automatic retry, retaining the original diagnostics and any partial output so you can choose whether to resend. The release also prevents deleted archived sessions from returning as ghost sidebar rows, avoids duplicate queued-guidance transcript lines, and keeps titlebar renames scoped to the correct session. No manual migration is required; its published feature list is Desktop-only, so CLI users can skip upgrading unless they need the package version.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.39.0",
+      },
+      {
         date: "2026-09-24",
         title: "Reasonix v1.38.12 repairs session recovery, sidebar navigation and Windows paths",
         body: "Stable CLI and Desktop v1.38.12 are available on GitHub; all four npm tags point to 1.38.12. Current download links target this release; earlier availability and draft-workflow notices below are historical. Desktop fixes missing or duplicate sidebar conversations, opening old-format history, session creation recovery and lifecycle hangs, while deferring history loading to improve startup. Saving model settings preserves background gateways instead of blocking later messages. Windows restores Git Bash and Shell settings and handles Junction paths consistently. Upgrade boundaries: the legacy workspace-draft workflow is removed, but existing formal history and unsent input remain. Explicit /compact can replace a cached session prefix even with automatic compaction disabled; automatic thresholds are unchanged.",
@@ -2770,6 +2776,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-09-25",
+        title: "Reasonix v1.39.0 让 Desktop 会话恢复与供应商错误更清晰",
+        body: "GitHub 已发布稳定版 CLI 和 Desktop v1.39.0，npm 四个标签均为 1.39.0。当前 Desktop 下载链接指向此版本，下方旧公告为历史记录。Desktop 遇到旧工具参数无效或历史图片缺失导致会话受阻时，可恢复继续，但不会重新执行那些历史工具；仍需人工处理时会给出本地化的下一步提示。供应商 HTTP、网络、限流和中断流错误不再长时间自动重试，而是直接显示本地化摘要，保留原始诊断与已有部分输出，由你决定是否重发。该版本还避免已删除的归档会话以幽灵侧栏项重现、修复队列引导在转录中重复显示，并确保标题栏重命名只作用于正确会话。无需手动迁移；官方功能清单仅列出 Desktop 更新，CLI 用户若不需该包版本可跳过升级。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.39.0",
+      },
+      {
         date: "2026-09-24",
         title: "Reasonix v1.38.12 修复会话恢复、侧栏导航与 Windows 路径",
         body: "GitHub 已发布稳定版 CLI 和 Desktop v1.38.12，npm 四个标签均为 1.38.12。当前下载链接指向此版本，下方旧版可用性和草稿流程说明为历史记录。桌面端修复侧栏会话缺失或重复、旧格式历史打开、会话创建恢复及生命周期卡死，并通过延迟历史加载改善启动。保存模型设置时保留后台网关，避免后续消息被阻塞。Windows 恢复 Git Bash 与 Shell 设置，并统一 Junction 路径处理。升级边界：旧工作区草稿流程已移除，现有正式历史和未发送输入保留；即使关闭自动压缩，主动执行 /compact 仍可能替换已缓存的会话前缀，自动压缩阈值不变。",
@@ -3545,6 +3557,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-09-25",
+        title: "Reasonix v1.39.0 讓 Desktop 工作階段復原與供應商錯誤更清楚",
+        body: "GitHub 已發布穩定版 CLI 和 Desktop v1.39.0，npm 四個標籤均為 1.39.0。目前 Desktop 下載連結指向此版本，下方舊公告為歷史記錄。Desktop 遇到舊工具參數無效或歷史圖片遺失造成工作階段受阻時可復原繼續，但不會重新執行那些歷史工具；仍需人工處理時會提供本地化下一步提示。供應商 HTTP、網路、限流與中斷串流錯誤不再長時間自動重試，而是直接顯示本地化摘要，保留原始診斷與已有部分輸出，讓你決定是否重送。此版本也避免已刪除的封存工作階段以幽靈側欄項目重現、修正佇列引導在逐字稿重複顯示，並確保標題列重新命名只作用於正確工作階段。無需手動遷移；官方功能清單僅列 Desktop 更新，CLI 使用者若不需這個套件版本可略過升級。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.39.0",
+      },
+      {
         date: "2026-09-24",
         title: "Reasonix v1.38.12 修復工作階段復原、側欄導覽與 Windows 路徑",
         body: "GitHub 已發布穩定版 CLI 和 Desktop v1.38.12，npm 四個標籤均為 1.38.12。目前下載連結指向此版本，下方舊版可用性和草稿流程說明為歷史記錄。桌面端修復側欄工作階段遺失或重複、舊格式歷史開啟、工作階段建立復原及生命週期卡住，並透過延遲歷史載入改善啟動。儲存模型設定時保留背景閘道，避免後續訊息受阻。Windows 恢復 Git Bash 與 Shell 設定，並統一 Junction 路徑處理。升級邊界：舊工作區草稿流程已移除，現有正式歷史和未傳送輸入保留；即使關閉自動壓縮，主動執行 /compact 仍可能替換已快取的工作階段前綴，自動壓縮閾值不變。",
@@ -4319,6 +4337,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-09-25",
+        title: "Reasonix v1.39.0: понятнее восстановление сессий и ошибки провайдера в Desktop",
+        body: "Стабильные CLI и Desktop v1.39.0 доступны на GitHub, а все четыре тега npm указывают на 1.39.0. Текущие ссылки на Desktop ведут к этому выпуску; более ранние сообщения ниже носят исторический характер. Desktop может продолжить заблокированный разговор при некорректных старых аргументах инструмента или отсутствующем историческом изображении, не выполняя эти старые инструменты повторно, и показывает локализованный следующий шаг, если нужно действие пользователя. Ошибки HTTP, сети, лимита и прерванного потока от провайдера теперь возвращаются сразу с локализованной сводкой вместо долгих автоматических повторов; исходная диагностика и частичный вывод сохраняются, а отправлять ли запрос снова решаете вы. Также устранены фантомные строки удалённых архивных сессий в боковой панели, дублирование подсказок в расшифровке и переименование не той сессии из заголовка. Ручная миграция не нужна; опубликованный список изменений относится только к Desktop, поэтому пользователи CLI могут пропустить обновление, если им не требуется эта версия пакета.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.39.0",
+      },
       {
         date: "2026-09-24",
         title: "Reasonix v1.38.12: восстановление сессий, боковая панель и пути Windows",
