@@ -36,7 +36,7 @@ export const SITE = {
   description:
     "Use this DeepSeek Reasonix guide to compare Reasonix vs Claude Code, verify Reasonix Desktop and GitHub downloads, and run DeepSeek V4 coding workflows locally.",
   url: normalizedSiteUrl,
-  checkedAt: "2026-09-26",
+  checkedAt: "2026-10-03",
   authorName: "Reasonix editorial desk",
   authorUrl: `${normalizedSiteUrl}/about`,
   ogImage: `${normalizedSiteUrl}/reasonix-logo.svg`,
@@ -52,8 +52,8 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.39.1";
-export const reasonixDesktopVersion = "v1.39.1";
+export const reasonixCliVersion = "v1.39.7";
+export const reasonixDesktopVersion = "v1.39.7";
 
 const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
@@ -1993,6 +1993,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
       {
+        date: "2026-10-02",
+        title: "Reasonix v1.39.7 restores Desktop session history and per-session usage",
+        body: "Stable CLI and Desktop v1.39.7 are available on GitHub, and all four npm tags point to 1.39.7. Current Desktop download links target this release; earlier notices below are historical. Desktop now restores each session’s request, token, cost and read-file counters after switching away and back, falling back safely if saved telemetry is missing or corrupt. Remote-session transitions retain messages and attachments, show queued messages immediately, keep active sessions connected in the background, and reconcile visited-session history after first displaying what is already available. Long paged turns can collapse correctly and load the next history page at the bottom. The release also fixes a second fork from the same source failing to load workspace history and replaces the unresponsive Edit Goal browser prompt with a validated in-app form. No manual migration is required. Boundary: the legacy-session workspace-conflict repair is partial; entries already marked conflicting are not cleared automatically, so some migrated sessions can still be missing.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.39.7",
+      },
+      {
         date: "2026-09-26",
         title: "Reasonix v1.39.1 repairs Desktop session visibility, Windows startup and memory safety",
         body: "Stable CLI and Desktop v1.39.1 are available on GitHub, and all four npm tags point to 1.39.1. Current Desktop download links target this release; earlier notices below are historical. Desktop restores sidebar session lists after 1.38 upgrades, including branched conversations, and fixes the empty-new-conversation startup error without claiming the underlying history was lost. On Windows, startup now removes the stale install-tree permission left by the 1.38.8–1.38.10 sandbox that could prevent the Chromium window from opening; if Windows rejects removal, Desktop explains why. Opening or importing legacy sessions no longer mutates the original file or creates a duplicate sidebar row. Across Desktop and CLI, unreadable MEMORY.md no longer clears managed or handwritten entries, provider errors show on interrupted turns, input-length errors can trigger compaction, and configured tool hooks now cover subagents, planning, review and Desktop try-runs. No manual migration is required.",
@@ -2782,6 +2788,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
       {
+        date: "2026-10-02",
+        title: "Reasonix v1.39.7 恢复 Desktop 会话历史与单会话用量",
+        body: "GitHub 已发布稳定版 CLI 和 Desktop v1.39.7，npm 四个标签均为 1.39.7。当前 Desktop 下载链接指向此版本，下方旧公告为历史记录。Desktop 现在会在切走再返回时恢复每个会话的请求数、token、费用和已读文件统计；保存的遥测数据缺失或损坏时会安全回退为空。远端会话切换会保留消息和附件，排队消息立即显示，运行中会话在后台保持连接，访问过的会话先显示已有历史再与权威历史对账。长回合被历史分页切开时可正常折叠，滚到底部会加载下一页。此版本也修复同一来源第二次分叉后工作区历史无法加载，并将无响应的“编辑目标”浏览器提示改为带校验的应用内表单。无需手动迁移。边界：旧会话的工作区冲突修复仅为部分修复，已标记冲突的条目不会自动清除，因此部分迁移后的会话仍可能缺失。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.39.7",
+      },
+      {
         date: "2026-09-26",
         title: "Reasonix v1.39.1 修复 Desktop 会话显示、Windows 启动与记忆安全",
         body: "GitHub 已发布稳定版 CLI 和 Desktop v1.39.1，npm 四个标签均为 1.39.1。当前 Desktop 下载链接指向此版本，下方旧公告为历史记录。Desktop 修复从 1.38 升级后侧栏会话列表消失的问题（包括带分支的会话），也修复停留在未发送消息的新对话时启动报错；这并不表示原有历史丢失。Windows 上，启动时会移除 1.38.8–1.38.10 沙箱遗留在安装目录的访问权限，避免 Chromium 窗口无法打开；若系统拒绝移除，Desktop 会说明原因。打开或导入旧会话不再改写原始文件，也不会新增重复侧栏项。Desktop 与 CLI 均修复不可读 MEMORY.md 导致受管或手写条目被清除的问题；中断回合会显示供应商错误，输入长度错误可触发压缩，已配置工具钩子现覆盖子代理、规划、review 和 Desktop 试运行。无需手动迁移。",
@@ -3569,6 +3581,12 @@ export const contentByLocale = {
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
       {
+        date: "2026-10-02",
+        title: "Reasonix v1.39.7 恢復 Desktop 工作階段歷史與單一工作階段用量",
+        body: "GitHub 已發布穩定版 CLI 和 Desktop v1.39.7，npm 四個標籤均為 1.39.7。目前 Desktop 下載連結指向此版本，下方舊公告為歷史記錄。Desktop 現在會在切走再返回時還原每個工作階段的請求數、token、費用與已讀檔案統計；已儲存的遙測資料缺失或損壞時會安全回退為空。遠端工作階段切換會保留訊息和附件，佇列中的訊息會立即顯示，執行中的工作階段會在背景保持連線，造訪過的工作階段先顯示既有歷史再與權威歷史對帳。長回合被歷史分頁切開時可正常摺疊，捲到底部會載入下一頁。此版本也修正同一來源第二次分叉後工作區歷史無法載入，並把無回應的「編輯目標」瀏覽器提示改為具驗證的應用程式內表單。無需手動遷移。界線：舊工作階段的工作區衝突修正僅為部分修正，已標為衝突的項目不會自動清除，因此部分遷移後的工作階段仍可能遺失。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.39.7",
+      },
+      {
         date: "2026-09-26",
         title: "Reasonix v1.39.1 修復 Desktop 工作階段顯示、Windows 啟動與記憶安全",
         body: "GitHub 已發布穩定版 CLI 和 Desktop v1.39.1，npm 四個標籤均為 1.39.1。目前 Desktop 下載連結指向此版本，下方舊公告為歷史記錄。Desktop 修復從 1.38 升級後側欄工作階段列表消失的問題（包括有分支的對話），也修復停在尚未傳送訊息的新對話時啟動報錯；這不代表原有歷史遺失。Windows 上，啟動時會移除 1.38.8–1.38.10 沙箱留在安裝目錄的存取權，避免 Chromium 視窗無法開啟；若系統拒絕移除，Desktop 會說明原因。開啟或匯入舊工作階段不再改寫原始檔，也不會新增重複側欄項目。Desktop 與 CLI 都修復不可讀 MEMORY.md 導致受管或手寫條目被清除的問題；中斷回合會顯示供應商錯誤，輸入長度錯誤可觸發壓縮，已設定的工具 hooks 現覆蓋子代理、規劃、review 與 Desktop 試跑。無需手動遷移。",
@@ -4355,6 +4373,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-10-02",
+        title: "Reasonix v1.39.7 восстанавливает историю Desktop и метрики по сессиям",
+        body: "Стабильные CLI и Desktop v1.39.7 доступны на GitHub, и все четыре тега npm указывают на 1.39.7. Текущие ссылки Desktop ведут к этому выпуску; более ранние сообщения ниже носят исторический характер. Desktop теперь восстанавливает для каждой сессии счётчики запросов, токенов, стоимости и прочитанных файлов после переключения; при отсутствии или повреждении сохранённой телеметрии используется безопасное пустое состояние. При переключении удалённых сессий сохраняются сообщения и вложения, поставленные в очередь сообщения видны сразу, активные сессии остаются подключёнными в фоне, а уже посещённая история сначала показывается и затем сверяется с авторитетной. Длинные ходы, разрезанные пагинацией истории, корректно сворачиваются и подгружают следующую страницу внизу. Также исправлены сбой загрузки истории рабочей области при втором ответвлении от одного источника и неработающая команда редактирования цели: вместо браузерного prompt теперь используется проверяемая встроенная форма. Ручная миграция не требуется. Ограничение: исправление конфликта рабочей области для старых сессий неполное — уже помеченные конфликтными записи не очищаются автоматически, поэтому часть мигрированных сессий всё ещё может отсутствовать.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/desktop-v1.39.7",
+      },
       {
         date: "2026-09-26",
         title: "Reasonix v1.39.1 исправляет видимость сессий Desktop, запуск Windows и безопасность памяти",
