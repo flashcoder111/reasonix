@@ -52,17 +52,17 @@ export const SITE = {
   deepseekApiKeys: "https://platform.deepseek.com/api_keys",
 } as const;
 
-export const reasonixCliVersion = "v1.39.7";
-export const reasonixDesktopVersion = "v1.39.7";
+export const reasonixCliVersion = "v2.37.0";
+export const reasonixDesktopVersion = "v2.37.0";
 
-const desktopReleaseTag = `desktop-${reasonixDesktopVersion}`;
+const desktopReleaseTag = `studio-${reasonixDesktopVersion}`;
 const desktopDownloadBase = `https://github.com/esengine/DeepSeek-Reasonix/releases/download/${desktopReleaseTag}`;
 
 export const desktopDownloadAssets = {
   release: `https://github.com/esengine/DeepSeek-Reasonix/releases/tag/${desktopReleaseTag}`,
-  macos: `${desktopDownloadBase}/Reasonix-darwin-universal.dmg`,
-  windows: `${desktopDownloadBase}/Reasonix-windows-amd64-installer.exe`,
-  linux: `${desktopDownloadBase}/Reasonix-linux-amd64.deb`,
+  macos: `${desktopDownloadBase}/ReasonixStudio-darwin-arm64.dmg`,
+  windows: `${desktopDownloadBase}/ReasonixStudio-windows-amd64-installer.exe`,
+  linux: `${desktopDownloadBase}/ReasonixStudio-linux-amd64.deb`,
 } as const;
 
 export type DesktopDownloadPlatform = "macos" | "windows" | "linux";
@@ -1771,7 +1771,7 @@ export const contentByLocale = {
     ],
     projectStats: sharedProjectStats,
     desktopDownload: createDesktopDownloadCopy({
-      macosLabel: "macOS DMG",
+      macosLabel: "macOS ARM64 DMG",
       windowsLabel: "Windows installer",
       linuxLabel: "Linux .deb",
     }),
@@ -1992,6 +1992,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.en,
     newsItems: [
+      {
+        date: "2026-10-12",
+        title: "Reasonix 2.37 adds curated provider presets and hardens provider requests",
+        body: "Official CLI v2.37.0 and Studio v2.37.0 are available from GitHub; npm latest and latest-staging resolve to 2.37.0. Studio can now start a model-service connection from a searchable, domain-grouped preset library, while preserving the preset's model catalog, vision model, context window and reasoning profile. It also prevents requests carrying provider keys from following cross-host redirects, reports the redirect target instead, and advises users to set the provider base URL directly. The release fixes strict-gateway replay of no-argument tool calls, bounds stalled shell discovery, and makes `reasonix upgrade` defer to npm or Homebrew when those installed the binary. The current direct downloads are the signed/notarized macOS ARM64 DMG, signed Windows x64 installer, and Linux x64 .deb; Intel macOS, ARM64 Windows and RPM users should choose the matching asset on the release page. Linux RPM updates remain manual.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/studio-v2.37.0",
+      },
       {
         date: "2026-10-02",
         title: "Reasonix v1.39.7 restores Desktop session history and per-session usage",
@@ -2566,7 +2572,7 @@ export const contentByLocale = {
     ],
     projectStats: sharedProjectStats,
     desktopDownload: createDesktopDownloadCopy({
-      macosLabel: "macOS DMG",
+      macosLabel: "macOS ARM64 DMG",
       windowsLabel: "Windows 安装器",
       linuxLabel: "Linux .deb",
     }),
@@ -2787,6 +2793,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-cn"],
     newsItems: [
+      {
+        date: "2026-10-12",
+        title: "Reasonix 2.37 新增常用服务预设，并强化供应商请求边界",
+        body: "官方 CLI v2.37.0 与 Studio v2.37.0 已在 GitHub 发布；npm 的 latest 和 latest-staging 均为 2.37.0。Studio 新增可搜索、按域名分组的常用模型服务预设库，选中后会保留预设的模型目录、视觉模型、上下文窗口和思考档。带供应商密钥的请求现在不会跟随跨主机重定向；被拒时会显示目标地址，并提示将 base URL 直接改为该地址。该版本还修复严格网关重放无参数工具调用、限制卡住的 Shell 探测，并让由 npm 或 Homebrew 安装的二进制使用各自包管理器升级。当前直链为已签名/公证的 macOS ARM64 DMG、已签名的 Windows x64 安装器和 Linux x64 .deb；Intel Mac、Windows ARM64 与 RPM 用户请在 release 页面选择对应包。Linux RPM 仍需手动更新。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/studio-v2.37.0",
+      },
       {
         date: "2026-10-02",
         title: "Reasonix v1.39.7 恢复 Desktop 会话历史与单会话用量",
@@ -3359,7 +3371,7 @@ export const contentByLocale = {
     ],
     projectStats: sharedProjectStats,
     desktopDownload: createDesktopDownloadCopy({
-      macosLabel: "macOS DMG",
+      macosLabel: "macOS ARM64 DMG",
       windowsLabel: "Windows 安裝器",
       linuxLabel: "Linux .deb",
     }),
@@ -3580,6 +3592,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale["zh-tw"],
     newsItems: [
+      {
+        date: "2026-10-12",
+        title: "Reasonix 2.37 新增常用服務預設，並強化供應商請求邊界",
+        body: "官方 CLI v2.37.0 與 Studio v2.37.0 已在 GitHub 發布；npm 的 latest 和 latest-staging 均為 2.37.0。Studio 新增可搜尋、按網域分組的常用模型服務預設庫，選取後會保留預設的模型目錄、視覺模型、上下文視窗和思考檔。帶供應商金鑰的請求現在不會跟隨跨主機重新導向；被拒時會顯示目標位址，並提示將 base URL 直接改為該位址。此版本也修正嚴格閘道重放無參數工具呼叫、限制卡住的 Shell 探測，並讓由 npm 或 Homebrew 安裝的二進位使用各自套件管理器升級。目前直鏈為已簽名/公證的 macOS ARM64 DMG、已簽名的 Windows x64 安裝器和 Linux x64 .deb；Intel Mac、Windows ARM64 與 RPM 使用者請在 release 頁面選擇對應套件。Linux RPM 仍需手動更新。",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/studio-v2.37.0",
+      },
       {
         date: "2026-10-02",
         title: "Reasonix v1.39.7 恢復 Desktop 工作階段歷史與單一工作階段用量",
@@ -4152,7 +4170,7 @@ export const contentByLocale = {
     ],
     projectStats: sharedProjectStats,
     desktopDownload: createDesktopDownloadCopy({
-      macosLabel: "macOS DMG",
+      macosLabel: "macOS ARM64 DMG",
       windowsLabel: "Windows installer",
       linuxLabel: "Linux .deb",
     }),
@@ -4373,6 +4391,12 @@ export const contentByLocale = {
     ],
     seoLandingPages: seoLandingPagesByLocale.ru,
     newsItems: [
+      {
+        date: "2026-10-12",
+        title: "Reasonix 2.37 добавляет пресеты сервисов и укрепляет границы запросов к провайдерам",
+        body: "Официальные CLI v2.37.0 и Studio v2.37.0 доступны на GitHub; npm latest и latest-staging указывают на 2.37.0. В Studio появилась библиотека распространённых пресетов модельных сервисов с поиском и группировкой по доменам; при выборе сохраняются каталог моделей, vision-модель, окно контекста и профиль рассуждений. Запросы с ключами провайдера больше не следуют межхостовым редиректам: вместо этого показывается целевой адрес и предлагается указать его непосредственно как base URL. Релиз исправляет повтор no-argument tool calls через строгие шлюзы, ограничивает зависшее обнаружение shell и направляет обновление npm/Homebrew-установок в соответствующий менеджер пакетов. Текущие прямые загрузки: подписанный и нотариально заверенный macOS ARM64 DMG, подписанный Windows x64 installer и Linux x64 .deb; владельцам Intel Mac, Windows ARM64 и RPM нужно выбрать пакет на странице релиза. Linux RPM пока обновляется вручную.",
+        href: "https://github.com/esengine/DeepSeek-Reasonix/releases/tag/studio-v2.37.0",
+      },
       {
         date: "2026-10-02",
         title: "Reasonix v1.39.7 восстанавливает историю Desktop и метрики по сессиям",
